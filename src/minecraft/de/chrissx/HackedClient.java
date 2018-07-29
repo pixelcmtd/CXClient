@@ -19,11 +19,11 @@ import org.lwjgl.input.Keyboard;
 
 import com.google.common.io.Files;
 
-import de.chrissx.addons.AddonManager;
 import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
 import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
+import de.chrissx.iapi.AddonManager;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
@@ -63,7 +63,7 @@ public class HackedClient {
 	
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
-			r.drawString("§a§l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
+			r.drawString("ï¿½aï¿½l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.onRender(r, 4, (i*8)+4))
@@ -117,14 +117,14 @@ public class HackedClient {
 	public HackedClient() {
 		Util.checkIfExistsAndMake(Constants.configPath, "configPath");
 		Util.checkIfExistsAndMake(Constants.addonPath, "addonPath");
-		Util.checkIfExistsAndMake(Constants.eapiPath, "apiPath");
+		Util.checkIfExistsAndMake(Constants.eapiPath, "eapiPath");
 		Util.checkIfExistsAndMake(Constants.togglePath, "enablePath");
 		
-		Path p = Paths.get(Constants.hotkeyFile);
+		File f = new File(Constants.hotkeyFile);
 		
-		if(p.toFile().exists())
+		if(f.exists())
 			try {
-				hotkeys = HotkeySaving.loadHotkeys(p);
+				hotkeys = HotkeySaving.loadHotkeys(f.toPath());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -307,9 +307,9 @@ public class HackedClient {
 				return;
 			}
 			if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
-				Util.sendMessage("§4Key already registered.");
+				Util.sendMessage("ï¿½4Key already registered.");
 			else if(mods.getBindable(args[2].toLowerCase()) == null)
-				Util.sendMessage("§4Mod-Name not correct.");
+				Util.sendMessage("ï¿½4Mod-Name not correct.");
 			else
 				hotkeys.put(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase()));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
@@ -372,7 +372,7 @@ public class HackedClient {
 			mods.autosprint.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
-				Util.sendMessage("§4Please enter a message.");
+				Util.sendMessage("ï¿½4Please enter a message.");
 				return;
 			}
 			String msg = args[1];
