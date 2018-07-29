@@ -1,0 +1,5 @@
+name TestAddon
+author chrissx @ chrissx Media Inc.
+version 1.0.0
+desc This is a addon/plugin used to test the iAPI capabilities of the CXClient.
+main de.chrissx.iapi.testplugin.TestPlugin
