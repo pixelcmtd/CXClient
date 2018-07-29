@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<item value="false" key="TypeHierarchyViewPart.qualifiednames"/>
+	<item value="3" key="TypeHierarchyViewPart.orientation"/>
+	<item value="false" key="TypeHierarchyViewPart.linkeditors"/>
+	<item value="C:\Users\chrissicx\AppData\Roaming\.minecraft\versions\1.8.8" key="org.eclipse.jdt.ui.lastextjar"/>
+	<item value="filter_imports;" key="filters_last_used"/>
+	<item value="2" key="TypeHierarchyViewPart.hierarchyview"/>
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
+		<item value="true" key="ShowStatusLine"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>
+		<section name="DialogBoundsSettings">
+			<item value="600" key="DIALOG_WIDTH"/>
+			<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+			<item value="500" key="DIALOG_HEIGHT"/>
+			<item value="-29" key="DIALOG_X_ORIGIN"/>
+			<item value="-14" key="DIALOG_Y_ORIGIN"/>
+		</section>
+	</section>
+	<section name="org.eclipse.jdt.internal.ui.packageview.PackageExplorerPart">
+		<item value="2" key="layout"/>
+		<item value="true" key="group_libraries"/>
+		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;packageExplorer group_libraries=&quot;1&quot; layout=&quot;2&quot; linkWithEditor=&quot;0&quot; rootMode=&quot;1&quot; workingSetName=&quot;Aggregate for window 1513460017617&quot;&gt;&#x0D;&#x0A;&lt;customFilters userDefinedPatternsEnabled=&quot;false&quot;&gt;&#x0D;&#x0A;&lt;xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.StaticsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.buildfolder&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.mylyn.java.ui.MembersFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer_patternFilterId_.*&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonSharedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.SyntheticMembersFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ContainedLibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.HideInnerClassFilesFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyInnerPackageFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.m2e.MavenModuleFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.buildship.ui.packageexplorer.filter.gradle.subProject&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ClosedProjectsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.DeprecatedMembersFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.EmptyLibraryContainerFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.PackageDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.ImportDeclarationFilter&quot; isEnabled=&quot;true&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonJavaElementFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LibraryFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.CuAndClassFileFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.internal.ui.PackageExplorer.EmptyPackageFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.NonPublicFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.LocalTypesFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;child filterId=&quot;org.eclipse.jdt.ui.PackageExplorer.FieldsFilter&quot; isEnabled=&quot;false&quot;/&gt;&#x0D;&#x0A;&lt;/xmlDefinedFilters&gt;&#x0D;&#x0A;&lt;/customFilters&gt;&#x0D;&#x0A;&lt;/packageExplorer&gt;" key="memento"/>
+		<item value="1" key="rootMode"/>
+		<item value="false" key="linkWithEditor"/>
+	</section>
+	<section name="NewClassWizardPage">
+		<item value="false" key="create_constructor"/>
+		<item value="true" key="create_unimplemented"/>
+	</section>
+	<section name="OptionalMessageDialog.hide.">
+		<item value="true" key="org.eclipse.jdt.ui.typecomment.deprecated"/>
+		<item value="true" key="RunnableJar.export.ipwarning"/>
+	</section>
+	<section name="DialogBounds_GetterSetterTreeSelectionDialog">
+		<item value="528" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="1030" key="DIALOG_HEIGHT"/>
+		<item value="1024" key="DIALOG_X_ORIGIN"/>
+		<item value="244" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="FatJarPackageWizard">
+		<item value="C:\Users\chrissicx\Desktop\cxclient\eclipse.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
+		<item value="Client - Client" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
+		<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.3.1.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
+		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
+		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.3.1.jar"/>
+			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.3.jar"/>
+			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\cxclient_2.2_unobf.jar"/>
+			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\updater.jar"/>
+			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\cxclient_2.0_unobf.jar"/>
+			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\cxclient_2.0_crap.jar"/>
+			<item value="C:\Users\chrissicx\AppData\Roaming\.minecraft\versions\cxclient_2.0\cxclient_2.0.jar"/>
+			<item value="C:\Users\chrissicx\AppData\Roaming\.minecraft\versions\cxclient_2.0\eclipse_export.jar"/>
+		</list>
+		<list key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION_HISTORY">
+			<item value="C:\Users\chrissicx\Desktop\cxclient\eclipse.xml"/>
+			<item value=".xml"/>
+		</list>
+	</section>
+	<section name="SourceActionDialog.methods">
+		<item value="false" key="SynchronizedModifier"/>
+		<item value="false" key="Comments"/>
+		<item value="1" key="VisibilityModifier"/>
+		<item value="false" key="FinalModifier"/>
+	</section>
+	<section name="RenameInformationPopup">
+	</section>
+	<section name="NewPackageWizardPage">
+		<item value="false" key="create_package_info_java"/>
+	</section>
+	<section name="quick_assist_proposal_size">
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item value="2" key="pageIndex"/>
+	</section>
+	<section name="JavaSearchPage">
+		<item value="2" key="HISTORY_SIZE"/>
+		<item value="false" key="CASE_SENSITIVE"/>
+		<item value="11" key="INCLUDE_MASK"/>
+		<section name="HISTORY0">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="11" key="includeMask"/>
+			<item value="HackedClient" key="pattern"/>
+			<item value="2" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="0" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+		<section name="HISTORY1">
+			<item value="false" key="isCaseSensitive"/>
+			<item value="" key="javaElement"/>
+			<item value="0" key="scope"/>
+			<item value="11" key="includeMask"/>
+			<item value="rendergameoverlay" key="pattern"/>
+			<item value="0" key="limitTo"/>
+			<item value="0" key="matchLocations"/>
+			<item value="1" key="searchFor"/>
+			<list key="workingSets">
+			</list>
+		</section>
+	</section>
+	<section name="completion_proposal_size">
+		<item value="221" key="contextSelector.size.y"/>
+		<item value="331" key="contextSelector.size.x"/>
+	</section>
+	<section name="AddGetterSetterDialog">
+		<item value="false" key="SortOrdering"/>
+		<item value="false" key="RemoveFinal"/>
+	</section>
+	<section name="JarPackageWizard">
+		<item value="false" key="JarPackageWizardPage.INCLUDE_DIRECTORY_ENTRIES"/>
+		<item value="" key="JarManifestWizardPage.MANIFEST_LOCATION"/>
+		<item value="false" key="JarManifestWizardPage.SEAL_JAR"/>
+		<item value="true" key="JarPackageWizardPage.COMPRESS"/>
+		<item value="false" key="JarManifestWizardPage.REUSE_MANIFEST"/>
+		<item value="false" key="jarOptionsWizardPage.STORE_USE_SRC_FOLDERS"/>
+		<item value="true" key="jarOptionsWizardPage.EXPORT_WARNINGS"/>
+		<item value="" key="jarOptionsWizardPage.DESCRIPTION_LOCATION"/>
+		<item value="true" key="jarOptionsWizardPage.BUILD_IF_NEEDED"/>
+		<item value="false" key="JarPackageWizardPage.EXPORT_JAVA_FILES"/>
+		<item value="true" key="jarOptionsWizardPage.EXPORT_ERRORS"/>
+		<item value="true" key="JarManifestWizardPage.GENERATE_MANIFEST"/>
+		<item value="true" key="JarPackageWizardPage.EXPORT_CLASS_FILES"/>
+		<item value="false" key="JarPackageWizardPage.OVERWRITE"/>
+		<item value="false" key="jarOptionsWizardPage.SAVE_DESCRIPTION"/>
+		<item value="false" key="JarPackageWizardPage.REFACTORINGS"/>
+		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
+		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
+		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\cxclient_2.0_unobf.jar"/>
+		</list>
+	</section>
+	<section name="JavaElementSearchActions">
+	</section>
+</section>
