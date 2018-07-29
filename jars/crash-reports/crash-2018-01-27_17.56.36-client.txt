@@ -1,0 +1,71 @@
+---- Minecraft Crash Report ----
+// This doesn't make any sense!
+
+Time: 27.01.18 17:56
+Description: Updating screen events
+
+java.lang.NullPointerException: Updating screen events
+	at net.minecraft.client.gui.GuiRenameWorld.initGui(GuiRenameWorld.java:43)
+	at net.minecraft.client.gui.GuiScreen.setWorldAndResolution(GuiScreen.java:548)
+	at net.minecraft.client.Minecraft.displayGuiScreen(Minecraft.java:999)
+	at net.minecraft.client.gui.GuiSelectWorld.actionPerformed(GuiSelectWorld.java:151)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:503)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:599)
+	at net.minecraft.client.gui.GuiSelectWorld.handleMouseInput(GuiSelectWorld.java:80)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:568)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1779)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1103)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:113)
+	at Start.main(Start.java:11)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Stacktrace:
+	at net.minecraft.client.gui.GuiRenameWorld.initGui(GuiRenameWorld.java:43)
+	at net.minecraft.client.gui.GuiScreen.setWorldAndResolution(GuiScreen.java:548)
+	at net.minecraft.client.Minecraft.displayGuiScreen(Minecraft.java:999)
+	at net.minecraft.client.gui.GuiSelectWorld.actionPerformed(GuiSelectWorld.java:151)
+	at net.minecraft.client.gui.GuiScreen.mouseClicked(GuiScreen.java:503)
+	at net.minecraft.client.gui.GuiScreen.handleMouseInput(GuiScreen.java:599)
+	at net.minecraft.client.gui.GuiSelectWorld.handleMouseInput(GuiSelectWorld.java:80)
+	at net.minecraft.client.gui.GuiScreen.handleInput(GuiScreen.java:568)
+
+-- Affected screen --
+Details:
+	Screen name: net.minecraft.client.gui.GuiRenameWorld
+Stacktrace:
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1779)
+	at net.minecraft.client.Minecraft.runGameLoop(Minecraft.java:1103)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:421)
+	at net.minecraft.client.main.Main.main(Main.java:113)
+	at Start.main(Start.java:11)
+
+-- System Details --
+Details:
+	Minecraft Version: 1.8.8
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 1.8.0_161, Oracle Corporation
+	Java VM Version: Java HotSpot(TM) 64-Bit Server VM (mixed mode), Oracle Corporation
+	Memory: 673964880 bytes (642 MB) / 1037959168 bytes (989 MB) up to 1037959168 bytes (989 MB)
+	JVM Flags: 3 total; -Xincgc -Xmx1024M -Xms1024M
+	IntCache: cache: 0, tcache: 0, allocated: 0, tallocated: 0
+	Launched Version: mcp
+	LWJGL: 2.9.4
+	OpenGL: GeForce GTX 980/PCIe/SSE2 GL version 4.6.0 NVIDIA 390.65, NVIDIA Corporation
+	GL Caps: Using GL 1.3 multitexturing.
+Using GL 1.3 texture combiners.
+Using framebuffer objects because OpenGL 3.0 is supported and separate blending is supported.
+Shaders are available because OpenGL 2.1 is supported.
+VBOs are available because OpenGL 1.5 is supported.
+
+	Using VBOs: No
+	Is Modded: Very likely; Jar signature invalidated
+	Type: Client (map_client.txt)
+	Resource Packs: 
+	Current Language: English (US)
+	Profiler Position: N/A (disabled)
+	CPU: 8x Intel(R) Core(TM) i7-6700K CPU @ 4.00GHz
