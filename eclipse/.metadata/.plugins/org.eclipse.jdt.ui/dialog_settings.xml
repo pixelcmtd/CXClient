@@ -136,6 +136,7 @@
 		<item value="false" key="JarManifestWizardPage.SAVE_MANIFEST"/>
 		<item value="false" key="JarPackageWizardPage.EXPORT_OUTPUT_FOLDER"/>
 		<list key="JarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="D:\Bibliotheken\Desktop\cxclient\jars\cxclient_addons\test_addon.jar"/>
 			<item value="C:\Users\chrissicx\Desktop\cxclient-builds\cxclient_2.0_unobf.jar"/>
 		</list>
 	</section>
