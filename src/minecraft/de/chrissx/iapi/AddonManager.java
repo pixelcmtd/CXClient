@@ -81,4 +81,17 @@ public class AddonManager {
 	public void registerCommandExecutor(CommandExecutor cmdExec) {
 		cmdExecs.add(cmdExec);
 	}
+	
+	/**
+	 * tries to execute the command with every registered commandexecutor
+	 * @param args the args of the processCommand
+	 * @return true if any commandexecutor was able to execute the command, false if not
+	 */
+	public boolean execCmd(String[] args)
+	{
+		for(CommandExecutor ce : cmdExecs)
+			if(ce.onCommand(args))
+				return true;
+		return false;
+	}
 }
