@@ -423,6 +423,8 @@ public class HackedClient {
 			}
 		else if(cmd.equalsIgnoreCase("#stepjump"))
 			mods.stepJump.processCommand(args);
+		else if(addonManager.execCmd(args))
+			;
 		else
 			onCommand(new String[] {"#help", "internally", "called"});
   	}
