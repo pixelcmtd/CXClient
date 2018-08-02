@@ -1,70 +1,95 @@
-[13:45:58] [Client thread/INFO]: Setting user: Player819
-[13:45:58] [Client thread/INFO]: (Session ID is token:0:Player819)
-[13:45:59] [Client thread/INFO]: Made eapiPath.
-[13:45:59] [Client thread/INFO]: Made enablePath.
-[13:46:00] [Client thread/INFO]: Made SkinBlinker_path.
-[13:46:00] [Client thread/INFO]: Made FastBreak_path.
-[13:46:00] [Client thread/INFO]: Made FastPlace_path.
-[13:46:00] [Client thread/INFO]: Made Spam_path.
-[13:46:00] [Client thread/INFO]: Made NoFall_path.
-[13:46:00] [Client thread/INFO]: Made FullBright_path.
-[13:46:00] [Client thread/INFO]: Made XRay_path.
-[13:46:00] [Client thread/INFO]: Made FastHit_path.
-[13:46:00] [Client thread/INFO]: Made AutoClicker_path.
-[13:46:00] [Client thread/INFO]: Made NoSwing_path.
-[13:46:00] [Client thread/INFO]: Made AuthMeCracker_path.
-[13:46:00] [Client thread/INFO]: Made AntiAFK_path.
-[13:46:00] [Client thread/INFO]: Made AutoSteal_path.
-[13:46:00] [Client thread/INFO]: Made KillAura_path.
-[13:46:00] [Client thread/INFO]: Made Nuker_path.
-[13:46:00] [Client thread/INFO]: Made Sneak_path.
-[13:46:00] [Client thread/INFO]: Made Tracer_path.
-[13:46:00] [Client thread/INFO]: Made MassTPA_path.
-[13:46:00] [Client thread/INFO]: Made VanillaFly_path.
-[13:46:00] [Client thread/INFO]: Made Throw_path.
-[13:46:00] [Client thread/INFO]: Made AutoArmor_path.
-[13:46:00] [Client thread/INFO]: Made Twerk_path.
-[13:46:00] [Client thread/INFO]: Made FastLadder_path.
-[13:46:00] [Client thread/INFO]: Made Reach_path.
-[13:46:00] [Client thread/INFO]: Made Velocity_path.
-[13:46:00] [Client thread/INFO]: Made Speed-Bypass1_path.
-[13:46:00] [Client thread/INFO]: Made StepJump_path.
-[13:46:00] [Client thread/INFO]: Made Fly-Bypass1_path.
-[13:46:00] [Client thread/INFO]: Made Fly-Bypass2_path.
-[13:46:00] [Client thread/INFO]: Made Timer_path.
-[13:46:00] [Client thread/INFO]: Made LegitSpeed_path.
-[13:46:00] [Client thread/INFO]: Made Sprint_path.
-[13:46:00] [Client thread/INFO]: Made BedFucker_path.
-[13:46:00] [Client thread/INFO]: Made Freecam_path.
-[13:46:00] [Client thread/INFO]: Made AimBot_path.
-[13:46:00] [Client thread/INFO]: Made JailsMCBot_path.
-[13:46:00] [Client thread/INFO]: Made NoRender_path.
-[13:46:00] [Client thread/INFO]: CXClient Version: 2.4 beta
-[13:46:00] [Client thread/INFO]: LWJGL Version: 2.9.4
-[13:46:01] [Client thread/INFO]: Reloading ResourceManager: Default
-[13:46:01] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[13:46:01] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[13:46:01] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[13:46:02] [Thread-7/INFO]: OpenAL initialized.
-[13:46:02] [Sound Library Loader/INFO]: Sound engine started
-[13:46:10] [Client thread/INFO]: Created: 512x512 textures-atlas
-[13:46:20] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[13:46:20] [Server thread/INFO]: Generating keypair
-[13:46:20] [Server thread/INFO]: Preparing start region for level 0
-[13:46:21] [Server thread/INFO]: Changing view distance to 12, from 10
-[13:46:21] [Server thread/INFO]: Player819[local:E:5b90f13a] logged in with entity id 150 at (531.5261017015287, 80.0, 186.54624441216498)
-[13:46:22] [Server thread/INFO]: Player819 joined the game
-[13:46:29] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #autosteal, #killaura, #nuker, #sneak, #norender, #changelog, #bind, #unbind, #binds, #mods, #help
-[13:47:07] [Server thread/INFO]: Saving and pausing game...
-[13:47:07] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[13:47:07] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[13:47:07] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[13:47:08] [Server thread/INFO]: Stopping server
-[13:47:08] [Server thread/INFO]: Saving players
-[13:47:08] [Server thread/INFO]: Saving worlds
-[13:47:08] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[13:47:08] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[13:47:08] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[13:47:10] [Client thread/INFO]: Stopping!
-[13:47:10] [Client thread/INFO]: SoundSystem shutting down...
-[13:47:10] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[20:47:50] [Client thread/INFO]: Setting user: Player36
+[20:47:50] [Client thread/INFO]: (Session ID is token:0:Player36)
+[20:47:53] [Client thread/INFO]: CXClient Version: 2.4 beta
+[20:47:53] [Client thread/INFO]: LWJGL Version: 2.9.4
+[20:47:54] [Client thread/INFO]: Reloading ResourceManager: Default
+[20:47:54] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[20:47:54] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[20:47:54] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[20:47:54] [Thread-7/INFO]: OpenAL initialized.
+[20:47:54] [Sound Library Loader/INFO]: Sound engine started
+[20:48:04] [Client thread/INFO]: Created: 512x512 textures-atlas
+[20:48:23] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[20:48:23] [Server thread/INFO]: Generating keypair
+[20:48:24] [Server thread/INFO]: Preparing start region for level 0
+[20:48:25] [Server thread/INFO]: Changing view distance to 12, from 10
+[20:48:25] [Server thread/INFO]: Player36[local:E:abb86336] logged in with entity id 178 at (562.9598832809409, 69.10408037809304, 197.43447044820482)
+[20:48:25] [Server thread/INFO]: Player36 joined the game
+[20:48:31] [Client thread/INFO]: [CHAT] §c[CXClient] §fPong!
+[20:48:48] [Server thread/INFO]: Saving and pausing game...
+[20:48:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:49] [Server thread/INFO]: Saving and pausing game...
+[20:48:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:50] [Server thread/INFO]: Saving and pausing game...
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:50] [Server thread/INFO]: Saving and pausing game...
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:51] [Server thread/INFO]: Saving and pausing game...
+[20:48:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:56] [Server thread/INFO]: Saving and pausing game...
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:56] [Server thread/INFO]: Saving and pausing game...
+[20:48:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:57] [Server thread/INFO]: Saving and pausing game...
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:57] [Server thread/INFO]: Saving and pausing game...
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:57] [Server thread/INFO]: Saving and pausing game...
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:57] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:58] [Server thread/INFO]: Saving and pausing game...
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:58] [Server thread/INFO]: Saving and pausing game...
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:58] [Server thread/INFO]: Saving and pausing game...
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:58] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:59] [Server thread/INFO]: Saving and pausing game...
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:59] [Server thread/INFO]: Saving and pausing game...
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:48:59] [Server thread/INFO]: Saving and pausing game...
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:48:59] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:49:00] [Server thread/INFO]: Saving and pausing game...
+[20:49:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:49:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:49:00] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:49:02] [Server thread/INFO]: Stopping server
+[20:49:02] [Server thread/INFO]: Saving players
+[20:49:02] [Server thread/INFO]: Saving worlds
+[20:49:02] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[20:49:02] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[20:49:02] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[20:49:27] [Client thread/INFO]: Stopping!
+[20:49:27] [Client thread/INFO]: SoundSystem shutting down...
+[20:49:28] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

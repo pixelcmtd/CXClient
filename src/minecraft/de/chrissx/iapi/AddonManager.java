@@ -6,6 +6,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -20,23 +21,33 @@ public class AddonManager {
 	List<CommandExecutor> cmdExecs = new ArrayList<CommandExecutor>();
 	
 	Map<String, Addon> addons = new HashMap<String, Addon>();
+	Map<Addon, AddonProperties> props = new HashMap<Addon, AddonProperties>();
 	
-	final String path;
+	/**
+	 * the path in which the addons are located
+	 */
+	String path;
 	
+	/**
+	 * the minecraft instant
+	 */
 	final Minecraft mc = Minecraft.getMinecraft();
 	
-	public AddonManager(String addonPath) {
+	/**
+	 * initializes the addonmanager and loads the addons from the path
+	 * @param addonPath the path where the addons are located
+	 */
+	public void init(String addonPath)
+	{
 		path = addonPath;
 		
 		for(File f : new File(path).listFiles())
 			try {
-//				ClassLoader cl = URLClassLoader.newInstance(new URL[] {f.toURI().toURL()});
-//				AddonProperties props = loadProperties(f);
-//				Addon addon = (Addon) cl.loadClass(props.getMainClass()).newInstance();
-//				addAddon(addon);
+				AddonProperties p = loadProperties(f);
+				addAddon((Addon) URLClassLoader.newInstance(new URL[] {f.toURI().toURL()}).loadClass(p.getMainClass()).newInstance(), p);
 			} catch (Exception e) {
 				mc.logger.fatal("Failed to load addon " + f);
-				mc.logger.fatal(e);
+				e.printStackTrace();
 			}
 	}
 	
@@ -70,14 +81,39 @@ public class AddonManager {
 		return props;
 	}
 	
+	/**
+	 * gets an addon by a name
+	 * @param name the name of the addon
+	 * @return the addon specified by the name
+	 */
 	public Addon getAddon(String name) {
 		return addons.get(name.toLowerCase());
 	}
 	
-	public void addAddon(Addon a) {
-		addons.put(a.getName().toLowerCase(), a);
+	/**
+	 * gets the props by the addon
+	 * @param a the addon
+	 * @return the properties of the addon
+	 */
+	public AddonProperties getProps(Addon a)
+	{
+		return props.get(a);
 	}
 	
+	/**
+	 * adds the addon and the properties to the internal maps
+	 * @param a the addon
+	 * @param p the props of the addon
+	 */
+	public void addAddon(Addon a, AddonProperties p) {
+		addons.put(a.getName().toLowerCase(), a);
+		props.put(a, p);
+	}
+	
+	/**
+	 * adds the commandexecutor to the list
+	 * @param cmdExec the commandexecutor
+	 */
 	public void registerCommandExecutor(CommandExecutor cmdExec) {
 		cmdExecs.add(cmdExec);
 	}
@@ -93,5 +129,10 @@ public class AddonManager {
 			if(ce.onCommand(args))
 				return true;
 		return false;
+	}
+	
+	public Collection<Addon> getAddons()
+	{
+		return addons.values();
 	}
 }
