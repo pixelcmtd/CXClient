@@ -2,11 +2,8 @@ package de.chrissx;
 
 import java.awt.Color;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -23,7 +20,9 @@ import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
 import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
+import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
+import de.chrissx.iapi.AddonProperties;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
@@ -63,7 +62,7 @@ public class HackedClient {
 	
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
-			r.drawString("ï¿½aï¿½l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
+			r.drawString("§a§l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.onRender(r, 4, (i*8)+4))
@@ -114,7 +113,10 @@ public class HackedClient {
 		updateThread.stop();
 	}
 	
-	public HackedClient() {
+	public HackedClient()
+	{
+		client = this;
+		
 		Util.checkIfExistsAndMake(Constants.configPath, "configPath");
 		Util.checkIfExistsAndMake(Constants.addonPath, "addonPath");
 		Util.checkIfExistsAndMake(Constants.eapiPath, "eapiPath");
@@ -130,9 +132,9 @@ public class HackedClient {
 			}
 		
 		altManager = new AltManager();
-		client = this;
 		mods = new ModList();
-		addonManager = new AddonManager(Constants.addonPath);
+		addonManager = new AddonManager();
+		addonManager.init(Constants.addonPath);
 		
 		for(Mod m : mods)
 		{
@@ -307,9 +309,9 @@ public class HackedClient {
 				return;
 			}
 			if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
-				Util.sendMessage("ï¿½4Key already registered.");
+				Util.sendMessage("§4Key already registered.");
 			else if(mods.getBindable(args[2].toLowerCase()) == null)
-				Util.sendMessage("ï¿½4Mod-Name not correct.");
+				Util.sendMessage("§4Mod-Name not correct.");
 			else
 				hotkeys.put(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase()));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
@@ -372,7 +374,7 @@ public class HackedClient {
 			mods.autosprint.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
-				Util.sendMessage("ï¿½4Please enter a message.");
+				Util.sendMessage("§4Please enter a message.");
 				return;
 			}
 			String msg = args[1];
@@ -423,6 +425,14 @@ public class HackedClient {
 			}
 		else if(cmd.equalsIgnoreCase("#stepjump"))
 			mods.stepJump.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#debug"))
+		{
+			for(Addon a : addonManager.getAddons())
+			{
+				AddonProperties ap = addonManager.getProps(a);
+				Util.sendMessage(a.getName() + " " + ap.getName() + " " + ap.getAuthor() + " " + ap.getVersion() + " " + ap.getMainClass() + " " + ap.getDesc());
+			}
+		}
 		else if(addonManager.execCmd(args))
 			;
 		else
