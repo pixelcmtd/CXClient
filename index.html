@@ -27,6 +27,7 @@
 	top: 10%;
 .desc
 {
+	opacity: 0.5;
 	font-size: 42pt;
 	top: 30%;
 }
@@ -35,21 +36,32 @@
 	font-size: 48pt;
 	top: 60%;
 }
+.mcfnt
+{
+	filter: drop-shadow(30px 10px 3px crimson);
+	font-family: 'Minecraft';
+}
 </style>
+	<script>
+		function info()
+{
+	alert("One does not simply...hack Minecraft...but we DO!");
+	alert("This is the homepage of the CXClient Minecraft Client by chrissx at chrissx Media Inc.");
+	alert("This website is still \"in dev\" (we won't do something huge but jea).");
+}
+	</script>
 	</head>
 	<body class="container">
 		<video autoplay="autoplay" muted="muted" loop="loop">
-			<source src="media/title.mp4" type="video/mp4">
+			<source src="media/title_new.mp4" type="video/mp4">
 			Your browser does not support either the video tag or mp4.
 		</video>
 		<div class="overlay">
 			<p class="head">
 				CXClient - Minecraft Hacked Client
 			</p>
-			<p class="desc">
-				This is the homepage of the CXClient Minecraft Client by chrissx at chrissx Media Inc.
-				<br/>
-				This website is still "in dev" (we won't do something huge but jea).
+			<button class="desc" onclick="info()">
+				Information
 			</p>
 			<a href="downloads/dl.html" class="dl-link">
 				Downloads
