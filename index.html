@@ -3,19 +3,57 @@
 		<title>
 			CXClient - Minecraft Hacked Client
 		</title>
+<style>
+@font-face
+{
+	font-family: 'Minecraft';
+	src: url('fonts/Minecraft.ttf');
+}
+.container
+{
+	position: relative;
+	text-align: center;
+	color: white;
+	font-family: 'Minecraft';
+}
+.overlay
+{
+	position: absolute;
+	transform: translate(17.5%, -325%);
+}
+.head
+{
+	font-size: 65pt;
+	top: 10%;
+.desc
+{
+	font-size: 42pt;
+	top: 30%;
+}
+.dl-link
+{
+	font-size: 48pt;
+	top: 60%;
+}
+</style>
 	</head>
-	<body>
-		<h1>
-			CXClient - Minecraft Hacked Client
-		</h1>
-		This is the homepage of the CXClient Minecraft Client by chrissx at chrissx Media Inc.
-		<br/>
-		This website is still "in dev" (we won't do something huge but jea).
-		<br/>
-		<h2>
-			<a href="downloads/dl.html">
+	<body class="container">
+		<video autoplay="autoplay" muted="muted" loop="loop">
+			<source src="media/title.mp4" type="video/mp4">
+			Your browser does not support either the video tag or mp4.
+		</video>
+		<div class="overlay">
+			<p class="head">
+				CXClient - Minecraft Hacked Client
+			</p>
+			<p class="desc">
+				This is the homepage of the CXClient Minecraft Client by chrissx at chrissx Media Inc.
+				<br/>
+				This website is still "in dev" (we won't do something huge but jea).
+			</p>
+			<a href="downloads/dl.html" class="dl-link">
 				Downloads
 			</a>
-		</h2>
+		</div>
 	</body>
 </html>
