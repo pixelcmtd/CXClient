@@ -1,8 +1,8 @@
 package de.chrissx.iapi.testplugin;
 
-import de.chrissx.Util;
 import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.CommandExecutor;
+import de.chrissx.util.Util;
 
 public class TestPlugin extends Addon implements CommandExecutor {
 

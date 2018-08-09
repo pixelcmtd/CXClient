@@ -1,7 +1,8 @@
 package de.chrissx.mods.chat;
 
-import de.chrissx.HackedClient;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Consts;
+import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 
 public class Spam extends Mod {
@@ -53,15 +54,15 @@ public class Spam extends Mod {
 			@Override
 			public void run() {
 				enabled = true;
-				short last = -1;
+				int last = -1;
 				final String m = msg.toString();
 				for(int i = 0; i < times; i++) {
 					if(clear)
 						Util.sendChat(m);
 					else {
-						short r = (short)Util.rand(1000);
+						int r = Random.rand(1000);
 						while(last == r)
-							r = (short)Util.rand(1000);
+							r = Random.rand(1000);
 						Util.sendChat(m+" : "+r);
 						last = r;
 					}
@@ -77,6 +78,6 @@ public class Spam extends Mod {
 
 	@Override
 	public void onHotkey() {
-		processCommand(new String[] {"#spam", "20", "50", "Sponsored by " + hc.CLIENT_NAME + " by chrissx"});
+		processCommand(new String[] {"#spam", "20", "50", "Sponsored by " + Consts.clientName + " by chrissx"});
 	}
 }

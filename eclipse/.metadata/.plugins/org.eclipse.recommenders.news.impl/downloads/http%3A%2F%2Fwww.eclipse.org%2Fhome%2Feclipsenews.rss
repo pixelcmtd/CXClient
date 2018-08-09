@@ -10,10 +10,26 @@
       <link>http://www.eclipse.org</link>
     </image>
     <item>
+      <title><![CDATA[We Are Open]]></title>
+      <link><![CDATA[https://blogs.eclipse.org/post/thabang-mashologu/we-are-open]]></link>
+      <description><![CDATA[We Are Open campaign provides a peek into Eclipse community's openness, innovation, and collaboration.]]></description>
+      <pubDate>Thu, 02 Aug 2018 08:00:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>0</pressrelease>
+    </item>
+    <item>
+      <title><![CDATA[Eclipse Foundation Announces Jakarta EE Committee Election Results]]></title>
+      <link><![CDATA[https://www.eclipse.org/org/press-release/20180731-jakartaEE_committee_election.php]]></link>
+      <description><![CDATA[The results are in for Participant and Committer Member elections for representatives to the Jakarta EE Working Group!]]></description>
+      <pubDate>Tue, 31 Jul 2018 09:10:00 EST</pubDate>
+      <category>news</category>
+      <pressrelease>1</pressrelease>
+    </item>
+    <item>
       <title><![CDATA[Eclipse Newsletter | Embedded Development]]></title>
       <link><![CDATA[https://www.eclipse.org/community/eclipse_newsletter/2018/july/]]></link>
       <description><![CDATA[This month's newsletter features five articles that focus on Embedded Development. Read it now.]]></description>
-      <pubDate>Thu, 26 Jul 2018 8:30:00 EST</pubDate>
+      <pubDate>Thu, 26 Jul 2018 08:30:00 EST</pubDate>
       <category>news</category>
       <pressrelease>0</pressrelease>
     </item>
@@ -21,7 +37,7 @@
       <title><![CDATA[Eclipse IoT Day Singapore Announced]]></title>
       <link><![CDATA[https://iot.eclipse.org/eclipse-iot-day-singapore-2018/]]></link>
       <description><![CDATA[The very first Eclipse IoT Day Singapore will take place Sept. 18 in co-location with IoT World Asia 2018.]]></description>
-      <pubDate>Tue, 24 Jul 2018 6:00:00 EST</pubDate>
+      <pubDate>Tue, 24 Jul 2018 06:00:00 EST</pubDate>
       <category>news</category>
       <pressrelease>0</pressrelease>
     </item>

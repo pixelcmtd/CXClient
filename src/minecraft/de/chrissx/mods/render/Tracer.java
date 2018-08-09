@@ -32,13 +32,13 @@ public class Tracer extends Mod {
 		    
 		    for (EntityPlayer entity : mc.theWorld.playerEntities) {
 		        	LocFloat64 end = new LocFloat64(x, y, y);
-		        	drawLine(start.getX(), start.getY(), start.getZ(), end.getX(), end.getY(), end.getZ(), mc.thePlayer.getDistanceToEntity(entity));
+		        	drawLine(start.x, start.y, start.z, end.x, end.y, end.z, mc.thePlayer.getDistanceToEntity(entity));
 		    }
 		}
 		return enabled;
 	}
 	
-	private void drawLine(double x1, double y1, double z1, double x2, double y2, double z2, float blocks) {
+	void drawLine(double x1, double y1, double z1, double x2, double y2, double z2, float blocks) {
 		GL11.glBegin(GL11.GL_POINTS);
 		
 	    int samples = (int)(15*blocks);
