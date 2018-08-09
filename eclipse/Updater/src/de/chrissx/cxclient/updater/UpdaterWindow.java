@@ -8,27 +8,27 @@ import javax.swing.JTextPane;
 
 public class UpdaterWindow extends JFrame {
 
-	private JProgressBar progressBar;
-	private String generalTitle;
+	JProgressBar progress;
+	final String beginOfTitle;
 	
 	public UpdaterWindow(String title, int width, int height, boolean alwaysOnTop) {
-		this.setTitle(title);
-		generalTitle = title;
-		this.setSize(width, height);
-		this.setAlwaysOnTop(alwaysOnTop);
-		this.setLocation(700, 400);
-		progressBar = new JProgressBar();
-		progressBar.setValue(0);
-		progressBar.setVisible(true);
-		progressBar.setLocation(10, 10);
-		this.add(progressBar);
+		setTitle(title);
+		beginOfTitle = title;
+		setSize(width, height);
+		setAlwaysOnTop(alwaysOnTop);
+		setLocation(700, 400);
+		progress = new JProgressBar();
+		progress.setValue(0);
+		progress.setVisible(true);
+		progress.setLocation(10, 10);
+		add(progress);
 	}
 	
 	public void setProgress(int n) {
-		progressBar.setValue(n);
+		progress.setValue(n);
 	}
 	
 	public void setWindowTitle(String title) {
-		this.setTitle(generalTitle+" - "+title);
+		setTitle(beginOfTitle + " - " + title);
 	}
 }

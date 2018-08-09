@@ -14,9 +14,17 @@ public class Updater {
 	public static final String tempPath = System.getProperty("java.io.tmpdir");
 	public static final String versionPath = Util.generateTempFile(tempPath, "cxclient_version", ".dl");
 	
+	//old format:
+	//current_build_number current_jar (does not work because getting the jar is...broken)
+	//downloads version_url and parses int as server_build_number
+	//if server_build_number > current_build_number
+	//download client_url to current_jar
+	
+	//new format: current_build_number .minecraft_dir running_file
+	
 	public static void main(String[] args) {
 		try {
-			if(args.length < 2) {
+			if(args.length == 0) {
 				UpdaterWindow window = new UpdaterWindow("Debug-Window", 500, 75, true);
 				window.setVisible(true);
 				for(int n = 5; n <= 100; n+=5) {
@@ -29,7 +37,7 @@ public class Updater {
 				int currentBuild = Integer.parseInt(args[0]);
 				String outFile = args[1];
 				for(int i = 2; i < args.length; i++)
-					outFile+=" "+args[i];
+					outFile += " " + args[i];
 				Thread.sleep(500);
 				UpdaterWindow window = new UpdaterWindow("CXClient-Updater", 500, 75, true);
 				window.setVisible(true);
