@@ -283,7 +283,7 @@ public class HackedClient {
 					+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, "
 					+ "#cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, "
 					+ "#xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, "
-					+ "#autosteal, #killaura, #nuker, #sneak, #norender, #changelog, #bind, #unbind, #binds, #mods, #help");
+					+ "#autosteal, #killaura, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help");
 		else if(cmd.equalsIgnoreCase("#fastbreak"))
 			mods.fastBreak.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#nofall"))
@@ -427,6 +427,11 @@ public class HackedClient {
 				AddonProperties ap = addonManager.getProps(a);
 				Util.sendMessage(a.getName() + " " + ap.getName() + " " + ap.getAuthor() + " " + ap.getVersion() + " " + ap.getMainClass() + " " + ap.getDesc());
 			}
+		}
+		else if(cmd.equalsIgnoreCase("#credits"))
+		{
+			for(String s : Consts.credits)
+				Util.sendMessage(s);
 		}
 		else if(addonManager.execCmd(args))
 			;
