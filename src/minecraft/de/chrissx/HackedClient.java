@@ -99,8 +99,7 @@ public class HackedClient {
 		
 		try {
 			//Disabled due to not working again (LimaCity basically f...ed us completely and we're getting around it in C# but decompression, debase64ing and whatsoever in java...nope, pay 4 ddl space...nop)
-			//Util.downloadFile(Constants.updaterUrl, UPDATER_FILE);
-			//Runtime.getRuntime().exec("java -jar " + UPDATER_FILE + " " + BUILD_NUMBER + " " + Util.getThisJar());
+			//But it will be enabled again the the near future because with github.io we can do it
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

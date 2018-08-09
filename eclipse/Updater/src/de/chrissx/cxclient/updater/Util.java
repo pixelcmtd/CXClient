@@ -6,56 +6,64 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.math.BigDecimal;
 import java.net.URL;
+import java.net.URLConnection;
 import java.nio.file.Paths;
 import java.util.Random;
 
 public class Util {
 
 	public static Random random = new Random();
-	private static volatile boolean downloading = false;
-	private static volatile int total = 0;
-	private static volatile UpdaterWindow window = null;
-	private static volatile int count = 0;
+	static volatile boolean downloading = false;
+	static volatile long total;
+	static volatile UpdaterWindow window = null;
+	static volatile int count = 0;
 	
 	public static void downloadFile(String url, String file, UpdaterWindow window) throws IOException {
 		try {
-			BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
-			final FileOutputStream fout = new FileOutputStream(file);
-	        
-			final byte data[] = new byte[65536];
+			URL u = new URL(url);
+			URLConnection c = u.openConnection();
+			c.connect();
+			long len = c.getContentLength();
+			BufferedInputStream bis = new BufferedInputStream(u.openStream());
+			FileOutputStream fos = new FileOutputStream(file);
+			final byte data[] = new byte[512];
 			total = 0;
 			downloading = true;
 			Util.window = window;
-			
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					long startTime = System.nanoTime();
+					long stm = System.currentTimeMillis();
 					while(downloading) {
 						try {
-							Thread.sleep(5);
-						} catch (InterruptedException e1) {}
-						window.setProgress((int)(100l*(long)total/27000000l));
+							Thread.sleep(50);
+						} catch (InterruptedException e) {
+							e.printStackTrace();
+						}
+						window.setProgress((int)(total / len * 100));
 						try {
-							window.setWindowTitle("Downloading new jar - "+Double.toString((((double)(total/1048576))/((double)(System.nanoTime()-startTime)/64000000D))/2).substring(0, 5)+"Mb/s(Avg)");
-						} catch (Exception e) {}
+							window.setWindowTitle("Downloading new jar - " + Double.toString(total / 131.072D / (double)(System.currentTimeMillis() - stm)).substring(0, 5) + "Mib/s(Avg)");
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
 					}
 				}
 			}).start();
-			while ((count = in.read(data, 0, 1024)) != -1) {
-				fout.write(data, 0, count);
+			while ((count = bis.read(data, 0, data.length)) != -1) {
+				fos.write(data, 0, count);
 				total += count;
 			}
 			downloading = false;
-			fout.close();
-	    }catch (Exception e) {}
+			fos.close();
+	    }catch (Exception e) {
+	    	e.printStackTrace();
+	    }
 	}
 	
 	public static String generateTempFile(String tempPath, String name, String ext) {
-		String out = Paths.get(tempPath, name+"_"+random.nextInt()+ext).toString();
-		File f = new File(out);
+		File f = new File(Paths.get(tempPath, name + "_" + random.nextInt() + ext).toString());
 		while(f.exists())
-			f = new File(out = Paths.get(tempPath, name+"_"+random.nextInt()+ext).toString());
-		return out;
+			f = new File(Paths.get(tempPath, name + "_" + random.nextInt() + ext).toString());
+		return f.toString();
 	}
 }
