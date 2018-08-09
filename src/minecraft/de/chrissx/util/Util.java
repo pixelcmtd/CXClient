@@ -67,16 +67,7 @@ public class Util {
 	    return i;
 	}
 	
-	public static String getThisJar() {
-		String path = new File("").getAbsoluteFile().getAbsolutePath();
-		if(System.getProperty("os.name").toLowerCase().contains("win")) {
-			String[] splt = split(path, '\\');
-			return path+splt[splt.length-1]+".jar";
-		}else {
-			String[] splt = split(path, '/');
-			return path+splt[splt.length-1]+".jar";
-		}
-	}
+	//removed getThisJar(), we'll need a new one that works better
 	
 	/**
 	 * Splits the string without trying something with regexes but just the single character separator.
