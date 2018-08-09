@@ -57,7 +57,7 @@ public class HackedClient {
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
-			r.drawString("\00a7a\u00a7l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
+			r.drawString("\00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.onRender(r, 4, (i*8)+4))
@@ -257,7 +257,7 @@ public class HackedClient {
 		if (cmd.equalsIgnoreCase("#text"))
 			mods.text.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#changelog"))
-			for(String s : changelog)
+			for(String s : Consts.changelog)
 				Util.sendMessage(s);
       	else if(cmd.equalsIgnoreCase("#multitext"))
 			mods.multiText.processCommand(args);
