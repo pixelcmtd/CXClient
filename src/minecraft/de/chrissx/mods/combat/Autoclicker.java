@@ -2,9 +2,9 @@ package de.chrissx.mods.combat;
 
 import java.awt.Color;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.gui.FontRenderer;
 
 public class Autoclicker extends Mod {

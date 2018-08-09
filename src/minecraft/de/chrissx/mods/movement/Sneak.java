@@ -3,8 +3,8 @@ package de.chrissx.mods.movement;
 import java.awt.Color;
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.network.play.client.C0BPacketEntityAction;
 import net.minecraft.network.play.client.C0BPacketEntityAction.Action;
@@ -53,7 +53,7 @@ public class Sneak extends Mod {
 				try {
 					mode = SneakMode.valueOf(args[2].toUpperCase());
 				} catch (Exception e) {
-					Util.sendMessage("§4Error valueOf-ing SneakMode.");
+					Util.sendMessage("ï¿½4Error valueOf-ing SneakMode.");
 				}
 			else
 				Util.sendMessage("#sneak to toggle, #sneak mode <SneakMode> to set mode.");

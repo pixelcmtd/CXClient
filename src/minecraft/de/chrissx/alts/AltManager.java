@@ -21,8 +21,8 @@ import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
 
-import de.chrissx.Constants;
-import de.chrissx.Util;
+import de.chrissx.util.Consts;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 
@@ -33,10 +33,10 @@ public class AltManager {
 	YggdrasilUserAuthentication auth = (YggdrasilUserAuthentication)new YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
 	Minecraft mc = Minecraft.getMinecraft();
 	List<Alt> alts;
-	public static final File ALT_FILE = Paths.get(Constants.configPath, "altmanageralts.crypt").toFile();
-	public static final Path KEY_FILE = Paths.get(Constants.configPath, "altmanagerkey.crypt");
+	public static final File ALT_FILE = Paths.get(Consts.configPath, "altmanageralts.crypt").toFile();
+	public static final Path KEY_FILE = Paths.get(Consts.configPath, "altmanagerkey.crypt");
 	SecretKeySpec key;
-	final String keyString = "CXCLIENT___THE CAKE IS A LIE---DO NOT TRY TO CRACK THIS ä#+üöäöü+*'.:;_::-.,.-.-,()()81456889147";
+	final String keyString = "CXCLIENT___THE CAKE IS A LIE---DO NOT TRY TO CRACK THIS ï¿½#+ï¿½ï¿½ï¿½ï¿½ï¿½+*'.:;_::-.,.-.-,()()81456889147";
 	
 	public AltManager() {
 		if(KEY_FILE.toFile().exists())

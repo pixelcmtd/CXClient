@@ -1,8 +1,8 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class Throw extends Mod {
@@ -24,7 +24,7 @@ public class Throw extends Mod {
 				throwCount = Long.parseLong(args[1]);
 				delay = Long.parseLong(args[2]);
 			}catch (Exception e) {
-				Util.sendMessage("§4Error parsing longs.");
+				Util.sendMessage("ï¿½4Error parsing longs.");
 			}
 			toggle();
 		}

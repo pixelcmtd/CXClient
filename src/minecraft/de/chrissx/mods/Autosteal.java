@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.io.File;
 import java.nio.file.Paths;
 
-import de.chrissx.Util;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;

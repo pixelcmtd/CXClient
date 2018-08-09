@@ -2,8 +2,8 @@ package de.chrissx.mods.movement;
 
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 
 public class FastLadder extends Mod {
 

@@ -5,8 +5,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -67,13 +67,13 @@ public class Killaura extends Mod {
 				try {
 					max_range = Double.parseDouble(args[2]);
 				}catch(Exception e) {
-					Util.sendMessage("§4Error parsing double.");
+					Util.sendMessage("ï¿½4Error parsing double.");
 				}
 			else if(args[1].equalsIgnoreCase("mode"))
 				try {
 					mode = KillauraMode.valueOf(args[2].toUpperCase());
 				} catch (Exception e) {
-					Util.sendMessage("§4Error valueOf-ing KillauraMode.");
+					Util.sendMessage("ï¿½4Error valueOf-ing KillauraMode.");
 				}
 			else if(args[1].equalsIgnoreCase("invis"))
 				attackInvis = !attackInvis;

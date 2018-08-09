@@ -1,10 +1,10 @@
 package de.chrissx.mods.fun;
 
 import de.chrissx.HackedClient;
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class Text implements Bindable, Commandable {
@@ -22,7 +22,7 @@ public class Text implements Bindable, Commandable {
         for (int i = 1; i < args.length; i++) {
         	message = message + args[i] + " ";
         }
-        Util.cheatArmorStand(message.replace('&', '§'), mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, 36);
+        Util.cheatArmorStand(message.replace('&', 'ï¿½'), mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, 36);
 	}
 
 	@Override

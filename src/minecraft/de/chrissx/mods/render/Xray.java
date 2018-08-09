@@ -3,9 +3,9 @@ package de.chrissx.mods.render;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;

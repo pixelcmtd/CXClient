@@ -1,4 +1,4 @@
-package de.chrissx;
+package de.chrissx.util;
 
 import java.awt.image.BufferedImage;
 import java.io.BufferedInputStream;
@@ -11,8 +11,8 @@ import java.nio.charset.Charset;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+import de.chrissx.locations.LocFloat64;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
@@ -35,9 +35,7 @@ import net.minecraft.world.World;
 
 public class Util {
 
-	static final Random rand = new Random();
 	static final Minecraft mc = Minecraft.getMinecraft();
-	static final HackedClient hc = HackedClient.getClient();
 
 	public static void checkIfExistsAndMake(String dir, String name)
 	{
@@ -47,30 +45,6 @@ public class Util {
 			f.mkdirs();
 			mc.logger.info("Made " + name + ".");
 		}
-	}
-	
-	public static int rand(int max) {
-		return rand.nextInt(max);
-	}
-	
-	public static int rand() {
-		return rand.nextInt();
-	}
-	
-	public static boolean randBool() {
-		return rand.nextBoolean();
-	}
-	
-	public static long randLong() {
-		return rand.nextLong();
-	}
-	
-	public static float randFloat() {
-		return rand.nextFloat();
-	}
-	
-	public static double randDouble() {
-		return rand.nextDouble();
 	}
 	
 	public static String combineParts(String[] strings, int startIndex, String seperator) {
@@ -86,7 +60,7 @@ public class Util {
 	}
 	
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
-		BufferedImage i = new BufferedImage(w, h, BufferedImage.TYPE_INT_RGB);
+		BufferedImage i = new BufferedImage(w, h, 0x1); // type_int_rgb
 	    for (int x = 0; x < w; x++)
 	        for (int y = 0; y < h; y++)
 	            i.setRGB(x, y, src.getRGB(x * src.getWidth() / w, y * src.getHeight() / h));
@@ -138,10 +112,10 @@ public class Util {
 	}
 	
 	public static String generateTempFile(String tmp, String name, String ext) {
-		String out = Paths.get(tmp, name+"_"+rand.nextInt()+ext).toString();
+		String out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString();
 		File f = new File(out);
 		while(f.exists())
-			f = new File(out = Paths.get(tmp, name+"_"+rand.nextInt()+ext).toString());
+			f = new File(out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString());
 		return out;
 	}
 	
@@ -199,7 +173,7 @@ public class Util {
 		  entityTag.setBoolean("TrackOutput", false);
 		  
 		  lore.appendTag(new NBTTagString("gamerule commandBlockOutput false"));
-		  lore.appendTag(new NBTTagString("created using " + hc.CLIENT_NAME));
+		  lore.appendTag(new NBTTagString("created using " + Consts.clientName));
 		  lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
 		  
 		  display.setTag("Lore", lore);
@@ -229,7 +203,7 @@ public class Util {
 		entityTag.setBoolean("TrackOutput", false);
 		
 		lore.appendTag(new NBTTagString(cmd));
-		lore.appendTag(new NBTTagString("created using " + hc.CLIENT_NAME));
+		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
 		lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
 		  
 		display.setTag("Lore", lore);
@@ -237,7 +211,7 @@ public class Util {
 		base.setTag("display", display);
 		  
 		itm.setTagCompound(base);
-		itm.setStackDisplayName(hc.CLIENT_NAME);
+		itm.setStackDisplayName(Consts.clientName);
 		
 		cheatItem(itm, 37);
 	}
@@ -249,7 +223,7 @@ public class Util {
 		NBTTagCompound display = new NBTTagCompound();
 		NBTTagList lore = new NBTTagList();
 		
-		lore.appendTag(new NBTTagString("created using " + hc.CLIENT_NAME));
+		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
 		lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
 		
 		display.setTag("Lore", lore);
@@ -304,7 +278,7 @@ public class Util {
 	}
 	
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Constants.prefx + msg + "\"}"));
+		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + msg + "\"}"));
 	}
 	
 	public static void faceEntity(Entity e) {
@@ -364,16 +338,16 @@ public class Util {
 			return false;
 	}
 	
-	public static LocDouble getEyesPos() {
-		return new LocDouble(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
+	public static LocFloat64 getEyesPos() {
+		return new LocFloat64(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
 	}
 	
-	static float[] getNeededRotations(LocDouble vec) {
-	    LocDouble eyesPos = getEyesPos();
+	static float[] getNeededRotations(LocFloat64 vec) {
+	    LocFloat64 eyesPos = getEyesPos();
 	    
-	    double diffX = vec.getX() - eyesPos.getX();
-	    double diffY = vec.getY() - eyesPos.getY();
-	    double diffZ = vec.getZ() - eyesPos.getZ();
+	    double diffX = vec.x - eyesPos.x;
+	    double diffY = vec.y - eyesPos.y;
+	    double diffZ = vec.z - eyesPos.z;
 	    
 	    double diffXZ = Math.sqrt(diffX * diffX + diffZ * diffZ);
 	    
@@ -388,9 +362,9 @@ public class Util {
 		StringBuilder s = new StringBuilder();
 		List<Integer> used = new ArrayList<Integer>();
 		for(int i = 0; i < chars.length; i++) {
-			int a = rand.nextInt(chars.length);
+			int a = Random.rand.nextInt(chars.length);
 			while(used.contains(a))
-				a = rand.nextInt(chars.length);
+				a = Random.rand.nextInt(chars.length);
 			s.append(chars[a]);
 			used.add(a);
 		}

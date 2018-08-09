@@ -1,8 +1,8 @@
 package de.chrissx.mods.render;
 
-import de.chrissx.EntityFakePlayer;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.EntityFakePlayer;
 import net.minecraft.client.Minecraft;
 
 public class Freecam extends Mod {

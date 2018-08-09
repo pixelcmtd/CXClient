@@ -2,8 +2,8 @@ package de.chrissx.mods.combat;
 
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 
 public class Reach extends Mod {
 
@@ -23,7 +23,7 @@ public class Reach extends Mod {
 			try {
 				reach = Float.parseFloat(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("§4Error parsing float.");
+				Util.sendMessage("ï¿½4Error parsing float.");
 			}
 		else
 			Util.sendMessage("#reach to toggle, #reach range <float> to set your extended range.");

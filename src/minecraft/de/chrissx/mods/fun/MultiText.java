@@ -1,10 +1,10 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.Constants;
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Consts;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class MultiText implements Bindable, Commandable {
@@ -14,15 +14,15 @@ public class MultiText implements Bindable, Commandable {
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length < 2) {
-			Util.sendMessage("§4Not enough args.");
+			Util.sendMessage("ï¿½4Not enough args.");
 			return;
 		}else {
 			if(args.length > 37) {
-				Util.sendMessage("§4You can't have more than 36 items in your inventory.");
+				Util.sendMessage("ï¿½4You can't have more than 36 items in your inventory.");
 				return;
 			}
 			for(int i = 1; i < args.length; i++) {
-				Util.cheatArmorStand(args[i], mc.thePlayer.posX, mc.thePlayer.posY+((args.length-2)*0.3)-(i*0.3), mc.thePlayer.posZ, Constants.PACKET_PLAYER_INVENTORY_SLOTS[i-1]);
+				Util.cheatArmorStand(args[i], mc.thePlayer.posX, mc.thePlayer.posY+((args.length-2)*0.3)-(i*0.3), mc.thePlayer.posZ, Consts.packetPlayerInventorySlots[i-1]);
 			}
 		}
 	}

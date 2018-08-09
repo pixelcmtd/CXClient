@@ -9,8 +9,8 @@ import java.nio.file.Paths;
 
 import com.google.common.io.Files;
 
-import de.chrissx.Constants;
 import de.chrissx.HackedClient;
+import de.chrissx.util.Consts;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 
@@ -24,7 +24,7 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 	
 	public Mod(String name) {
 		this.name = name;
-		apiDir = Paths.get(Constants.modsPath, name).toString();
+		apiDir = Paths.get(Consts.modsPath, name).toString();
 	}
 	
 	public void toggle() {

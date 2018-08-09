@@ -2,8 +2,8 @@ package de.chrissx.mods.combat;
 
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
@@ -29,7 +29,7 @@ public class Aimbot extends Mod {
 						return;
 					}
 			else
-				Util.sendMessage("§4Currently bow mode isn't supported.");
+				Util.sendMessage("ï¿½4Currently bow mode isn't supported.");
 	}
 
 	@Override

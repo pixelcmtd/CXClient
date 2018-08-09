@@ -1,8 +1,8 @@
 package de.chrissx.mods.chat;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 
 public class Home implements Bindable {
 

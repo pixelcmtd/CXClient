@@ -3,9 +3,9 @@ package de.chrissx.mods.combat;
 import java.util.HashMap;
 import java.util.Map;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.gui.inventory.GuiContainer;
 import net.minecraft.client.gui.inventory.GuiInventory;
 import net.minecraft.item.Item;
