@@ -1,5 +1,7 @@
 package de.chrissx.mods.fun;
 
+import org.apache.http.client.utils.URIBuilder;
+
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.Mod;
@@ -15,12 +17,12 @@ public class KillPotion implements Commandable, Bindable {
 
 	@Override
 	public void processCommand(String[] args) {
-		Util.cheatItem(Util.getCustomPotion(Util.getEffect(6, 125, 2000), "Killer Potion of Death"), 36);
+		Util.cheatItem(Util.getCustomPotion(Util.addEffect(Util.newEffects(), 6, 125, 2000), "Killer Potion of Death"), 36);
 	}
 
 	@Override
 	public void onHotkey() {
-		Util.cheatItem(Util.getCustomPotion(Util.getEffect(6, 125, 2000), "Killer Potion of Death"), 36);
+		processCommand(null);
 	}
 
 	@Override

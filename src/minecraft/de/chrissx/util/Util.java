@@ -123,10 +123,10 @@ public class Util {
 		final BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
 		final FileOutputStream out = new FileOutputStream(file);
 		
-		final byte data[] = new byte[65536];
+		final byte data[] = new byte[1048576];
 		int count = 0;
-		
-		while ((count = in.read(data, 0, 1024)) != -1)
+
+		while ((count = in.read(data, 0, 65536)) != -1)
 			out.write(data, 0, count);
 		
 		out.close();
@@ -174,7 +174,7 @@ public class Util {
 		  
 		  lore.appendTag(new NBTTagString("gamerule commandBlockOutput false"));
 		  lore.appendTag(new NBTTagString("created using " + Consts.clientName));
-		  lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
+		  lore.appendTag(new NBTTagString("by chrissx"));
 		  
 		  display.setTag("Lore", lore);
 		  base.setTag("BlockEntityTag", entityTag);
@@ -204,7 +204,7 @@ public class Util {
 		
 		lore.appendTag(new NBTTagString(cmd));
 		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
-		lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
+		lore.appendTag(new NBTTagString("by chrissx"));
 		  
 		display.setTag("Lore", lore);
 		base.setTag("BlockEntityTag", entityTag);
@@ -224,7 +224,7 @@ public class Util {
 		NBTTagList lore = new NBTTagList();
 		
 		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
-		lore.appendTag(new NBTTagString("by chrissx & Garkolym"));
+		lore.appendTag(new NBTTagString("by chrissx"));
 		
 		display.setTag("Lore", lore);
 		base.setTag("display", display);
@@ -235,17 +235,8 @@ public class Util {
 		cheatItem(itm, 38);
 	}
 	
-	public static NBTTagList getEffect(int effect, int amplifier, int duration) {
-		NBTTagList l = new NBTTagList();
-		
-		NBTTagCompound eff = new NBTTagCompound();
-	    eff.setInteger("Amplifier", amplifier);
-	    eff.setInteger("Duration", duration);
-	    eff.setInteger("Id", effect);
-	    
-	    l.appendTag(eff);
-
-		return l;
+	public static NBTTagList newEffects() {
+		return new NBTTagList();
 	}
 	
 	public static NBTTagList addEffect(NBTTagList effects, int effect, int amplifier, int duration) {
@@ -253,9 +244,7 @@ public class Util {
 	    eff.setInteger("Amplifier", amplifier);
 	    eff.setInteger("Duration", duration);
 	    eff.setInteger("Id", effect);
-	    
 	    effects.appendTag(eff);
-
 		return effects;
 	}
 	
@@ -278,36 +267,36 @@ public class Util {
 	}
 	
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + msg + "\"}"));
+		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + msg.replaceAll("\"", "\\\"") + "\"}"));
 	}
 	
 	public static void faceEntity(Entity e) {
 		float[] rotations = getRotationsNeeded(e);
 		if(rotations != null) {
 			mc.thePlayer.rotationYaw = rotations[0];
-			mc.thePlayer.rotationPitch = rotations[1]+8.1f;
+			mc.thePlayer.rotationPitch = rotations[1] + 8.1f;
 		}
 	}
 	
-	static float[] getRotationsNeeded(Entity entity) {
-        double diffX = entity.posX - mc.thePlayer.posX;
-        double diffY;
-        if(entity instanceof EntityLivingBase)
+	static float[] getRotationsNeeded(Entity e) {
+        double x = e.posX - mc.thePlayer.posX;
+        double y;
+        if(e instanceof EntityLivingBase)
         {
-            EntityLivingBase entityLivingBase = (EntityLivingBase)entity;
-            diffY = entityLivingBase.posY + entityLivingBase.getEyeHeight() * 0.9 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
+            EntityLivingBase elb = (EntityLivingBase)e;
+            y = elb.posY + elb.getEyeHeight() * 0.9 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
         }else
-            diffY = (entity.boundingBox.minY + entity.boundingBox.maxY) / 2 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
-        double diffZ = entity.posZ - mc.thePlayer.posZ;
-        return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(diffZ, diffX) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
-        		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(diffY, MathHelper.sqrt(diffX * diffX + diffZ * diffZ)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
+            y = (e.boundingBox.minY + e.boundingBox.maxY) / 2 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
+        double z = e.posZ - mc.thePlayer.posZ;
+        return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
+        		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
     }
 	
 	public static BlockPos[] getBlocksAround(EntityPlayer p, byte range, boolean mustBeVisible) {
 		List<BlockPos> out = new ArrayList<BlockPos>();
-		for(int x = (int)p.posX-range; x < p.posX+range; x++)
-			for(int y = (int)p.posY-range; y < p.posY+range; y++)
-				for(int z = (int)p.posZ-range; z < p.posZ+range; z++) {
+		for(long x = (long)p.posX-range; x < p.posX+range; x++)
+			for(short y = (short)(p.posY-range); y < p.posY+range; y++)
+				for(long z = (long)p.posZ-range; z < p.posZ+range; z++) {
 					BlockPos bp = new BlockPos(x, y, z);
 					if(!mc.theWorld.isAirBlock(bp) && (!mustBeVisible || isBlockVisible(bp)))
 						out.add(bp);
@@ -326,35 +315,30 @@ public class Util {
 		double py = mc.thePlayer.posY+mc.thePlayer.getEyeHeight();
 		double pz = mc.thePlayer.posZ;
 		
+		boolean left = w.isAirBlock(new BlockPos(x - 1, y, z));
 		boolean right = w.isAirBlock(new BlockPos(x + 1, y, z));
 		boolean back = w.isAirBlock(new BlockPos(x, y, z - 1));
 		boolean front = w.isAirBlock(new BlockPos(x, y, z + 1));
 		boolean up = w.isAirBlock(new BlockPos(x, y + 1, z));
 		boolean down = w.isAirBlock(new BlockPos(x, y - 1, z));
 		
-		if((up && py > y) || (down && py < y) || (w.isAirBlock(new BlockPos(x-1, y, z)) && px < x) || (right && px > x) || (back && pz < z) || (front && pz > z))
+		if((up && py > y) || (down && py < y) || (left && px < x) || (right && px > x) || (back && pz < z) || (front && pz > z))
 			return true;
 		else
 			return false;
 	}
 	
-	public static LocFloat64 getEyesPos() {
+	public static LocFloat64 getEyePos() {
 		return new LocFloat64(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
 	}
 	
 	static float[] getNeededRotations(LocFloat64 vec) {
-	    LocFloat64 eyesPos = getEyesPos();
+	    double x = vec.x - mc.thePlayer.posX;
+	    double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
+	    double z = vec.z - mc.thePlayer.posZ;
 	    
-	    double diffX = vec.x - eyesPos.x;
-	    double diffY = vec.y - eyesPos.y;
-	    double diffZ = vec.z - eyesPos.z;
-	    
-	    double diffXZ = Math.sqrt(diffX * diffX + diffZ * diffZ);
-	    
-	    float yaw = (float)Math.toDegrees(Math.atan2(diffZ, diffX)) - 90.0F;
-	    float pitch = (float)-Math.toDegrees(Math.atan2(diffY, diffXZ));
-	    
-	    return new float[] {MathHelper.wrapAngleTo180_float(yaw), MathHelper.wrapAngleTo180_float(pitch)};
+	    return new float[] {MathHelper.wrapAngleTo180_float((float)Math.toDegrees(Math.atan2(z, x)) - 90),
+	    		MathHelper.wrapAngleTo180_float((float)-Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))};
 	}
 	
 	public static String randomSortString(String originalString) {
@@ -362,11 +346,11 @@ public class Util {
 		StringBuilder s = new StringBuilder();
 		List<Integer> used = new ArrayList<Integer>();
 		for(int i = 0; i < chars.length; i++) {
-			int a = Random.rand.nextInt(chars.length);
-			while(used.contains(a))
-				a = Random.rand.nextInt(chars.length);
-			s.append(chars[a]);
-			used.add(a);
+			int j = Random.rand(chars.length);
+			while(used.contains(j))
+				j = Random.rand(chars.length);
+			s.append(chars[j]);
+			used.add(j);
 		}
 		return s.toString();
 	}

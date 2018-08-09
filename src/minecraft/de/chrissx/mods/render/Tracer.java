@@ -28,7 +28,7 @@ public class Tracer extends Mod {
 		    
 			GL11.glPointSize(2.0f);
 			
-		    LocFloat64 start = Util.getEyesPos();
+		    LocFloat64 start = Util.getEyePos();
 		    
 		    for (EntityPlayer entity : mc.theWorld.playerEntities) {
 		        	LocFloat64 end = new LocFloat64(x, y, y);

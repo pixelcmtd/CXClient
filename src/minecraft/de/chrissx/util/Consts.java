@@ -20,10 +20,27 @@ public class Consts {
 	public static final String updaterFile = Util.generateTempFile(tempPath, "cxclient_updater", ".jar");
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "2.4 beta";
+	public static final String version = "alpha 2401";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
-			"-PLACEHOLDER _?"
+			"-Put the source of the client on GitHub",
+			"-Added a #credits command to show credits for the client"
+	};
+	public static final String[] credits = new String[] {
+		clientName + " " + version + " Credits:",
+		"",
+		"Author: chrissx",
+		"Released by: chrissx Media Inc.",
+		"Licensed under: GNU GPLv3",
+		"Official website (alpha): https://chrissxyt.github.io/CXClient/",
+		"Source branch: https://github.com/chrissxYT/CXClient/tree/master",
+		"",
+		"Thanks to:",
+		"",
+		"-Garkolym for showing a few exploits (for example #text)",
+		"-A few other people we stealt the Fly- and Speed-Bypasses from",
+		"-The developers of Wurst for making another open source client, we looked at, "
+		+ "when we needed ideas for hacks or when we just f*ed up"
 	};
 }

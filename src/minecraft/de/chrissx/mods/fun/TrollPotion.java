@@ -12,30 +12,22 @@ public class TrollPotion implements Bindable, Commandable {
 	@Override
 	public void onHotkey() {
 		if(!Minecraft.getMinecraft().playerController.isInCreativeMode()) {
-			Util.sendMessage("�4You have to be in gm 1 in order to execute this!");
+			Util.sendMessage("\u00a74You have to be in gm 1 in order to execute this!");
 			return;
 		}
-		NBTTagList l = Util.getEffect(0, Integer.MAX_VALUE, Integer.MAX_VALUE);
-		for(int i = 1; i < 23; i++)
+		NBTTagList l = Util.newEffects();
+		for(int i = 0; i < 23; i++)
 			l = Util.addEffect(l, i, Integer.MAX_VALUE, Integer.MAX_VALUE);
 		Util.cheatItem(Util.getCustomPotion(l, "Troller Potion of Trolling"), 36);
 	}
 
 	@Override
 	public void processCommand(String[] args) {
-		if(!Minecraft.getMinecraft().playerController.isInCreativeMode()) {
-			Util.sendMessage("�4You have to be in gm 1 in order to execute this!");
-			return;
-		}
-		NBTTagList l = Util.getEffect(0, Integer.MAX_VALUE, Integer.MAX_VALUE);
-		for(int i = 1; i < 23; i++)
-			l = Util.addEffect(l, i, Integer.MAX_VALUE, Integer.MAX_VALUE);
-		Util.cheatItem(Util.getCustomPotion(l, "Troller Potion of Trolling"), 36);
+		onHotkey();
 	}
 
 	@Override
 	public String getName() {
 		return "TrollPotion";
 	}
-
 }
