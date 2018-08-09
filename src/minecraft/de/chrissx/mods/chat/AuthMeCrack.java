@@ -12,10 +12,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.chrissx.Constants;
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Consts;
+import de.chrissx.util.Util;
 
 public class AuthMeCrack extends Mod {
 
@@ -28,7 +28,7 @@ public class AuthMeCrack extends Mod {
 	
 	List<String> pws;
 	
-	File pwFile = Paths.get(Constants.configPath, "authmecracker.cfg").toFile();
+	File pwFile = Paths.get(Consts.configPath, "authmecracker.cfg").toFile();
 	
 	int times = 0;
 	

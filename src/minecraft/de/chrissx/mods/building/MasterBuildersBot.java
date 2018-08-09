@@ -7,11 +7,11 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.net.MalformedURLException;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.RenderedObject;
 import de.chrissx.mods.StopListener;
 import de.chrissx.mods.TickListener;
+import de.chrissx.util.Util;
 import net.minecraft.client.gui.FontRenderer;
 
 public class MasterBuildersBot implements Commandable, TickListener, StopListener, RenderedObject {

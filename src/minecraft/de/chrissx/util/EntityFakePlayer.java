@@ -1,4 +1,4 @@
-package de.chrissx;
+package de.chrissx.util;
 
 import com.mojang.authlib.GameProfile;
 

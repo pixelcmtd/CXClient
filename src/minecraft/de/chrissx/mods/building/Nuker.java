@@ -6,8 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.BlockPos;
@@ -78,7 +78,7 @@ public class Nuker extends Mod {
 						}
 					}
 				}else
-					Util.sendMessage("§4Well...I guess I fucked up and forgot to add an else if for your mode, please report this!");
+					Util.sendMessage("ï¿½4Well...I guess I fucked up and forgot to add an else if for your mode, please report this!");
 				count = 21;
 			}else
 				count--;
@@ -103,7 +103,7 @@ public class Nuker extends Mod {
 				try {
 					mode = NukerMode.valueOf(args[2].toUpperCase());
 				}catch (Exception e) {
-					Util.sendMessage("§4Error valueOf-ing NukerMode.");
+					Util.sendMessage("ï¿½4Error valueOf-ing NukerMode.");
 				}
 			else
 				Util.sendMessage("#nuker to toggle, #nuker bypass to toggle NCP-bypass, #nuker mode [ALL/CLICK] to set the mode");

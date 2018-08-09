@@ -4,8 +4,8 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.entity.player.EntityPlayer;
 
 public class MassTpa extends Mod {

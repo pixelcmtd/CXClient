@@ -2,8 +2,8 @@ package de.chrissx.mods.building;
 
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.network.play.client.C07PacketPlayerDigging;
 import net.minecraft.network.play.client.C07PacketPlayerDigging.Action;
 import net.minecraft.util.BlockPos;

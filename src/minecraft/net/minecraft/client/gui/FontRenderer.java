@@ -4,7 +4,7 @@ import com.ibm.icu.text.ArabicShaping;
 import com.ibm.icu.text.ArabicShapingException;
 import com.ibm.icu.text.Bidi;
 
-import de.chrissx.Util;
+import de.chrissx.util.Util;
 
 import java.awt.image.BufferedImage;
 import java.io.IOException;

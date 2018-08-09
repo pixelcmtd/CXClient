@@ -1,8 +1,8 @@
 package de.chrissx.mods.chat;
 
 import de.chrissx.HackedClient;
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 
 public class Spam extends Mod {
 	
@@ -16,7 +16,7 @@ public class Spam extends Mod {
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length < 4) {
-			Util.sendMessage("§4Not enough arguments, usage: #(clear)spam <times> <delay> <message>");
+			Util.sendMessage("ï¿½4Not enough arguments, usage: #(clear)spam <times> <delay> <message>");
 			return;
 		}
 		
@@ -33,14 +33,14 @@ public class Spam extends Mod {
 		try {
 			times = Integer.parseInt(args[1]);
 		}catch(Exception e) {
-			Util.sendMessage("§4Error parsing times.");
+			Util.sendMessage("ï¿½4Error parsing times.");
 			return;
 		}
 		
 		try {
 			delay = Long.parseLong(args[2]);
 		} catch (Exception e) {
-			Util.sendMessage("§4Error parsing delay.");
+			Util.sendMessage("ï¿½4Error parsing delay.");
 			return;
 		}
 		

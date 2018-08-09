@@ -1,7 +1,7 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockAir;
 import net.minecraft.block.BlockBasePressurePlate;

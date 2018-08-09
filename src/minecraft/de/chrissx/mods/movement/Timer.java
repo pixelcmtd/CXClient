@@ -2,8 +2,8 @@ package de.chrissx.mods.movement;
 
 import java.io.File;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 
 public class Timer extends Mod {
 
@@ -25,7 +25,7 @@ public class Timer extends Mod {
 				if(enabled)
 					net.minecraft.util.Timer.timerSpeed = factor;
 			} catch (Exception e) {
-				Util.sendMessage("§4Error parsing float.");
+				Util.sendMessage("ï¿½4Error parsing float.");
 			}
 		else
 			Util.sendMessage("#timer to toggle, #timer speed <double> to change the factor.");

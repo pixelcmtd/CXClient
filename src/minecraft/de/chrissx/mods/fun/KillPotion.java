@@ -1,9 +1,9 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.init.Items;

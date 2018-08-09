@@ -29,6 +29,8 @@ import de.chrissx.mods.ModList;
 import de.chrissx.mods.RenderedObject;
 import de.chrissx.mods.StopListener;
 import de.chrissx.mods.TickListener;
+import de.chrissx.util.Consts;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
@@ -40,15 +42,7 @@ import net.minecraft.nbt.NBTTagList;
 
 public class HackedClient {
 	static HackedClient client = null;
-	public static final String CLIENT_NAME = "CXClient";
-	public static final String VERSION = "2.4 beta";
 	boolean invis = false;
-	
-	public static final String[] changelog = new String[] {
-		CLIENT_NAME + " " + VERSION + " Changelog:",
-		"",
-		"-PLACEHOLDER _?"
-	};
 	
 	Map<Integer, Bindable> hotkeys = new HashMap<Integer, Bindable>();
 	final ModList mods;
@@ -62,7 +56,8 @@ public class HackedClient {
 	
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
-			r.drawString("§a§l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
+			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
+			r.drawString("\00a7a\u00a7l[" + CLIENT_NAME + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.onRender(r, 4, (i*8)+4))
@@ -97,7 +92,7 @@ public class HackedClient {
 		}
 		
 		try {
-			HotkeySaving.saveHotkeys(Paths.get(Constants.hotkeyFile), hotkeys);
+			HotkeySaving.saveHotkeys(Paths.get(Consts.hotkeyFile), hotkeys);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -117,12 +112,12 @@ public class HackedClient {
 	{
 		client = this;
 		
-		Util.checkIfExistsAndMake(Constants.configPath, "configPath");
-		Util.checkIfExistsAndMake(Constants.addonPath, "addonPath");
-		Util.checkIfExistsAndMake(Constants.eapiPath, "eapiPath");
-		Util.checkIfExistsAndMake(Constants.togglePath, "enablePath");
+		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
+		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
+		Util.checkIfExistsAndMake(Consts.eapiPath, "eapiPath");
+		Util.checkIfExistsAndMake(Consts.togglePath, "enablePath");
 		
-		File f = new File(Constants.hotkeyFile);
+		File f = new File(Consts.hotkeyFile);
 		
 		if(f.exists())
 			try {
@@ -134,25 +129,25 @@ public class HackedClient {
 		altManager = new AltManager();
 		mods = new ModList();
 		addonManager = new AddonManager();
-		addonManager.init(Constants.addonPath);
+		addonManager.init(Consts.addonPath);
 		
 		for(Mod m : mods)
 		{
-			Util.checkIfExistsAndMake(Paths.get(Constants.modsPath, m.getName()).toString(), m.getName() + "_path");
+			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "_path");
 		}
 		
 		updateThread = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
-					final File enabledFile = new File(Constants.enabledPath);
-					final File disableIAUI = Paths.get(Constants.eapiPath, "disable_iaui").toFile();
+					final File enabledFile = new File(Consts.enabledPath);
+					final File disableIAUI = Paths.get(Consts.eapiPath, "disable_iaui").toFile();
 					while(true)
 					{
 						try {
 							for(Mod m : mods)
 							{
-								File f = Paths.get(Constants.togglePath, m.getName()).toFile();
+								File f = Paths.get(Consts.togglePath, m.getName()).toFile();
 								if(f.exists())
 								{
 									m.toggle();
@@ -309,9 +304,9 @@ public class HackedClient {
 				return;
 			}
 			if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
-				Util.sendMessage("§4Key already registered.");
+				Util.sendMessage("\u00a74Key already registered.");
 			else if(mods.getBindable(args[2].toLowerCase()) == null)
-				Util.sendMessage("§4Mod-Name not correct.");
+				Util.sendMessage("\u00a74Mod-Name not correct.");
 			else
 				hotkeys.put(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase()));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
@@ -374,7 +369,7 @@ public class HackedClient {
 			mods.autosprint.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
-				Util.sendMessage("§4Please enter a message.");
+				Util.sendMessage("\u00a74Please enter a message.");
 				return;
 			}
 			String msg = args[1];

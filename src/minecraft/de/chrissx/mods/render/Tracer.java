@@ -4,10 +4,10 @@ import java.awt.Color;
 
 import org.lwjgl.opengl.GL11;
 
-import de.chrissx.LocDouble;
-import de.chrissx.Util;
+import de.chrissx.locations.LocFloat64;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.ScaledResolution;
@@ -28,10 +28,10 @@ public class Tracer extends Mod {
 		    
 			GL11.glPointSize(2.0f);
 			
-		    LocDouble start = Util.getEyesPos();
+		    LocFloat64 start = Util.getEyesPos();
 		    
 		    for (EntityPlayer entity : mc.theWorld.playerEntities) {
-		        	LocDouble end = new LocDouble(x, y, y);
+		        	LocFloat64 end = new LocFloat64(x, y, y);
 		        	drawLine(start.getX(), start.getY(), start.getZ(), end.getX(), end.getY(), end.getZ(), mc.thePlayer.getDistanceToEntity(entity));
 		    }
 		}

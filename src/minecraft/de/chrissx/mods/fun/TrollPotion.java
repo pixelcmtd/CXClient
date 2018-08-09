@@ -1,9 +1,9 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.Util;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagList;
 
@@ -12,7 +12,7 @@ public class TrollPotion implements Bindable, Commandable {
 	@Override
 	public void onHotkey() {
 		if(!Minecraft.getMinecraft().playerController.isInCreativeMode()) {
-			Util.sendMessage("§4You have to be in gm 1 in order to execute this!");
+			Util.sendMessage("ï¿½4You have to be in gm 1 in order to execute this!");
 			return;
 		}
 		NBTTagList l = Util.getEffect(0, Integer.MAX_VALUE, Integer.MAX_VALUE);
@@ -24,7 +24,7 @@ public class TrollPotion implements Bindable, Commandable {
 	@Override
 	public void processCommand(String[] args) {
 		if(!Minecraft.getMinecraft().playerController.isInCreativeMode()) {
-			Util.sendMessage("§4You have to be in gm 1 in order to execute this!");
+			Util.sendMessage("ï¿½4You have to be in gm 1 in order to execute this!");
 			return;
 		}
 		NBTTagList l = Util.getEffect(0, Integer.MAX_VALUE, Integer.MAX_VALUE);

@@ -15,6 +15,7 @@ import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 
 import de.chrissx.HackedClient;
+import de.chrissx.util.Consts;
 
 import java.awt.image.BufferedImage;
 import java.io.File;
@@ -487,7 +488,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.displayHeight = this.gameSettings.overrideHeight;
         }
 
-        logger.info(hc.CLIENT_NAME + " Version: " + hc.VERSION);
+        logger.info(Consts.clientName + " Version: " + hc.VERSION);
         logger.info("LWJGL Version: " + Sys.getVersion());
         this.setWindowIcon();
         this.setInitialDisplayMode();

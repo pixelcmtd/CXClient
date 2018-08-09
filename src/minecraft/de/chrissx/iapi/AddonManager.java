@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
-import de.chrissx.Util;
+import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class AddonManager {
