@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.entity.Entity;
@@ -35,8 +36,8 @@ public class Killaura extends Mod {
 				if(!(e instanceof EntityLivingBase) || e == mc.thePlayer || mc.thePlayer.getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead || (legit && mc.thePlayer.isEating()))
 					continue;
 				else {
-					boolean attack = Util.rand(3) == 2;
-					boolean miss = (Util.randBool() && Util.randBool());
+					boolean attack = Random.rand(3) == 2;
+					boolean miss = (Random.randBool() && Random.randBool());
 					
 					if(legit && attack && !miss)
 						Util.faceEntity(e);

@@ -1,10 +1,10 @@
 package de.chrissx.mods.chat;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 import net.minecraft.entity.player.EntityPlayer;
 
@@ -20,10 +20,10 @@ public class MassTpa extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled) {
-			int i = Util.rand(players.size()-1);
+			int i = Random.rand(players.size()-1);
 			for(int a = 0; a < 50; a++)
 				if(tpaed.contains(i))
-					i = Util.rand(players.size()-1);
+					i = Random.rand(players.size()-1);
 			if(tpaed.contains(i))
 				tpaed = new ArrayList<Integer>();
 			Util.sendChat("/tpa "+players.get(i).getName());

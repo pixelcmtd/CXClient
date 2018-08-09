@@ -488,7 +488,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
             this.displayHeight = this.gameSettings.overrideHeight;
         }
 
-        logger.info(Consts.clientName + " Version: " + hc.VERSION);
+        logger.info(Consts.clientName + " Version: " + Consts.version);
         logger.info("LWJGL Version: " + Sys.getVersion());
         this.setWindowIcon();
         this.setInitialDisplayMode();
@@ -631,7 +631,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private void createDisplay() throws LWJGLException
     {
         Display.setResizable(true);
-        Display.setTitle(hc.CLIENT_NAME + " | Minecraft 1.8.8");
+        Display.setTitle(Consts.clientName + " | Minecraft 1.8.8");
 
         try
         {

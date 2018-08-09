@@ -3,6 +3,7 @@ package net.minecraft.client.gui;
 import com.google.common.collect.Lists;
 
 import de.chrissx.HackedClient;
+import de.chrissx.util.Consts;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -473,12 +474,12 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         GlStateManager.translate((float)(this.width / 2 + 90), 70.0F, 0.0F);
         GlStateManager.rotate(-20.0F, 0.0F, 0.0F, 1.0F);
         float f = 1.8F - MathHelper.abs((float) (MathHelper.sin((float) ((float)(Minecraft.getSystemTime() % 1000) / 1000 * Math.PI * 2)) * 0.1));
-        f = f * 100.0F / (float)(this.fontRendererObj.getStringWidth(HackedClient.getClient().CLIENT_NAME) + 32);
+        f = f * 100.0F / (float)(this.fontRendererObj.getStringWidth(Consts.clientName) + 32);
         GlStateManager.scale(f, f, f);
-        this.drawCenteredString(this.fontRendererObj, HackedClient.getClient().CLIENT_NAME, 0, -8, -256);
+        this.drawCenteredString(this.fontRendererObj, Consts.clientName, 0, -8, -256);
         GlStateManager.popMatrix();
 
-        this.drawString(this.fontRendererObj, HackedClient.getClient().CLIENT_NAME + " | Minecraft 1.8.8", 2, this.height - 10, -1);
+        this.drawString(this.fontRendererObj, Consts.clientName + " | Minecraft 1.8.8", 2, this.height - 10, -1);
         String s1 = "Copyright Mojang AB & chrissx Media Inc. Do not distribute!";
         this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, -1);
 
