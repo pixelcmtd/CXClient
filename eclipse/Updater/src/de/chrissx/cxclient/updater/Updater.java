@@ -1,10 +1,13 @@
 package de.chrissx.cxclient.updater;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 import javax.swing.JOptionPane;
 
@@ -14,14 +17,7 @@ public class Updater {
 	public static final String tempPath = System.getProperty("java.io.tmpdir");
 	public static final String versionPath = Util.generateTempFile(tempPath, "cxclient_version", ".dl");
 	
-	//old format:
-	//current_build_number current_jar (does not work because getting the jar is...broken)
-	//downloads version_url and parses int as server_build_number
-	//if server_build_number > current_build_number
-	//download client_url to current_jar
-	
-	//new format: current_build_number .minecraft_dir running_file
-	
+	//updater.jar [running_file] [jar]
 	public static void main(String[] args) {
 		try {
 			if(args.length == 0) {
@@ -34,37 +30,42 @@ public class Updater {
 				window.setVisible(false);
 				System.exit(0);
 			}else {
-				int currentBuild = Integer.parseInt(args[0]);
-				String outFile = args[1];
+				String jar_ = args[1];
 				for(int i = 2; i < args.length; i++)
-					outFile += " " + args[i];
-				Thread.sleep(500);
+					jar_ += " " + args[i];
+				File running = new File(args[0]);
+				File jar = new File(jar_);
+				while(running.exists())
+					Thread.sleep(1);
 				UpdaterWindow window = new UpdaterWindow("CXClient-Updater", 500, 75, true);
 				window.setVisible(true);
-				window.setWindowTitle("Retreiving newest version number");
-				Files.copy(new URL(VERSION_URL).openStream(), Paths.get(versionPath), StandardCopyOption.REPLACE_EXISTING);
+				window.setWindowTitle("Finding current build number.");
+				window.setProgress(0);
+				ZipInputStream zip = new ZipInputStream(new FileInputStream(jar));
+				window.setProgress(20);
+				ZipEntry entry;
+				while((entry = zip.getNextEntry()).getName() != "BLDNUM")
+					zip.closeEntry();
 				window.setProgress(50);
-				int serverBuild = Integer.parseInt(Files.readAllLines(Paths.get(versionPath)).get(0));
+				byte[] b = new byte[(int) entry.getSize()];
+				window.setProgress(60);
+				zip.read(b);
+				zip.closeEntry();
+				zip.close();
+				window.setProgress(80);
+				int bldnum = Integer.parseInt(new String(b));
 				window.setProgress(100);
-				if(!(serverBuild > currentBuild)) {
-					window.setVisible(false);
-					System.exit(0);
-				}
+				window.setWindowTitle("Getting server build number.");
 				window.setProgress(0);
-				window.setWindowTitle("Deleting local jar");
-				if(new File(outFile).exists())
-					Files.delete(Paths.get(outFile));
-				window.setProgress(100);
-				window.setWindowTitle("Downloading new jar");
-				window.setProgress(0);
-				Util.downloadFile(CLIENT_URL, outFile, window);
-				window.setProgress(100);
-				window.setWindowTitle("Finishing up.");
-				for(int i = 0; i <= 100; i++) {
-					Thread.sleep(5);
-					window.setProgress(i);
+				
+				if(bldnum > 0)
+				{
+					jar.delete();
 				}
-				window.setVisible(false);
+				else if(bldnum < 0)
+				{
+					
+				}
 				System.exit(0);
 			}
 		}catch(Exception e) {

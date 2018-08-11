@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="net.minecraft.block.BlockAir"/>
-<fullyQualifiedTypeName name="io.netty.handler.codec.base64.Base64"/>
 <fullyQualifiedTypeName name="java.util.Map.Entry"/>
 <fullyQualifiedTypeName name="java.util.Base64"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.Bindable"/>
@@ -21,7 +19,6 @@
 <fullyQualifiedTypeName name="java.lang.ClassLoader"/>
 <fullyQualifiedTypeName name="java.net.URLClassLoader"/>
 <fullyQualifiedTypeName name="java.net.URL"/>
-<fullyQualifiedTypeName name="java.util.zip.ZipEntry"/>
 <fullyQualifiedTypeName name="java.util.zip.ZipFile"/>
 <fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="de.chrissx.addons.AddonProperties"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="de.chrissx.util.Consts"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Util"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Random"/>
+<fullyQualifiedTypeName name="java.util.zip.ZipInputStream"/>
+<fullyQualifiedTypeName name="java.io.FileInputStream"/>
+<fullyQualifiedTypeName name="java.util.zip.ZipEntry"/>
 </qualifiedTypeNameHistroy>
