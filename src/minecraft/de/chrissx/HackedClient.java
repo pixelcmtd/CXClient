@@ -18,6 +18,7 @@ import com.google.common.io.Files;
 
 import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
+import de.chrissx.alts.CxcsvParser;
 import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
 import de.chrissx.iapi.Addon;
@@ -132,7 +133,7 @@ public class HackedClient {
 		
 		for(Mod m : mods)
 		{
-			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "_path");
+			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
 		}
 		
 		updateThread = new Thread(new Runnable() {
@@ -153,13 +154,7 @@ public class HackedClient {
 									f.delete();
 								}
 							}
-							int len = 1;
-							for(Mod m : mods)
-							{
-								len += m.getName().length();
-								len += 2;
-							}
-							ByteBuffer b = ByteBuffer.allocate(len);
+							ByteBuffer b = ByteBuffer.allocate(mods.length);
 							for(Mod m : mods)
 							{
 								try {
@@ -207,7 +202,7 @@ public class HackedClient {
 					gui.setText("Logged into premium account.");
 				}
 			}else if(cmd.equalsIgnoreCase("#help"))
-				gui.setText("Alt-commands: #login, #help, #load, #mcleaks, #alts");
+				gui.setText("Alt-commands: #login, #help, #load, #mcleaks, #alts, #cxcsv");
 			else if(cmd.equalsIgnoreCase("#load")) {
 				altManager.loadAlt(args[1]);
 				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
@@ -220,7 +215,12 @@ public class HackedClient {
 			}else if(cmd.equalsIgnoreCase("#alts"))
 				for(Alt a : altManager.getAlts())
 					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));
-			else
+			else if(cmd.equalsIgnoreCase("#cxcsv")) {
+				String s = args[1];
+				for(int i = 2; i < args.length; i++)
+					s += " " + args[i];
+				altManager.getAlts().addAll(CxcsvParser.loadAlts(Paths.get(s)));
+			}else
 				guiRenameWorld("#help", gui);
 		} catch (Exception e) {
 			gui.setText(e.getMessage());
