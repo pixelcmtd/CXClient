@@ -25,7 +25,8 @@ public class Consts {
 			clientName + " " + version + " Changelog:",
 			"",
 			"-Put the source of the client on GitHub",
-			"-Added a #credits command to show credits for the client"
+			"-Added a #credits command to show credits for the client",
+			"-Added a #cxcsv command to the alt manager to load CXColonSeparatedValues, which are lines of alts in the format email:password"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",

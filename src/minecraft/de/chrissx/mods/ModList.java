@@ -102,6 +102,8 @@ public class ModList implements Iterable<Mod> {
 	
 	private final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 	
+	public final int length;
+	
 	private final List<Mod> mods = Arrays.asList(new Mod[] {
 			skinBlinker,
 			fastBreak,
@@ -171,6 +173,14 @@ public class ModList implements Iterable<Mod> {
 			if(b instanceof StopListener && !stopListeners.contains(b))
 				stopListeners.add((StopListener) b);
 		}
+		
+		int len = 1;
+		for(Mod m : mods)
+		{
+			len += m.getName().length();
+			len += 2;
+		}
+		length = len;
 	}
 	
 	public void addBindable(Bindable bindable) {
