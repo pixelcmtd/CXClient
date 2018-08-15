@@ -16,11 +16,11 @@ public class Consts {
 	public static final String enabledPath = Paths.get(modsPath, "enabled").toString();
 	public static final String togglePath = Paths.get(modsPath, "toggle").toString();
 	public static final String tempPath = System.getProperty("java.io.tmpdir");
-	public static final String updaterUrl = "https://chrissxyt.github.io/CXClient/updater/ud.dl";
+	//public static final String updaterUrl = "https://chrissxyt.github.io/CXClient/updater/ud.dl";
 	public static final String updaterFile = Util.generateTempFile(tempPath, "cxclient_updater", ".jar");
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2401";
+	public static final String version = "alpha 2402";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
