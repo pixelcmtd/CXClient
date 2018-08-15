@@ -2,11 +2,9 @@ package de.chrissx.mods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -37,13 +35,15 @@ import de.chrissx.mods.fun.Twerk;
 import de.chrissx.mods.movement.ACFly1;
 import de.chrissx.mods.movement.ACFly2;
 import de.chrissx.mods.movement.ACSpeed1;
-import de.chrissx.mods.movement.StepJump;
 import de.chrissx.mods.movement.AntiAfk;
 import de.chrissx.mods.movement.Autosprint;
 import de.chrissx.mods.movement.FastLadder;
+import de.chrissx.mods.movement.Flip;
+import de.chrissx.mods.movement.Jetpack;
 import de.chrissx.mods.movement.LegitSpeed;
 import de.chrissx.mods.movement.Nofall;
 import de.chrissx.mods.movement.Sneak;
+import de.chrissx.mods.movement.StepJump;
 import de.chrissx.mods.movement.Timer;
 import de.chrissx.mods.movement.VanillaFly;
 import de.chrissx.mods.movement.Velocity;
@@ -92,6 +92,8 @@ public class ModList implements Iterable<Mod> {
 	public final Aimbot aimbot = new Aimbot();
 	public final JailsmcBot jailsmcBot = new JailsmcBot();
 	public final NoRender noRender = new NoRender();
+	public final Jetpack jetpack = new Jetpack();
+	public final Regen regen = new Regen();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -99,12 +101,13 @@ public class ModList implements Iterable<Mod> {
 	public final MultiText multiText = new MultiText();
 	public final KillPotion killPotion = new KillPotion();
 	public final TrollPotion trollPotion = new TrollPotion();
+	public final Flip flip = new Flip();
 	
-	private final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
+	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 	
 	public final int length;
 	
-	private final List<Mod> mods = Arrays.asList(new Mod[] {
+	final List<Mod> mods = Arrays.asList(new Mod[] {
 			skinBlinker,
 			fastBreak,
 			fastPlace,
@@ -141,7 +144,9 @@ public class ModList implements Iterable<Mod> {
 			freecam,
 			aimbot,
 			jailsmcBot,
-			noRender
+			noRender,
+			jetpack,
+			regen
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
@@ -158,6 +163,7 @@ public class ModList implements Iterable<Mod> {
 		addBindable(killPotion);
 		addBindable(text);
 		addBindable(multiText);
+		addBindable(flip);
 		
 		for(Mod m : mods) {
 			renderedObjects.add(m);
