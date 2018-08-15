@@ -18,6 +18,7 @@ public class Consts {
 	public static final String tempPath = System.getProperty("java.io.tmpdir");
 	//public static final String updaterUrl = "https://chrissxyt.github.io/CXClient/updater/ud.dl";
 	public static final String updaterFile = Util.generateTempFile(tempPath, "cxclient_updater", ".jar");
+	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
 	public static final String version = "alpha 2402";
@@ -26,7 +27,9 @@ public class Consts {
 			"",
 			"-Put the source of the client on GitHub",
 			"-Added a #credits command to show credits for the client",
-			"-Added a #cxcsv command to the alt manager to load CXColonSeparatedValues, which are lines of alts in the format email:password"
+			"-Added a #cxcsv command to the alt manager to load CXColonSeparatedValues, which are lines of alts in the format email:password",
+			"-Added a Jetpack mod, just another flavor of flying",
+			"-Added a Regen mod, just the one faster regenerate glitch found everywhere"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",
@@ -39,9 +42,15 @@ public class Consts {
 		"",
 		"Thanks to:",
 		"",
-		"-Garkolym for showing a few exploits (for example #text)",
+		"-Garkolym for showing a few exploits in his videos (for example #text)",
 		"-A few other people we stealt the Fly- and Speed-Bypasses from",
 		"-The developers of Wurst for making another open source client, we looked at, "
 		+ "when we needed ideas for hacks or when we just f*ed up"
 	};
+	
+	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, "
+			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #flip, "
+			+ "#cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, "
+			+ "#xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #jetpack, "
+			+ "#autosteal, #killaura, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
 }

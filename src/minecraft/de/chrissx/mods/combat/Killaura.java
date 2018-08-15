@@ -32,8 +32,10 @@ public class Killaura extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled) {
+			if(legit && mc.thePlayer.isEating())
+				return;
 			for(Entity e : mc.theWorld.loadedEntityList) {
-				if(!(e instanceof EntityLivingBase) || e == mc.thePlayer || mc.thePlayer.getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead || (legit && mc.thePlayer.isEating()))
+				if(!(e instanceof EntityLivingBase) || e == mc.thePlayer || mc.thePlayer.getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead)
 					continue;
 				else {
 					boolean attack = Random.rand(3) == 2;
@@ -43,7 +45,7 @@ public class Killaura extends Mod {
 						Util.faceEntity(e);
 					if(!hc.getMods().noswing.isEnabled() && (attack || !legit))
 						mc.thePlayer.swingItem();
-					if((attack && !miss) || !legit)
+					if(!legit || (attack && !miss))
 						mc.playerController.attackEntity(mc.thePlayer, e);
 					if(legit)
 						return;
@@ -68,13 +70,13 @@ public class Killaura extends Mod {
 				try {
 					max_range = Double.parseDouble(args[2]);
 				}catch(Exception e) {
-					Util.sendMessage("�4Error parsing double.");
+					Util.sendMessage("\u00a74Error parsing double.");
 				}
 			else if(args[1].equalsIgnoreCase("mode"))
 				try {
 					mode = KillauraMode.valueOf(args[2].toUpperCase());
 				} catch (Exception e) {
-					Util.sendMessage("�4Error valueOf-ing KillauraMode.");
+					Util.sendMessage("\u00a74Error valueOf-ing KillauraMode.");
 				}
 			else if(args[1].equalsIgnoreCase("invis"))
 				attackInvis = !attackInvis;

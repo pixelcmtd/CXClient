@@ -2,6 +2,7 @@ package de.chrissx;
 
 import java.awt.Color;
 import java.io.File;
+import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
@@ -58,7 +59,7 @@ public class HackedClient {
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
-			r.drawString("\00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
+			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.onRender(r, 4, (i*8)+4))
@@ -130,6 +131,17 @@ public class HackedClient {
 		mods = new ModList();
 		addonManager = new AddonManager();
 		addonManager.init(Consts.addonPath);
+		
+		f = new File(Consts.runningFile);
+		
+		if(!f.exists())
+			try {
+				f.createNewFile();
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			}
+		
+		f.deleteOnExit();
 		
 		for(Mod m : mods)
 		{
@@ -278,11 +290,7 @@ public class HackedClient {
 				cmd_+=" "+args[i];
 			Util.cheatCmdBlock(cmd_);
 		}else if(cmd.equalsIgnoreCase("#help"))
-			Util.sendMessage("Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, "
-					+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, "
-					+ "#cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, "
-					+ "#xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, "
-					+ "#autosteal, #killaura, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help");
+			Util.sendMessage(Consts.help);
 		else if(cmd.equalsIgnoreCase("#fastbreak"))
 			mods.fastBreak.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#nofall"))
@@ -373,7 +381,7 @@ public class HackedClient {
 			}
 			String msg = args[1];
 			for(int i = 2; i < args.length; i++)
-				msg+=" "+args[i];
+				msg += " " + args[i];
 			Util.sendChat(msg);
 		}else if(cmd.equalsIgnoreCase("#bedfucker"))
 			mods.bedFucker.processCommand(args);
@@ -432,10 +440,16 @@ public class HackedClient {
 			for(String s : Consts.credits)
 				Util.sendMessage(s);
 		}
+		else if(cmd.equalsIgnoreCase("#jetpack"))
+			mods.jetpack.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#regen"))
+			mods.regen.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#flip"))
+			mods.flip.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else
-			onCommand(new String[] {"#help", "internally", "called"});
+			onCommand(new String[] {"#help", "internally\", \"called"});
   	}
 	
 	public McLeaksSession getMcLeaksSession() {

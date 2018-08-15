@@ -97,6 +97,10 @@ public class Util {
 		mc.playerController.windowClick(windowId, slot2, 0, 1, mc.thePlayer);
 	}
 	
+	/**
+	 * Sends the packet to break the block instantly.
+	 * @param block The block to break.
+	 */
 	public static void breakBlock(BlockPos block) {
 		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
 		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
@@ -114,11 +118,11 @@ public class Util {
 		final BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
 		final FileOutputStream out = new FileOutputStream(file);
 		
-		final byte data[] = new byte[1048576];
+		final byte[] bfr = new byte[512];
 		int count = 0;
 
-		while ((count = in.read(data, 0, 65536)) != -1)
-			out.write(data, 0, count);
+		while ((count = in.read(bfr, 0, 65536)) != -1)
+			out.write(bfr, 0, count);
 		
 		out.close();
 		in.close();
