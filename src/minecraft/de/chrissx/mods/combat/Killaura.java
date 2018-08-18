@@ -18,8 +18,9 @@ public class Killaura extends Mod {
 	KillauraMode mode = KillauraMode.BOTH;
 	boolean attackInvis = false;
 	boolean legit = false;
+	boolean legit2 = false;
 	List<String> whitelistedPlayers = new ArrayList<String>();
-	File rf, mf, aif, lf;
+	File rf, mf, aif, lf, lf2;
 	
 	public Killaura() {
 		super("KillAura");
@@ -27,6 +28,7 @@ public class Killaura extends Mod {
 		mf = getApiFile("mode");
 		aif = getApiFile("attack_invis");
 		lf = getApiFile("legit");
+		lf2 = getApiFile("legit2");
 	}
 
 	@Override
@@ -43,9 +45,9 @@ public class Killaura extends Mod {
 					
 					if(legit && attack && !miss)
 						Util.faceEntity(e);
-					if(!hc.getMods().noswing.isEnabled() && (attack || !legit))
+					if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
 						mc.thePlayer.swingItem();
-					if(!legit || (attack && !miss))
+					if(!legit2 || (attack && !miss))
 						mc.playerController.attackEntity(mc.thePlayer, e);
 					if(legit)
 						return;
@@ -57,7 +59,7 @@ public class Killaura extends Mod {
 	@Override
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(enabled)
-			r.drawString(name+"(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA") + ",LEGIT:" + (legit ? "YA" : "NA") + ")", x, y, Color.WHITE.getRGB());
+			r.drawString(name+"(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA") + ",LEGIT1:" + (legit ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ")", x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
 
@@ -84,10 +86,12 @@ public class Killaura extends Mod {
 				whitelistedPlayers.add(args[2]);
 			else if(args[1].equalsIgnoreCase("remove"))
 				whitelistedPlayers.remove(args[2]);
-			else if(args[1].equalsIgnoreCase("legit"))
+			else if(args[1].equalsIgnoreCase("legit1"))
 				legit = !legit;
+			else if(args[1].equalsIgnoreCase("legit2"))
+				legit2 = !legit2;
 			else
-				Util.sendMessage("#killaura to toggle, #killaura range <double> to set range, #killaura mode <KillauraMode> to set mode, #killaura invis to toggle invis-attacking, #killaura add <String> to add whitelisted player, #killaura remove to remove whitelisted player, #killaura legit to toggle targetting.");
+				Util.sendMessage("#killaura to toggle, #killaura range <double> to set range, #killaura mode <KillauraMode> to set mode, #killaura invis to toggle invis-attacking, #killaura add <String> to add whitelisted player, #killaura remove to remove whitelisted player, #killaura legit1 to toggle targetting, #killaura legit2 to toggle missing.");
 		}
 	}
 
@@ -97,5 +101,6 @@ public class Killaura extends Mod {
 		write(mf, mode.b);
 		write(aif, attackInvis);
 		write(lf, legit);
+		write(lf2, legit2);
 	}
 }

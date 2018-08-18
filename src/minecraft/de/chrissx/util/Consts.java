@@ -21,7 +21,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2402";
+	public static final String version = "2.4";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -29,7 +29,10 @@ public class Consts {
 			"-Added a #credits command to show credits for the client",
 			"-Added a #cxcsv command to the alt manager to load CXColonSeparatedValues, which are lines of alts in the format email:password",
 			"-Added a Jetpack mod, just another flavor of flying",
-			"-Added a Regen mod, just the one faster regenerate glitch found everywhere"
+			"-Added a Regen mod, just the one faster regenerate glitch found everywhere",
+			"-Added a Flip bindable (#flip), turns 180\u00b0 around",
+			"-Disabled closing the chest in AutoSteal because it didn't work",
+			"-Added a legit2 to Killaura, for disabling missing hits in legit mode"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",

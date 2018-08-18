@@ -22,26 +22,28 @@ public class Autosteal extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && mc.currentScreen instanceof GuiChest && !bypass) {
-			GuiChest gui = (GuiChest)mc.currentScreen;
-			for(int i = 0; i < gui.getUpper().getSizeInventory(); i++)
-				if(gui.inventorySlots.getSlot(i).getHasStack())
-					mc.playerController.windowClick(gui.inventorySlots.windowId, i, 0, 1, mc.thePlayer);
-			mc.displayGuiScreen(null);
-			mc.setIngameFocus();
-		}else if(enabled && mc.currentScreen instanceof GuiChest && bypass) {
-			if(timer < Random.rand(8))
-				timer++;
-			else {
-				timer = 0;
+		if(enabled && mc.currentScreen instanceof GuiChest)
+		{
+			if(bypass)
+			{
+				if(timer < Random.rand(6))
+					timer++;
+				else {
+					timer = 0;
+					GuiChest gui = (GuiChest)mc.currentScreen;
+					for(int i = 0; i < gui.getUpper().getSizeInventory(); i++)
+						if(gui.inventorySlots.getSlot(i).getHasStack()) {
+							mc.playerController.windowClick(gui.inventorySlots.windowId, i, 0, 1, mc.thePlayer);
+							return;
+						}
+				}
+			}
+			else
+			{
 				GuiChest gui = (GuiChest)mc.currentScreen;
 				for(int i = 0; i < gui.getUpper().getSizeInventory(); i++)
-					if(gui.inventorySlots.getSlot(i).getHasStack()) {
+					if(gui.inventorySlots.getSlot(i).getHasStack())
 						mc.playerController.windowClick(gui.inventorySlots.windowId, i, 0, 1, mc.thePlayer);
-						return;
-					}
-				mc.displayGuiScreen(null);
-				mc.setIngameFocus();
 			}
 		}
 	}
