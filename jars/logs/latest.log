@@ -1,43 +1,32 @@
-[21:53:27] [Client thread/INFO]: Setting user: Player271
-[21:53:27] [Client thread/INFO]: (Session ID is token:0:Player271)
-[21:53:30] [Client thread/INFO]: CXClient Version: alpha 2402
-[21:53:30] [Client thread/INFO]: LWJGL Version: 2.9.4
-[21:53:31] [Client thread/INFO]: Reloading ResourceManager: Default
-[21:53:31] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[21:53:31] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[21:53:31] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[21:53:31] [Thread-7/INFO]: OpenAL initialized.
-[21:53:31] [Sound Library Loader/INFO]: Sound engine started
-[21:53:32] [Client thread/INFO]: Created: 512x512 textures-atlas
-[21:53:38] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[21:53:38] [Server thread/INFO]: Generating keypair
-[21:53:38] [Server thread/INFO]: Preparing start region for level 0
-[21:53:39] [Server thread/INFO]: Changing view distance to 12, from 10
-[21:53:39] [Server thread/INFO]: Player271[local:E:31b09c90] logged in with entity id 155 at (665.6935569548514, 69.0, 275.2181231508867)
-[21:53:39] [Server thread/INFO]: Player271 joined the game
-[21:53:43] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:44] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:44] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:45] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:45] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:46] [Server thread/INFO]: Saving and pausing game...
-[21:53:46] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[21:53:46] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[21:53:46] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[21:53:57] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:58] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:53:59] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:54:00] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[21:54:04] [Server thread/INFO]: Saving and pausing game...
-[21:54:04] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[21:54:04] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[21:54:04] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[21:54:17] [Server thread/INFO]: Stopping server
-[21:54:17] [Server thread/INFO]: Saving players
-[21:54:17] [Server thread/INFO]: Saving worlds
-[21:54:17] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[21:54:17] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[21:54:17] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[21:54:18] [Client thread/INFO]: Stopping!
-[21:54:18] [Client thread/INFO]: SoundSystem shutting down...
-[21:54:18] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[16:12:56] [Client thread/INFO]: Setting user: Player970
+[16:12:56] [Client thread/INFO]: (Session ID is token:0:Player970)
+[16:12:58] [Client thread/INFO]: CXClient Version: 2.4
+[16:12:58] [Client thread/INFO]: LWJGL Version: 2.9.4
+[16:12:59] [Client thread/INFO]: Reloading ResourceManager: Default
+[16:12:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[16:12:59] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[16:12:59] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[16:13:00] [Thread-7/INFO]: OpenAL initialized.
+[16:13:00] [Sound Library Loader/INFO]: Sound engine started
+[16:13:01] [Client thread/INFO]: Created: 512x512 textures-atlas
+[16:13:05] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[16:13:05] [Server thread/INFO]: Generating keypair
+[16:13:05] [Server thread/INFO]: Preparing start region for level 0
+[16:13:06] [Server thread/INFO]: Changing view distance to 12, from 10
+[16:13:07] [Server thread/INFO]: Player970[local:E:5eb77dfb] logged in with entity id 169 at (473.8982730582597, 75.0, 278.5324805949388)
+[16:13:07] [Server thread/INFO]: Player970 joined the game
+[16:16:47] [Server thread/INFO]: Player970 was blown up by Creeper
+[16:16:47] [Client thread/INFO]: [CHAT] Player970 was blown up by Creeper
+[16:16:52] [Server thread/INFO]: Saving and pausing game...
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[16:16:53] [Server thread/INFO]: Stopping server
+[16:16:53] [Server thread/INFO]: Saving players
+[16:16:53] [Server thread/INFO]: Saving worlds
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[16:16:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[16:17:15] [Client thread/INFO]: Stopping!
+[16:17:15] [Client thread/INFO]: SoundSystem shutting down...
+[16:17:15] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
