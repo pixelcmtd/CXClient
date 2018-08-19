@@ -5,7 +5,7 @@ import net.minecraft.util.ResourceLocation;
 
 public class GuardianSound extends MovingSound
 {
-    private final EntityGuardian guardian;
+    final EntityGuardian guardian;
 
     public GuardianSound(EntityGuardian guardian)
     {
@@ -21,12 +21,12 @@ public class GuardianSound extends MovingSound
      */
     public void update()
     {
-        if (!this.guardian.isDead && this.guardian.hasTargetedEntity())
+        if (!guardian.isDead && this.guardian.hasTargetedEntity())
         {
-            this.xPosF = (float)this.guardian.posX;
-            this.yPosF = (float)this.guardian.posY;
-            this.zPosF = (float)this.guardian.posZ;
-            float f = this.guardian.func_175477_p(0.0F);
+            xPosF = (float)guardian.posX;
+            yPosF = (float)guardian.posY;
+            zPosF = (float)guardian.posZ;
+            float f = this.guardian.func_175477_p(0);
             this.volume = 0.0F + 1.0F * f * f;
             this.pitch = 0.7F + 0.5F * f;
         }

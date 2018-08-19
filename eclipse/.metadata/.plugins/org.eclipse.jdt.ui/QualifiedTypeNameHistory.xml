@@ -1,15 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="de.chrissx.mods.Bindable"/>
-<fullyQualifiedTypeName name="java.io.BufferedReader"/>
-<fullyQualifiedTypeName name="de.chrissx.HotkeySaving"/>
-<fullyQualifiedTypeName name="de.chrissx.mods.StopListener"/>
-<fullyQualifiedTypeName name="java.security.Policy"/>
-<fullyQualifiedTypeName name="java.security.PermissionCollection"/>
-<fullyQualifiedTypeName name="java.security.CodeSource"/>
-<fullyQualifiedTypeName name="java.security.Permission"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="de.chrissx.addons.AddonManager"/>
 <fullyQualifiedTypeName name="de.chrissx.api.CommandExecutor"/>
 <fullyQualifiedTypeName name="java.util.logging.Logger"/>
 <fullyQualifiedTypeName name="java.lang.ClassLoader"/>
@@ -41,7 +31,6 @@
 <fullyQualifiedTypeName name="java.nio.charset.Charset"/>
 <fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
 <fullyQualifiedTypeName name="java.io.File"/>
-<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
 <fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.nio.file.Paths"/>
 <fullyQualifiedTypeName name="de.chrissx.Constants"/>
@@ -56,8 +45,19 @@
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
 <fullyQualifiedTypeName name="java.util.zip.ZipEntry"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="de.chrissx.alts.CxcsvParser"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
 <fullyQualifiedTypeName name="net.minecraft.client.gui.inventory.GuiChest"/>
+<fullyQualifiedTypeName name="io.netty.util.concurrent.GenericFutureListener"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.Map.Entry"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.Bindable"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.Commandable"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C06PacketPlayerPosLook"/>
+<fullyQualifiedTypeName name="net.minecraft.network.NetworkManager.StoppedPacket"/>
+<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
+<fullyQualifiedTypeName name="net.minecraft.network.NetworkManager"/>
 </qualifiedTypeNameHistroy>

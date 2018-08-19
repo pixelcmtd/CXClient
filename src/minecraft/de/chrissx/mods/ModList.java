@@ -94,6 +94,7 @@ public class ModList implements Iterable<Mod> {
 	public final NoRender noRender = new NoRender();
 	public final Jetpack jetpack = new Jetpack();
 	public final Regen regen = new Regen();
+	public final Lag lag = new Lag();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -146,7 +147,8 @@ public class ModList implements Iterable<Mod> {
 			jailsmcBot,
 			noRender,
 			jetpack,
-			regen
+			regen,
+			lag
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
