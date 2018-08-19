@@ -41,6 +41,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
 
 public class HackedClient {
 	static HackedClient client = null;
@@ -55,6 +56,11 @@ public class HackedClient {
 	boolean disableHotkeys = true;
 	final AddonManager addonManager;
 	final Thread updateThread;
+	
+	public boolean stopPackets()
+	{
+		return mods.lag.isEnabled();
+	}
 	
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
@@ -446,6 +452,8 @@ public class HackedClient {
 			mods.regen.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#flip"))
 			mods.flip.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#lag"))
+			mods.lag.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

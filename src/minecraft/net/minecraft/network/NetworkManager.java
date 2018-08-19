@@ -1,7 +1,25 @@
 package net.minecraft.network;
 
+import java.net.InetAddress;
+import java.net.SocketAddress;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
+
+import javax.crypto.SecretKey;
+
+import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.Validate;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
+
 import com.google.common.collect.Queues;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
+
+import de.chrissx.HackedClient;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelException;
@@ -27,11 +45,9 @@ import io.netty.handler.timeout.TimeoutException;
 import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
-import java.net.InetAddress;
-import java.net.SocketAddress;
-import java.util.Queue;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
-import javax.crypto.SecretKey;
+import net.minecraft.network.play.client.C03PacketPlayer;
+import net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition;
+import net.minecraft.network.play.client.C03PacketPlayer.C06PacketPlayerPosLook;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.ChatComponentTranslation;
 import net.minecraft.util.CryptManager;
@@ -42,12 +58,6 @@ import net.minecraft.util.MessageDeserializer;
 import net.minecraft.util.MessageDeserializer2;
 import net.minecraft.util.MessageSerializer;
 import net.minecraft.util.MessageSerializer2;
-import org.apache.commons.lang3.ArrayUtils;
-import org.apache.commons.lang3.Validate;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-import org.apache.logging.log4j.Marker;
-import org.apache.logging.log4j.MarkerManager;
 
 public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 {
@@ -76,9 +86,9 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             return new LocalEventLoopGroup(0, (new ThreadFactoryBuilder()).setNameFormat("Netty Local Client IO #%d").setDaemon(true).build());
         }
     };
-    private final EnumPacketDirection direction;
-    private final Queue<NetworkManager.InboundHandlerTuplePacketListener> outboundPacketsQueue = Queues.<NetworkManager.InboundHandlerTuplePacketListener>newConcurrentLinkedQueue();
-    private final ReentrantReadWriteLock field_181680_j = new ReentrantReadWriteLock();
+    final EnumPacketDirection direction;
+    final Queue<NetworkManager.InboundHandlerTuplePacketListener> outboundPacketsQueue = Queues.<NetworkManager.InboundHandlerTuplePacketListener>newConcurrentLinkedQueue();
+    final ReentrantReadWriteLock field_181680_j = new ReentrantReadWriteLock();
 
     /** The active channel */
     private Channel channel;
@@ -127,23 +137,23 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 
     public void channelInactive(ChannelHandlerContext p_channelInactive_1_) throws Exception
     {
-        this.closeChannel(new ChatComponentTranslation("disconnect.endOfStream", new Object[0]));
+        closeChannel(new ChatComponentTranslation("disconnect.endOfStream"));
     }
 
-    public void exceptionCaught(ChannelHandlerContext p_exceptionCaught_1_, Throwable p_exceptionCaught_2_) throws Exception
+    public void exceptionCaught(ChannelHandlerContext channelHandler, Throwable caughtException) throws Exception
     {
-        ChatComponentTranslation chatcomponenttranslation;
+        ChatComponentTranslation cct;
 
-        if (p_exceptionCaught_2_ instanceof TimeoutException)
+        if (caughtException instanceof TimeoutException)
         {
-            chatcomponenttranslation = new ChatComponentTranslation("disconnect.timeout", new Object[0]);
+            cct = new ChatComponentTranslation("disconnect.timeout");
         }
         else
         {
-            chatcomponenttranslation = new ChatComponentTranslation("disconnect.genericReason", new Object[] {"Internal Exception: " + p_exceptionCaught_2_});
+            cct = new ChatComponentTranslation("disconnect.genericReason", "Internal Exception: " + caughtException);
         }
 
-        this.closeChannel(chatcomponenttranslation);
+        closeChannel(cct);
     }
 
     protected void channelRead0(ChannelHandlerContext p_channelRead0_1_, Packet p_channelRead0_2_) throws Exception
@@ -154,10 +164,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             {
                 p_channelRead0_2_.processPacket(this.packetListener);
             }
-            catch (ThreadQuickExitException var4)
-            {
-                ;
-            }
+            catch (ThreadQuickExitException var4) {}
         }
     }
 
@@ -168,7 +175,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
     public void setNetHandler(INetHandler handler)
     {
         Validate.notNull(handler, "packetListener", new Object[0]);
-        logger.debug("Set listener of {} to {}", new Object[] {this, handler});
+        logger.debug("Set listener of {} to {}", this, handler);
         this.packetListener = handler;
     }
 
@@ -177,7 +184,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         if (this.isChannelOpen())
         {
             this.flushOutboundQueue();
-            this.dispatchPacket(packetIn, (GenericFutureListener <? extends Future <? super Void >> [])null);
+            this.dispatchPacket(packetIn, null);
         }
         else
         {
@@ -199,7 +206,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         if (this.isChannelOpen())
         {
             this.flushOutboundQueue();
-            this.dispatchPacket(packetIn, (GenericFutureListener[])ArrayUtils.add(listeners, 0, listener));
+            this.dispatchPacket(packetIn, ArrayUtils.add(listeners, 0, listener));
         }
         else
         {
@@ -215,13 +222,78 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             }
         }
     }
+    
+    class StoppedPacket
+    {
+    	public Packet p;
+    	public GenericFutureListener<? extends Future<? super Void>>[] fl;
+    	
+    	public StoppedPacket(Packet p, GenericFutureListener<? extends Future<? super Void>>[] fl)
+    	{
+    		this.p = p;
+    		this.fl = fl;
+    	}
+    }
+
+    List<StoppedPacket> stoppedPackets = new ArrayList<StoppedPacket>();
+    boolean testStoppedPackets = true;
+    
+    public void printStoppedPackets()
+    {
+    	for(StoppedPacket sp : stoppedPackets)
+    	{
+    		logger.info(sp.p);
+    	}
+    }
 
     /**
      * Will commit the packet to the channel. If the current thread 'owns' the channel it will write and flush the
      * packet, otherwise it will add a task for the channel eventloop thread to do that.
      */
-    private void dispatchPacket(final Packet inPacket, final GenericFutureListener <? extends Future <? super Void >> [] futureListeners)
+    void dispatchPacket(final Packet inPacket, final GenericFutureListener <? extends Future <? super Void >> [] futureListeners)
     {
+    	if(HackedClient.getClient().stopPackets())
+       	{
+    		StoppedPacket rm1 = null;
+    		StoppedPacket rm2 = null;
+    		if(inPacket instanceof C04PacketPlayerPosition)
+    		{
+    			for(StoppedPacket sp : stoppedPackets)
+    			{
+    				if(sp.p instanceof C04PacketPlayerPosition)
+    				{
+    					rm1 = sp;
+    				}
+    			}
+    		}
+    		if(rm1 != null)
+    		{
+    			stoppedPackets.remove(rm1);
+    		}
+    		if(inPacket instanceof C06PacketPlayerPosLook)
+    		{
+    			for(StoppedPacket sp : stoppedPackets)
+    			{
+    				if(sp.p instanceof C06PacketPlayerPosLook)
+    				{
+    					rm2 = sp;
+    				}
+    			}
+    		}
+    		if(rm2 != null)
+    		{
+    			stoppedPackets.remove(rm2);
+    		}
+       		stoppedPackets.add(new StoppedPacket(inPacket, futureListeners));
+       		return;
+       	}
+       	else if(stoppedPackets.size() > 0 && testStoppedPackets)
+        {
+       		StoppedPacket p = stoppedPackets.remove(0);
+       		testStoppedPackets = false;
+        	dispatchPacket(p.p, p.fl);
+        	testStoppedPackets = true;
+        }
         final EnumConnectionState enumconnectionstate = EnumConnectionState.getFromPacket(inPacket);
         final EnumConnectionState enumconnectionstate1 = (EnumConnectionState)this.channel.attr(attrKeyConnectionState).get();
 
@@ -284,8 +356,8 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             {
                 while (!this.outboundPacketsQueue.isEmpty())
                 {
-                    NetworkManager.InboundHandlerTuplePacketListener networkmanager$inboundhandlertuplepacketlistener = (NetworkManager.InboundHandlerTuplePacketListener)this.outboundPacketsQueue.poll();
-                    this.dispatchPacket(networkmanager$inboundhandlertuplepacketlistener.packet, networkmanager$inboundhandlertuplepacketlistener.futureListeners);
+                    NetworkManager.InboundHandlerTuplePacketListener ihtpl = (NetworkManager.InboundHandlerTuplePacketListener)this.outboundPacketsQueue.poll();
+                    this.dispatchPacket(ihtpl.packet, ihtpl.futureListeners);
                 }
             }
             finally

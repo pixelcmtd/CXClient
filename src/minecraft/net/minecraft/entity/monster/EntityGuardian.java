@@ -39,15 +39,15 @@ import net.minecraft.world.World;
 
 public class EntityGuardian extends EntityMob
 {
-    private float field_175482_b;
-    private float field_175484_c;
-    private float field_175483_bk;
-    private float field_175485_bl;
-    private float field_175486_bm;
-    private EntityLivingBase targetedEntity;
-    private int field_175479_bo;
-    private boolean field_175480_bp;
-    private EntityAIWander wander;
+    float field_175482_b;
+    float field_175484_c;
+    float field_175483_bk;
+    float field_175485_bl;
+    float field_175486_bm;
+    EntityLivingBase targetedEntity;
+    int field_175479_bo;
+    boolean field_175480_bp;
+    EntityAIWander wander;
 
     public EntityGuardian(World worldIn)
     {
@@ -113,7 +113,7 @@ public class EntityGuardian extends EntityMob
     /**
      * Returns true if given flag is set
      */
-    private boolean isSyncedFlagSet(int flagId)
+    boolean isSyncedFlagSet(int flagId)
     {
         return (this.dataWatcher.getWatchableObjectInt(16) & flagId) != 0;
     }
@@ -121,7 +121,7 @@ public class EntityGuardian extends EntityMob
     /**
      * Sets a flag state "on/off" on both sides (client/server) by using DataWatcher
      */
-    private void setSyncedFlag(int flagId, boolean state)
+    void setSyncedFlag(int flagId, boolean state)
     {
         int i = this.dataWatcher.getWatchableObjectInt(16);
 
@@ -135,12 +135,12 @@ public class EntityGuardian extends EntityMob
         }
     }
 
-    public boolean func_175472_n()
+    public boolean syncedFlag2()
     {
         return this.isSyncedFlagSet(2);
     }
 
-    private void func_175476_l(boolean p_175476_1_)
+    private void setSyncedFlag2(boolean p_175476_1_)
     {
         this.setSyncedFlag(2, p_175476_1_);
     }
@@ -160,26 +160,29 @@ public class EntityGuardian extends EntityMob
      */
     public void setElder(boolean elder)
     {
-        this.setSyncedFlag(4, elder);
+        setSyncedFlag(4, elder);
 
         if (elder)
         {
-            this.setSize(1.9975F, 1.9975F);
-            this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30000001192092896D);
-            this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8.0D);
-            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
-            this.enablePersistence();
-            this.wander.setExecutionChance(400);
+            setSize(1.9975F, 1.9975F);
+            getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.30000001192092896D);
+            getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(8.0D);
+            getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
+            enablePersistence();
+            wander.setExecutionChance(400);
         }
     }
 
+    /**
+     * Sets elder to true and sets two floats we don't know the names of.
+     */
     public void setElder()
     {
-        this.setElder(true);
-        this.field_175486_bm = this.field_175485_bl = 1.0F;
+        setElder(true);
+        field_175486_bm = field_175485_bl = 1;
     }
 
-    private void setTargetedEntity(int entityId)
+    void setTargetedEntity(int entityId)
     {
         this.dataWatcher.updateObject(17, Integer.valueOf(entityId));
     }
@@ -204,16 +207,7 @@ public class EntityGuardian extends EntityMob
             else
             {
                 Entity entity = this.worldObj.getEntityByID(this.dataWatcher.getWatchableObjectInt(17));
-
-                if (entity instanceof EntityLivingBase)
-                {
-                    this.targetedEntity = (EntityLivingBase)entity;
-                    return this.targetedEntity;
-                }
-                else
-                {
-                    return null;
-                }
+                return entity instanceof EntityLivingBase ? (targetedEntity = (EntityLivingBase)entity) : null;
             }
         }
         else
@@ -297,13 +291,13 @@ public class EntityGuardian extends EntityMob
      */
     public void onLivingUpdate()
     {
-        if (this.worldObj.isRemote)
+        if (worldObj.isRemote)
         {
-            this.field_175484_c = this.field_175482_b;
+            field_175484_c = field_175482_b;
 
-            if (!this.isInWater())
+            if (!isInWater())
             {
-                this.field_175483_bk = 2.0F;
+                this.field_175483_bk = 2;
 
                 if (this.motionY > 0.0D && this.field_175480_bp && !this.isSilent())
                 {
@@ -312,7 +306,7 @@ public class EntityGuardian extends EntityMob
 
                 this.field_175480_bp = this.motionY < 0.0D && this.worldObj.isBlockNormalCube((new BlockPos(this)).down(), false);
             }
-            else if (this.func_175472_n())
+            else if (this.syncedFlag2())
             {
                 if (this.field_175483_bk < 0.5F)
                 {
@@ -335,7 +329,7 @@ public class EntityGuardian extends EntityMob
             {
                 this.field_175485_bl = this.rand.nextFloat();
             }
-            else if (this.func_175472_n())
+            else if (this.syncedFlag2())
             {
                 this.field_175485_bl += (0.0F - this.field_175485_bl) * 0.25F;
             }
@@ -344,7 +338,7 @@ public class EntityGuardian extends EntityMob
                 this.field_175485_bl += (1.0F - this.field_175485_bl) * 0.06F;
             }
 
-            if (this.func_175472_n() && this.isInWater())
+            if (this.syncedFlag2() && this.isInWater())
             {
                 Vec3 vec3 = this.getLook(0.0F);
 
@@ -526,7 +520,7 @@ public class EntityGuardian extends EntityMob
      */
     public boolean attackEntityFrom(DamageSource source, float amount)
     {
-        if (!this.func_175472_n() && !source.isMagicDamage() && source.getSourceOfDamage() instanceof EntityLivingBase)
+        if (!this.syncedFlag2() && !source.isMagicDamage() && source.getSourceOfDamage() instanceof EntityLivingBase)
         {
             EntityLivingBase entitylivingbase = (EntityLivingBase)source.getSourceOfDamage();
 
@@ -565,7 +559,7 @@ public class EntityGuardian extends EntityMob
                 this.motionY *= 0.8999999761581421D;
                 this.motionZ *= 0.8999999761581421D;
 
-                if (!this.func_175472_n() && this.getAttackTarget() == null)
+                if (!this.syncedFlag2() && this.getAttackTarget() == null)
                 {
                     this.motionY -= 0.005D;
                 }
@@ -583,8 +577,8 @@ public class EntityGuardian extends EntityMob
 
     static class AIGuardianAttack extends EntityAIBase
     {
-        private EntityGuardian theEntity;
-        private int tickCounter;
+        EntityGuardian theEntity;
+        int tickCounter;
 
         public AIGuardianAttack(EntityGuardian p_i45833_1_)
         {
@@ -714,12 +708,12 @@ public class EntityGuardian extends EntityMob
                 }
 
                 this.entityGuardian.getLookHelper().setLookPosition(d10 + (d7 - d10) * 0.125D, d11 + (d8 - d11) * 0.125D, d12 + (d9 - d12) * 0.125D, 10.0F, 40.0F);
-                this.entityGuardian.func_175476_l(true);
+                this.entityGuardian.setSyncedFlag2(true);
             }
             else
             {
                 this.entityGuardian.setAIMoveSpeed(0.0F);
-                this.entityGuardian.func_175476_l(false);
+                this.entityGuardian.setSyncedFlag2(false);
             }
         }
     }
