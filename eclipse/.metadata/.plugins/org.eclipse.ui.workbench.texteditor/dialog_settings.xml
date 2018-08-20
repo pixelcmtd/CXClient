@@ -2,29 +2,33 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="" key="selection"/>
+		<item value="z" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="zCoord"/>
+			<item value="yCoord"/>
+			<item value="xCoord"/>
+			<item value="this.zCoord"/>
+			<item value="this.yCoord"/>
+			<item value="this.xCoord"/>
+			<item value="Vec3d"/>
+			<item value="isairblock"/>
+			<item value="hard"/>
 			<item value="�"/>
 			<item value="invis"/>
 			<item value="#invis"/>
 			<item value="hc"/>
 			<item value="HackedClient"/>
 			<item value="hackedclient"/>
-			<item value="hackeclient"/>
-			<item value="disconnecting"/>
-			<item value="is modded"/>
-			<item value="int"/>
-			<item value="float"/>
-			<item value="#give"/>
-			<item value="field_175058_l"/>
-			<item value="shadow"/>
-			<item value="autoar"/>
 		</list>
 		<list key="replacehistory">
+			<item value="z"/>
+			<item value="y"/>
+			<item value="x"/>
+			<item value="LocFloat64"/>
 			<item value="\u00a7"/>
 			<item value="long"/>
 			<item value="int"/>
@@ -36,9 +40,9 @@
 		</list>
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
-		<item value="344" key="DIALOG_WIDTH"/>
-		<item value="1|Ubuntu|11.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
-		<item value="440" key="DIALOG_HEIGHT"/>
+		<item value="284" key="DIALOG_WIDTH"/>
+		<item value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI" key="DIALOG_FONT_NAME"/>
+		<item value="391" key="DIALOG_HEIGHT"/>
 		<item value="1473" key="DIALOG_X_ORIGIN"/>
 		<item value="491" key="DIALOG_Y_ORIGIN"/>
 	</section>
