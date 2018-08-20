@@ -1,5 +1,6 @@
 package de.chrissx.mods;
 
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.network.play.client.C03PacketPlayer;
 
 public class Regen extends Mod {
@@ -11,12 +12,10 @@ public class Regen extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !mc.playerController.isInCreativeMode() && mc.thePlayer.getFoodStats().getFoodLevel() > 17 && mc.thePlayer.getHealth() < 20 && mc.thePlayer.getHealth() != 0 && mc.thePlayer.onGround)
+		EntityPlayerSP p = mc.thePlayer;
+		if(enabled && !mc.playerController.isInCreativeMode() && p.getFoodStats().getFoodLevel() > 17 && p.getHealth() < 20 && p.getHealth() != 0 && p.onGround)
 			for(short i = 0; i < 250; i++)
-			{
-				System.out.println("Sent regen packet " + i);
 				mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer());
-			}
 	}
 
 }

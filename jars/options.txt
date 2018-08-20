@@ -22,9 +22,9 @@ chatVisibility:0
 chatColors:true
 chatLinks:true
 chatLinksPrompt:true
-chatOpacity:1.0
+chatOpacity:0.8873239
 snooperEnabled:true
-fullscreen:false
+fullscreen:true
 enableVsync:true
 useVbo:false
 hideServerAddress:false
@@ -36,8 +36,8 @@ overrideHeight:0
 heldItemTooltips:true
 chatHeightFocused:1.0
 chatHeightUnfocused:1.0
-chatScale:1.0
-chatWidth:1.0
+chatScale:0.90140843
+chatWidth:0.6690141
 showInventoryAchievementHint:false
 mipmapLevels:4
 streamBytesPerPixel:0.5

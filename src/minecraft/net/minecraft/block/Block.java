@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Random;
 
 import de.chrissx.HackedClient;
+import de.chrissx.mods.building.FastBreak;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
@@ -406,13 +407,14 @@ public class Block
 
     protected Block setBlockUnbreakable()
     {
-        this.setHardness(-1.0F);
+        this.setHardness(-1);
         return this;
     }
 
     public float getBlockHardness(World worldIn, BlockPos pos)
     {
-        return this.blockHardness;
+    	FastBreak fb = HackedClient.getClient().getMods().fastBreak;
+        return fb.isEnabled() ? blockHardness / fb.speed : blockHardness;
     }
 
     /**

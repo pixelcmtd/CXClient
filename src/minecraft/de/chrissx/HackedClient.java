@@ -454,6 +454,12 @@ public class HackedClient {
 			mods.flip.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#lag"))
 			mods.lag.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#scaffoldwalk"))
+			mods.scaffoldWalk.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#fastfall"))
+			mods.fastFall.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#fasteat"))
+			mods.fastEat.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

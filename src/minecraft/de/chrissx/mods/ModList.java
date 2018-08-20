@@ -13,6 +13,7 @@ import de.chrissx.mods.building.BedFucker;
 import de.chrissx.mods.building.FastBreak;
 import de.chrissx.mods.building.FastPlace;
 import de.chrissx.mods.building.Nuker;
+import de.chrissx.mods.building.ScaffoldWalk;
 import de.chrissx.mods.chat.AuthMeCrack;
 import de.chrissx.mods.chat.Home;
 import de.chrissx.mods.chat.MassTpa;
@@ -37,6 +38,7 @@ import de.chrissx.mods.movement.ACFly2;
 import de.chrissx.mods.movement.ACSpeed1;
 import de.chrissx.mods.movement.AntiAfk;
 import de.chrissx.mods.movement.Autosprint;
+import de.chrissx.mods.movement.FastFall;
 import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
 import de.chrissx.mods.movement.Jetpack;
@@ -95,6 +97,9 @@ public class ModList implements Iterable<Mod> {
 	public final Jetpack jetpack = new Jetpack();
 	public final Regen regen = new Regen();
 	public final Lag lag = new Lag();
+	public final ScaffoldWalk scaffoldWalk = new ScaffoldWalk();
+	public final FastFall fastFall = new FastFall();
+	public final FastEat fastEat = new FastEat();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -148,7 +153,10 @@ public class ModList implements Iterable<Mod> {
 			noRender,
 			jetpack,
 			regen,
-			lag
+			lag,
+			scaffoldWalk,
+			fastFall,
+			fastEat
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
