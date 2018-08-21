@@ -21,14 +21,15 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2504";
+	public static final String version = "alpha 2505";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
 			"-Added a Lag mod that holds your packets back for as long as it's enabled",
 			"-Added a ScaffoldWalk that does what a SW does...place blocks",
 			"-Added a FastFall that sets your falling speed so you come to ground faster",
-			"-Added a FastEat mod that just lets you eat faster"
+			"-Added a FastEat mod that just lets you eat faster",
+			"-Fixed hotkeys sometimes not working in SP (the disableHotkeys value was not set to false when loading a world)"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",
