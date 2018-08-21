@@ -43,8 +43,10 @@ public class Consts {
 		"",
 		"-Garkolym for showing a few exploits in his videos (for example #text)",
 		"-A few other people we stealt the Fly- and Speed-Bypasses from",
-		"-The developers of Wurst for making another open source client, we looked at, "
-		+ "when we needed ideas for hacks or when we just f*ed up"
+		"-The developers of Wurst for making another open source client, we looked"
+		+ " at, when we needed ideas for hacks or when we just f*ed up",
+		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits"
+		+ "in his videos: https://www.youtube.com/channel/UClgCGHQcdKN7Rwfx1q_-UUw"
 	};
 	
 	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, "

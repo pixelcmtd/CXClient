@@ -29,7 +29,7 @@ public class BlockModelRenderer
 
     public boolean renderModel(IBlockAccess blockAccessIn, IBakedModel modelIn, IBlockState blockStateIn, BlockPos blockPosIn, WorldRenderer worldRendererIn, boolean checkSides)
     {
-        boolean flag = Minecraft.isAmbientOcclusionEnabled() && blockStateIn.getBlock().getLightValue() == 0 && modelIn.isAmbientOcclusion();
+        boolean flag = Minecraft.getMinecraft().gameSettings.ambientOcclusion != 0 && blockStateIn.getBlock().getLightValue() == 0 && modelIn.isAmbientOcclusion();
 
         try
         {
