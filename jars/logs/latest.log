@@ -1,48 +1,32 @@
-[15:51:54] [Client thread/INFO]: Setting user: Player779
-[15:51:54] [Client thread/INFO]: (Session ID is token:0:Player779)
-[15:51:57] [Client thread/INFO]: CXClient Version: alpha 2504
-[15:51:57] [Client thread/INFO]: LWJGL Version: 2.9.4
-[15:51:58] [Client thread/INFO]: Reloading ResourceManager: Default
-[15:51:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[15:51:59] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[15:51:59] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[15:51:59] [Thread-7/INFO]: OpenAL initialized.
-[15:51:59] [Sound Library Loader/INFO]: Sound engine started
-[15:52:08] [Client thread/INFO]: Created: 512x512 textures-atlas
-[15:52:20] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[15:52:20] [Server thread/INFO]: Generating keypair
-[15:52:20] [Server thread/INFO]: Preparing start region for level 0
-[15:52:21] [Server thread/INFO]: Changing view distance to 12, from 10
-[15:52:21] [Server thread/INFO]: Player779[local:E:10be6407] logged in with entity id 153 at (531.4502704026929, 70.0, 180.17459752292942)
-[15:52:21] [Server thread/INFO]: Player779 joined the game
-[15:52:28] [Server thread/INFO]: Player779 has just earned the achievement [Taking Inventory]
-[15:52:28] [Client thread/INFO]: [CHAT] Player779 has just earned the achievement [Taking Inventory]
-[15:52:53] [Server thread/INFO]: Saving and pausing game...
-[15:52:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[15:52:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[15:52:53] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[15:52:54] [Server thread/INFO]: Stopping server
-[15:52:54] [Server thread/INFO]: Saving players
-[15:52:54] [Server thread/INFO]: Saving worlds
-[15:52:54] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[15:52:54] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[15:52:54] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[15:52:58] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[15:52:58] [Server thread/INFO]: Generating keypair
-[15:52:58] [Server thread/INFO]: Preparing start region for level 0
-[15:52:58] [Server thread/INFO]: Changing view distance to 12, from 10
-[15:52:58] [Server thread/INFO]: Player779[local:E:d61c5614] logged in with entity id 824 at (552.4717297448722, 69.0, 179.52384271274414)
-[15:52:58] [Server thread/INFO]: Player779 joined the game
-[15:53:22] [Server thread/INFO]: Saving and pausing game...
-[15:53:22] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[15:53:22] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[15:53:22] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[15:53:23] [Server thread/INFO]: Stopping server
-[15:53:23] [Server thread/INFO]: Saving players
-[15:53:23] [Server thread/INFO]: Saving worlds
-[15:53:23] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[15:53:23] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[15:53:23] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[15:53:25] [Client thread/INFO]: Stopping!
-[15:53:25] [Client thread/INFO]: SoundSystem shutting down...
-[15:53:25] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[18:53:38] [Client thread/INFO]: Setting user: Player665
+[18:53:38] [Client thread/INFO]: (Session ID is token:0:Player665)
+[18:53:40] [Client thread/INFO]: CXClient Version: alpha 2505
+[18:53:40] [Client thread/INFO]: LWJGL Version: 2.9.4
+[18:53:41] [Client thread/INFO]: Reloading ResourceManager: Default
+[18:53:41] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[18:53:41] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[18:53:41] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[18:53:41] [Thread-7/INFO]: OpenAL initialized.
+[18:53:41] [Sound Library Loader/INFO]: Sound engine started
+[18:53:49] [Client thread/INFO]: Created: 512x512 textures-atlas
+[18:53:52] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[18:53:52] [Server thread/INFO]: Generating keypair
+[18:53:52] [Server thread/INFO]: Preparing start region for level 0
+[18:53:53] [Server thread/INFO]: Changing view distance to 12, from 10
+[18:53:54] [Server thread/INFO]: Player665[local:E:c563d545] logged in with entity id 140 at (543.9320247081048, 69.1707870772188, 184.05511635408476)
+[18:53:54] [Server thread/INFO]: Player665 joined the game
+[18:55:17] [Server thread/INFO]: Player665 was blown up by Creeper
+[18:55:17] [Client thread/INFO]: [CHAT] Player665 was blown up by Creeper
+[18:55:35] [Server thread/INFO]: Saving and pausing game...
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[18:55:35] [Server thread/INFO]: Stopping server
+[18:55:35] [Server thread/INFO]: Saving players
+[18:55:35] [Server thread/INFO]: Saving worlds
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[18:55:37] [Client thread/INFO]: Stopping CXClient.
+[18:55:37] [Client thread/INFO]: SoundSystem shutting down...
+[18:55:37] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

@@ -85,12 +85,12 @@ public class GameConfiguration
         public final PropertyMap field_181172_c;
         public final Proxy proxy;
 
-        public UserInformation(Session p_i46375_1_, PropertyMap p_i46375_2_, PropertyMap p_i46375_3_, Proxy p_i46375_4_)
+        public UserInformation(Session session, PropertyMap usrProps, PropertyMap p_i46375_3_, Proxy proxy)
         {
-            this.session = p_i46375_1_;
-            this.userProperties = p_i46375_2_;
+            this.session = session;
+            this.userProperties = usrProps;
             this.field_181172_c = p_i46375_3_;
-            this.proxy = p_i46375_4_;
+            this.proxy = proxy;
         }
     }
 }
