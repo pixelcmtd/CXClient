@@ -44,7 +44,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.network.NetworkManager;
 
 public class HackedClient {
-	static HackedClient client = null;
+	static HackedClient instance = null;
 	boolean invis = false;
 	
 	Map<Integer, Bindable> hotkeys = new HashMap<Integer, Bindable>();
@@ -62,13 +62,15 @@ public class HackedClient {
 		return mods.lag.isEnabled();
 	}
 	
-	public void onDraw(FontRenderer r) {
-		if(!invis) {
+	public void onDraw(FontRenderer r)
+	{
+		if(!invis)
+		{
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
 			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
-				if(o.onRender(r, 4, (i*8)+4))
+				if(o.onRender(r, 4, i * 8 + 4))
 					i++;
 		}
 	}
@@ -117,7 +119,7 @@ public class HackedClient {
 	
 	public HackedClient()
 	{
-		client = this;
+		instance = this;
 		
 		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
 		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
@@ -291,13 +293,11 @@ public class HackedClient {
 				Util.sendMessage("Please enter a command!");
 				return;
 			}
-			String cmd_ = args[1];
+			String Cmd = args[1];
 			for(int i = 2; i < args.length; i++)
-				cmd_+=" "+args[i];
-			Util.cheatCmdBlock(cmd_);
-		}else if(cmd.equalsIgnoreCase("#help"))
-			Util.sendMessage(Consts.help);
-		else if(cmd.equalsIgnoreCase("#fastbreak"))
+				Cmd += " " + args[i];
+			Util.cheatCmdBlock(Cmd);
+		}else if(cmd.equalsIgnoreCase("#fastbreak"))
 			mods.fastBreak.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#nofall"))
 			mods.nofall.processCommand(args);
@@ -312,11 +312,11 @@ public class HackedClient {
 		else if(cmd.equalsIgnoreCase("#noswing"))
 			mods.noswing.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#bind")) {
-			if(args.length < 3 || args.length > 3) {
+			if(args.length != 3) {
 				Util.sendMessage("#bind <key> <mod-name>");
 				return;
 			}
-			if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
+			else if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
 				Util.sendMessage("\u00a74Key already registered.");
 			else if(mods.getBindable(args[2].toLowerCase()) == null)
 				Util.sendMessage("\u00a74Mod-Name not correct.");
@@ -402,7 +402,7 @@ public class HackedClient {
 		else if(cmd.equalsIgnoreCase("#binds")) {
 			StringBuilder sb = new StringBuilder();
 			for(Entry<Integer, Bindable> hotkey : hotkeys.entrySet())
-				sb.append((sb.toString() == "" ? "" : ", ")+Keyboard.getKeyName(hotkey.getKey())+":"+hotkey.getValue());
+				sb.append((sb.toString() == "" ? "" : ", ")+Keyboard.getKeyName(hotkey.getKey())+":"+hotkey.getValue().getName());
 			Util.sendMessage("Hotkeys: "+sb.toString());
 		}else if(cmd.equalsIgnoreCase("#norender"))
 			mods.noRender.processCommand(args);
@@ -440,6 +440,7 @@ public class HackedClient {
 				AddonProperties ap = addonManager.getProps(a);
 				Util.sendMessage(a.getName() + " " + ap.getName() + " " + ap.getAuthor() + " " + ap.getVersion() + " " + ap.getMainClass() + " " + ap.getDesc());
 			}
+			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
 		}
 		else if(cmd.equalsIgnoreCase("#credits"))
 		{
@@ -463,9 +464,9 @@ public class HackedClient {
 		else if(addonManager.execCmd(args))
 			;
 		else
-			onCommand(new String[] {"#help", "internally\", \"called"});
+			Util.sendMessage(Consts.help);
   	}
-	
+
 	public McLeaksSession getMcLeaksSession() {
 		return mcLeaksSession;
 	}
@@ -474,7 +475,7 @@ public class HackedClient {
 		this.mcLeaksSession = mcLeaksSession;
 	}
 
-	public boolean isDisableHotkeys() {
+	public boolean hotkeysDisabled() {
 		return disableHotkeys;
 	}
 
@@ -483,7 +484,7 @@ public class HackedClient {
 	}
 
 	public static HackedClient getClient() {
-		return client;
+		return instance;
 	}
 
 	public boolean isInvis() {

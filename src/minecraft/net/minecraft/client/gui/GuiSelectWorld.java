@@ -18,6 +18,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import de.chrissx.HackedClient;
+
 public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
 {
     private static final Logger logger = LogManager.getLogger();
@@ -134,8 +136,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
                 if (s != null)
                 {
                     this.field_146643_x = true;
-                    GuiYesNo guiyesno = func_152129_a(this, s, this.field_146640_r);
-                    this.mc.displayGuiScreen(guiyesno);
+                    this.mc.displayGuiScreen(func_152129_a(this, s, this.field_146640_r));
                 }
             }
             else if (button.id == 1)
@@ -148,7 +149,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
             }
             else if (button.id == 6)
             {
-                this.mc.displayGuiScreen(new GuiRenameWorld(this, "enter a command!"));
+                this.mc.displayGuiScreen(new GuiRenameWorld(this, "Enter a alt command!"));
             }
             else if (button.id == 0)
             {
@@ -170,30 +171,31 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
         }
     }
 
-    public void func_146615_e(int p_146615_1_)
+    public void func_146615_e(int i)
     {
         this.mc.displayGuiScreen((GuiScreen)null);
 
         if (!this.field_146634_i)
         {
             this.field_146634_i = true;
-            String s = this.func_146621_a(p_146615_1_);
+            String s = this.func_146621_a(i);
 
             if (s == null)
             {
-                s = "World" + p_146615_1_;
+                s = "World" + i;
             }
 
-            String s1 = this.func_146614_d(p_146615_1_);
+            String s1 = this.func_146614_d(i);
 
             if (s1 == null)
             {
-                s1 = "World" + p_146615_1_;
+                s1 = "World" + i;
             }
 
             if (this.mc.getSaveLoader().canLoadWorld(s))
             {
-                this.mc.launchIntegratedServer(s, s1, (WorldSettings)null);
+                mc.launchIntegratedServer(s, s1, (WorldSettings)null);
+                HackedClient.getClient().onJoined();
             }
         }
     }
