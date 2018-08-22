@@ -55,51 +55,51 @@ import net.minecraft.world.World;
 public class EntityPlayerSP extends AbstractClientPlayer
 {
     public final NetHandlerPlayClient sendQueue;
-    private final StatFileWriter statWriter;
+    final StatFileWriter statWriter;
 
     /**
      * The last X position which was transmitted to the server, used to determine when the X position changes and needs
      * to be re-trasmitted
      */
-    private double lastReportedPosX;
+    double lastReportedPosX;
 
     /**
      * The last Y position which was transmitted to the server, used to determine when the Y position changes and needs
      * to be re-transmitted
      */
-    private double lastReportedPosY;
+    double lastReportedPosY;
 
     /**
      * The last Z position which was transmitted to the server, used to determine when the Z position changes and needs
      * to be re-transmitted
      */
-    private double lastReportedPosZ;
+    double lastReportedPosZ;
 
     /**
      * The last yaw value which was transmitted to the server, used to determine when the yaw changes and needs to be
      * re-transmitted
      */
-    private float lastReportedYaw;
+    float lastReportedYaw;
 
     /**
      * The last pitch value which was transmitted to the server, used to determine when the pitch changes and needs to
      * be re-transmitted
      */
-    private float lastReportedPitch;
+    float lastReportedPitch;
 
     /** the last sneaking state sent to the server */
-    private boolean serverSneakState;
+    boolean serverSneakState;
 
     /** the last sprinting state sent to the server */
-    private boolean serverSprintState;
+    boolean serverSprintState;
 
     /**
      * Reset to 0 every time position is sent to the server, used to send periodic updates every 20 ticks even when the
      * player is not moving.
      */
-    private int positionUpdateTicks;
-    private boolean hasValidHealth;
-    private String clientBrand;
+    int positionUpdateTicks;
+    boolean hasValidHealth;
+    String clientBrand;
     public MovementInput movementInput;
     protected Minecraft mc;
 
@@ -116,8 +116,8 @@ public class EntityPlayerSP extends AbstractClientPlayer
     public float renderArmPitch;
     public float prevRenderArmYaw;
     public float prevRenderArmPitch;
-    private int horseJumpPowerCounter;
-    private float horseJumpPower;
+    int horseJumpPowerCounter;
+    float horseJumpPower;
 
     /** The amount of time an entity has been in a Portal */
     public float timeInPortal;
@@ -171,15 +171,13 @@ public class EntityPlayerSP extends AbstractClientPlayer
         {
             super.onUpdate();
 
-            if (this.isRiding())
+            if (isRiding())
             {
                 this.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(this.rotationYaw, this.rotationPitch, this.onGround));
                 this.sendQueue.addToSendQueue(new C0CPacketInput(this.moveStrafing, this.moveForward, this.movementInput.jump, this.movementInput.sneak));
             }
             else
-            {
-                this.onUpdateWalkingPlayer();
-            }
+                onUpdateWalkingPlayer();
         }
     }
 
@@ -188,20 +186,16 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void onUpdateWalkingPlayer()
     {
-        boolean flag = this.isSprinting();
+        boolean flag = isSprinting();
 
-        if (flag != this.serverSprintState)
+        if (flag != serverSprintState)
         {
             if (flag)
-            {
-                this.sendQueue.addToSendQueue(new C0BPacketEntityAction(this, C0BPacketEntityAction.Action.START_SPRINTING));
-            }
+                sendQueue.addToSendQueue(new C0BPacketEntityAction(this, C0BPacketEntityAction.Action.START_SPRINTING));
             else
-            {
-                this.sendQueue.addToSendQueue(new C0BPacketEntityAction(this, C0BPacketEntityAction.Action.STOP_SPRINTING));
-            }
+                sendQueue.addToSendQueue(new C0BPacketEntityAction(this, C0BPacketEntityAction.Action.STOP_SPRINTING));
 
-            this.serverSprintState = flag;
+            serverSprintState = flag;
         }
 
         boolean flag1 = this.isSneaking();
@@ -220,38 +214,38 @@ public class EntityPlayerSP extends AbstractClientPlayer
             this.serverSneakState = flag1;
         }
 
-        if (this.isCurrentViewEntity())
+        if (isCurrentViewEntity())
         {
-            double d0 = this.posX - this.lastReportedPosX;
-            double d1 = this.getEntityBoundingBox().minY - this.lastReportedPosY;
-            double d2 = this.posZ - this.lastReportedPosZ;
-            double d3 = (double)(this.rotationYaw - this.lastReportedYaw);
-            double d4 = (double)(this.rotationPitch - this.lastReportedPitch);
-            boolean flag2 = d0 * d0 + d1 * d1 + d2 * d2 > 9.0E-4D || this.positionUpdateTicks >= 20;
-            boolean flag3 = d3 != 0.0D || d4 != 0.0D;
+            double d = posX - lastReportedPosX;
+            double e = getEntityBoundingBox().minY - lastReportedPosY;
+            double f = posZ - lastReportedPosZ;
+            double g = (double)(rotationYaw - lastReportedYaw);
+            double h = (double)(rotationPitch - lastReportedPitch);
+            boolean flag2 = d * d + e * e + f * f > 9.0E-4D || this.positionUpdateTicks >= 20;
+            boolean flag3 = g != 0.0D || h != 0.0D;
 
             if (this.ridingEntity == null)
             {
                 if (flag2 && flag3)
                 {
-                    this.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(this.posX, this.getEntityBoundingBox().minY, this.posZ, this.rotationYaw, this.rotationPitch, this.onGround));
+                    sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(posX, getEntityBoundingBox().minY, posZ, rotationYaw, rotationPitch, onGround));
                 }
                 else if (flag2)
                 {
-                    this.sendQueue.addToSendQueue(new C03PacketPlayer.C04PacketPlayerPosition(this.posX, this.getEntityBoundingBox().minY, this.posZ, this.onGround));
+                    sendQueue.addToSendQueue(new C03PacketPlayer.C04PacketPlayerPosition(posX, getEntityBoundingBox().minY, posZ, onGround));
                 }
                 else if (flag3)
                 {
-                    this.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(this.rotationYaw, this.rotationPitch, this.onGround));
+                    sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(rotationYaw, rotationPitch, onGround));
                 }
                 else
                 {
-                    this.sendQueue.addToSendQueue(new C03PacketPlayer(this.onGround));
+                    sendQueue.addToSendQueue(new C03PacketPlayer(onGround));
                 }
             }
             else
             {
-                this.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(this.motionX, -999.0D, this.motionZ, this.rotationYaw, this.rotationPitch, this.onGround));
+                this.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(motionX, -999.0D, motionZ, rotationYaw, rotationPitch, onGround));
                 flag2 = false;
             }
 
@@ -347,30 +341,28 @@ public class EntityPlayerSP extends AbstractClientPlayer
     {
         if (this.hasValidHealth)
         {
-            float f = this.getHealth() - health;
+            float f = getHealth() - health;
 
-            if (f <= 0.0F)
+            if (f <= 0)
             {
-                this.setHealth(health);
+                setHealth(health);
 
-                if (f < 0.0F)
-                {
-                    this.hurtResistantTime = this.maxHurtResistantTime / 2;
-                }
+                if (f < 0)
+                    hurtResistantTime = maxHurtResistantTime / 2;
             }
             else
             {
-                this.lastDamage = f;
-                this.setHealth(this.getHealth());
-                this.hurtResistantTime = this.maxHurtResistantTime;
-                this.damageEntity(DamageSource.generic, f);
-                this.hurtTime = this.maxHurtTime = 10;
+                lastDamage = f;
+                setHealth(getHealth());
+                hurtResistantTime = maxHurtResistantTime;
+                damageEntity(DamageSource.generic, f);
+                hurtTime = maxHurtTime = 10;
             }
         }
         else
         {
-            this.setHealth(health);
-            this.hasValidHealth = true;
+            setHealth(health);
+            hasValidHealth = true;
         }
     }
 
@@ -379,13 +371,8 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void addStat(StatBase stat, int amount)
     {
-        if (stat != null)
-        {
-            if (stat.isIndependent)
-            {
-                super.addStat(stat, amount);
-            }
-        }
+        if (stat != null && stat.isIndependent)
+            super.addStat(stat, amount);
     }
 
     /**

@@ -185,16 +185,16 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
                 s = "World" + i;
             }
 
-            String s1 = this.func_146614_d(i);
+            String t = this.func_146614_d(i);
 
-            if (s1 == null)
+            if (t == null)
             {
-                s1 = "World" + i;
+                t = "World" + i;
             }
 
             if (this.mc.getSaveLoader().canLoadWorld(s))
             {
-                mc.launchIntegratedServer(s, s1, (WorldSettings)null);
+                mc.launchIntegratedServer(s, t, null);
                 HackedClient.getClient().onJoined();
             }
         }

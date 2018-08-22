@@ -19,6 +19,7 @@ import de.chrissx.mods.chat.Home;
 import de.chrissx.mods.chat.MassTpa;
 import de.chrissx.mods.chat.Spam;
 import de.chrissx.mods.combat.Aimbot;
+import de.chrissx.mods.combat.AntiPotion;
 import de.chrissx.mods.combat.AutoArmor;
 import de.chrissx.mods.combat.Autoclicker;
 import de.chrissx.mods.combat.Fasthit;
@@ -26,12 +27,14 @@ import de.chrissx.mods.combat.Killaura;
 import de.chrissx.mods.combat.Noswing;
 import de.chrissx.mods.combat.Reach;
 import de.chrissx.mods.fun.AutoSwitch;
+import de.chrissx.mods.fun.Derp;
 import de.chrissx.mods.fun.JailsmcBot;
 import de.chrissx.mods.fun.KillPotion;
 import de.chrissx.mods.fun.MultiText;
 import de.chrissx.mods.fun.SkinBlinker;
 import de.chrissx.mods.fun.Text;
 import de.chrissx.mods.fun.Throw;
+import de.chrissx.mods.fun.Tired;
 import de.chrissx.mods.fun.TrollPotion;
 import de.chrissx.mods.fun.Twerk;
 import de.chrissx.mods.movement.ACFly1;
@@ -44,7 +47,10 @@ import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
 import de.chrissx.mods.movement.Jetpack;
 import de.chrissx.mods.movement.LegitSpeed;
+import de.chrissx.mods.movement.NoCobweb;
 import de.chrissx.mods.movement.Nofall;
+import de.chrissx.mods.movement.Parkour;
+import de.chrissx.mods.movement.Phase;
 import de.chrissx.mods.movement.Sneak;
 import de.chrissx.mods.movement.StepJump;
 import de.chrissx.mods.movement.Timer;
@@ -102,6 +108,12 @@ public class ModList implements Iterable<Mod> {
 	public final FastFall fastFall = new FastFall();
 	public final FastEat fastEat = new FastEat();
 	public final AutoSwitch autoSwitch = new AutoSwitch();
+	public final Tired tired = new Tired();
+	public final Derp derp = new Derp();
+	public final AntiPotion antiPotion = new AntiPotion();
+	public final NoCobweb noCobweb = new NoCobweb();
+	public final Parkour parkour = new Parkour();
+	public final Phase phase = new Phase();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -159,7 +171,13 @@ public class ModList implements Iterable<Mod> {
 			scaffoldWalk,
 			fastFall,
 			fastEat,
-			autoSwitch
+			autoSwitch,
+			tired,
+			derp,
+			antiPotion,
+			noCobweb,
+			parkour,
+			phase
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

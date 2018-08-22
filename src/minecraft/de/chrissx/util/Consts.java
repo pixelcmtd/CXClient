@@ -21,19 +21,16 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "2.5";
+	public static final String version = "alpha 2604";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
-			"-Added a Lag mod that holds your packets back for as long as it's enabled",
-			"-Added a ScaffoldWalk mod that does what a SW does...place blocks",
-			"-Added a FastFall mod that sets your falling speed so you come to ground faster",
-			"-Added a FastEat mod that just lets you eat faster",
-			"-Fixed hotkeys sometimes not working in SP (the disableHotkeys value was not set to false when loading a world)",
-			"-Optimized a few of the Minecraft classes to improve performance a bit",
-			"-Added an AutoSwitch mod to cycle through the hotbar ~2 times a second",
-			"-Added a speed variable to Regen (and also FastEat)",
-			"-Fixed a potential crash on new mod FastEat we encountered when combining FastEat and Regen against 4 Blazes"
+			"-Added a Tired mod that makes you act as if you were me while coding this",
+			"-Added a Derp mod that makes you derp around",
+			"-Added a AntiPotion mod that tries to get all the bad potion effects away",
+			"-Added a NoCobweb mod that just sets Player.isInWeb to false",
+			"-Added a Parkour mod that jumps automatically in parkours",
+			"-Added a Phase mod that NoClips through blocks in front of you"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",
@@ -52,9 +49,9 @@ public class Consts {
 		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://tinyurl.com/trcechnl"
 	};
 	
-	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, "
+	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #nocobweb, #timer, #speedac1, #speedlegit, "
 			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #autoswitch, #flip, "
-			+ "#cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
-			+ "#xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, "
-			+ "#autosteal, #killaura, #fasteat, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
+			+ "#cmdblock, #nofall, #antipotion, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
+			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, "
+			+ "#autosteal, #killaura, #tired, #parkour, #fasteat, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
 }

@@ -118,7 +118,7 @@ public abstract class Entity implements ICommandSender
      */
     public boolean isCollided;
     public boolean velocityChanged;
-    protected boolean isInWeb;
+    public boolean isInWeb;
     private boolean isOutsideBorder;
 
     /**
@@ -587,10 +587,13 @@ public abstract class Entity implements ICommandSender
      */
     public void moveEntity(double x, double y, double z)
     {
-        if (this.noClip)
+        if (noClip)
         {
             this.setEntityBoundingBox(this.getEntityBoundingBox().offset(x, y, z));
             this.resetPositionToBB();
+            posX = x;
+            posY = y;
+            posZ = z;
         }
         else
         {
@@ -638,26 +641,20 @@ public abstract class Entity implements ICommandSender
                 for (; z != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(0.0D, -1.0D, z)).isEmpty(); d5 = z)
                 {
                     if (z < d6 && z >= -d6)
-                    {
-                        z = 0.0D;
-                    }
-                    else if (z > 0.0D)
-                    {
+                        z = 0;
+                    else if (z > 0)
                         z -= d6;
-                    }
                     else
-                    {
                         z += d6;
-                    }
                 }
 
-                for (; x != 0.0D && z != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1.0D, z)).isEmpty(); d5 = z)
+                for (; x != 0 && z != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1, z)).isEmpty(); d5 = z)
                 {
                     if (x < d6 && x >= -d6)
                     {
-                        x = 0.0D;
+                        x = 0;
                     }
-                    else if (x > 0.0D)
+                    else if (x > 0)
                     {
                         x -= d6;
                     }
@@ -670,9 +667,9 @@ public abstract class Entity implements ICommandSender
 
                     if (z < d6 && z >= -d6)
                     {
-                        z = 0.0D;
+                        z = 0;
                     }
-                    else if (z > 0.0D)
+                    else if (z > 0)
                     {
                         z -= d6;
                     }
@@ -1818,9 +1815,9 @@ public abstract class Entity implements ICommandSender
      */
     public boolean isEntityInsideOpaqueBlock()
     {
-        if (this.noClip)
+        if (noClip)
         {
-            return false;
+            return true;
         }
         else
         {
