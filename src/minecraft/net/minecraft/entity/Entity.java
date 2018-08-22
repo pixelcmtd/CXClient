@@ -591,9 +591,6 @@ public abstract class Entity implements ICommandSender
         {
             this.setEntityBoundingBox(this.getEntityBoundingBox().offset(x, y, z));
             this.resetPositionToBB();
-            posX = x;
-            posY = y;
-            posZ = z;
         }
         else
         {
@@ -622,33 +619,7 @@ public abstract class Entity implements ICommandSender
             {
                 double d6;
 
-                for (d6 = 0.05D; x != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1.0D, 0.0D)).isEmpty(); d3 = x)
-                {
-                    if (x < d6 && x >= -d6)
-                    {
-                        x = 0.0D;
-                    }
-                    else if (x > 0.0D)
-                    {
-                        x -= d6;
-                    }
-                    else
-                    {
-                        x += d6;
-                    }
-                }
-
-                for (; z != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(0.0D, -1.0D, z)).isEmpty(); d5 = z)
-                {
-                    if (z < d6 && z >= -d6)
-                        z = 0;
-                    else if (z > 0)
-                        z -= d6;
-                    else
-                        z += d6;
-                }
-
-                for (; x != 0 && z != 0.0D && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1, z)).isEmpty(); d5 = z)
+                for (d6 = 0.05D; x != 0 && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1.0D, 0.0D)).isEmpty(); d3 = x)
                 {
                     if (x < d6 && x >= -d6)
                     {
@@ -662,21 +633,35 @@ public abstract class Entity implements ICommandSender
                     {
                         x += d6;
                     }
+                }
+
+                for (; z != 0 && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(0.0D, -1.0D, z)).isEmpty(); d5 = z)
+                {
+                    if (z < d6 && z >= -d6)
+                        z = 0;
+                    else if (z > 0)
+                        z -= d6;
+                    else
+                        z += d6;
+                }
+
+                for (; x != 0 && z != 0 && this.worldObj.getCollidingBoundingBoxes(this, this.getEntityBoundingBox().offset(x, -1, z)).isEmpty(); d5 = z)
+                {
+                    if (x < d6 && x >= -d6)
+                        x = 0;
+                    else if (x > 0)
+                        x -= d6;
+                    else
+                        x += d6;
 
                     d3 = x;
 
                     if (z < d6 && z >= -d6)
-                    {
                         z = 0;
-                    }
                     else if (z > 0)
-                    {
                         z -= d6;
-                    }
                     else
-                    {
                         z += d6;
-                    }
                 }
             }
 
@@ -1355,52 +1340,41 @@ public abstract class Entity implements ICommandSender
     /**
      * Called by a player entity when they collide with an entity
      */
-    public void onCollideWithPlayer(EntityPlayer entityIn)
-    {
-    }
+    public void onCollideWithPlayer(EntityPlayer entityIn){}
 
     /**
      * Applies a velocity to each of the entities pushing them away from each other. Args: entity
      */
-    public void applyEntityCollision(Entity entityIn)
+    public void applyEntityCollision(Entity e)
     {
-        if (entityIn.riddenByEntity != this && entityIn.ridingEntity != this)
+        if (e.riddenByEntity != this && e.ridingEntity != this && !e.noClip && !noClip)
         {
-            if (!entityIn.noClip && !this.noClip)
+            double d = e.posX - posX;
+            double f = e.posZ - posZ;
+            double g = MathHelper.abs_max(d, f);
+
+            if (g >= 0.009999999776482582D)
             {
-                double d0 = entityIn.posX - this.posX;
-                double d1 = entityIn.posZ - this.posZ;
-                double d2 = MathHelper.abs_max(d0, d1);
+                g = (double)MathHelper.sqrt(g);
+                d = d / g;
+                f = f / g;
+                double h = 1 / g;
 
-                if (d2 >= 0.009999999776482582D)
-                {
-                    d2 = (double)MathHelper.sqrt(d2);
-                    d0 = d0 / d2;
-                    d1 = d1 / d2;
-                    double d3 = 1.0D / d2;
+                if (h > 1)
+                    h = 1;
 
-                    if (d3 > 1.0D)
-                    {
-                        d3 = 1.0D;
-                    }
+                d = d * h;
+                f = f * h;
+                d = d * 0.05000000074505806D;
+                f = f * 0.05000000074505806D;
+                d = d * (double)(1 - entityCollisionReduction);
+                f = f * (double)(1 - entityCollisionReduction);
 
-                    d0 = d0 * d3;
-                    d1 = d1 * d3;
-                    d0 = d0 * 0.05000000074505806D;
-                    d1 = d1 * 0.05000000074505806D;
-                    d0 = d0 * (double)(1.0F - this.entityCollisionReduction);
-                    d1 = d1 * (double)(1.0F - this.entityCollisionReduction);
+                if (riddenByEntity == null)
+                    addVelocity(-d, 0.0D, -f);
 
-                    if (this.riddenByEntity == null)
-                    {
-                        this.addVelocity(-d0, 0.0D, -d1);
-                    }
-
-                    if (entityIn.riddenByEntity == null)
-                    {
-                        entityIn.addVelocity(d0, 0.0D, d1);
-                    }
-                }
+                if (e.riddenByEntity == null)
+                    e.addVelocity(d, 0.0D, f);
             }
         }
     }
@@ -1527,19 +1501,17 @@ public abstract class Entity implements ICommandSender
 
     /**
      * Checks if the entity is in range to render by using the past in distance and comparing it to its average edge
-     * length * 64 * renderDistanceWeight Args: distance
+     * length * 64 * renderDistanceWeight
      */
     public boolean isInRangeToRenderDist(double distance)
     {
-        double d0 = this.getEntityBoundingBox().getAverageEdgeLength();
+        double d = getEntityBoundingBox().getAverageEdgeLength();
 
-        if (Double.isNaN(d0))
-        {
-            d0 = 1.0D;
-        }
+        if (Double.isNaN(d))
+            d = 1;
 
-        d0 = d0 * 64.0D * this.renderDistanceWeight;
-        return distance < d0 * d0;
+        d = d * 64.0D * this.renderDistanceWeight;
+        return distance < d * d;
     }
 
     /**
@@ -1740,9 +1712,7 @@ public abstract class Entity implements ICommandSender
      */
     protected abstract void writeEntityToNBT(NBTTagCompound tagCompound);
 
-    public void onChunkLoad()
-    {
-    }
+    public void onChunkLoad(){}
 
     /**
      * creates a NBT list from the array of doubles passed to this function
@@ -1817,7 +1787,7 @@ public abstract class Entity implements ICommandSender
     {
         if (noClip)
         {
-            return true;
+            return false;
         }
         else
         {
@@ -1825,9 +1795,9 @@ public abstract class Entity implements ICommandSender
 
             for (int i = 0; i < 8; ++i)
             {
-                int j = MathHelper.floor(this.posY + (double)(((float)((i >> 0) % 2) - 0.5F) * 0.1F) + (double)this.getEyeHeight());
-                int k = MathHelper.floor(this.posX + (double)(((float)((i >> 1) % 2) - 0.5F) * this.width * 0.8F));
-                int l = MathHelper.floor(this.posZ + (double)(((float)((i >> 2) % 2) - 0.5F) * this.width * 0.8F));
+                int j = MathHelper.floor(this.posY + (double)(((float)((i >> 0) % 2) - 0.5) * 0.1) + (double)getEyeHeight());
+                int k = MathHelper.floor(this.posX + (double)(((float)((i >> 1) % 2) - 0.5) * width * 0.8));
+                int l = MathHelper.floor(this.posZ + (double)(((float)((i >> 2) % 2) - 0.5) * width * 0.8));
 
                 if (blockpos$mutableblockpos.getX() != k || blockpos$mutableblockpos.getY() != j || blockpos$mutableblockpos.getZ() != l)
                 {
@@ -1888,9 +1858,7 @@ public abstract class Entity implements ICommandSender
                 }
 
                 while (this.entityRiderYawDelta < -180.0D)
-                {
                     this.entityRiderYawDelta += 360.0D;
-                }
 
                 while (this.entityRiderPitchDelta >= 180.0D)
                 {

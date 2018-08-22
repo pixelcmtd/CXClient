@@ -1,11 +1,15 @@
 package net.minecraft.entity.player;
 
-import com.google.common.base.Charsets;
-import com.google.common.collect.Lists;
-import com.mojang.authlib.GameProfile;
 import java.util.Collection;
 import java.util.List;
 import java.util.UUID;
+
+import com.google.common.base.Charsets;
+import com.google.common.collect.Lists;
+import com.mojang.authlib.GameProfile;
+
+import de.chrissx.HackedClient;
+import de.chrissx.mods.movement.Phase;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.BlockDirectional;
@@ -265,9 +269,9 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public void onUpdate()
     {
-        noClip = isSpectator();
+        noClip = isSpectator() || HackedClient.getClient().getMods().phase.isEnabled();
 
-        if (isSpectator())
+        if (noClip)
             onGround = false;
 
         if (this.itemInUse != null)
