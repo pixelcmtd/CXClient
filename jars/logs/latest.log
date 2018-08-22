@@ -1,88 +1,40 @@
-[00:00:51] [Client thread/INFO]: Setting user: Player338
-[00:00:51] [Client thread/INFO]: (Session ID is token:0:Player338)
-[00:00:54] [Client thread/INFO]: CXClient Version: alpha 2604
-[00:00:54] [Client thread/INFO]: LWJGL Version: 2.9.4
-[00:00:55] [Client thread/INFO]: Reloading ResourceManager: Default
-[00:00:55] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[00:00:55] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[00:00:55] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[00:00:55] [Thread-7/INFO]: OpenAL initialized.
-[00:00:56] [Sound Library Loader/INFO]: Sound engine started
-[00:00:57] [Client thread/INFO]: Created: 512x512 textures-atlas
-[00:01:14] [Client thread/INFO]: Connecting to mad-gamble.net:25565
-[00:01:14] [Client thread/INFO]: [CHAT] ??????????????????????????????????????????????????????????????????
-[00:01:14] [Client thread/INFO]: [CHAT] ? Bewerbung: /bewerben
-[00:01:14] [Client thread/INFO]: [CHAT] ? Facebook: www.facebook.com/MadGambleNet
-[00:01:14] [Client thread/INFO]: [CHAT] ? YouTube: www.youtube.com/user/GamingGamble
-[00:01:14] [Client thread/INFO]: [CHAT] ? Vote: www.mad-gamble.net/vote
-[00:01:14] [Client thread/INFO]: [CHAT] ? Forum: www.mad-gamble.net/forum
-[00:01:14] [Client thread/INFO]: [CHAT] ? AGB: Mit dem Betreten akzeptierst du die /agb
-[00:01:14] [Client thread/INFO]: [CHAT] ??????????????????????????????????????????????????????????????????
-[00:01:16] [Client thread/INFO]: [CHAT] M.A.D. | Bitte melde dich an, um auf diesen Server zu spielen:
-[00:01:16] [Client thread/INFO]: [CHAT] M.A.D. | /login <Dein Passwort>
-[00:01:16] [Client thread/INFO]: [CHAT] 
-[00:01:16] [Client thread/INFO]: [CHAT] M.A.D. | Bitte melde dich an, um auf diesen Server zu spielen:
-[00:01:16] [Client thread/INFO]: [CHAT] M.A.D. | /login <Dein Passwort>
-[00:01:16] [Client thread/INFO]: [CHAT] 
-[00:01:17] [Client thread/INFO]: [CHAT] M.A.D. | Du wurdest erfolgreich angemeldet.
-[00:01:17] [Client thread/INFO]: [CHAT] 
-[00:01:17] [Client thread/INFO]: [CHAT] §4§lM.A.D. §aKlicke §r§6§n§oHIER§a, §awenn §adu §amit §aeinem §aMinecraft-§aPremium-§aAccount §aonline §abist, §aund §ain §aZukunft §aautomatisch §aeingeloggt §awerden §amöchtest!
-[00:01:17] [Client thread/INFO]: [CHAT] 
-[00:01:20] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:01:22] [Client thread/INFO]: [CHAT] M.A.D. | Du hast dich noch nicht verifiziert! Bitte verwende 
-/forum <Email> <Passwort> um dich zu verifizieren. Andernfalls kannst du z.B. im Falle eines Bans keinen Entbannungsantrag stellen!
-[00:01:24] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:01:31] [Chunk Batcher 1/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:01:38] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:01:55] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:04] [Chunk Batcher 0/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:02:07] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:07] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast 300 Coins erhalten!
-[00:02:09] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:13] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:15] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:20] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:23] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:26] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:28] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:32] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:34] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:39] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:41] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:44] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:02:46] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:02:50] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:03:32] [Client thread/WARN]: Needed to grow BufferBuilder buffer: Old size 524288 bytes, new size 2621440 bytes.
-[00:06:40] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:06:45] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:06:51] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:06:56] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:07:05] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:07:18] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast einen Checkpoint erreicht!
-[00:07:28] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du wurdest zum letzten Checkpoint teleportiert.
-[00:07:30] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du wurdest zum letzten Checkpoint teleportiert.
-[00:07:31] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du wurdest zum letzten Checkpoint teleportiert.
-[00:07:38] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:07:40] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Timer wurde gestartet!
-[00:07:44] [Client thread/INFO]: [CHAT] ? Jump'n'Run » Du hast das Jump'n'Run geschafft! 
-[00:08:03] [Client thread/INFO]: [CHAT] | GunGame »  Du wurdest von MikolasDaniel getötet!
-[00:08:03] [Client thread/INFO]: [CHAT] | GunGame » Du hast 32% deiner Level verloren, als Gambler verlierst du nur 25%!
-[00:08:07] [Client thread/INFO]: [CHAT] kallewgamer10: mikolas vamo se amigo?
-[00:08:16] [Client thread/INFO]: [CHAT] Du hast MikolasDaniel getötet und 2 Coins erhalten!
-[00:08:16] [Client thread/INFO]: [CHAT] | GunGame »  Du hast MikolasDaniel getötet! (+1 Level)
-[00:08:19] [Client thread/INFO]: [CHAT] Du hast Rachel_Beanie getötet und 2 Coins erhalten!
-[00:08:19] [Client thread/INFO]: [CHAT] | GunGame »  Du hast Rachel_Beanie getötet! (+1 Level)
-[00:08:22] [Client thread/INFO]: [CHAT] Du hast Mrs_SerialKiller getötet und 2 Coins erhalten!
-[00:08:22] [Client thread/INFO]: [CHAT] | GunGame »  Du hast Mrs_SerialKiller getötet! (+1 Level)
-[00:08:24] [Client thread/INFO]: [CHAT] | GunGame »  Du bist gestorben!
-[00:08:24] [Client thread/INFO]: [CHAT] | GunGame » Du hast 32% deiner Level verloren, als Gambler verlierst du nur 25%!
-[00:08:26] [Client thread/INFO]: [CHAT] kallewgamer10: oi
-[00:08:27] [Client thread/INFO]: [CHAT] MikolasDaniel: reportet alle testuser
-[00:08:31] [Client thread/INFO]: [CHAT] Du hast Mrs_SerialKiller getötet und 2 Coins erhalten!
-[00:08:31] [Client thread/INFO]: [CHAT] | GunGame »  Du hast Mrs_SerialKiller getötet! (+1 Level)
-[00:08:32] [Client thread/INFO]: [CHAT] Du hast Rachel_Beanie getötet und 2 Coins erhalten!
-[00:08:32] [Client thread/INFO]: [CHAT] | GunGame »  Du hast Rachel_Beanie getötet! (+1 Level)
-[00:08:38] [Client thread/INFO]: [CHAT] kallewgamer10: auguem é br?
-[00:08:41] [Client thread/INFO]: Stopping CXClient.
-[00:08:41] [Client thread/INFO]: SoundSystem shutting down...
-[00:08:41] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[00:29:01] [Client thread/INFO]: Setting user: Player352
+[00:29:01] [Client thread/INFO]: (Session ID is token:0:Player352)
+[00:29:02] [Client thread/INFO]: CXClient Version: alpha 2607
+[00:29:02] [Client thread/INFO]: LWJGL Version: 2.9.4
+[00:29:04] [Client thread/INFO]: Reloading ResourceManager: Default
+[00:29:04] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[00:29:04] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[00:29:04] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[00:29:04] [Thread-7/INFO]: OpenAL initialized.
+[00:29:04] [Sound Library Loader/INFO]: Sound engine started
+[00:29:05] [Client thread/INFO]: Created: 512x512 textures-atlas
+[00:29:08] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[00:29:08] [Server thread/INFO]: Generating keypair
+[00:29:08] [Server thread/INFO]: Preparing start region for level 0
+[00:29:09] [Server thread/INFO]: Changing view distance to 12, from 10
+[00:29:09] [Server thread/INFO]: Player352[local:E:43198b21] logged in with entity id 165 at (550.921293621148, 70.0, 186.87673191429238)
+[00:29:09] [Server thread/INFO]: Player352 joined the game
+[00:29:21] [Server thread/INFO]: [Player352: Set own game mode to Creative Mode]
+[00:29:21] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[00:29:22] [Server thread/INFO]: [Player352: Set own game mode to Survival Mode]
+[00:29:22] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[00:29:28] [Server thread/INFO]: [Player352: Set own game mode to Creative Mode]
+[00:29:28] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[00:29:34] [Server thread/INFO]: [Player352: Set own game mode to Survival Mode]
+[00:29:34] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[00:29:41] [Client thread/ERROR]: Item entity 63631 has no item?!
+[00:29:41] [Client thread/ERROR]: Item entity 63631 has no item?!
+[00:29:55] [Server thread/INFO]: Saving and pausing game...
+[00:29:55] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[00:29:56] [Server thread/INFO]: Stopping server
+[00:29:56] [Server thread/INFO]: Saving players
+[00:29:56] [Server thread/INFO]: Saving worlds
+[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[00:29:57] [Client thread/INFO]: Stopping CXClient.
+[00:29:57] [Client thread/INFO]: SoundSystem shutting down...
+[00:29:57] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
