@@ -1,14 +1,18 @@
 package de.chrissx.mods.movement;
 
+import java.io.File;
+
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
 
 public class FastFall extends Mod {
 
-	public double factor = -4;
+	double speed = -4;
+	File sf;
 	
 	public FastFall() {
 		super("FastFall");
+		sf = getApiFile("speed");
 	}
 
 	@Override
@@ -16,7 +20,7 @@ public class FastFall extends Mod {
 	{
 		if(enabled && !mc.thePlayer.onGround && mc.thePlayer.motionY < 0)
 		{
-			mc.thePlayer.motionY = factor;
+			mc.thePlayer.motionY = speed;
 		}
 	}
 	
@@ -25,20 +29,25 @@ public class FastFall extends Mod {
 	{
 		if(args.length == 1)
 			toggle();
-		else if(args.length == 3 && args[1].equalsIgnoreCase("factor"))
+		else if(args[1].equalsIgnoreCase("speed"))
 			try
 			{
 				double d = Double.parseDouble(args[2]);
 				if(d > 0)
-					throw new Exception("Factor should be negative.");
-				else
-					factor = d;
+					throw new Exception("Speed should be negative.");
+				speed = d;
 			}
 			catch(Exception e)
 			{
-				Util.sendMessage("Error parsing factor: " + e.getMessage());
+				Util.sendMessage("Error parsing speed: " + e.getMessage());
 			}
 		else
-			Util.sendMessage("#fastfall to toggle, #fastfall factor <negative double> to set the factor");
+			Util.sendMessage("#fastfall to toggle, #fastfall speed <negative double> to set the factor");
+	}
+	
+	@Override
+	public void apiUpdate()
+	{
+		write(sf, speed);
 	}
 }

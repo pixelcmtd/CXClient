@@ -21,13 +21,13 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2509";
+	public static final String version = "2.5";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
 			"-Added a Lag mod that holds your packets back for as long as it's enabled",
-			"-Added a ScaffoldWalk that does what a SW does...place blocks",
-			"-Added a FastFall that sets your falling speed so you come to ground faster",
+			"-Added a ScaffoldWalk mod that does what a SW does...place blocks",
+			"-Added a FastFall mod that sets your falling speed so you come to ground faster",
 			"-Added a FastEat mod that just lets you eat faster",
 			"-Fixed hotkeys sometimes not working in SP (the disableHotkeys value was not set to false when loading a world)",
 			"-Optimized a few of the Minecraft classes to improve performance a bit",
@@ -41,17 +41,15 @@ public class Consts {
 		"Author: chrissx",
 		"Released by: chrissx Media Inc.",
 		"Licensed under: GNU GPLv3",
-		"Official website (alpha): https://chrissxyt.github.io/CXClient/",
-		"Source branch: https://github.com/chrissxYT/CXClient/tree/master",
+		"Official website (alpha): https://tinyurl.com/cxclhmpg",
+		"Source branch: https://tinyurl.com/cxclmstr",
 		"",
 		"Thanks to:",
 		"",
 		"-Garkolym for showing a few exploits in his videos (for example #text)",
 		"-A few other people we stealt the Fly- and Speed-Bypasses from",
-		"-The developers of Wurst for making another open source client, we looked"
-		+ " at, when we needed ideas for hacks or when we just f*ed up",
-		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits"
-		+ "in his videos: https://www.youtube.com/channel/UClgCGHQcdKN7Rwfx1q_-UUw"
+		"-The developers of Wurst for making another open source client, we looked at, when we needed ideas for hacks or when we just f*ed up",
+		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://tinyurl.com/trcechnl"
 	};
 	
 	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, "
