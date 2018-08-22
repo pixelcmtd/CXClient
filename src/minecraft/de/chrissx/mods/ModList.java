@@ -22,6 +22,7 @@ import de.chrissx.mods.combat.Aimbot;
 import de.chrissx.mods.combat.AntiPotion;
 import de.chrissx.mods.combat.AutoArmor;
 import de.chrissx.mods.combat.Autoclicker;
+import de.chrissx.mods.combat.FastBow;
 import de.chrissx.mods.combat.Fasthit;
 import de.chrissx.mods.combat.Killaura;
 import de.chrissx.mods.combat.Noswing;
@@ -114,6 +115,7 @@ public class ModList implements Iterable<Mod> {
 	public final NoCobweb noCobweb = new NoCobweb();
 	public final Parkour parkour = new Parkour();
 	public final Phase phase = new Phase();
+	public final FastBow fastBow = new FastBow();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -177,7 +179,8 @@ public class ModList implements Iterable<Mod> {
 			antiPotion,
 			noCobweb,
 			parkour,
-			phase
+			phase,
+			fastBow
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

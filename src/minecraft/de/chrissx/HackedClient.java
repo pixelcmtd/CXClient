@@ -475,6 +475,8 @@ public class HackedClient {
 			mods.parkour.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#phase"))
 			mods.phase.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#fastbow"))
+			mods.fastBow.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

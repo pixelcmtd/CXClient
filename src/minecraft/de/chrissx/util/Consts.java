@@ -21,7 +21,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2606";
+	public static final String version = "alpha 2607";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -31,7 +31,8 @@ public class Consts {
 			"-Added a NoCobweb mod that just sets Player.isInWeb to false",
 			"-Added a Parkour mod that jumps automatically in parkours",
 			"-Added a Phase mod that NoClips through blocks in front of you",
-			"-Made Fly-Bypass1 accelerate you"
+			"-Made Fly-Bypass1 accelerate you",
+			"-Added a FastBow that lets you shoot 20 arrows per second"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",
@@ -51,7 +52,7 @@ public class Consts {
 	};
 	
 	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #nocobweb, #timer, #speedac1, #speedlegit, "
-			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #autoswitch, #flip, "
+			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, "
 			+ "#cmdblock, #nofall, #antipotion, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
 			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, "
 			+ "#autosteal, #killaura, #tired, #parkour, #fasteat, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";

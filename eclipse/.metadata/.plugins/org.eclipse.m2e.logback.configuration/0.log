@@ -168,3 +168,5 @@
 2018-08-22 06:16:47,778 [Worker-12: Building workspace] WARN  org.eclipse.jgit.util.FS_Win32 - null
 2018-08-22 13:24:22,534 [Worker-7: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2018-08-22 13:24:23,467 [Worker-12: Building workspace] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2018-08-22 23:03:55,778 [Worker-5: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-08-22 23:03:56,111 [Worker-3: Building workspace] WARN  org.eclipse.jgit.util.FS_Win32 - null

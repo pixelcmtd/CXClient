@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.util.ArrayList"/>
 <fullyQualifiedTypeName name="java.nio.file.Paths"/>
 <fullyQualifiedTypeName name="de.chrissx.Constants"/>
 <fullyQualifiedTypeName name="de.chrissx.iapi.Addon"/>
@@ -42,17 +41,14 @@
 <fullyQualifiedTypeName name="net.minecraft.client.renderer.EnumFaceDirection"/>
 <fullyQualifiedTypeName name="net.minecraft.util.EnumFacing"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.movement.FastFall"/>
-<fullyQualifiedTypeName name="net.minecraft.client.entity.EntityPlayerSP"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.FastEat"/>
 <fullyQualifiedTypeName name="net.minecraft.entity.item.EntityMinecart.EnumMinecartType"/>
-<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Consts"/>
 <fullyQualifiedTypeName name="net.minecraft.server.integrated.IntegratedServer"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.fun.AutoSwitch"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Util"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
-<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Random"/>
 <fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook"/>
 <fullyQualifiedTypeName name="net.minecraft.potion.PotionEffect"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="de.chrissx.mods.combat.AntiPotion"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.movement.NoCobweb"/>
 <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
+<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
+<fullyQualifiedTypeName name="net.minecraft.client.entity.EntityPlayerSP"/>
+<fullyQualifiedTypeName name="net.minecraft.client.multiplayer.PlayerControllerMP"/>
 </qualifiedTypeNameHistroy>
