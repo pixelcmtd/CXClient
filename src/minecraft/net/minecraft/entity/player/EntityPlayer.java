@@ -265,32 +265,26 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public void onUpdate()
     {
-        this.noClip = this.isSpectator();
+        noClip = isSpectator();
 
-        if (this.isSpectator())
-        {
-            this.onGround = false;
-        }
+        if (isSpectator())
+            onGround = false;
 
         if (this.itemInUse != null)
         {
-            ItemStack itemstack = this.inventory.getCurrentItem();
+            ItemStack itemstack = inventory.getCurrentItem();
 
             if (itemstack == this.itemInUse)
             {
                 if (this.itemInUseCount <= 25 && this.itemInUseCount % 4 == 0)
-                {
                     this.updateItemUse(itemstack, 5);
-                }
 
                 if (--this.itemInUseCount == 0 && !this.worldObj.isRemote)
-                {
                     this.onItemUseFinish();
-                }
             }
             else
             {
-                this.clearItemInUse();
+                clearItemInUse();
             }
         }
 

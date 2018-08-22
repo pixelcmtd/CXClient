@@ -41,8 +41,8 @@ public class Main
         OptionSpec<String> uuid = parser.accepts("uuid").withRequiredArg();
         OptionSpec<String> accessToken = parser.accepts("accessToken").withRequiredArg().required();
         OptionSpec<String> version = parser.accepts("version").withRequiredArg().required();
-        OptionSpec<Integer> width = parser.accepts("width").withRequiredArg().ofType(Integer.class).defaultsTo(Integer.valueOf(854), new Integer[0]);
-        OptionSpec<Integer> height = parser.accepts("height").withRequiredArg().ofType(Integer.class).defaultsTo(Integer.valueOf(480), new Integer[0]);
+        OptionSpec<Integer> w = parser.accepts("width").withRequiredArg().ofType(Integer.class).defaultsTo(Integer.valueOf(854), new Integer[0]);
+        OptionSpec<Integer> h = parser.accepts("height").withRequiredArg().ofType(Integer.class).defaultsTo(Integer.valueOf(480), new Integer[0]);
         OptionSpec<String> userProperties = parser.accepts("userProperties").withRequiredArg().defaultsTo("{}", new String[0]);
         OptionSpec<String> profileProperties = parser.accepts("profileProperties").withRequiredArg().defaultsTo("{}", new String[0]);
         OptionSpec<String> assetIndex = parser.accepts("assetIndex").withRequiredArg();
@@ -81,24 +81,24 @@ public class Main
             });
         }
 
-        int i = ((Integer)parsedArgs.valueOf(width)).intValue();
-        int j = ((Integer)parsedArgs.valueOf(height)).intValue();
-        boolean fullscreen = parsedArgs.has("fullscreen");
+        int i = ((Integer)parsedArgs.valueOf(w)).intValue();
+        int j = ((Integer)parsedArgs.valueOf(h)).intValue();
+        boolean fs = parsedArgs.has("fullscreen");
         boolean checkGlErrors = parsedArgs.has("checkGlErrors");
         boolean demo = parsedArgs.has("demo");
         String s3 = (String)parsedArgs.valueOf(version);
         Gson gson = (new GsonBuilder()).registerTypeAdapter(PropertyMap.class, new Serializer()).create();
         PropertyMap propertymap = (PropertyMap)gson.fromJson((String)parsedArgs.valueOf(userProperties), PropertyMap.class);
         PropertyMap propertymap1 = (PropertyMap)gson.fromJson((String)parsedArgs.valueOf(profileProperties), PropertyMap.class);
-        File file1 = (File)parsedArgs.valueOf(gameDir);
-        File file2 = parsedArgs.has(assetsDir) ? (File)parsedArgs.valueOf(assetsDir) : new File(file1, "assets/");
-        File file3 = parsedArgs.has(resourcePackDir) ? (File)parsedArgs.valueOf(resourcePackDir) : new File(file1, "resourcepacks/");
+        File f = (File)parsedArgs.valueOf(gameDir);
+        File g = parsedArgs.has(assetsDir) ? (File)parsedArgs.valueOf(assetsDir) : new File(f, "assets/");
+        File k = parsedArgs.has(resourcePackDir) ? (File)parsedArgs.valueOf(resourcePackDir) : new File(f, "resourcepacks/");
         String s4 = parsedArgs.has(uuid) ? (String)uuid.value(parsedArgs) : (String)username.value(parsedArgs);
         String s5 = parsedArgs.has(assetIndex) ? (String)assetIndex.value(parsedArgs) : null;
         String s6 = (String)parsedArgs.valueOf(server);
         Integer integer = (Integer)parsedArgs.valueOf(port);
         Session session = new Session((String)username.value(parsedArgs), s4, (String)accessToken.value(parsedArgs), (String)userType.value(parsedArgs));
-        GameConfiguration gameconfiguration = new GameConfiguration(new GameConfiguration.UserInformation(session, propertymap, propertymap1, proxy), new GameConfiguration.DisplayInformation(i, j, fullscreen, checkGlErrors), new GameConfiguration.FolderInformation(file1, file3, file2, s5), new GameConfiguration.GameInformation(demo, s3), new GameConfiguration.ServerInformation(s6, integer.intValue()));
+        GameConfiguration gameconfiguration = new GameConfiguration(new GameConfiguration.UserInformation(session, propertymap, propertymap1, proxy), new GameConfiguration.DisplayInformation(i, j, fs, checkGlErrors), new GameConfiguration.FolderInformation(f, k, g, s5), new GameConfiguration.GameInformation(demo, s3), new GameConfiguration.ServerInformation(s6, integer.intValue()));
         Runtime.getRuntime().addShutdownHook(new Thread("Client Shutdown Thread")
         {
             public void run()

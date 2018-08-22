@@ -2,16 +2,19 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="System.gc();" key="selection"/>
+		<item value="boolean isOpaque" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="boolean isOpaque"/>
+			<item value="opaque"/>
+			<item value="noClip"/>
+			<item value="void launchIntegratedServer("/>
 			<item value="System.gc();"/>
 			<item value="void stop"/>
 			<item value="void freememory"/>
-			<item value="void launchIntegratedServer("/>
 			<item value="zCoord"/>
 			<item value="yCoord"/>
 			<item value="xCoord"/>
@@ -20,9 +23,6 @@
 			<item value="this.xCoord"/>
 			<item value="Vec3d"/>
 			<item value="isairblock"/>
-			<item value="hard"/>
-			<item value="�"/>
-			<item value="invis"/>
 		</list>
 		<list key="replacehistory">
 			<item value="z"/>

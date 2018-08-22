@@ -463,6 +463,18 @@ public class HackedClient {
 			mods.fastEat.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#autoswitch"))
 			mods.autoSwitch.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#tired"))
+			mods.tired.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#derp"))
+			mods.derp.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#antipotion"))
+			mods.antiPotion.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#nocobweb"))
+			mods.noCobweb.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#parkour"))
+			mods.parkour.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#phase"))
+			mods.phase.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

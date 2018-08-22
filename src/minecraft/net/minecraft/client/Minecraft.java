@@ -2082,78 +2082,69 @@ public class Minecraft implements IThreadListener, IPlayerUsage
         this.systemTime = getSystemTime();
     }
 
-    public void launchIntegratedServer(String folderName, String ingameWorldName, WorldSettings settings)
+    public void launchIntegratedServer(String dir, String name, WorldSettings setts)
     {
         loadWorld((WorldClient)null);
-        ISaveHandler isavehandler = this.saveLoader.getSaveLoader(folderName, false);
-        WorldInfo worldinfo = isavehandler.loadWorldInfo();
+        ISaveHandler sh = this.saveLoader.getSaveLoader(dir, false);
+        WorldInfo wi = sh.loadWorldInfo();
 
-        if (worldinfo == null && settings != null)
+        if (wi == null && setts != null)
         {
-            worldinfo = new WorldInfo(settings, folderName);
-            isavehandler.saveWorldInfo(worldinfo);
+            wi = new WorldInfo(setts, dir);
+            sh.saveWorldInfo(wi);
         }
 
-        if (settings == null)
-        {
-            settings = new WorldSettings(worldinfo);
-        }
+        if (setts == null)
+            setts = new WorldSettings(wi);
 
         try
         {
-            this.theIntegratedServer = new IntegratedServer(this, folderName, ingameWorldName, settings);
-            this.theIntegratedServer.startServerThread();
-            this.integratedServerIsRunning = true;
+            theIntegratedServer = new IntegratedServer(this, dir, name, setts);
+            theIntegratedServer.startServerThread();
+            integratedServerIsRunning = true;
         }
-        catch (Throwable throwable)
+        catch (Throwable t)
         {
-            CrashReport crashreport = CrashReport.makeCrashReport(throwable, "Starting integrated server");
-            CrashReportCategory crashreportcategory = crashreport.makeCategory("Starting integrated server");
-            crashreportcategory.addCrashSection("Level ID", folderName);
-            crashreportcategory.addCrashSection("Level Name", ingameWorldName);
-            throw new ReportedException(crashreport);
+            CrashReport cr = CrashReport.makeCrashReport(t, "Starting integrated server");
+            CrashReportCategory crc = cr.makeCategory("Starting integrated server");
+            crc.addCrashSection("Level ID", dir);
+            crc.addCrashSection("Level Name", name);
+            throw new ReportedException(cr);
         }
 
-        this.loadingScreen.displaySavingString(I18n.format("menu.loadingLevel", new Object[0]));
+        loadingScreen.displaySavingString(I18n.format("menu.loadingLevel", new Object[0]));
 
-        while (!this.theIntegratedServer.serverIsInRunLoop())
+        while (!theIntegratedServer.serverIsInRunLoop())
         {
-            String s = this.theIntegratedServer.getUserMessage();
+            String s = theIntegratedServer.getUserMessage();
 
             if (s != null)
-            {
-                this.loadingScreen.displayLoadingString(I18n.format(s, new Object[0]));
-            }
+                loadingScreen.displayLoadingString(I18n.format(s, new Object[0]));
             else
-            {
-                this.loadingScreen.displayLoadingString("");
-            }
+                loadingScreen.displayLoadingString("");
 
             try
             {
-                Thread.sleep(200L);
+                Thread.sleep(200);
             }
-            catch (InterruptedException var9)
-            {
-                ;
-            }
+            catch (Throwable t){}
         }
 
-        this.displayGuiScreen((GuiScreen)null);
-        SocketAddress socketaddress = this.theIntegratedServer.getNetworkSystem().addLocalEndpoint();
-        NetworkManager networkmanager = NetworkManager.provideLocalClient(socketaddress);
-        networkmanager.setNetHandler(new NetHandlerLoginClient(networkmanager, this, (GuiScreen)null));
-        networkmanager.sendPacket(new C00Handshake(47, socketaddress.toString(), 0, EnumConnectionState.LOGIN));
-        networkmanager.sendPacket(new C00PacketLoginStart(this.getSession().getProfile()));
-        this.myNetworkManager = networkmanager;
+        displayGuiScreen((GuiScreen)null);
+        SocketAddress sa = this.theIntegratedServer.getNetworkSystem().addLocalEndpoint();
+        NetworkManager nm = NetworkManager.provideLocalClient(sa);
+        nm.setNetHandler(new NetHandlerLoginClient(nm, this, (GuiScreen)null));
+        nm.sendPacket(new C00Handshake(47, sa.toString(), 0, EnumConnectionState.LOGIN));
+        nm.sendPacket(new C00PacketLoginStart(this.getSession().getProfile()));
+        this.myNetworkManager = nm;
     }
 
     /**
      * unloads the current world first
      */
-    public void loadWorld(WorldClient worldClientIn)
+    public void loadWorld(WorldClient wc)
     {
-        this.loadWorld(worldClientIn, "");
+        this.loadWorld(wc, "");
     }
 
     /**

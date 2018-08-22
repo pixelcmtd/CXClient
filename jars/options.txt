@@ -16,7 +16,7 @@ ao:2
 renderClouds:false
 resourcePacks:[]
 incompatibleResourcePacks:[]
-lastServer:jailsmc.net
+lastServer:127.0.0.1
 lang:en_US
 chatVisibility:0
 chatColors:true
@@ -29,7 +29,7 @@ enableVsync:true
 useVbo:false
 hideServerAddress:false
 advancedItemTooltips:false
-pauseOnLostFocus:true
+pauseOnLostFocus:false
 touchscreen:false
 overrideWidth:0
 overrideHeight:0
