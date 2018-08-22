@@ -21,7 +21,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2604";
+	public static final String version = "alpha 2606";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -30,7 +30,8 @@ public class Consts {
 			"-Added a AntiPotion mod that tries to get all the bad potion effects away",
 			"-Added a NoCobweb mod that just sets Player.isInWeb to false",
 			"-Added a Parkour mod that jumps automatically in parkours",
-			"-Added a Phase mod that NoClips through blocks in front of you"
+			"-Added a Phase mod that NoClips through blocks in front of you",
+			"-Made Fly-Bypass1 accelerate you"
 	};
 	public static final String[] credits = new String[] {
 		clientName + " " + version + " Credits:",
