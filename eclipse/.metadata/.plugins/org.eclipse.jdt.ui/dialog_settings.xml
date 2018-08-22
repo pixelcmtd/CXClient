@@ -45,10 +45,11 @@
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\chrissicx\Desktop\cxclient\eclipse.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Client - Client" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.4.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.5.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.5.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.4.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.3.1.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.3.jar"/>
@@ -110,6 +111,8 @@
 		</section>
 	</section>
 	<section name="completion_proposal_size">
+		<item value="260" key="size.y"/>
+		<item value="355" key="size.x"/>
 		<item value="221" key="contextSelector.size.y"/>
 		<item value="331" key="contextSelector.size.x"/>
 	</section>
