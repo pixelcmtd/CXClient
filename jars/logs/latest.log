@@ -1,32 +1,50 @@
-[18:53:38] [Client thread/INFO]: Setting user: Player665
-[18:53:38] [Client thread/INFO]: (Session ID is token:0:Player665)
-[18:53:40] [Client thread/INFO]: CXClient Version: alpha 2505
-[18:53:40] [Client thread/INFO]: LWJGL Version: 2.9.4
-[18:53:41] [Client thread/INFO]: Reloading ResourceManager: Default
-[18:53:41] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[18:53:41] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[18:53:41] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[18:53:41] [Thread-7/INFO]: OpenAL initialized.
-[18:53:41] [Sound Library Loader/INFO]: Sound engine started
-[18:53:49] [Client thread/INFO]: Created: 512x512 textures-atlas
-[18:53:52] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[18:53:52] [Server thread/INFO]: Generating keypair
-[18:53:52] [Server thread/INFO]: Preparing start region for level 0
-[18:53:53] [Server thread/INFO]: Changing view distance to 12, from 10
-[18:53:54] [Server thread/INFO]: Player665[local:E:c563d545] logged in with entity id 140 at (543.9320247081048, 69.1707870772188, 184.05511635408476)
-[18:53:54] [Server thread/INFO]: Player665 joined the game
-[18:55:17] [Server thread/INFO]: Player665 was blown up by Creeper
-[18:55:17] [Client thread/INFO]: [CHAT] Player665 was blown up by Creeper
-[18:55:35] [Server thread/INFO]: Saving and pausing game...
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[18:55:35] [Server thread/INFO]: Stopping server
-[18:55:35] [Server thread/INFO]: Saving players
-[18:55:35] [Server thread/INFO]: Saving worlds
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[18:55:35] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[18:55:37] [Client thread/INFO]: Stopping CXClient.
-[18:55:37] [Client thread/INFO]: SoundSystem shutting down...
-[18:55:37] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[05:30:12] [Client thread/INFO]: Setting user: Player612
+[05:30:13] [Client thread/INFO]: (Session ID is token:0:Player612)
+[05:30:14] [Client thread/INFO]: CXClient Version: alpha 2507
+[05:30:14] [Client thread/INFO]: LWJGL Version: 2.9.4
+[05:30:15] [Client thread/INFO]: Reloading ResourceManager: Default
+[05:30:15] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[05:30:15] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[05:30:15] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[05:30:16] [Thread-7/INFO]: OpenAL initialized.
+[05:30:16] [Sound Library Loader/INFO]: Sound engine started
+[05:30:23] [Client thread/INFO]: Created: 512x512 textures-atlas
+[05:30:27] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[05:30:27] [Server thread/INFO]: Generating keypair
+[05:30:27] [Server thread/INFO]: Preparing start region for level 0
+[05:30:28] [Server thread/INFO]: Changing view distance to 12, from 10
+[05:30:28] [Server thread/INFO]: Player612[local:E:58fd96a1] logged in with entity id 184 at (562.3000000119209, 68.0, 177.30000001192093)
+[05:30:28] [Server thread/INFO]: Player612 joined the game
+[05:30:33] [Server thread/INFO]: Player612 was slain by Blaze
+[05:30:33] [Client thread/INFO]: [CHAT] Player612 was slain by Blaze
+[05:30:53] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #autoswitch, #flip, #cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, #fastfall, #xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #fasteat, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help
+[05:30:55] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #timer, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #stepjump, #autoswitch, #flip, #cmdblock, #nofall, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #trollpotion, #givebypass, #reach, #regen, #fastfall, #xray, #fasthit, #autoclicker, #noswing, #nick, #authmecrack, #antiafk, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #fasteat, #nuker, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help
+[05:31:40] [Server thread/INFO]: [Player612: Set own game mode to Creative Mode]
+[05:31:40] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[05:31:41] [Server thread/INFO]: Player612 has just earned the achievement [Taking Inventory]
+[05:31:41] [Client thread/INFO]: [CHAT] Player612 has just earned the achievement [Taking Inventory]
+[05:31:57] [Server thread/INFO]: [Player612: Set own game mode to Survival Mode]
+[05:31:57] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[05:32:27] [Server thread/INFO]: <Player612> t
+[05:32:27] [Client thread/INFO]: [CHAT] <Player612> t
+[05:32:29] [Server thread/INFO]: Saving and pausing game...
+[05:32:29] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[05:32:29] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[05:32:29] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[05:34:18] [Server thread/INFO]: [Player612: Set own game mode to Creative Mode]
+[05:34:18] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[05:34:20] [Server thread/INFO]: [Player612: Set own game mode to Survival Mode]
+[05:34:20] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[05:34:48] [Server thread/INFO]: Saving and pausing game...
+[05:34:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[05:34:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[05:34:48] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[05:34:49] [Server thread/INFO]: Stopping server
+[05:34:49] [Server thread/INFO]: Saving players
+[05:34:49] [Server thread/INFO]: Saving worlds
+[05:34:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[05:34:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[05:34:49] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[05:34:50] [Client thread/INFO]: Stopping CXClient.
+[05:34:50] [Client thread/INFO]: SoundSystem shutting down...
+[05:34:51] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

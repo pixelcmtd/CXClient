@@ -461,6 +461,8 @@ public class HackedClient {
 			mods.fastFall.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#fasteat"))
 			mods.fastEat.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#autoswitch"))
+			mods.autoSwitch.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

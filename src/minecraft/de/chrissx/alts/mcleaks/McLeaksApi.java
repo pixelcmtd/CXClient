@@ -18,7 +18,7 @@ import com.google.gson.JsonObject;
 
 public class McLeaksApi {
 
-	private static Gson gson = new Gson();
+	static Gson gson = new Gson();
 	
 	/**
 	 * 
