@@ -1,5 +1,7 @@
 package de.chrissx.alts.mcleaks;
 
+import net.minecraft.util.Session;
+
 public class McLeaksSession {
 	String session = "null";
 	String mcname = "null";

@@ -25,6 +25,7 @@ import de.chrissx.mods.combat.Fasthit;
 import de.chrissx.mods.combat.Killaura;
 import de.chrissx.mods.combat.Noswing;
 import de.chrissx.mods.combat.Reach;
+import de.chrissx.mods.fun.AutoSwitch;
 import de.chrissx.mods.fun.JailsmcBot;
 import de.chrissx.mods.fun.KillPotion;
 import de.chrissx.mods.fun.MultiText;
@@ -100,6 +101,7 @@ public class ModList implements Iterable<Mod> {
 	public final ScaffoldWalk scaffoldWalk = new ScaffoldWalk();
 	public final FastFall fastFall = new FastFall();
 	public final FastEat fastEat = new FastEat();
+	public final AutoSwitch autoSwitch = new AutoSwitch();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -156,7 +158,8 @@ public class ModList implements Iterable<Mod> {
 			lag,
 			scaffoldWalk,
 			fastFall,
-			fastEat
+			fastEat,
+			autoSwitch
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

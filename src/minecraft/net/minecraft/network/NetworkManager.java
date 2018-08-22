@@ -294,10 +294,10 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         	dispatchPacket(p.p, p.fl);
         	testStoppedPackets = true;
         }
-        final EnumConnectionState enumconnectionstate = EnumConnectionState.getFromPacket(inPacket);
-        final EnumConnectionState enumconnectionstate1 = (EnumConnectionState)this.channel.attr(attrKeyConnectionState).get();
+        final EnumConnectionState cs1 = EnumConnectionState.getFromPacket(inPacket);
+        final EnumConnectionState cs2 = (EnumConnectionState)this.channel.attr(attrKeyConnectionState).get();
 
-        if (enumconnectionstate1 != enumconnectionstate)
+        if (cs2 != cs1)
         {
             logger.debug("Disabled auto read");
             this.channel.config().setAutoRead(false);
@@ -305,9 +305,9 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 
         if (this.channel.eventLoop().inEventLoop())
         {
-            if (enumconnectionstate != enumconnectionstate1)
+            if (cs1 != cs2)
             {
-                this.setConnectionState(enumconnectionstate);
+                this.setConnectionState(cs1);
             }
 
             ChannelFuture channelfuture = this.channel.writeAndFlush(inPacket);
@@ -325,9 +325,9 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             {
                 public void run()
                 {
-                    if (enumconnectionstate != enumconnectionstate1)
+                    if (cs1 != cs2)
                     {
-                        NetworkManager.this.setConnectionState(enumconnectionstate);
+                        NetworkManager.this.setConnectionState(cs1);
                     }
 
                     ChannelFuture channelfuture1 = NetworkManager.this.channel.writeAndFlush(inPacket);
