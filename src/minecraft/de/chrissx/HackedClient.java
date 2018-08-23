@@ -477,6 +477,14 @@ public class HackedClient {
 			mods.phase.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#fastbow"))
 			mods.fastBow.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#spider"))
+			mods.spider.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#antifire"))
+			mods.antiFire.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#highjump"))
+			mods.highJump.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#autowalk"))
+			mods.autoWalk.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else
