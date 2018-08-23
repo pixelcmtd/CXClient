@@ -1,6 +1,7 @@
 package de.chrissx.mods.movement;
 
 import java.awt.Color;
+import java.io.File;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
@@ -8,15 +9,18 @@ import net.minecraft.client.gui.FontRenderer;
 
 public class ACSpeed1 extends Mod {
 
-	private float speed = 0.2f;
-	
+	float speed = 0.2f;
+	File sf;
+
 	public ACSpeed1() {
 		super("Speed-Bypass1");
+		sf = getApiFile("speed");
 	}
 
 	@Override
 	public void onTick() {
-		if(enabled) {
+		if(enabled)
+		{
 			if(mc.thePlayer.onGround)
 				mc.thePlayer.jump();
 			else
@@ -43,5 +47,11 @@ public class ACSpeed1 extends Mod {
 		if(isEnabled())
 			r.drawString(name+"(SPEED:"+speed+")", x, y, Color.WHITE.getRGB());
 		return isEnabled();
+	}
+	
+	@Override
+	public void apiUpdate()
+	{
+		write(sf, speed);
 	}
 }

@@ -18,8 +18,8 @@ public class KeyBinding implements Comparable<KeyBinding>
     private int keyCode;
 
     /** Is the key held down? */
-    private boolean pressed;
-    private int pressTime;
+    public boolean pressed;
+    int pressTime;
 
     public static void onTick(int keyCode)
     {
@@ -41,18 +41,14 @@ public class KeyBinding implements Comparable<KeyBinding>
             KeyBinding keybinding = (KeyBinding)hash.lookup(keyCode);
 
             if (keybinding != null)
-            {
                 keybinding.pressed = pressed;
-            }
         }
     }
 
     public static void unPressAllKeys()
     {
         for (KeyBinding keybinding : keybindArray)
-        {
             keybinding.unpressKey();
-        }
     }
 
     public static void resetKeyBindingArrayAndHash()
@@ -60,9 +56,7 @@ public class KeyBinding implements Comparable<KeyBinding>
         hash.clearMap();
 
         for (KeyBinding keybinding : keybindArray)
-        {
             hash.addKey(keybinding.keyCode, keybinding);
-        }
     }
 
     public static Set<String> getKeybinds()
@@ -86,12 +80,12 @@ public class KeyBinding implements Comparable<KeyBinding>
      */
     public boolean isKeyDown()
     {
-        return this.pressed;
+        return pressed;
     }
 
     public String getKeyCategory()
     {
-        return this.keyCategory;
+        return keyCategory;
     }
 
     /**
@@ -101,9 +95,7 @@ public class KeyBinding implements Comparable<KeyBinding>
     public boolean isPressed()
     {
         if (this.pressTime == 0)
-        {
             return false;
-        }
         else
         {
             --this.pressTime;
@@ -111,7 +103,7 @@ public class KeyBinding implements Comparable<KeyBinding>
         }
     }
 
-    private void unpressKey()
+    void unpressKey()
     {
         this.pressTime = 0;
         this.pressed = false;

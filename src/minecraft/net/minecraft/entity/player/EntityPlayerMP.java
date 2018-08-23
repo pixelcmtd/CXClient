@@ -535,7 +535,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting
         }
 
         this.triggerAchievement(StatList.deathsStat);
-        this.func_175145_a(StatList.timeSinceDeathStat);
+        this.addStat(StatList.timeSinceDeathStat);
         this.getCombatTracker().reset();
     }
 
@@ -963,7 +963,7 @@ public class EntityPlayerMP extends EntityPlayer implements ICrafting
         }
     }
 
-    public void func_175145_a(StatBase p_175145_1_)
+    public void addStat(StatBase p_175145_1_)
     {
         if (p_175145_1_ != null)
         {

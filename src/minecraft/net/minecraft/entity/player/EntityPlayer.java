@@ -341,62 +341,46 @@ public abstract class EntityPlayer extends EntityLivingBase
             this.extinguish();
         }
 
-        this.prevChasingPosX = this.chasingPosX;
-        this.prevChasingPosY = this.chasingPosY;
-        this.prevChasingPosZ = this.chasingPosZ;
-        double d5 = this.posX - this.chasingPosX;
-        double d0 = this.posY - this.chasingPosY;
-        double d1 = this.posZ - this.chasingPosZ;
-        double d2 = 10.0D;
+        prevChasingPosX = chasingPosX;
+        prevChasingPosY = chasingPosY;
+        prevChasingPosZ = chasingPosZ;
+        double d5 = posX - chasingPosX;
+        double d0 = posY - chasingPosY;
+        double d1 = posZ - chasingPosZ;
+        double d2 = 10;
 
         if (d5 > d2)
-        {
-            this.prevChasingPosX = this.chasingPosX = this.posX;
-        }
+            this.prevChasingPosX = chasingPosX = posX;
 
         if (d1 > d2)
-        {
-            this.prevChasingPosZ = this.chasingPosZ = this.posZ;
-        }
+        	prevChasingPosZ = chasingPosZ = posZ;
 
         if (d0 > d2)
-        {
-            this.prevChasingPosY = this.chasingPosY = this.posY;
-        }
+            prevChasingPosY = chasingPosY = posY;
 
         if (d5 < -d2)
-        {
-            this.prevChasingPosX = this.chasingPosX = this.posX;
-        }
+            prevChasingPosX = chasingPosX = posX;
 
         if (d1 < -d2)
-        {
-            this.prevChasingPosZ = this.chasingPosZ = this.posZ;
-        }
+            prevChasingPosZ = chasingPosZ = posZ;
 
         if (d0 < -d2)
+            prevChasingPosY = chasingPosY = posY;
+
+        chasingPosX += d5 * 0.25;
+        chasingPosZ += d1 * 0.25;
+        chasingPosY += d0 * 0.25;
+
+        if (ridingEntity == null)
+            startMinecartRidingCoordinate = null;
+
+        if (!worldObj.isRemote)
         {
-            this.prevChasingPosY = this.chasingPosY = this.posY;
-        }
+            foodStats.onUpdate(this);
+            triggerAchievement(StatList.minutesPlayedStat);
 
-        this.chasingPosX += d5 * 0.25D;
-        this.chasingPosZ += d1 * 0.25D;
-        this.chasingPosY += d0 * 0.25D;
-
-        if (this.ridingEntity == null)
-        {
-            this.startMinecartRidingCoordinate = null;
-        }
-
-        if (!this.worldObj.isRemote)
-        {
-            this.foodStats.onUpdate(this);
-            this.triggerAchievement(StatList.minutesPlayedStat);
-
-            if (this.isEntityAlive())
-            {
-                this.triggerAchievement(StatList.timeSinceDeathStat);
-            }
+            if (isEntityAlive())
+                triggerAchievement(StatList.timeSinceDeathStat);
         }
 
         int i = 29999999;
@@ -736,7 +720,7 @@ public abstract class EntityPlayer extends EntityLivingBase
         }
 
         this.triggerAchievement(StatList.deathsStat);
-        this.func_175145_a(StatList.timeSinceDeathStat);
+        this.addStat(StatList.timeSinceDeathStat);
     }
 
     /**
@@ -1635,7 +1619,7 @@ public abstract class EntityPlayer extends EntityLivingBase
         }
     }
 
-    private boolean isInBed()
+    boolean isInBed()
     {
         return this.worldObj.getBlockState(this.playerLocation).getBlock() == Blocks.bed;
     }
@@ -1650,9 +1634,7 @@ public abstract class EntityPlayer extends EntityLivingBase
         if (block != Blocks.bed)
         {
             if (!forceSpawn)
-            {
                 return null;
-            }
             else
             {
                 boolean flag = block.func_181623_g();
@@ -1661,9 +1643,7 @@ public abstract class EntityPlayer extends EntityLivingBase
             }
         }
         else
-        {
             return BlockBed.getSafeExitLocation(worldIn, bedLocation, 0);
-        }
     }
 
     /**
@@ -1678,20 +1658,20 @@ public abstract class EntityPlayer extends EntityLivingBase
             switch (enumfacing)
             {
                 case SOUTH:
-                    return 90.0F;
+                    return 90;
 
                 case NORTH:
-                    return 270.0F;
+                    return 270;
 
                 case WEST:
-                    return 0.0F;
+                    return 0;
 
                 case EAST:
-                    return 180.0F;
+                    return 180;
             }
         }
 
-        return 0.0F;
+        return 0;
     }
 
     /**
@@ -1712,34 +1692,32 @@ public abstract class EntityPlayer extends EntityLivingBase
 
     public int getSleepTimer()
     {
-        return this.sleepTimer;
+        return sleepTimer;
     }
 
-    public void addChatComponentMessage(IChatComponent chatComponent)
-    {
-    }
+    public void addChatComponentMessage(IChatComponent msg){}
 
     public BlockPos getBedLocation()
     {
-        return this.spawnChunk;
+        return spawnChunk;
     }
 
     public boolean isSpawnForced()
     {
-        return this.spawnForced;
+        return spawnForced;
     }
 
     public void setSpawnPoint(BlockPos pos, boolean forced)
     {
         if (pos != null)
         {
-            this.spawnChunk = pos;
-            this.spawnForced = forced;
+            spawnChunk = pos;
+            spawnForced = forced;
         }
         else
         {
-            this.spawnChunk = null;
-            this.spawnForced = false;
+            spawnChunk = null;
+            spawnForced = false;
         }
     }
 
@@ -1754,30 +1732,27 @@ public abstract class EntityPlayer extends EntityLivingBase
     /**
      * Adds a value to a statistic field.
      */
-    public void addStat(StatBase stat, int amount)
-    {
-    }
+    public void addStat(StatBase stat, int amount){}
 
-    public void func_175145_a(StatBase p_175145_1_)
-    {
-    }
+    public void addStat(StatBase stat){}
 
     /**
      * Causes this entity to do an upwards motion (jumping).
      */
     public void jump()
     {
-        super.jump();
-        this.triggerAchievement(StatList.jumpStat);
-
-        if (this.isSprinting())
+    	motionY = HackedClient.getClient().getMods().highJump.isEnabled() ? HackedClient.getClient().getMods().highJump.motion : getJumpUpwardsMotion();
+        if (isPotionActive(Potion.jump))
+            motionY += getActivePotionEffect(Potion.jump).getAmplifier() / 10 + 0.1;
+        if (isSprinting())
         {
-            this.addExhaustion(0.8F);
+            float f = rotationYaw * 0.017453292F;
+            this.motionX -= MathHelper.sin(f) * 0.2;
+            this.motionZ += MathHelper.cos(f) * 0.2;
         }
-        else
-        {
-            this.addExhaustion(0.2F);
-        }
+        isAirBorne = true;
+        triggerAchievement(StatList.jumpStat);
+        addExhaustion(isSprinting() ? 0.8F : 0.2F);
     }
 
     /**
@@ -1785,25 +1760,23 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public void moveEntityWithHeading(float strafe, float forward)
     {
-        double d0 = this.posX;
-        double d1 = this.posY;
-        double d2 = this.posZ;
+        double d = posX;
+        double e = posY;
+        double g = posZ;
 
-        if (this.capabilities.isFlying && this.ridingEntity == null)
+        if (capabilities.isFlying && ridingEntity == null)
         {
-            double d3 = this.motionY;
-            float f = this.jumpMovementFactor;
-            this.jumpMovementFactor = this.capabilities.getFlySpeed() * (float)(this.isSprinting() ? 2 : 1);
+        	double h = motionY;
+            float f = jumpMovementFactor;
+            jumpMovementFactor = capabilities.getFlySpeed() * (float)(this.isSprinting() ? 2 : 1);
             super.moveEntityWithHeading(strafe, forward);
-            this.motionY = d3 * 0.6D;
-            this.jumpMovementFactor = f;
+            motionY = h * 0.6D;
+            jumpMovementFactor = f;
         }
         else
-        {
             super.moveEntityWithHeading(strafe, forward);
-        }
 
-        this.addMovementStat(this.posX - d0, this.posY - d1, this.posZ - d2);
+        this.addMovementStat(this.posX - d, this.posY - e, this.posZ - g);
     }
 
     /**

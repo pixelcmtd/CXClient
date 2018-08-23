@@ -1,40 +1,30 @@
-[00:29:01] [Client thread/INFO]: Setting user: Player352
-[00:29:01] [Client thread/INFO]: (Session ID is token:0:Player352)
-[00:29:02] [Client thread/INFO]: CXClient Version: alpha 2607
-[00:29:02] [Client thread/INFO]: LWJGL Version: 2.9.4
-[00:29:04] [Client thread/INFO]: Reloading ResourceManager: Default
-[00:29:04] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[00:29:04] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[00:29:04] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[00:29:04] [Thread-7/INFO]: OpenAL initialized.
-[00:29:04] [Sound Library Loader/INFO]: Sound engine started
-[00:29:05] [Client thread/INFO]: Created: 512x512 textures-atlas
-[00:29:08] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[00:29:08] [Server thread/INFO]: Generating keypair
-[00:29:08] [Server thread/INFO]: Preparing start region for level 0
-[00:29:09] [Server thread/INFO]: Changing view distance to 12, from 10
-[00:29:09] [Server thread/INFO]: Player352[local:E:43198b21] logged in with entity id 165 at (550.921293621148, 70.0, 186.87673191429238)
-[00:29:09] [Server thread/INFO]: Player352 joined the game
-[00:29:21] [Server thread/INFO]: [Player352: Set own game mode to Creative Mode]
-[00:29:21] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[00:29:22] [Server thread/INFO]: [Player352: Set own game mode to Survival Mode]
-[00:29:22] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[00:29:28] [Server thread/INFO]: [Player352: Set own game mode to Creative Mode]
-[00:29:28] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[00:29:34] [Server thread/INFO]: [Player352: Set own game mode to Survival Mode]
-[00:29:34] [Client thread/INFO]: [CHAT] Your game mode has been updated
-[00:29:41] [Client thread/ERROR]: Item entity 63631 has no item?!
-[00:29:41] [Client thread/ERROR]: Item entity 63631 has no item?!
-[00:29:55] [Server thread/INFO]: Saving and pausing game...
-[00:29:55] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[00:29:56] [Server thread/INFO]: Stopping server
-[00:29:56] [Server thread/INFO]: Saving players
-[00:29:56] [Server thread/INFO]: Saving worlds
-[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[00:29:56] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[00:29:57] [Client thread/INFO]: Stopping CXClient.
-[00:29:57] [Client thread/INFO]: SoundSystem shutting down...
-[00:29:57] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[21:54:50] [Client thread/INFO]: Setting user: Player555
+[21:54:50] [Client thread/INFO]: (Session ID is token:0:Player555)
+[21:54:52] [Client thread/INFO]: CXClient Version: alpha 2613
+[21:54:52] [Client thread/INFO]: LWJGL Version: 2.9.4
+[21:54:53] [Client thread/INFO]: Reloading ResourceManager: Default
+[21:54:53] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[21:54:53] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[21:54:53] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:54:53] [Thread-7/INFO]: OpenAL initialized.
+[21:54:54] [Sound Library Loader/INFO]: Sound engine started
+[21:54:55] [Client thread/INFO]: Created: 512x512 textures-atlas
+[21:55:00] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[21:55:00] [Server thread/INFO]: Generating keypair
+[21:55:01] [Server thread/INFO]: Preparing start region for level 0
+[21:55:02] [Server thread/INFO]: Changing view distance to 12, from 10
+[21:55:02] [Server thread/INFO]: Player555[local:E:7c344901] logged in with entity id 162 at (587.510422958516, 65.90384735773426, 200.713143725051)
+[21:55:02] [Server thread/INFO]: Player555 joined the game
+[21:55:33] [Server thread/INFO]: Saving and pausing game...
+[21:55:33] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[21:55:33] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[21:55:33] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[21:55:34] [Server thread/INFO]: Stopping server
+[21:55:34] [Server thread/INFO]: Saving players
+[21:55:34] [Server thread/INFO]: Saving worlds
+[21:55:34] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[21:55:34] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[21:55:34] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[21:55:38] [Client thread/INFO]: Stopping CXClient.
+[21:55:38] [Client thread/INFO]: SoundSystem shutting down...
+[21:55:38] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

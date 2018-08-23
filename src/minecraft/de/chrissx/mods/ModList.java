@@ -19,6 +19,7 @@ import de.chrissx.mods.chat.Home;
 import de.chrissx.mods.chat.MassTpa;
 import de.chrissx.mods.chat.Spam;
 import de.chrissx.mods.combat.Aimbot;
+import de.chrissx.mods.combat.AntiFire;
 import de.chrissx.mods.combat.AntiPotion;
 import de.chrissx.mods.combat.AutoArmor;
 import de.chrissx.mods.combat.Autoclicker;
@@ -42,10 +43,12 @@ import de.chrissx.mods.movement.ACFly1;
 import de.chrissx.mods.movement.ACFly2;
 import de.chrissx.mods.movement.ACSpeed1;
 import de.chrissx.mods.movement.AntiAfk;
+import de.chrissx.mods.movement.AutoWalk;
 import de.chrissx.mods.movement.Autosprint;
 import de.chrissx.mods.movement.FastFall;
 import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
+import de.chrissx.mods.movement.HighJump;
 import de.chrissx.mods.movement.Jetpack;
 import de.chrissx.mods.movement.LegitSpeed;
 import de.chrissx.mods.movement.NoCobweb;
@@ -53,6 +56,7 @@ import de.chrissx.mods.movement.Nofall;
 import de.chrissx.mods.movement.Parkour;
 import de.chrissx.mods.movement.Phase;
 import de.chrissx.mods.movement.Sneak;
+import de.chrissx.mods.movement.Spider;
 import de.chrissx.mods.movement.StepJump;
 import de.chrissx.mods.movement.Timer;
 import de.chrissx.mods.movement.VanillaFly;
@@ -116,6 +120,10 @@ public class ModList implements Iterable<Mod> {
 	public final Parkour parkour = new Parkour();
 	public final Phase phase = new Phase();
 	public final FastBow fastBow = new FastBow();
+	public final Spider spider = new Spider();
+	public final AntiFire antiFire = new AntiFire();
+	public final HighJump highJump = new HighJump();
+	public final AutoWalk autoWalk = new AutoWalk();
 	
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -180,7 +188,11 @@ public class ModList implements Iterable<Mod> {
 			noCobweb,
 			parkour,
 			phase,
-			fastBow
+			fastBow,
+			spider,
+			antiFire,
+			highJump,
+			autoWalk
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
