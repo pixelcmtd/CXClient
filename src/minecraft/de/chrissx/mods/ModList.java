@@ -22,6 +22,7 @@ import de.chrissx.mods.combat.Aimbot;
 import de.chrissx.mods.combat.AntiFire;
 import de.chrissx.mods.combat.AntiPotion;
 import de.chrissx.mods.combat.AutoArmor;
+import de.chrissx.mods.combat.AutoRespawn;
 import de.chrissx.mods.combat.Autoclicker;
 import de.chrissx.mods.combat.FastBow;
 import de.chrissx.mods.combat.Fasthit;
@@ -45,6 +46,7 @@ import de.chrissx.mods.movement.ACSpeed1;
 import de.chrissx.mods.movement.AntiAfk;
 import de.chrissx.mods.movement.AutoWalk;
 import de.chrissx.mods.movement.Autosprint;
+import de.chrissx.mods.movement.Dolphin;
 import de.chrissx.mods.movement.FastFall;
 import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
@@ -124,7 +126,9 @@ public class ModList implements Iterable<Mod> {
 	public final AntiFire antiFire = new AntiFire();
 	public final HighJump highJump = new HighJump();
 	public final AutoWalk autoWalk = new AutoWalk();
-	
+	public final AutoRespawn autoRespawn = new AutoRespawn();
+	public final Dolphin dolphin = new Dolphin();
+
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
 	public final Text text = new Text();
@@ -192,7 +196,9 @@ public class ModList implements Iterable<Mod> {
 			spider,
 			antiFire,
 			highJump,
-			autoWalk
+			autoWalk,
+			autoRespawn,
+			dolphin
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

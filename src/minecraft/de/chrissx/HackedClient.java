@@ -485,6 +485,10 @@ public class HackedClient {
 			mods.highJump.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#autowalk"))
 			mods.autoWalk.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#autorespawn"))
+			mods.autoRespawn.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#dolphin"))
+			mods.dolphin.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

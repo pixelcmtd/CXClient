@@ -21,7 +21,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2614";
+	public static final String version = "alpha 2616";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -39,7 +39,9 @@ public class Consts {
 			"-Added a HighJump mod that lets you...jump higher (the calculation of height -> motion is not perfect yet)",
 			"-Fixed Twerk not working at all, now you twerk like Miley Cyrus xD",
 			"-Added a AutoWalk mod that just makes you walk forward all the time",
-			"-Fixed up Sprint, it did work, but now it's more efficient and more reliable"
+			"-Fixed up Sprint, it did work, but now it's more efficient and more reliable",
+			"-Added a AutoRespawn mod that just...respawns you",
+			"-Added a Dolphin mod that just...makes you swim automatically"
 	};
 
 	public static final String[] credits = new String[] {
@@ -60,7 +62,7 @@ public class Consts {
 	};
 
 	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #twerk, #nocobweb, #timer, #spider, #speedac1, #speedlegit, "
-			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, "
+			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, #autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, "
 			+ "#cmdblock, #nofall, #antipotion, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
 			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, "
 			+ "#autosteal, #killaura, #tired, #parkour, #fasteat, #nuker, #antifire, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
