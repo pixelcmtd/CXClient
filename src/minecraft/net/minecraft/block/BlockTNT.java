@@ -47,7 +47,7 @@ public class BlockTNT extends Block
     {
         if (worldIn.isBlockPowered(pos))
         {
-            this.onBlockDestroyedByPlayer(worldIn, pos, state.withProperty(EXPLODE, Boolean.valueOf(true)));
+            onBlockDestroyedByPlayer(worldIn, pos, state.withProperty(EXPLODE, true));
             worldIn.setBlockToAir(pos);
         }
     }

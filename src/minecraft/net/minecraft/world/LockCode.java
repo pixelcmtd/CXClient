@@ -35,8 +35,6 @@ public class LockCode
             return new LockCode(s);
         }
         else
-        {
             return EMPTY_CODE;
-        }
     }
 }
