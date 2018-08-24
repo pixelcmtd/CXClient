@@ -14,6 +14,7 @@ import java.util.List;
 
 import de.chrissx.locations.LocFloat64;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
@@ -233,7 +234,7 @@ public class Util {
 	public static NBTTagList newEffects() {
 		return new NBTTagList();
 	}
-	
+
 	public static NBTTagList addEffect(NBTTagList effects, int effect, int amplifier, int duration) {
 		NBTTagCompound eff = new NBTTagCompound();
 	    eff.setInteger("Amplifier", amplifier);
@@ -242,7 +243,7 @@ public class Util {
 	    effects.appendTag(eff);
 		return effects;
 	}
-	
+
 	public static ItemStack getCustomPotion(NBTTagList effects, String name) {
 		ItemStack i = new ItemStack(Items.potionitem);
 		i.setItemDamage(16384);
@@ -252,19 +253,19 @@ public class Util {
 		
 		return i;
 	}
-	
+
 	public static void cheatItem(ItemStack itm, int slot) {
 		mc.thePlayer.sendQueue.addToSendQueue(new C10PacketCreativeInventoryAction(slot, itm));
 	}
-	
+
 	public static void sendChat(String msg) {
 		mc.thePlayer.sendChatMessage(msg);
 	}
-	
+
 	public static void sendMessage(String msg) {
 		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + msg.replaceAll("\"", "\\\"") + "\"}"));
 	}
-	
+
 	public static void faceEntity(Entity e) {
 		float[] rotations = getRotationsNeeded(e);
 		if(rotations != null) {
@@ -272,7 +273,7 @@ public class Util {
 			mc.thePlayer.rotationPitch = rotations[1] + 8.1f;
 		}
 	}
-	
+
 	static float[] getRotationsNeeded(Entity e) {
         double x = e.posX - mc.thePlayer.posX;
         double y;
@@ -286,38 +287,44 @@ public class Util {
         return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
         		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
     }
-	
-	public static BlockPos[] getBlocksAround(EntityPlayer p, byte range, boolean mustBeVisible) {
-		List<BlockPos> out = new ArrayList<BlockPos>();
-		for(long x = (long)p.posX-range; x < p.posX+range; x++)
-			for(short y = (short)(p.posY-range); y < p.posY+range; y++)
-				for(long z = (long)p.posZ-range; z < p.posZ+range; z++) {
-					BlockPos bp = new BlockPos(x, y, z);
-					if(!mc.theWorld.isAirBlock(bp) && (!mustBeVisible || isBlockVisible(bp)))
-						out.add(bp);
+
+	public static BlockPos[] getBlocksAround(EntityPlayer player, int range, boolean mustBeVisible) {
+		long i = (long)player.posX;
+		long j = (long)player.posY;
+		long k = (long)player.posZ;
+		long l = i + range;
+		long m = j + range;
+		long n = k + range;
+		long o = i - range;
+		long p = j - range;
+		long q = k - range;
+		List<BlockPos> b = new ArrayList<BlockPos>();
+		for(long x = (long)o; x < l; x++)
+			for(long y = (long)p; y < m; y++)
+				for(long z = (long)q; z < n; z++) {
+					BlockPos pos = new BlockPos(x, y, z);
+					if(!mc.theWorld.isAirBlock(pos) && (!mustBeVisible || isBlockVisible(pos)))
+						b.add(pos);
 				}
-		return out.toArray(new BlockPos[out.size()]);
+		return b.toArray(new BlockPos[b.size()]);
 	}
-	
-	static boolean isBlockVisible(BlockPos p) {
+
+	static boolean isBlockVisible(BlockPos pos) {
 		World w = mc.theWorld;
-		
-		int x = p.getX();
-		int y = p.getY();
-		int z = p.getZ();
-		
-		double px = mc.thePlayer.posX;
-		double py = mc.thePlayer.posY+mc.thePlayer.getEyeHeight();
-		double pz = mc.thePlayer.posZ;
-		
-		boolean left = w.isAirBlock(new BlockPos(x - 1, y, z));
-		boolean right = w.isAirBlock(new BlockPos(x + 1, y, z));
-		boolean back = w.isAirBlock(new BlockPos(x, y, z - 1));
-		boolean front = w.isAirBlock(new BlockPos(x, y, z + 1));
-		boolean up = w.isAirBlock(new BlockPos(x, y + 1, z));
-		boolean down = w.isAirBlock(new BlockPos(x, y - 1, z));
-		
-		if((up && py > y) || (down && py < y) || (left && px < x) || (right && px > x) || (back && pz < z) || (front && pz > z))
+		EntityPlayerSP p = mc.thePlayer;
+		int i = pos.getX();
+		int j = pos.getY();
+		int k = pos.getZ();
+		double d = p.posX;
+		double e = p.posY + p.getEyeHeight();
+		double f = p.posZ;
+		boolean b = w.isAirBlock(new BlockPos(i - 1, j, k));
+		boolean c = w.isAirBlock(new BlockPos(i + 1, j, k));
+		boolean g = w.isAirBlock(new BlockPos(i, j, k - 1));
+		boolean h = w.isAirBlock(new BlockPos(i, j, k + 1));
+		boolean l = w.isAirBlock(new BlockPos(i, j + 1, k));
+		boolean m = w.isAirBlock(new BlockPos(i, j - 1, k));
+		if((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k))
 			return true;
 		else
 			return false;

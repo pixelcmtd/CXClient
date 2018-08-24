@@ -1,35 +1,34 @@
-[01:00:56] [Client thread/INFO]: Setting user: Player196
-[01:00:56] [Client thread/INFO]: (Session ID is token:0:Player196)
-[01:00:58] [Client thread/INFO]: Made DolphinPath.
-[01:00:58] [Client thread/INFO]: CXClient Version: alpha 2616
-[01:00:58] [Client thread/INFO]: LWJGL Version: 2.9.4
-[01:00:59] [Client thread/INFO]: Reloading ResourceManager: Default
-[01:00:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[01:01:00] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[01:01:00] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[01:01:00] [Thread-7/INFO]: OpenAL initialized.
-[01:01:00] [Sound Library Loader/INFO]: Sound engine started
-[01:01:07] [Client thread/INFO]: Created: 512x512 textures-atlas
-[01:01:19] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[01:01:19] [Server thread/INFO]: Generating keypair
-[01:01:19] [Server thread/INFO]: Preparing start region for level 0
-[01:01:20] [Server thread/INFO]: Changing view distance to 12, from 10
-[01:01:20] [Server thread/INFO]: Player196[local:E:746b37c3] logged in with entity id 147 at (531.5731156821147, 80.0, 186.65919436550803)
-[01:01:20] [Server thread/INFO]: Player196 joined the game
-[01:02:47] [Server thread/INFO]: Saving and pausing game...
-[01:02:47] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[01:02:47] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[01:02:47] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[01:02:51] [Server thread/INFO]: Saving and pausing game...
-[01:02:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[01:02:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[01:02:51] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[01:02:52] [Server thread/INFO]: Stopping server
-[01:02:52] [Server thread/INFO]: Saving players
-[01:02:52] [Server thread/INFO]: Saving worlds
-[01:02:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[01:02:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[01:02:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[01:03:00] [Client thread/INFO]: Stopping CXClient.
-[01:03:00] [Client thread/INFO]: SoundSystem shutting down...
-[01:03:01] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[03:29:42] [Client thread/INFO]: Setting user: Player332
+[03:29:42] [Client thread/INFO]: (Session ID is token:0:Player332)
+[03:29:43] [Client thread/INFO]: CXClient Version: alpha 2617
+[03:29:43] [Client thread/INFO]: LWJGL Version: 2.9.4
+[03:29:45] [Client thread/INFO]: Reloading ResourceManager: Default
+[03:29:45] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[03:29:45] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[03:29:45] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[03:29:45] [Thread-7/INFO]: OpenAL initialized.
+[03:29:45] [Sound Library Loader/INFO]: Sound engine started
+[03:29:51] [Client thread/INFO]: Created: 512x512 textures-atlas
+[03:29:58] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[03:29:58] [Server thread/INFO]: Generating keypair
+[03:29:59] [Server thread/INFO]: Preparing start region for level 0
+[03:29:59] [Server thread/INFO]: Changing view distance to 12, from 10
+[03:29:59] [Server thread/INFO]: Player332[local:E:e4d675da] logged in with entity id 155 at (588.1072017302065, 83.42859686351893, 260.2855285478829)
+[03:29:59] [Server thread/INFO]: Player332 joined the game
+[03:30:15] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
+[03:30:15] [Client thread/INFO]: [CHAT] §c[CXClient] §fHotkeys: enabled
+[03:30:30] [Server thread/INFO]: Player332 has just earned the achievement [Taking Inventory]
+[03:30:30] [Client thread/INFO]: [CHAT] Player332 has just earned the achievement [Taking Inventory]
+[03:30:50] [Server thread/INFO]: Saving and pausing game...
+[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[03:30:52] [Server thread/INFO]: Stopping server
+[03:30:52] [Server thread/INFO]: Saving players
+[03:30:52] [Server thread/INFO]: Saving worlds
+[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
+[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
+[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
+[03:30:53] [Client thread/INFO]: Stopping CXClient.
+[03:30:53] [Client thread/INFO]: SoundSystem shutting down...
+[03:30:54] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

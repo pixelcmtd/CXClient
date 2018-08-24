@@ -1277,7 +1277,7 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public double getYOffset()
     {
-        return -0.35D;
+        return -0.35;
     }
 
     /**
@@ -1354,19 +1354,13 @@ public abstract class EntityPlayer extends EntityLivingBase
                         }
 
                         if (flag)
-                        {
-                            this.onCriticalHit(targetEntity);
-                        }
+                            onCriticalHit(targetEntity);
 
-                        if (f1 > 0.0F)
-                        {
-                            this.onEnchantmentCritical(targetEntity);
-                        }
+                        if (f1 > 0)
+                            onEnchantmentCritical(targetEntity);
 
-                        if (f >= 18.0F)
-                        {
-                            this.triggerAchievement(AchievementList.overkill);
-                        }
+                        if (f >= 18)
+                            triggerAchievement(AchievementList.overkill);
 
                         this.setLastAttacker(targetEntity);
 
@@ -1394,27 +1388,21 @@ public abstract class EntityPlayer extends EntityLivingBase
                             itemstack.hitEntity((EntityLivingBase)entity, this);
 
                             if (itemstack.stackSize <= 0)
-                            {
-                                this.destroyCurrentEquippedItem();
-                            }
+                                destroyCurrentEquippedItem();
                         }
 
                         if (targetEntity instanceof EntityLivingBase)
                         {
-                            this.addStat(StatList.damageDealtStat, Math.round(f * 10.0F));
+                            addStat(StatList.damageDealtStat, Math.round(f * 10));
 
                             if (j > 0)
-                            {
                                 targetEntity.setFire(j * 4);
-                            }
                         }
 
-                        this.addExhaustion(0.3F);
+                        addExhaustion(0.3F);
                     }
                     else if (flag1)
-                    {
                         targetEntity.extinguish();
-                    }
                 }
             }
         }
@@ -1423,17 +1411,11 @@ public abstract class EntityPlayer extends EntityLivingBase
     /**
      * Called when the player performs a critical hit on the Entity. Args: entity that was hit critically
      */
-    public void onCriticalHit(Entity entityHit)
-    {
-    }
+    public void onCriticalHit(Entity entityHit){}
 
-    public void onEnchantmentCritical(Entity entityHit)
-    {
-    }
+    public void onEnchantmentCritical(Entity entityHit){}
 
-    public void respawnPlayer()
-    {
-    }
+    public void respawnPlayer(){}
 
     /**
      * Will get destroyed next tick.
@@ -1441,11 +1423,11 @@ public abstract class EntityPlayer extends EntityLivingBase
     public void setDead()
     {
         super.setDead();
-        this.inventoryContainer.onContainerClosed(this);
+        inventoryContainer.onContainerClosed(this);
 
-        if (this.openContainer != null)
+        if (openContainer != null)
         {
-            this.openContainer.onContainerClosed(this);
+            openContainer.onContainerClosed(this);
         }
     }
 
@@ -1454,7 +1436,7 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public boolean isEntityInsideOpaqueBlock()
     {
-        return !this.sleeping && super.isEntityInsideOpaqueBlock();
+        return !sleeping && super.isEntityInsideOpaqueBlock();
     }
 
     /**
@@ -1470,10 +1452,10 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public GameProfile getGameProfile()
     {
-        return this.gameProfile;
+        return gameProfile;
     }
 
-    public EntityPlayer.EnumStatus trySleep(BlockPos bedLocation)
+    public EnumStatus trySleep(BlockPos bedLocation)
     {
         if (!this.worldObj.isRemote)
         {
@@ -1542,86 +1524,76 @@ public abstract class EntityPlayer extends EntityLivingBase
             this.setPosition((double)((float)bedLocation.getX() + f), (double)((float)bedLocation.getY() + 0.6875F), (double)((float)bedLocation.getZ() + f1));
         }
         else
-        {
             this.setPosition((double)((float)bedLocation.getX() + 0.5F), (double)((float)bedLocation.getY() + 0.6875F), (double)((float)bedLocation.getZ() + 0.5F));
-        }
 
-        this.sleeping = true;
-        this.sleepTimer = 0;
-        this.playerLocation = bedLocation;
-        this.motionX = this.motionZ = this.motionY = 0.0D;
+        sleeping = true;
+        sleepTimer = 0;
+        playerLocation = bedLocation;
+        motionX = this.motionZ = this.motionY = 0.0D;
 
-        if (!this.worldObj.isRemote)
-        {
-            this.worldObj.updateAllPlayersSleepingFlag();
-        }
+        if (!worldObj.isRemote)
+            worldObj.updateAllPlayersSleepingFlag();
 
         return EntityPlayer.EnumStatus.OK;
     }
 
-    private void func_175139_a(EnumFacing p_175139_1_)
+    void func_175139_a(EnumFacing facing)
     {
-        this.renderOffsetX = 0.0F;
-        this.renderOffsetZ = 0.0F;
+        renderOffsetX = 0;
+        renderOffsetZ = 0;
 
-        switch (p_175139_1_)
+        switch (facing)
         {
             case SOUTH:
-                this.renderOffsetZ = -1.8F;
+                renderOffsetZ = -1.8F;
                 break;
 
             case NORTH:
-                this.renderOffsetZ = 1.8F;
+                renderOffsetZ = 1.8F;
                 break;
 
             case WEST:
-                this.renderOffsetX = 1.8F;
+                renderOffsetX = 1.8F;
                 break;
 
             case EAST:
-                this.renderOffsetX = -1.8F;
+                renderOffsetX = -1.8F;
         }
     }
 
     /**
      * Wake up the player if they're sleeping.
      */
-    public void wakeUpPlayer(boolean p_70999_1_, boolean updateWorldFlag, boolean setSpawn)
+    public void wakeUpPlayer(boolean instant, boolean updateWorldFlag, boolean setSpawn)
     {
         this.setSize(0.6F, 1.8F);
         IBlockState iblockstate = this.worldObj.getBlockState(this.playerLocation);
 
         if (this.playerLocation != null && iblockstate.getBlock() == Blocks.bed)
         {
-            this.worldObj.setBlockState(this.playerLocation, iblockstate.withProperty(BlockBed.OCCUPIED, Boolean.valueOf(false)), 4);
-            BlockPos blockpos = BlockBed.getSafeExitLocation(this.worldObj, this.playerLocation, 0);
+            worldObj.setBlockState(playerLocation, iblockstate.withProperty(BlockBed.OCCUPIED, false), 4);
+            BlockPos blockpos = BlockBed.getSafeExitLocation(worldObj, playerLocation, 0);
 
             if (blockpos == null)
-            {
-                blockpos = this.playerLocation.up();
-            }
+                blockpos = playerLocation.up();
 
-            this.setPosition((double)((float)blockpos.getX() + 0.5F), (double)((float)blockpos.getY() + 0.1F), (double)((float)blockpos.getZ() + 0.5F));
+            setPosition((double)((float)blockpos.getX() + 0.5F), (double)((float)blockpos.getY() + 0.1F), (double)((float)blockpos.getZ() + 0.5F));
         }
 
-        this.sleeping = false;
+        sleeping = false;
 
-        if (!this.worldObj.isRemote && updateWorldFlag)
-        {
-            this.worldObj.updateAllPlayersSleepingFlag();
-        }
+        if (!worldObj.isRemote && updateWorldFlag)
+            worldObj.updateAllPlayersSleepingFlag();
 
-        this.sleepTimer = p_70999_1_ ? 0 : 100;
+        this.sleepTimer = instant ? 0 : 100;
 
         if (setSpawn)
-        {
-            this.setSpawnPoint(this.playerLocation, false);
-        }
+            setSpawnPoint(playerLocation, false);
     }
 
     boolean isInBed()
     {
-        return this.worldObj.getBlockState(this.playerLocation).getBlock() == Blocks.bed;
+        return worldObj.getBlockState(playerLocation).getBlock() == Blocks.bed;
     }
 
     /**
@@ -1632,16 +1604,10 @@ public abstract class EntityPlayer extends EntityLivingBase
         Block block = worldIn.getBlockState(bedLocation).getBlock();
 
         if (block != Blocks.bed)
-        {
             if (!forceSpawn)
                 return null;
             else
-            {
-                boolean flag = block.func_181623_g();
-                boolean flag1 = worldIn.getBlockState(bedLocation.up()).getBlock().func_181623_g();
-                return flag && flag1 ? bedLocation : null;
-            }
-        }
+                return block.func_181623_g() && worldIn.getBlockState(bedLocation.up()).getBlock().func_181623_g() ? bedLocation : null;
         else
             return BlockBed.getSafeExitLocation(worldIn, bedLocation, 0);
     }
@@ -1652,10 +1618,7 @@ public abstract class EntityPlayer extends EntityLivingBase
     public float getBedOrientationInDegrees()
     {
         if (this.playerLocation != null)
-        {
-            EnumFacing enumfacing = (EnumFacing)this.worldObj.getBlockState(this.playerLocation).getValue(BlockDirectional.FACING);
-
-            switch (enumfacing)
+            switch ((EnumFacing)this.worldObj.getBlockState(this.playerLocation).getValue(BlockDirectional.FACING))
             {
                 case SOUTH:
                     return 90;
@@ -1669,7 +1632,6 @@ public abstract class EntityPlayer extends EntityLivingBase
                 case EAST:
                     return 180;
             }
-        }
 
         return 0;
     }

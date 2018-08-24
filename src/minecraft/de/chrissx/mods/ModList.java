@@ -12,6 +12,7 @@ import java.util.Set;
 import de.chrissx.mods.building.BedFucker;
 import de.chrissx.mods.building.FastBreak;
 import de.chrissx.mods.building.FastPlace;
+import de.chrissx.mods.building.Kaboom;
 import de.chrissx.mods.building.Nuker;
 import de.chrissx.mods.building.ScaffoldWalk;
 import de.chrissx.mods.chat.AuthMeCrack;
@@ -128,6 +129,7 @@ public class ModList implements Iterable<Mod> {
 	public final AutoWalk autoWalk = new AutoWalk();
 	public final AutoRespawn autoRespawn = new AutoRespawn();
 	public final Dolphin dolphin = new Dolphin();
+	public final Kaboom kaboom = new Kaboom();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -198,7 +200,8 @@ public class ModList implements Iterable<Mod> {
 			highJump,
 			autoWalk,
 			autoRespawn,
-			dolphin
+			dolphin,
+			kaboom
 	});
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

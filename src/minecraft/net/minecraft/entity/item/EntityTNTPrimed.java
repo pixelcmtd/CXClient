@@ -15,23 +15,25 @@ public class EntityTNTPrimed extends Entity
     public EntityTNTPrimed(World worldIn)
     {
         super(worldIn);
-        this.preventEntitySpawning = true;
-        this.setSize(0.98F, 0.98F);
+        preventEntitySpawning = true;
+        setSize(0.98F, 0.98F);
     }
 
-    public EntityTNTPrimed(World worldIn, double p_i1730_2_, double p_i1730_4_, double p_i1730_6_, EntityLivingBase p_i1730_8_)
+    public EntityTNTPrimed(World worldIn, double x, double y, double z, EntityLivingBase placedBy)
     {
-        this(worldIn);
-        this.setPosition(p_i1730_2_, p_i1730_4_, p_i1730_6_);
+    	super(worldIn);
+        preventEntitySpawning = true;
+        setSize(0.98F, 0.98F);
+        setPosition(x, y, z);
         float f = (float)(Math.random() * Math.PI * 2.0D);
-        this.motionX = (double)(-((float)Math.sin((double)f)) * 0.02F);
-        this.motionY = 0.20000000298023224D;
-        this.motionZ = (double)(-((float)Math.cos((double)f)) * 0.02F);
-        this.fuse = 80;
-        this.prevPosX = p_i1730_2_;
-        this.prevPosY = p_i1730_4_;
-        this.prevPosZ = p_i1730_6_;
-        this.tntPlacedBy = p_i1730_8_;
+        motionX = (double)(-((float)Math.sin((double)f)) * 0.02F);
+        motionY = 0.20000000298023224D;
+        motionZ = (double)(-((float)Math.cos((double)f)) * 0.02F);
+        fuse = 80;
+        this.prevPosX = x;
+        this.prevPosY = y;
+        this.prevPosZ = z;
+        this.tntPlacedBy = placedBy;
     }
 
     protected void entityInit()
@@ -95,7 +97,7 @@ public class EntityTNTPrimed extends Entity
     private void explode()
     {
         float f = 4.0F;
-        this.worldObj.createExplosion(this, this.posX, this.posY + (double)(this.height / 16.0F), this.posZ, f, true);
+        worldObj.createExplosion(this, this.posX, this.posY + (double)(this.height / 16.0F), this.posZ, f, true);
     }
 
     /**

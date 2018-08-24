@@ -435,6 +435,7 @@ public class HackedClient {
 			mods.stepJump.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#debug"))
 		{
+			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, "random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
 			for(Addon a : addonManager.getAddons())
 			{
 				AddonProperties ap = addonManager.getProps(a);
@@ -489,6 +490,8 @@ public class HackedClient {
 			mods.autoRespawn.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#dolphin"))
 			mods.dolphin.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#kaboom"))
+			mods.kaboom.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else
