@@ -443,9 +443,7 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
                 if (worldserver != null)
                 {
                     if (!dontLog)
-                    {
-                        logger.info("Saving chunks for level \'" + worldserver.getWorldInfo().getWorldName() + "\'/" + worldserver.provider.getDimensionName());
-                    }
+                        logger.info("Saving chunks for level " + worldserver.getWorldInfo().getWorldName() + "/" + worldserver.provider.getDimensionName());
 
                     try
                     {

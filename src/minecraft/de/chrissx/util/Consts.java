@@ -6,8 +6,10 @@ import java.nio.file.Paths;
 
 public class Consts {
 	public static final String prefix = "\u00a7c[CXClient] \u00a7f";
-	public static final int[] packetPlayerInventorySlots = new int[] {36, 37, 38, 39, 40, 41, 42, 43, 44, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
-	public static final int[] localPlayerInventorySlots = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
+	public static final int[] packetPlayerInventorySlots = new int[] {36, 37, 38, 39, 40, 41, 42, 43, 44,
+			9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
+	public static final int[] localPlayerInventorySlots = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
+			12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
 	public static final String dotMinecraftPath = new File("").getAbsoluteFile().getAbsolutePath().toString();
 	public static final String configPath = Paths.get(dotMinecraftPath, "cxclient_config").toString();
 	public static final String addonPath = Paths.get(dotMinecraftPath, "cxclient_addons").toString();
@@ -21,7 +23,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2617";
+	public static final String version = "alpha 2619";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -42,7 +44,9 @@ public class Consts {
 			"-Fixed up Sprint, it did work, but now it's more efficient and more reliable",
 			"-Added a AutoRespawn mod that just...respawns you",
 			"-Added a Dolphin mod that just...makes you swim automatically",
-			"-Added a Kaboom mod that's just like a \"Bomb Nuker\""
+			"-Added a Kaboom mod that's just like a \"Bomb Nuker\"",
+			"-Added a Glide mod that's just another flavor of flying",
+			"-Added a RollHead mod that just makes your head do the rack"
 	};
 
 	public static final String[] credits = new String[] {
@@ -62,9 +66,11 @@ public class Consts {
 		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://tinyurl.com/trcechnl"
 	};
 
-	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #kaboom, #twerk, #nocobweb, #timer, #spider, #speedac1, #speedlegit, "
-			+ "#skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, #autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, "
-			+ "#cmdblock, #nofall, #antipotion, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
-			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, "
-			+ "#autosteal, #killaura, #tired, #parkour, #fasteat, #nuker, #antifire, #sneak, #norender, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
+	public static final String help = "Commands: #text, #multitext, #killpotion, #spam, #clearspam, #kaboom, #twerk, #nocobweb, "
+			+ "#timer, #spider, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, "
+			+ "#autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #nofall, #antipotion, "
+			+ "#fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
+			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, "
+			+ "#sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, "
+			+ "#norender, #rollhead, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
 }

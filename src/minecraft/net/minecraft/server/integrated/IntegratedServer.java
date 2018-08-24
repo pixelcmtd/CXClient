@@ -90,44 +90,30 @@ public class IntegratedServer extends MinecraftServer
             int j = 0;
 
             if (i == 1)
-            {
                 j = -1;
-            }
-
-            if (i == 2)
-            {
+            else if (i == 2)
                 j = 1;
-            }
-
-            if (i == 0)
+            else if (i == 0)
             {
-                if (this.isDemo())
-                {
-                    this.worldServers[i] = (WorldServer)(new DemoWorldServer(this, isavehandler, worldinfo, j, this.theProfiler)).init();
-                }
+                if (isDemo())
+                    worldServers[i] = (WorldServer)(new DemoWorldServer(this, isavehandler, worldinfo, j, theProfiler)).init();
                 else
-                {
-                    this.worldServers[i] = (WorldServer)(new WorldServer(this, isavehandler, worldinfo, j, this.theProfiler)).init();
-                }
+                    worldServers[i] = (WorldServer)(new WorldServer(this, isavehandler, worldinfo, j, theProfiler)).init();
 
-                this.worldServers[i].initialize(this.theWorldSettings);
+                worldServers[i].initialize(theWorldSettings);
             }
             else
-            {
-                this.worldServers[i] = (WorldServer)(new WorldServerMulti(this, isavehandler, j, this.worldServers[0], this.theProfiler)).init();
-            }
+                worldServers[i] = (WorldServer)(new WorldServerMulti(this, isavehandler, j, worldServers[0], theProfiler)).init();
 
-            this.worldServers[i].addWorldAccess(new WorldManager(this, this.worldServers[i]));
+            worldServers[i].addWorldAccess(new WorldManager(this, worldServers[i]));
         }
 
-        this.getConfigurationManager().setPlayerManager(this.worldServers);
+        getConfigurationManager().setPlayerManager(worldServers);
 
-        if (this.worldServers[0].getWorldInfo().getDifficulty() == null)
-        {
-            this.setDifficultyForAllWorlds(this.mc.gameSettings.difficulty);
-        }
+        if (worldServers[0].getWorldInfo().getDifficulty() == null)
+            setDifficultyForAllWorlds(mc.gameSettings.difficulty);
 
-        this.initialWorldChunkLoad();
+        initialWorldChunkLoad();
     }
 
     /**
@@ -136,15 +122,15 @@ public class IntegratedServer extends MinecraftServer
     protected boolean startServer() throws IOException
     {
         logger.info("Starting integrated minecraft server version 1.8.8");
-        this.setOnlineMode(true);
-        this.setCanSpawnAnimals(true);
-        this.setCanSpawnNPCs(true);
-        this.setAllowPvp(true);
-        this.setAllowFlight(true);
+        setOnlineMode(true);
+        setCanSpawnAnimals(true);
+        setCanSpawnNPCs(true);
+        setAllowPvp(true);
+        setAllowFlight(true);
         logger.info("Generating keypair");
-        this.setKeyPair(CryptManager.generateKeyPair());
-        this.loadAllWorlds(this.getFolderName(), this.getWorldName(), this.theWorldSettings.getSeed(), this.theWorldSettings.getTerrainType(), this.theWorldSettings.getWorldName());
-        this.setMOTD(this.getServerOwner() + " - " + this.worldServers[0].getWorldInfo().getWorldName());
+        setKeyPair(CryptManager.generateKeyPair());
+        loadAllWorlds(getFolderName(), getWorldName(), theWorldSettings.getSeed(), theWorldSettings.getTerrainType(), theWorldSettings.getWorldName());
+        setMOTD(getServerOwner() + " - " + worldServers[0].getWorldInfo().getWorldName());
         return true;
     }
 
@@ -153,7 +139,7 @@ public class IntegratedServer extends MinecraftServer
      */
     public void tick()
     {
-        boolean flag = this.isGamePaused;
+        boolean flag = isGamePaused;
         this.isGamePaused = Minecraft.getMinecraft().getNetHandler() != null && Minecraft.getMinecraft().isGamePaused();
 
         if (!flag && this.isGamePaused)
@@ -197,13 +183,9 @@ public class IntegratedServer extends MinecraftServer
                 {
                     logger.info("Locking difficulty to {}", new Object[] {worldinfo.getDifficulty()});
 
-                    for (WorldServer worldserver : this.worldServers)
-                    {
+                    for (WorldServer worldserver : worldServers)
                         if (worldserver != null)
-                        {
                             worldserver.getWorldInfo().setDifficultyLocked(true);
-                        }
-                    }
                 }
             }
         }
@@ -216,7 +198,7 @@ public class IntegratedServer extends MinecraftServer
 
     public WorldSettings.GameType getGameType()
     {
-        return this.theWorldSettings.getGameType();
+        return theWorldSettings.getGameType();
     }
 
     /**
@@ -265,7 +247,7 @@ public class IntegratedServer extends MinecraftServer
      */
     protected void finalTick(CrashReport report)
     {
-        this.mc.crashed(report);
+        mc.crashed(report);
     }
 
     /**
