@@ -35,6 +35,7 @@ import de.chrissx.mods.fun.Derp;
 import de.chrissx.mods.fun.JailsmcBot;
 import de.chrissx.mods.fun.KillPotion;
 import de.chrissx.mods.fun.MultiText;
+import de.chrissx.mods.fun.RollHead;
 import de.chrissx.mods.fun.SkinBlinker;
 import de.chrissx.mods.fun.Text;
 import de.chrissx.mods.fun.Throw;
@@ -51,6 +52,7 @@ import de.chrissx.mods.movement.Dolphin;
 import de.chrissx.mods.movement.FastFall;
 import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
+import de.chrissx.mods.movement.Glide;
 import de.chrissx.mods.movement.HighJump;
 import de.chrissx.mods.movement.Jetpack;
 import de.chrissx.mods.movement.LegitSpeed;
@@ -130,6 +132,8 @@ public class ModList implements Iterable<Mod> {
 	public final AutoRespawn autoRespawn = new AutoRespawn();
 	public final Dolphin dolphin = new Dolphin();
 	public final Kaboom kaboom = new Kaboom();
+	public final Glide glide = new Glide();
+	public final RollHead rollHead = new RollHead();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -143,7 +147,7 @@ public class ModList implements Iterable<Mod> {
 	
 	public final int length;
 	
-	final List<Mod> mods = Arrays.asList(new Mod[] {
+	final Mod[] mods = new Mod[] {
 			skinBlinker,
 			fastBreak,
 			fastPlace,
@@ -201,8 +205,10 @@ public class ModList implements Iterable<Mod> {
 			autoWalk,
 			autoRespawn,
 			dolphin,
-			kaboom
-	});
+			kaboom,
+			glide,
+			rollHead
+	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
@@ -257,11 +263,11 @@ public class ModList implements Iterable<Mod> {
 	}
 	
 	public Mod get(int i) {
-		return mods.get(i);
+		return mods[i];
 	}
 
 	@Override
 	public Iterator iterator() {
-		return mods.iterator();
+		return Arrays.asList(mods).iterator();
 	}
 }

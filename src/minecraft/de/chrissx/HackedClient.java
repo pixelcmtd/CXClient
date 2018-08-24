@@ -492,6 +492,10 @@ public class HackedClient {
 			mods.dolphin.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#kaboom"))
 			mods.kaboom.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#glide"))
+			mods.glide.processCommand(args);
+		else if(cmd.equalsIgnoreCase("#rollhead"))
+			mods.rollHead.processCommand(args);
 		else if(addonManager.execCmd(args))
 			;
 		else

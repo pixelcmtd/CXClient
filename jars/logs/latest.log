@@ -1,34 +1,31 @@
-[03:29:42] [Client thread/INFO]: Setting user: Player332
-[03:29:42] [Client thread/INFO]: (Session ID is token:0:Player332)
-[03:29:43] [Client thread/INFO]: CXClient Version: alpha 2617
-[03:29:43] [Client thread/INFO]: LWJGL Version: 2.9.4
-[03:29:45] [Client thread/INFO]: Reloading ResourceManager: Default
-[03:29:45] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[03:29:45] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[03:29:45] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[03:29:45] [Thread-7/INFO]: OpenAL initialized.
-[03:29:45] [Sound Library Loader/INFO]: Sound engine started
-[03:29:51] [Client thread/INFO]: Created: 512x512 textures-atlas
-[03:29:58] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[03:29:58] [Server thread/INFO]: Generating keypair
-[03:29:59] [Server thread/INFO]: Preparing start region for level 0
-[03:29:59] [Server thread/INFO]: Changing view distance to 12, from 10
-[03:29:59] [Server thread/INFO]: Player332[local:E:e4d675da] logged in with entity id 155 at (588.1072017302065, 83.42859686351893, 260.2855285478829)
-[03:29:59] [Server thread/INFO]: Player332 joined the game
-[03:30:15] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestPlugin TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[03:30:15] [Client thread/INFO]: [CHAT] §c[CXClient] §fHotkeys: enabled
-[03:30:30] [Server thread/INFO]: Player332 has just earned the achievement [Taking Inventory]
-[03:30:30] [Client thread/INFO]: [CHAT] Player332 has just earned the achievement [Taking Inventory]
-[03:30:50] [Server thread/INFO]: Saving and pausing game...
-[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[03:30:50] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[03:30:52] [Server thread/INFO]: Stopping server
-[03:30:52] [Server thread/INFO]: Saving players
-[03:30:52] [Server thread/INFO]: Saving worlds
-[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Overworld
-[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/Nether
-[03:30:52] [Server thread/INFO]: Saving chunks for level 'mcpworld'/The End
-[03:30:53] [Client thread/INFO]: Stopping CXClient.
-[03:30:53] [Client thread/INFO]: SoundSystem shutting down...
-[03:30:54] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[22:59:50] [Client thread/INFO]: Setting user: Player534
+[22:59:50] [Client thread/INFO]: (Session ID is token:0:Player534)
+[22:59:52] [Client thread/INFO]: CXClient Version: alpha 2618
+[22:59:52] [Client thread/INFO]: LWJGL Version: 2.9.4
+[22:59:53] [Client thread/INFO]: Reloading ResourceManager: Default
+[22:59:53] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[22:59:53] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[22:59:53] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[22:59:53] [Thread-7/INFO]: OpenAL initialized.
+[22:59:54] [Sound Library Loader/INFO]: Sound engine started
+[23:00:01] [Client thread/INFO]: Created: 512x512 textures-atlas
+[23:00:04] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[23:00:04] [Server thread/INFO]: Generating keypair
+[23:00:04] [Server thread/INFO]: Preparing start region for level 0
+[23:00:05] [Server thread/INFO]: Changing view distance to 12, from 10
+[23:00:05] [Server thread/INFO]: Player534[local:E:9e8c927c] logged in with entity id 176 at (535.3000000119209, 71.00133597911214, 186.559337684882)
+[23:00:05] [Server thread/INFO]: Player534 joined the game
+[23:02:41] [Server thread/INFO]: Saving and pausing game...
+[23:02:41] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[23:02:41] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[23:02:41] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[23:02:42] [Server thread/INFO]: Stopping server
+[23:02:42] [Server thread/INFO]: Saving players
+[23:02:42] [Server thread/INFO]: Saving worlds
+[23:02:42] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[23:02:42] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[23:02:42] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[23:02:42] [Client thread/ERROR]: Can't ping jailsmc.net: Disconnected
+[23:02:43] [Client thread/INFO]: Stopping CXClient.
+[23:02:43] [Client thread/INFO]: SoundSystem shutting down...
+[23:02:44] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
