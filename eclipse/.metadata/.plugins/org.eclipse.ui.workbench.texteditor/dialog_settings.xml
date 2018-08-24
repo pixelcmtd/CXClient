@@ -2,27 +2,27 @@
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="#phase" key="selection"/>
+		<item value="Saving chunks for level" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="saving chunks for level"/>
+			<item value="createexplosion"/>
+			<item value="explode"/>
+			<item value="explosion"/>
+			<item value="sound"/>
+			<item value="float getJumpUpwardsMotion()"/>
+			<item value="getJumpUpwardsMotion()"/>
+			<item value="double getJumpUpwardsMotion()"/>
+			<item value="void jump"/>
+			<item value="#fastbow"/>
 			<item value="#phase"/>
 			<item value="posx = x"/>
 			<item value="boolean isOpaque"/>
 			<item value="opaque"/>
 			<item value="noClip"/>
-			<item value="void launchIntegratedServer("/>
-			<item value="System.gc();"/>
-			<item value="void stop"/>
-			<item value="void freememory"/>
-			<item value="zCoord"/>
-			<item value="yCoord"/>
-			<item value="xCoord"/>
-			<item value="this.zCoord"/>
-			<item value="this.yCoord"/>
-			<item value="this.xCoord"/>
 		</list>
 		<list key="replacehistory">
 			<item value="z"/>

@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.nio.file.Paths"/>
-<fullyQualifiedTypeName name="de.chrissx.Constants"/>
-<fullyQualifiedTypeName name="de.chrissx.iapi.Addon"/>
-<fullyQualifiedTypeName name="de.chrissx.iapi.CommandExecutor"/>
-<fullyQualifiedTypeName name="de.chrissx.Util"/>
-<fullyQualifiedTypeName name="de.chrissx.Consts"/>
-<fullyQualifiedTypeName name="java.util.zip.ZipInputStream"/>
-<fullyQualifiedTypeName name="java.io.FileInputStream"/>
-<fullyQualifiedTypeName name="java.util.zip.ZipEntry"/>
 <fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="de.chrissx.alts.CxcsvParser"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
@@ -35,7 +26,6 @@
 <fullyQualifiedTypeName name="de.chrissx.mods.building.ScaffoldWalk"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemBlock"/>
 <fullyQualifiedTypeName name="net.minecraft.util.Vec3"/>
-<fullyQualifiedTypeName name="net.minecraft.util.MathHelper"/>
 <fullyQualifiedTypeName name="java.lang.Math"/>
 <fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C06PacketPlayerPosLook"/>
 <fullyQualifiedTypeName name="net.minecraft.client.renderer.EnumFaceDirection"/>
@@ -47,17 +37,27 @@
 <fullyQualifiedTypeName name="net.minecraft.server.integrated.IntegratedServer"/>
 <fullyQualifiedTypeName name="java.lang.Throwable"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.fun.AutoSwitch"/>
-<fullyQualifiedTypeName name="de.chrissx.util.Util"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemStack"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Random"/>
-<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook"/>
 <fullyQualifiedTypeName name="net.minecraft.potion.PotionEffect"/>
 <fullyQualifiedTypeName name="net.minecraft.potion.Potion"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.combat.AntiPotion"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.movement.NoCobweb"/>
 <fullyQualifiedTypeName name="net.minecraft.client.Minecraft"/>
-<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
-<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
-<fullyQualifiedTypeName name="net.minecraft.client.entity.EntityPlayerSP"/>
 <fullyQualifiedTypeName name="net.minecraft.client.multiplayer.PlayerControllerMP"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.movement.Spider"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.combat.AntiFire"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.movement.HighJump"/>
+<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
+<fullyQualifiedTypeName name="net.minecraft.client.settings.KeyBinding"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.combat.AutoRespawn"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.movement.Dolphin"/>
+<fullyQualifiedTypeName name="net.minecraft.entity.player.EntityPlayer.EnumStatus"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.building.Kaboom"/>
+<fullyQualifiedTypeName name="java.util.stream.Stream"/>
+<fullyQualifiedTypeName name="de.chrissx.util.Util"/>
+<fullyQualifiedTypeName name="net.minecraft.client.entity.EntityPlayerSP"/>
+<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook"/>
+<fullyQualifiedTypeName name="net.minecraft.util.MathHelper"/>
 </qualifiedTypeNameHistroy>
