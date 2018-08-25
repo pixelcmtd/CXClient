@@ -87,24 +87,18 @@ public class IntegratedServer extends MinecraftServer
 
         for (int i = 0; i < this.worldServers.length; ++i)
         {
-            int j = 0;
-
-            if (i == 1)
-                j = -1;
-            else if (i == 2)
-                j = 1;
-            else if (i == 0)
+            if (i == 0)
             {
                 if (isDemo())
-                    worldServers[i] = (WorldServer)(new DemoWorldServer(this, isavehandler, worldinfo, j, theProfiler)).init();
+                    worldServers[i] = (WorldServer)(new DemoWorldServer(this, isavehandler, worldinfo, 0, theProfiler)).init();
                 else
-                    worldServers[i] = (WorldServer)(new WorldServer(this, isavehandler, worldinfo, j, theProfiler)).init();
+                    worldServers[i] = (WorldServer)(new WorldServer(this, isavehandler, worldinfo, 0, theProfiler)).init();
 
                 worldServers[i].initialize(theWorldSettings);
             }
             else
-                worldServers[i] = (WorldServer)(new WorldServerMulti(this, isavehandler, j, worldServers[0], theProfiler)).init();
-
+                worldServers[i] = (WorldServer)(new WorldServerMulti(this, isavehandler, i == 1 ? -1 : i == 2 ? 1 : 0, worldServers[0], theProfiler)).init();
+            
             worldServers[i].addWorldAccess(new WorldManager(this, worldServers[i]));
         }
 
