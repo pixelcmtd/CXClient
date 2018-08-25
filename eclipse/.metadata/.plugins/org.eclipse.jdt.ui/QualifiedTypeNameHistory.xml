@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.nio.file.Files"/>
 <fullyQualifiedTypeName name="de.chrissx.alts.CxcsvParser"/>
 <fullyQualifiedTypeName name="java.nio.file.Path"/>
 <fullyQualifiedTypeName name="net.minecraft.client.gui.inventory.GuiChest"/>
@@ -60,4 +59,5 @@
 <fullyQualifiedTypeName name="net.minecraft.client.entity.EntityPlayerSP"/>
 <fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook"/>
 <fullyQualifiedTypeName name="net.minecraft.util.MathHelper"/>
+<fullyQualifiedTypeName name="net.minecraft.world.WorldManager"/>
 </qualifiedTypeNameHistroy>
