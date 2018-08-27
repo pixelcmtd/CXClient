@@ -7,7 +7,6 @@ import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +21,8 @@ import de.chrissx.alts.AltManager;
 import de.chrissx.alts.CxcsvParser;
 import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
+import de.chrissx.hotkeys.Hotkey;
+import de.chrissx.hotkeys.HotkeySaving;
 import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
 import de.chrissx.iapi.AddonProperties;
@@ -37,17 +38,16 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiRenameWorld;
+import net.minecraft.client.gui.GuiRepair;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
-import net.minecraft.network.NetworkManager;
 
 public class HackedClient {
 	static HackedClient instance = null;
 	boolean invis = false;
-	
-	Map<Integer, Bindable> hotkeys = new HashMap<Integer, Bindable>();
+	List<Hotkey> hotkeys = new ArrayList<Hotkey>();
 	final ModList mods;
 	final AltManager altManager;
 	List<Integer> lastPressed = new ArrayList<Integer>();
@@ -109,7 +109,7 @@ public class HackedClient {
 		
 		try {
 			//Disabled due to not working again (LimaCity basically f...ed us completely and we're getting around it in C# but decompression, debase64ing and whatsoever in java...nope, pay 4 ddl space...nop)
-			//But it will be enabled again the the near future because with github.io we can do it
+			//But it will be enabled again the the near future because with github.io or our apache server we can do it
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -120,6 +120,8 @@ public class HackedClient {
 	public HackedClient()
 	{
 		instance = this;
+		
+		HotkeySaving.init(this);
 		
 		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
 		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
@@ -152,9 +154,7 @@ public class HackedClient {
 		f.deleteOnExit();
 		
 		for(Mod m : mods)
-		{
 			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
-		}
 		
 		updateThread = new Thread(new Runnable() {
 			@Override
@@ -256,14 +256,14 @@ public class HackedClient {
 	}
 	
 	void updateKeyboard() {
-		for(Entry<Integer, Bindable> hotkey : hotkeys.entrySet())
-			if(Keyboard.isKeyDown(hotkey.getKey()) && !lastPressed.contains(hotkey.getKey()) && !(mc.currentScreen instanceof GuiChat))
-				hotkey.getValue().onHotkey();
+		for(Hotkey hk : hotkeys)
+			if(Keyboard.isKeyDown(hk.key) && !lastPressed.contains(hk.key) && !(mc.currentScreen instanceof GuiChat) && !(mc.currentScreen instanceof GuiRepair))
+				hk.handler.onHotkey();
 		
 		lastPressed = new ArrayList<Integer>();
-		for(int i : hotkeys.keySet())
-			if(Keyboard.isKeyDown(i))
-				lastPressed.add(i);
+		for(Hotkey hk : hotkeys)
+			if(Keyboard.isKeyDown(hk.key))
+				lastPressed.add(hk.key);
 	}
 	
 	public AddonManager getAddonManager() {
@@ -316,12 +316,12 @@ public class HackedClient {
 				Util.sendMessage("#bind <key> <mod-name>");
 				return;
 			}
-			else if(hotkeys.containsKey(Keyboard.getKeyIndex(args[1])))
+			else if(Hotkey.containsKey(hotkeys, Keyboard.getKeyIndex(args[1])))
 				Util.sendMessage("\u00a74Key already registered.");
 			else if(mods.getBindable(args[2].toLowerCase()) == null)
-				Util.sendMessage("\u00a74Mod-Name not correct.");
+				Util.sendMessage("\u00a74Bindable does not exist.");
 			else
-				hotkeys.put(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase()));
+				hotkeys.add(new Hotkey(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase())));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
 			Iterator<Entry<String, Bindable>> it = mods.getBindEntrys().iterator();
 			String s = "Bindables: "+it.next().getKey();
@@ -401,8 +401,8 @@ public class HackedClient {
 			mods.jailsmcBot.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#binds")) {
 			StringBuilder sb = new StringBuilder();
-			for(Entry<Integer, Bindable> hotkey : hotkeys.entrySet())
-				sb.append((sb.toString() == "" ? "" : ", ")+Keyboard.getKeyName(hotkey.getKey())+":"+hotkey.getValue().getName());
+			for(Hotkey hk : hotkeys)
+				sb.append((sb.toString() == "" ? "" : ", ") + Keyboard.getKeyName(hk.key) + ":" + hk.handler.getName());
 			Util.sendMessage("Hotkeys: "+sb.toString());
 		}else if(cmd.equalsIgnoreCase("#norender"))
 			mods.noRender.processCommand(args);
@@ -496,9 +496,9 @@ public class HackedClient {
 			mods.glide.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#rollhead"))
 			mods.rollHead.processCommand(args);
-		else if(addonManager.execCmd(args))
-			;
-		else
+		else if(cmd.equalsIgnoreCase("#automine"))
+			mods.autoMine.processCommand(args);
+		else if(!addonManager.execCmd(args))
 			Util.sendMessage(Consts.help);
   	}
 
@@ -526,7 +526,7 @@ public class HackedClient {
 		return invis;
 	}
 
-	public Map<Integer, Bindable> getHotkeys() {
+	public List<Hotkey> getHotkeys() {
 		return hotkeys;
 	}
 

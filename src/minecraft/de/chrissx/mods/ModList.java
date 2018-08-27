@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import de.chrissx.mods.building.AutoMine;
 import de.chrissx.mods.building.BedFucker;
 import de.chrissx.mods.building.FastBreak;
 import de.chrissx.mods.building.FastPlace;
@@ -134,6 +135,7 @@ public class ModList implements Iterable<Mod> {
 	public final Kaboom kaboom = new Kaboom();
 	public final Glide glide = new Glide();
 	public final RollHead rollHead = new RollHead();
+	public final AutoMine autoMine = new AutoMine();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -207,7 +209,8 @@ public class ModList implements Iterable<Mod> {
 			dolphin,
 			kaboom,
 			glide,
-			rollHead
+			rollHead,
+			autoMine
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
