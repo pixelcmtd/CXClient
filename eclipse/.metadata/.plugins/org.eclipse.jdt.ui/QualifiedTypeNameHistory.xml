@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="de.chrissx.alts.CxcsvParser"/>
-<fullyQualifiedTypeName name="java.nio.file.Path"/>
-<fullyQualifiedTypeName name="net.minecraft.client.gui.inventory.GuiChest"/>
-<fullyQualifiedTypeName name="io.netty.util.concurrent.GenericFutureListener"/>
-<fullyQualifiedTypeName name="java.util.HashMap"/>
-<fullyQualifiedTypeName name="java.util.Map.Entry"/>
-<fullyQualifiedTypeName name="java.util.List"/>
-<fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition"/>
-<fullyQualifiedTypeName name="de.chrissx.mods.Bindable"/>
-<fullyQualifiedTypeName name="de.chrissx.mods.Commandable"/>
-<fullyQualifiedTypeName name="net.minecraft.network.NetworkManager.StoppedPacket"/>
-<fullyQualifiedTypeName name="net.minecraft.network.NetworkManager"/>
 <fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="com.jcraft.jorbis.Block"/>
 <fullyQualifiedTypeName name="net.minecraft.item.Item"/>
@@ -48,7 +36,6 @@
 <fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.combat.AntiFire"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.movement.HighJump"/>
-<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
 <fullyQualifiedTypeName name="net.minecraft.client.settings.KeyBinding"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.combat.AutoRespawn"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.movement.Dolphin"/>
@@ -60,4 +47,17 @@
 <fullyQualifiedTypeName name="net.minecraft.network.play.client.C03PacketPlayer.C05PacketPlayerLook"/>
 <fullyQualifiedTypeName name="net.minecraft.util.MathHelper"/>
 <fullyQualifiedTypeName name="net.minecraft.world.WorldManager"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.building.AutoMine"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.base64.Base64Decoder"/>
+<fullyQualifiedTypeName name="io.netty.handler.codec.base64.Base64Encoder"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.output.ThresholdingOutputStream"/>
+<fullyQualifiedTypeName name="java.util.Base64"/>
+<fullyQualifiedTypeName name="java.util.Base64.Encoder"/>
+<fullyQualifiedTypeName name="java.util.Base64.Decoder"/>
+<fullyQualifiedTypeName name="de.chrissx.mods.Bindable"/>
+<fullyQualifiedTypeName name="de.chrissx.hotkeys.HotkeyList"/>
+<fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="net.minecraft.client.gui.GuiRepair"/>
+<fullyQualifiedTypeName name="de.chrissx.hotkeys.HotkeySaving"/>
 </qualifiedTypeNameHistroy>
