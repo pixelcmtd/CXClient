@@ -31,7 +31,7 @@ public class Consts {
 			"-Fixed HotkeySaving",
 			"-Improved the overall Hotkey system",
 			"-Fixed hotkeys being triggered when typing in an anvil",
-			"-Fixed most of the iAPI for it's official release"
+			"-Improved/Fixed the iAPI for it's official release (a few more changes will have to be done)"
 	};
 
 	public static final String[] credits = new String[] {

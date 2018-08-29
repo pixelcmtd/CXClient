@@ -1,41 +1,16 @@
-[14:00:32] [Client thread/INFO]: Setting user: Player118
-[14:00:32] [Client thread/INFO]: (Session ID is token:0:Player118)
-[14:00:34] [Client thread/INFO]: CXClient Version: alpha 2704
-[14:00:34] [Client thread/INFO]: LWJGL Version: 2.9.4
-[14:00:37] [Client thread/INFO]: Reloading ResourceManager: Default
-[14:00:37] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[14:00:37] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[14:00:37] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[14:00:37] [Thread-7/INFO]: OpenAL initialized.
-[14:00:38] [Sound Library Loader/INFO]: Sound engine started
-[14:00:48] [Client thread/INFO]: Created: 512x512 textures-atlas
-[14:00:53] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[14:00:53] [Server thread/INFO]: Generating keypair
-[14:00:53] [Server thread/INFO]: Preparing start region for level 0
-[14:00:54] [Server thread/INFO]: Preparing spawn area: 77%
-[14:00:54] [Server thread/INFO]: Changing view distance to 12, from 10
-[14:00:55] [Server thread/INFO]: Player118[local:E:b387a6e1] logged in with entity id 177 at (543.8931625825138, 70.0, 189.7079324112523)
-[14:00:55] [Server thread/INFO]: Player118 joined the game
-[14:00:57] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text, #multitext, #killpotion, #automine, #spam, #clearspam, #kaboom, #twerk, #nocobweb, #timer, #spider, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, #autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #nofall, #antipotion, #fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, #xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, #sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, #norender, #rollhead, #changelog, #credits, #bind, #unbind, #binds, #mods, #help
-[14:01:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.anvil
-[14:01:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.anvil
-[14:02:47] [Server thread/INFO]: Saving and pausing game...
-[14:02:47] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[14:02:47] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[14:02:47] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[14:02:50] [Client thread/INFO]: [CHAT] §c[CXClient] §fTestAddon TestAddon chrissx @ chrissx Media Inc. 1.0.0 de.chrissx.iapi.testplugin.TestPlugin This is a addon/plugin used to test the iAPI capabilities of the CXClient.
-[14:02:50] [Client thread/INFO]: [CHAT] §c[CXClient] §fHotkeys: enabled
-[14:02:55] [Client thread/INFO]: [CHAT] §c[CXClient] §fPong!
-[14:02:58] [Server thread/INFO]: Saving and pausing game...
-[14:02:58] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[14:02:58] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[14:02:58] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[14:02:59] [Server thread/INFO]: Stopping server
-[14:02:59] [Server thread/INFO]: Saving players
-[14:02:59] [Server thread/INFO]: Saving worlds
-[14:02:59] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[14:02:59] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[14:02:59] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[14:03:01] [Client thread/INFO]: Stopping CXClient.
-[14:03:01] [Client thread/INFO]: SoundSystem shutting down...
-[14:03:01] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[17:50:25] [Client thread/INFO]: Setting user: Player746
+[17:50:25] [Client thread/INFO]: (Session ID is token:0:Player746)
+[17:50:27] [Client thread/INFO]: CXClient Version: alpha 2705
+[17:50:27] [Client thread/INFO]: LWJGL Version: 2.9.4
+[17:50:27] [Client thread/INFO]: Reloading ResourceManager: Default
+[17:50:28] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[17:50:28] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[17:50:28] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[17:50:28] [Thread-7/INFO]: OpenAL initialized.
+[17:50:28] [Sound Library Loader/INFO]: Sound engine started
+[17:50:29] [Client thread/INFO]: Created: 512x512 textures-atlas
+[17:50:34] [Client thread/INFO]: Connecting to 192.168.2.104:25565
+[17:51:10] [Client thread/INFO]: [CHAT] §c[CXClient] §f§4You should not use this unless you're in SP, because it's not done yet.
+[17:52:24] [Client thread/INFO]: Stopping CXClient.
+[17:52:24] [Client thread/INFO]: SoundSystem shutting down...
+[17:52:24] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
