@@ -7,7 +7,6 @@ import de.chrissx.util.Util;
 public class TestPlugin extends Addon implements CommandExecutor {
 
 	public TestPlugin() {
-		super("TestPlugin");
 		getManager().registerCommandExecutor(this);
 	}
 

@@ -57,11 +57,6 @@ public class HackedClient {
 	final AddonManager addonManager;
 	final Thread updateThread;
 	
-	public boolean stopPackets()
-	{
-		return mods.lag.isEnabled();
-	}
-	
 	public void onDraw(FontRenderer r)
 	{
 		if(!invis)
@@ -439,15 +434,13 @@ public class HackedClient {
 			for(Addon a : addonManager.getAddons())
 			{
 				AddonProperties ap = addonManager.getProps(a);
-				Util.sendMessage(a.getName() + " " + ap.getName() + " " + ap.getAuthor() + " " + ap.getVersion() + " " + ap.getMainClass() + " " + ap.getDesc());
+				Util.sendMessage(a.getName() + " " + ap.name + " " + ap.author + " " + ap.version + " " + ap.mainClass + " " + ap.desc);
 			}
 			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
 		}
 		else if(cmd.equalsIgnoreCase("#credits"))
-		{
 			for(String s : Consts.credits)
 				Util.sendMessage(s);
-		}
 		else if(cmd.equalsIgnoreCase("#jetpack"))
 			mods.jetpack.processCommand(args);
 		else if(cmd.equalsIgnoreCase("#regen"))
