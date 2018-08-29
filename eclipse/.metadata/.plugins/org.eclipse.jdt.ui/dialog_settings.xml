@@ -45,10 +45,11 @@
 	<section name="FatJarPackageWizard">
 		<item value="C:\Users\chrissicx\Desktop\cxclient\eclipse.xml" key="FatJarPackageWizardPage.ANTSCRIPT_LOCATION"/>
 		<item value="Client - Client" key="FatJarPackageWizardPage.LAUNCH_CONFIGURATION_SELECTION_NAME"/>
-		<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.6.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
+		<item value="D:\Bibliotheken\Desktop\cxclient\jars\cxclient_addons\test_addon.jar" key="FatJarPackageWizardPage.DESTINATION_PATH_SELECTION"/>
 		<item value="false" key="FatJarPackageWizardPage.ANTSCRIPT_SAVE"/>
 		<item value="1" key="FatJarPackageWizardPage.LIBRARY_HANDLING"/>
 		<list key="FatJarPackageWizardPage.DESTINATION_NAMES_ID">
+			<item value="D:\Bibliotheken\Desktop\cxclient\jars\cxclient_addons\test_addon.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.6.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.5.jar"/>
 			<item value="D:\Bibliotheken\Desktop\cxclient-builds\cxclient_2.4.jar"/>
