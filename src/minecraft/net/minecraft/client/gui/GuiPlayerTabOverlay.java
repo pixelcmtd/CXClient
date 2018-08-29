@@ -96,7 +96,7 @@ public class GuiPlayerTabOverlay extends Gui
             ++j4;
         }
 
-        boolean flag = this.mc.isIntegratedServerRunning() || this.mc.getNetHandler().getNetworkManager().getIsencrypted();
+        boolean flag = this.mc.isIntegratedServerRunning() || this.mc.getNetHandler().getNetworkManager().isEncrypted();
         int l;
 
         if (scoreObjectiveIn != null)

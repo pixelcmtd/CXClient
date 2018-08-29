@@ -225,73 +225,52 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
     
     class StoppedPacket
     {
-    	public Packet p;
-    	public GenericFutureListener<? extends Future<? super Void>>[] fl;
+    	public final Packet packet;
+    	public final GenericFutureListener<? extends Future<? super Void>>[] futureListeners;
     	
     	public StoppedPacket(Packet p, GenericFutureListener<? extends Future<? super Void>>[] fl)
     	{
-    		this.p = p;
-    		this.fl = fl;
+    		packet = p;
+    		futureListeners = fl;
     	}
     }
 
     List<StoppedPacket> stoppedPackets = new ArrayList<StoppedPacket>();
     boolean testStoppedPackets = true;
-    
+
     public void printStoppedPackets()
     {
     	for(StoppedPacket sp : stoppedPackets)
-    	{
-    		logger.info(sp.p);
-    	}
+    		logger.info(sp.packet);
     }
 
     /**
      * Will commit the packet to the channel. If the current thread 'owns' the channel it will write and flush the
      * packet, otherwise it will add a task for the channel eventloop thread to do that.
      */
-    void dispatchPacket(final Packet inPacket, final GenericFutureListener <? extends Future <? super Void >> [] futureListeners)
+    void dispatchPacket(final Packet inPacket, final GenericFutureListener <? extends Future <? super Void >> [] fl)
     {
-    	if(HackedClient.getClient().stopPackets())
+    	if(HackedClient.getClient().getMods().lag.isEnabled())
        	{
-    		StoppedPacket rm1 = null;
-    		StoppedPacket rm2 = null;
+    		StoppedPacket p = null;
     		if(inPacket instanceof C04PacketPlayerPosition)
-    		{
     			for(StoppedPacket sp : stoppedPackets)
-    			{
-    				if(sp.p instanceof C04PacketPlayerPosition)
-    				{
-    					rm1 = sp;
-    				}
-    			}
-    		}
-    		if(rm1 != null)
-    		{
-    			stoppedPackets.remove(rm1);
-    		}
+    				if(sp.packet instanceof C04PacketPlayerPosition)
+    					p = sp;
     		if(inPacket instanceof C06PacketPlayerPosLook)
-    		{
     			for(StoppedPacket sp : stoppedPackets)
-    			{
-    				if(sp.p instanceof C06PacketPlayerPosLook)
-    				{
-    					rm2 = sp;
-    				}
-    			}
-    		}
-    		if(rm2 != null)
-    		{
-    			stoppedPackets.remove(rm2);
-    		}
-       		stoppedPackets.add(new StoppedPacket(inPacket, futureListeners));
+    				if(sp.packet instanceof C06PacketPlayerPosLook)
+    					p = sp;
+    		if(p != null)
+    			stoppedPackets.remove(p);
+       		stoppedPackets.add(new StoppedPacket(inPacket, fl));
        		return;
        	}
        	else if(stoppedPackets.size() > 0 && testStoppedPackets)
         {
        		StoppedPacket p = stoppedPackets.remove(0);
        		testStoppedPackets = false;
-        	dispatchPacket(p.p, p.fl);
+        	dispatchPacket(p.packet, p.futureListeners);
         	testStoppedPackets = true;
         }
         final EnumConnectionState cs1 = EnumConnectionState.getFromPacket(inPacket);
@@ -300,44 +279,36 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         if (cs2 != cs1)
         {
             logger.debug("Disabled auto read");
-            this.channel.config().setAutoRead(false);
+            channel.config().setAutoRead(false);
         }
 
-        if (this.channel.eventLoop().inEventLoop())
+        if (channel.eventLoop().inEventLoop())
         {
             if (cs1 != cs2)
-            {
-                this.setConnectionState(cs1);
-            }
+                setConnectionState(cs1);
 
-            ChannelFuture channelfuture = this.channel.writeAndFlush(inPacket);
+            ChannelFuture cf = channel.writeAndFlush(inPacket);
 
-            if (futureListeners != null)
-            {
-                channelfuture.addListeners(futureListeners);
-            }
+            if (fl != null)
+                cf.addListeners(fl);
 
-            channelfuture.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
+            cf.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
         }
         else
         {
-            this.channel.eventLoop().execute(new Runnable()
+            channel.eventLoop().execute(new Runnable()
             {
                 public void run()
                 {
                     if (cs1 != cs2)
-                    {
-                        NetworkManager.this.setConnectionState(cs1);
-                    }
+                        setConnectionState(cs1);
 
-                    ChannelFuture channelfuture1 = NetworkManager.this.channel.writeAndFlush(inPacket);
+                    ChannelFuture cf = channel.writeAndFlush(inPacket);
 
-                    if (futureListeners != null)
-                    {
-                        channelfuture1.addListeners(futureListeners);
-                    }
+                    if (fl != null)
+                        cf.addListeners(fl);
 
-                    channelfuture1.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
+                    cf.addListener(ChannelFutureListener.FIRE_EXCEPTION_ON_FAILURE);
                 }
             });
         }
@@ -346,23 +317,23 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
     /**
      * Will iterate through the outboundPacketQueue and dispatch all Packets
      */
-    private void flushOutboundQueue()
+    void flushOutboundQueue()
     {
-        if (this.channel != null && this.channel.isOpen())
+        if (channel != null && channel.isOpen())
         {
-            this.field_181680_j.readLock().lock();
+            field_181680_j.readLock().lock();
 
             try
             {
                 while (!this.outboundPacketsQueue.isEmpty())
                 {
                     NetworkManager.InboundHandlerTuplePacketListener ihtpl = (NetworkManager.InboundHandlerTuplePacketListener)this.outboundPacketsQueue.poll();
-                    this.dispatchPacket(ihtpl.packet, ihtpl.futureListeners);
+                    dispatchPacket(ihtpl.packet, ihtpl.futureListeners);
                 }
             }
             finally
             {
-                this.field_181680_j.readLock().unlock();
+                field_181680_j.readLock().unlock();
             }
         }
     }
@@ -372,14 +343,12 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public void processReceivedPackets()
     {
-        this.flushOutboundQueue();
+        flushOutboundQueue();
 
-        if (this.packetListener instanceof ITickable)
-        {
-            ((ITickable)this.packetListener).update();
-        }
+        if (packetListener instanceof ITickable)
+            ((ITickable)packetListener).update();
 
-        this.channel.flush();
+        channel.flush();
     }
 
     /**
@@ -387,7 +356,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public SocketAddress getRemoteAddress()
     {
-        return this.socketAddress;
+        return socketAddress;
     }
 
     /**
@@ -395,10 +364,10 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public void closeChannel(IChatComponent message)
     {
-        if (this.channel.isOpen())
+        if (channel.isOpen())
         {
-            this.channel.close().awaitUninterruptibly();
-            this.terminationReason = message;
+            channel.close().awaitUninterruptibly();
+            terminationReason = message;
         }
     }
 
@@ -408,16 +377,16 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public boolean isLocalChannel()
     {
-        return this.channel instanceof LocalChannel || this.channel instanceof LocalServerChannel;
+        return channel instanceof LocalChannel || channel instanceof LocalServerChannel;
     }
 
-    public static NetworkManager func_181124_a(InetAddress p_181124_0_, int p_181124_1_, boolean p_181124_2_)
+    public static NetworkManager func_181124_a(InetAddress ip, int unusedInt, boolean someFlag)
     {
         final NetworkManager networkmanager = new NetworkManager(EnumPacketDirection.CLIENTBOUND);
         Class <? extends SocketChannel > oclass;
         LazyLoadBase <? extends EventLoopGroup > lazyloadbase;
 
-        if (Epoll.isAvailable() && p_181124_2_)
+        if (Epoll.isAvailable() && someFlag)
         {
             oclass = EpollSocketChannel.class;
             lazyloadbase = field_181125_e;
@@ -428,7 +397,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
             lazyloadbase = CLIENT_NIO_EVENTLOOP;
         }
 
-        ((Bootstrap)((Bootstrap)((Bootstrap)(new Bootstrap()).group((EventLoopGroup)lazyloadbase.getValue())).handler(new ChannelInitializer<Channel>()
+        new Bootstrap().group(lazyloadbase.getValue()).handler(new ChannelInitializer<Channel>()
         {
             protected void initChannel(Channel p_initChannel_1_) throws Exception
             {
@@ -436,14 +405,13 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
                 {
                     p_initChannel_1_.config().setOption(ChannelOption.TCP_NODELAY, Boolean.valueOf(true));
                 }
-                catch (ChannelException var3)
-                {
-                    ;
-                }
+                catch (ChannelException ce){}
 
-                p_initChannel_1_.pipeline().addLast((String)"timeout", (ChannelHandler)(new ReadTimeoutHandler(30))).addLast((String)"splitter", (ChannelHandler)(new MessageDeserializer2())).addLast((String)"decoder", (ChannelHandler)(new MessageDeserializer(EnumPacketDirection.CLIENTBOUND))).addLast((String)"prepender", (ChannelHandler)(new MessageSerializer2())).addLast((String)"encoder", (ChannelHandler)(new MessageSerializer(EnumPacketDirection.SERVERBOUND))).addLast((String)"packet_handler", (ChannelHandler)networkmanager);
+                p_initChannel_1_.pipeline().addLast((String)"timeout", (ChannelHandler)(new ReadTimeoutHandler(30))).addLast((String)"splitter",
+                		(ChannelHandler)(new MessageDeserializer2())).addLast((String)"decoder", (ChannelHandler)(new MessageDeserializer(EnumPacketDirection.CLIENTBOUND))).addLast((String)"prepender",
+                				(ChannelHandler)(new MessageSerializer2())).addLast((String)"encoder", (ChannelHandler)(new MessageSerializer(EnumPacketDirection.SERVERBOUND))).addLast((String)"packet_handler", (ChannelHandler)networkmanager);
             }
-        })).channel(oclass)).connect(p_181124_0_, p_181124_1_).syncUninterruptibly();
+        }).channel(oclass).connect(ip, unusedInt).syncUninterruptibly();
         return networkmanager;
     }
 
@@ -456,9 +424,9 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         final NetworkManager networkmanager = new NetworkManager(EnumPacketDirection.CLIENTBOUND);
         ((Bootstrap)((Bootstrap)((Bootstrap)(new Bootstrap()).group((EventLoopGroup)CLIENT_LOCAL_EVENTLOOP.getValue())).handler(new ChannelInitializer<Channel>()
         {
-            protected void initChannel(Channel p_initChannel_1_) throws Exception
+            protected void initChannel(Channel c) throws Exception
             {
-                p_initChannel_1_.pipeline().addLast((String)"packet_handler", (ChannelHandler)networkmanager);
+                c.pipeline().addLast((String)"packet_handler", (ChannelHandler)networkmanager);
             }
         })).channel(LocalChannel.class)).connect(address).syncUninterruptibly();
         return networkmanager;
@@ -474,9 +442,9 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
         this.channel.pipeline().addBefore("prepender", "encrypt", new NettyEncryptingEncoder(CryptManager.createNetCipherInstance(1, key)));
     }
 
-    public boolean getIsencrypted()
+    public boolean isEncrypted()
     {
-        return this.isEncrypted;
+        return isEncrypted;
     }
 
     /**
@@ -484,12 +452,12 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public boolean isChannelOpen()
     {
-        return this.channel != null && this.channel.isOpen();
+        return channel != null && channel.isOpen();
     }
 
     public boolean hasNoChannel()
     {
-        return this.channel == null;
+        return channel == null;
     }
 
     /**
@@ -497,7 +465,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public INetHandler getNetHandler()
     {
-        return this.packetListener;
+        return packetListener;
     }
 
     /**
@@ -505,7 +473,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public IChatComponent getExitMessage()
     {
-        return this.terminationReason;
+        return terminationReason;
     }
 
     /**
@@ -513,78 +481,57 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
      */
     public void disableAutoRead()
     {
-        this.channel.config().setAutoRead(false);
+        channel.config().setAutoRead(false);
     }
 
     public void setCompressionTreshold(int treshold)
     {
         if (treshold >= 0)
         {
-            if (this.channel.pipeline().get("decompress") instanceof NettyCompressionDecoder)
-            {
-                ((NettyCompressionDecoder)this.channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
-            }
+            if (channel.pipeline().get("decompress") instanceof NettyCompressionDecoder)
+                ((NettyCompressionDecoder)channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
             else
-            {
-                this.channel.pipeline().addBefore("decoder", "decompress", new NettyCompressionDecoder(treshold));
-            }
+                channel.pipeline().addBefore("decoder", "decompress", new NettyCompressionDecoder(treshold));
 
-            if (this.channel.pipeline().get("compress") instanceof NettyCompressionEncoder)
-            {
-                ((NettyCompressionEncoder)this.channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
-            }
+            if (channel.pipeline().get("compress") instanceof NettyCompressionEncoder)
+                ((NettyCompressionEncoder)channel.pipeline().get("decompress")).setCompressionTreshold(treshold);
             else
-            {
                 this.channel.pipeline().addBefore("encoder", "compress", new NettyCompressionEncoder(treshold));
-            }
         }
         else
         {
-            if (this.channel.pipeline().get("decompress") instanceof NettyCompressionDecoder)
-            {
-                this.channel.pipeline().remove("decompress");
-            }
-
-            if (this.channel.pipeline().get("compress") instanceof NettyCompressionEncoder)
-            {
-                this.channel.pipeline().remove("compress");
-            }
+            if (channel.pipeline().get("decompress") instanceof NettyCompressionDecoder)
+            	channel.pipeline().remove("decompress");
+            if (channel.pipeline().get("compress") instanceof NettyCompressionEncoder)
+                channel.pipeline().remove("compress");
         }
     }
 
     public void checkDisconnected()
     {
-        if (this.channel != null && !this.channel.isOpen())
-        {
-            if (!this.disconnected)
+        if (channel != null && !channel.isOpen())
+            if (!disconnected)
             {
-                this.disconnected = true;
+                disconnected = true;
 
-                if (this.getExitMessage() != null)
-                {
-                    this.getNetHandler().onDisconnect(this.getExitMessage());
-                }
-                else if (this.getNetHandler() != null)
-                {
-                    this.getNetHandler().onDisconnect(new ChatComponentText("Disconnected"));
-                }
+                if (getExitMessage() != null)
+                    getNetHandler().onDisconnect(getExitMessage());
+                else if (getNetHandler() != null)
+                    getNetHandler().onDisconnect(new ChatComponentText("Disconnected"));
             }
             else
-            {
                 logger.warn("handleDisconnection() called twice");
-            }
-        }
     }
 
     static class InboundHandlerTuplePacketListener
     {
-        private final Packet packet;
-        private final GenericFutureListener <? extends Future <? super Void >> [] futureListeners;
+        final Packet packet;
+        final GenericFutureListener <? extends Future <? super Void >> [] futureListeners;
 
         public InboundHandlerTuplePacketListener(Packet inPacket, GenericFutureListener <? extends Future <? super Void >> ... inFutureListeners)
         {
-            this.packet = inPacket;
-            this.futureListeners = inFutureListeners;
+            packet = inPacket;
+            futureListeners = inFutureListeners;
         }
     }
 }

@@ -23,14 +23,15 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2704";
+	public static final String version = "alpha 2705";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
 			"-Added an AutoMine that just makes you mine automatically",
 			"-Fixed HotkeySaving",
 			"-Improved the overall Hotkey system",
-			"-Fixed hotkeys being triggered when typing in an anvil"
+			"-Fixed hotkeys being triggered when typing in an anvil",
+			"-Fixed most of the iAPI for it's official release"
 	};
 
 	public static final String[] credits = new String[] {

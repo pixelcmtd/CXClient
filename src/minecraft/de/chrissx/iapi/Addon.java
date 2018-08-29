@@ -11,7 +11,7 @@ public abstract class Addon implements StopListener {
 	 * @return The AddonManager
 	 */
 	public AddonManager getManager() {
-		return getClient().getAddonManager();
+		return HackedClient.getClient().getAddonManager();
 	}
 	
 	/**
@@ -22,8 +22,6 @@ public abstract class Addon implements StopListener {
 		return HackedClient.getClient();
 	}
 	
-	final String name;
-	
 	/**
 	 * Gets the Minecraft-class's instance
 	 * @return The Minecraft-instance
@@ -31,18 +29,10 @@ public abstract class Addon implements StopListener {
 	public Minecraft getMinecraft() {
 		return Minecraft.getMinecraft();
 	}
-	
-	/**
-	 * 
-	 * @param name The name of the addon
-	 */
-	public Addon(String name) {
-		this.name = name;
-	}
 
 	@Override
 	public String getName() {
-		return name;
+		return HackedClient.getClient().getAddonManager().getName(this);
 	}
 	
 	@Override
