@@ -180,3 +180,7 @@
 2018-08-27 19:41:24,428 [Worker-3: Building workspace] WARN  org.eclipse.jgit.util.FS_Win32 - null
 2018-08-29 13:23:45,628 [Worker-7: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
 2018-08-29 13:23:48,515 [Worker-2: Decoration Calculation] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2018-09-01 22:03:39,186 [Worker-4: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2018-09-01 22:03:40,717 [Worker-10: Building workspace] WARN  org.eclipse.jgit.util.FS_Win32 - null
+2018-09-17 20:18:26,326 [Worker-9: Loading available Gradle versions] INFO  c.g.t.t.d.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2018-09-17 20:18:29,517 [Worker-5: Decoration Calculation] WARN  org.eclipse.jgit.util.FS_Win32 - null
