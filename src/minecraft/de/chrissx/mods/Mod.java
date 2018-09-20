@@ -22,60 +22,60 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
 	protected final String apiDir;
-	
+
 	public Mod(String name) {
 		this.name = name;
 		apiDir = Paths.get(Consts.modsPath, name).toString();
 	}
-	
+
 	public void toggle() {
 		enabled = !enabled;
 	}
-	
+
 	public boolean isEnabled() {
 		return enabled;
 	}
-	
+
 	@Override
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(enabled)
 			r.drawString(name, x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
-	
+
 	@Override
 	public void processCommand(String[] args) {
 		toggle();
 	}
-	
+
 	@Override
 	public void onHotkey() {
 		toggle();
 	}
-	
+
 	@Override
 	public void onStop() {}
-	
+
 	@Override
 	public String getName() {
 		return name;
 	}
-	
+
 	@Override
 	public void onTick() {}
-	
+
 	public void apiUpdate() {}
-	
+
 	public String getApiDir()
 	{
 		return apiDir;
 	}
-	
+
 	protected File getApiFile(String name)
 	{
 		return Paths.get(apiDir, name).toFile();
 	}
-	
+
 	protected void write(File f, byte b)
 	{
 		try {
@@ -85,7 +85,7 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void write(File f, byte[] b)
 	{
 		try {
@@ -95,7 +95,7 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void write(File f, boolean b)
 	{
 		try {
@@ -105,7 +105,7 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void write(File f, String s, Charset cs)
 	{
 		try {
@@ -115,52 +115,53 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void write(File f, int i)
 	{
 		try {
 			f.createNewFile();
-			Files.write(ByteBuffer.allocate(4).putInt(i).array(), f);
+			Files.write(new byte[] {(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 	protected void write(File f, long i)
 	{
 		try {
 			f.createNewFile();
-			Files.write(ByteBuffer.allocate(8).putLong(i).array(), f);
+			Files.write(new byte[] {(byte)(i >> 56), (byte)(i >> 48), (byte)(i >> 40), (byte)(i >> 32),
+					(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	protected void write(File f, short s)
+
+	protected void write(File f, short i)
 	{
 		try {
 			f.createNewFile();
-			Files.write(ByteBuffer.allocate(2).putShort(s).array(), f);
+			Files.write(new byte[] {(byte)(i >> 8), (byte)i}, f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	protected void write(File f, float s)
+
+	protected void write(File f, float g)
 	{
 		try {
 			f.createNewFile();
-			Files.write(ByteBuffer.allocate(4).putFloat(s).array(), f);
+			Files.write(ByteBuffer.allocate(4).putFloat(g).array(), f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
 	}
-	
-	protected void write(File f, double s)
+
+	protected void write(File f, double d)
 	{
 		try {
 			f.createNewFile();
-			Files.write(ByteBuffer.allocate(8).putDouble(s).array(), f);
+			Files.write(ByteBuffer.allocate(8).putDouble(d).array(), f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
