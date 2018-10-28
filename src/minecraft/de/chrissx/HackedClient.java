@@ -97,7 +97,7 @@ public class HackedClient {
 		}
 		
 		try {
-			HotkeySaving.saveHotkeys(Paths.get(Consts.hotkeyFile), hotkeys);
+			HotkeySaving.saveHotkeys(new File(Consts.hotkeyFile), hotkeys);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

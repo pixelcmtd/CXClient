@@ -23,7 +23,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2705";
+	public static final String version = "alpha 2706";
 	public static final String[] changelog = new String[] {
 			clientName + " " + version + " Changelog:",
 			"",
@@ -31,7 +31,8 @@ public class Consts {
 			"-Fixed HotkeySaving",
 			"-Improved the overall Hotkey system",
 			"-Fixed hotkeys being triggered when typing in an anvil",
-			"-Improved/Fixed the iAPI for it's official release (a few more changes will have to be done)"
+			"-Improved/Fixed the iAPI for it's official release (a few more changes will have to be done)",
+			"-We fixed some fishy coices we made earlier, including reducing the size of hotkey saves"
 	};
 
 	public static final String[] credits = new String[] {

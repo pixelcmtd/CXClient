@@ -56,7 +56,7 @@ public interface IChatComponent extends Iterable<IChatComponent>
 
     public static class Serializer implements JsonDeserializer<IChatComponent>, JsonSerializer<IChatComponent>
     {
-        private static final Gson GSON;
+        static final Gson GSON;
 
         public IChatComponent deserialize(JsonElement p_deserialize_1_, Type p_deserialize_2_, JsonDeserializationContext p_deserialize_3_) throws JsonParseException
         {

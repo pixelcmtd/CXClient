@@ -41,7 +41,7 @@ public class Util {
 	public static void checkIfExistsAndMake(String dir, String name)
 	{
 		File f = new File(dir);
-		if(!(f.exists()))
+		if(!f.exists())
 		{
 			f.mkdirs();
 			mc.logger.info("Made " + name + ".");
@@ -61,7 +61,7 @@ public class Util {
 	}
 	
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
-		BufferedImage i = new BufferedImage(w, h, 0x1); // type_int_rgb
+		BufferedImage i = new BufferedImage(w, h, 1); // type_int_rgb
 	    for (int x = 0; x < w; x++)
 	        for (int y = 0; y < h; y++)
 	            i.setRGB(x, y, src.getRGB(x * src.getWidth() / w, y * src.getHeight() / h));
@@ -119,10 +119,10 @@ public class Util {
 		final BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
 		final FileOutputStream out = new FileOutputStream(file);
 		
-		final byte[] bfr = new byte[512];
+		final byte[] bfr = new byte[4096];
 		int count = 0;
 
-		while ((count = in.read(bfr, 0, 65536)) != -1)
+		while ((count = in.read(bfr, 0, 4096)) != -1)
 			out.write(bfr, 0, count);
 		
 		out.close();
