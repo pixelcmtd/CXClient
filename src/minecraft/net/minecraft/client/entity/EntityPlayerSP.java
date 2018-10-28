@@ -145,9 +145,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
     /**
      * Heal living entity (param: amount of half-hearts)
      */
-    public void heal(float healAmount)
-    {
-    }
+    public void heal(float healAmount) {}
 
     /**
      * Called when a player mounts an entity. e.g. mounts a pig, mounts a boat.
@@ -280,9 +278,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
     /**
      * Joins the passed in entity item with the world. Args: entityItem
      */
-    protected void joinEntityItemWithWorld(EntityItem itemIn)
-    {
-    }
+    protected void joinEntityItemWithWorld(EntityItem itemIn) {}
 
     /**
      * Sends a chat message from the player. Args: chatMessage

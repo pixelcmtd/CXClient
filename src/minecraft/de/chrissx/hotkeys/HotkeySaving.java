@@ -2,6 +2,8 @@ package de.chrissx.hotkeys;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
@@ -16,6 +18,7 @@ import java.util.List;
 
 import de.chrissx.HackedClient;
 import de.chrissx.mods.Bindable;
+import de.chrissx.util.Util;
 
 public class HotkeySaving {
 
@@ -30,15 +33,13 @@ public class HotkeySaving {
 		e = Base64.getEncoder();
 	}
 	
-	public static void saveHotkeys(Path file, List<Hotkey> hotkeys) throws IOException {
-		if(file.toFile().exists())
-			Files.delete(file);
-		BufferedWriter w = Files.newBufferedWriter(file);
-		w.write(encodeHotkeys(hotkeys));
-		w.close();
+	public static void saveHotkeys(File file, List<Hotkey> hotkeys) throws IOException {
+		if(file.exists())
+			file.delete();
+		Files.write(file.toPath(), encodeHotkeys(hotkeys));
 	}
 	
-	static String encodeHotkeys(List<Hotkey> hotkeys) {
+	static byte[] encodeHotkeys(List<Hotkey> hotkeys) {
 		StringBuilder sb = new StringBuilder();
 		boolean b = false;
 		for(Hotkey hk : hotkeys) {
@@ -48,29 +49,31 @@ public class HotkeySaving {
 				b = true;
 			sb.append(hotkeyToBase64(hk));
 		}
-		return e.encodeToString(sb.toString().getBytes(StandardCharsets.UTF_8));
+		return sb.toString().getBytes(StandardCharsets.UTF_8);
 	}
 
-	static String bindableToBase64(Bindable b) {
-		return e.encodeToString(b.getName().getBytes(StandardCharsets.UTF_8));
+	static String bindableToString(Bindable b) {
+		return b.getName();
 	}
 
-	static String keyToBase64(int key) {
-		return e.encodeToString(ByteBuffer.allocate(4).putInt(key).array());
+	static byte[] keyToBinary(int key) {
+		return new byte[] {(byte)(key >> 24), (byte)(key >> 16), (byte)(key >> 8), (byte)key};
 	}
 
 	static String hotkeyToBase64(Hotkey hk) {
-		return e.encodeToString((keyToBase64(hk.key) + "$" + bindableToBase64(hk.handler)).getBytes(StandardCharsets.UTF_8));
+		byte[] key = keyToBinary(hk.key);
+		byte[] handler = bindableToString(hk.handler).getBytes(StandardCharsets.UTF_8);
+		byte[] b = new byte[4 + handler.length];
+		for(int i = 0; i < handler.length; i++)
+			b[i + 4] = handler[i];
+		return e.encodeToString(b);
 	}
 
 	public static List<Hotkey> loadHotkeys(Path file) throws IOException {
 		BufferedReader r = Files.newBufferedReader(file);
 		String base64 = r.readLine();
 		r.close();
-		if(base64 == null || base64 == "")
-			return new ArrayList<Hotkey>();
-		else
-			return decodeHotkeys(base64);
+		return base64 == null || base64 == "" ? new ArrayList<Hotkey>() : decodeHotkeys(base64);
 	}
 
 	static List<Hotkey> decodeHotkeys(String base64) {
@@ -84,16 +87,17 @@ public class HotkeySaving {
 		return hotkeys;
 	}
 
-	static Bindable base64ToBindable(String base64) {
-		return hc.getMods().getBindable(new String(d.decode(base64), StandardCharsets.UTF_8));
+	static Bindable stringToBindable(String s) {
+		return hc.getMods().getBindable(s);
 	}
 
-	static int base64ToKey(String base64) {
-		return ByteBuffer.wrap(d.decode(base64)).getInt();
+	static int binaryToKey(byte b, byte c, byte d, byte e) {
+		return (b << 24) | (c << 16) | (d << 8) | e;
 	}
 
 	static Hotkey base64ToHotkey(String base64) {
-		String[] strs = new String(d.decode(base64), StandardCharsets.UTF_8).split("$");
-		return new Hotkey(base64ToKey(strs[0]), base64ToBindable(strs[1]));
+		byte[] b = d.decode(base64);
+		return new Hotkey(binaryToKey(b[0], b[1], b[2], b[3]),
+				stringToBindable(new String(b, 4, b.length - 4, StandardCharsets.UTF_8)));
 	}
 }
