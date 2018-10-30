@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="net.minecraft.item.Item"/>
-<fullyQualifiedTypeName name="de.chrissx.locations.LocInt64"/>
-<fullyQualifiedTypeName name="net.minecraft.block.Block"/>
-<fullyQualifiedTypeName name="de.chrissx.locations.LocFloat64"/>
-<fullyQualifiedTypeName name="net.minecraft.util.Vec3i"/>
 <fullyQualifiedTypeName name="net.minecraft.util.BlockPos"/>
 <fullyQualifiedTypeName name="net.minecraft.client.multiplayer.WorldClient"/>
 <fullyQualifiedTypeName name="net.minecraft.block.BlockLiquid"/>
@@ -60,4 +55,9 @@
 <fullyQualifiedTypeName name="de.chrissx.iapi.AddonProperties"/>
 <fullyQualifiedTypeName name="de.chrissx.HackedClient"/>
 <fullyQualifiedTypeName name="de.chrissx.util.Util"/>
+<fullyQualifiedTypeName name="java.security.AlgorithmParameters"/>
+<fullyQualifiedTypeName name="java.security.spec.AlgorithmParameterSpec"/>
+<fullyQualifiedTypeName name="java.security.MessageDigest"/>
+<fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
 </qualifiedTypeNameHistroy>

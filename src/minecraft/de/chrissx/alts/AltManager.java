@@ -30,14 +30,15 @@ public class AltManager {
 
 	public static final String DEFAULT_USER = "CXCLIENT_DEFAULT", DEFAULT_PASS = "MINECRAFT_LAUNCHER";
 	public Alt currentAlt = new Alt(DEFAULT_USER, DEFAULT_PASS);
-	YggdrasilUserAuthentication auth = (YggdrasilUserAuthentication)new YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
+	YggdrasilUserAuthentication auth = (YggdrasilUserAuthentication) new
+			YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
 	Minecraft mc = Minecraft.getMinecraft();
 	List<Alt> alts;
 	public static final File ALT_FILE = Paths.get(Consts.configPath, "altmanageralts.crypt").toFile();
 	public static final Path KEY_FILE = Paths.get(Consts.configPath, "altmanagerkey.crypt");
 	SecretKeySpec key;
-	final String keyString = "CXCLIENT___THE CAKE IS A LIE---DO NOT TRY TO CRACK THIS �#+�����+*'.:;_::-.,.-.-,()()81456889147";
-	
+	final String keyString = "CXCLIENT___THE CAKE'S A LIE--DO NOT TRY TO CRACK THIS*�#+���+*'.:;_:-.,.-.-,()()8145689147";
+
 	public AltManager() {
 		if(KEY_FILE.toFile().exists())
 			try {
@@ -48,7 +49,7 @@ public class AltManager {
 					key = AltCryptography.createKey(Util.randomSortString(keyString));
 				} catch (Exception e2) {
 					e2.printStackTrace();
-					key = new SecretKeySpec(new byte[] {120, 20, 51, 9},  "AES");
+					key = new SecretKeySpec(new byte[] {1,0,0,1,0,0,1,1,1,1,0,0,0,0,1,1}, "AES");
 				}
 			}
 		else
@@ -56,7 +57,7 @@ public class AltManager {
 				key = AltCryptography.createKey(Util.randomSortString(keyString));
 			} catch (Exception e) {
 				e.printStackTrace();
-				key = new SecretKeySpec(new byte[] {120, 20, 51, 9},  "AES");
+				key = new SecretKeySpec(new byte[] {1,0,0,1,0,0,1,1,1,1,0,0,0,0,1,1}, "AES");
 			}
 		
 		if(ALT_FILE.exists())
