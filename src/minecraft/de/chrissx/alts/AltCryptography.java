@@ -1,21 +1,14 @@
 package de.chrissx.alts;
 
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.security.AlgorithmParameters;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.security.spec.AlgorithmParameterSpec;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Base64;
 import java.util.List;
 import java.util.Random;
@@ -101,6 +94,22 @@ public class AltCryptography {
 		c = md.digest(doubleSalt(c, s8, b));
 		c = md.digest(doubleSalt(c, s9, b));
 		return c;
+	}
+
+	public static void saveKey(SecretKeySpec key, Path f) throws NoSuchAlgorithmException, IOException
+	{
+		f.toFile().createNewFile();
+		Files.write(f, makeSaveHash(key.getEncoded()));
+	}
+
+	public static boolean checkKey(SecretKeySpec key, Path f) throws IOException, NoSuchAlgorithmException
+	{
+		byte[] h1 = Files.readAllBytes(f);
+		byte[] h2 = makeSaveHash(key.getEncoded());
+		for(int i = 0; i < 64; i++)
+			if(h1[i] != h2[i])
+				return false;
+		return true;
 	}
 
 	/**

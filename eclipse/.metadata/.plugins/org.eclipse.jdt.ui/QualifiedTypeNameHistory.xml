@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="net.minecraft.util.BlockPos"/>
-<fullyQualifiedTypeName name="net.minecraft.client.multiplayer.WorldClient"/>
 <fullyQualifiedTypeName name="net.minecraft.block.BlockLiquid"/>
 <fullyQualifiedTypeName name="de.chrissx.mods.building.ScaffoldWalk"/>
 <fullyQualifiedTypeName name="net.minecraft.item.ItemBlock"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="java.security.MessageDigest"/>
 <fullyQualifiedTypeName name="java.nio.charset.StandardCharsets"/>
 <fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="javax.crypto.spec.SecretKeySpec"/>
+<fullyQualifiedTypeName name="java.nio.file.Files"/>
 </qualifiedTypeNameHistroy>
