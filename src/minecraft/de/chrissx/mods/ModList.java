@@ -24,7 +24,9 @@ import de.chrissx.mods.combat.Aimbot;
 import de.chrissx.mods.combat.AntiFire;
 import de.chrissx.mods.combat.AntiPotion;
 import de.chrissx.mods.combat.AutoArmor;
+import de.chrissx.mods.combat.AutoLeave;
 import de.chrissx.mods.combat.AutoRespawn;
+import de.chrissx.mods.combat.AutoSoup;
 import de.chrissx.mods.combat.Autoclicker;
 import de.chrissx.mods.combat.FastBow;
 import de.chrissx.mods.combat.Fasthit;
@@ -33,6 +35,7 @@ import de.chrissx.mods.combat.Noswing;
 import de.chrissx.mods.combat.Reach;
 import de.chrissx.mods.fun.AutoSwitch;
 import de.chrissx.mods.fun.Derp;
+import de.chrissx.mods.fun.DropInventory;
 import de.chrissx.mods.fun.JailsmcBot;
 import de.chrissx.mods.fun.KillPotion;
 import de.chrissx.mods.fun.MultiText;
@@ -136,6 +139,8 @@ public class ModList implements Iterable<Mod> {
 	public final Glide glide = new Glide();
 	public final RollHead rollHead = new RollHead();
 	public final AutoMine autoMine = new AutoMine();
+	public final AutoSoup autoSoup = new AutoSoup();
+	public final AutoLeave autoLeave = new AutoLeave();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -144,11 +149,12 @@ public class ModList implements Iterable<Mod> {
 	public final KillPotion killPotion = new KillPotion();
 	public final TrollPotion trollPotion = new TrollPotion();
 	public final Flip flip = new Flip();
-	
+	public final DropInventory dropInventory = new DropInventory();
+
 	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
-	
+
 	public final int length;
-	
+
 	final Mod[] mods = new Mod[] {
 			skinBlinker,
 			fastBreak,
@@ -210,7 +216,9 @@ public class ModList implements Iterable<Mod> {
 			kaboom,
 			glide,
 			rollHead,
-			autoMine
+			autoMine,
+			autoSoup,
+			autoLeave
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
@@ -228,6 +236,7 @@ public class ModList implements Iterable<Mod> {
 		addBindable(text);
 		addBindable(multiText);
 		addBindable(flip);
+		addBindable(dropInventory);
 		
 		for(Mod m : mods) {
 			renderedObjects.add(m);

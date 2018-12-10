@@ -124,6 +124,8 @@ public class AddonManager {
 		commands.add(new Command("#glide", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.glide.processCommand(t);}}));
 		commands.add(new Command("#rollhead", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.rollHead.processCommand(t);}}));
 		commands.add(new Command("#automine", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoMine.processCommand(t);}}));
+		commands.add(new Command("#autosoup", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoSoup.processCommand(t);}}));
+		commands.add(new Command("#autoleave", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoLeave.processCommand(t);}}));
 	}
 
 	/**
@@ -240,7 +242,7 @@ public class AddonManager {
 	{
 		String cmd = args[0];
 		for(Command c : commands)
-			if(c.arg0.equalsIgnoreCase(args[0]))
+			if(c.cmd.equalsIgnoreCase(args[0]))
 			{
 				c.handler.accept(args);
 				return;

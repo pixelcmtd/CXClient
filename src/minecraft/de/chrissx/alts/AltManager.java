@@ -124,10 +124,10 @@ public class AltManager {
 			alts.add(new Alt(email, new String(rs, StandardCharsets.UTF_8)));
 		}
 	}
-	
+
 	/**
 	 * Loads the alts from the given CXColonSeparatedValues-file.
-	 * @param cxcsv The path of the file the CXCSV is located in.
+	 * @param file The path of the file the CXCSV is located in.
 	 * @return The loaded Alts.
 	 */
 	public void loadCxcsv(Path file) throws IOException

@@ -52,7 +52,6 @@ public class GuiIngameMenu extends GuiScreen
                 break;
 
             case 1:
-            	HackedClient.getClient().onDisable();
             	HackedClient.getClient().onDisconnectedOrLeft();
                 button.enabled = false;
                 mc.theWorld.sendQuittingDisconnectingPacket();

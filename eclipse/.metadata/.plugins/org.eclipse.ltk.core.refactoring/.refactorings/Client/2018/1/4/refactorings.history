@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Rename field &apos;renameButton&apos; in &apos;net.minecraft.client.gui.GuiSelectWorld&apos; to &apos;altManagerButton&apos;&#x0D;&#x0A;- Original project: &apos;Client&apos;&#x0D;&#x0A;- Original element: &apos;net.minecraft.client.gui.GuiSelectWorld.renameButton&apos;&#x0D;&#x0A;- Renamed element: &apos;net.minecraft.client.gui.GuiSelectWorld.altManagerButton&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;renameButton&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;net.minecraft.client.gui{GuiSelectWorld.java[GuiSelectWorld^renameButton" name="altManagerButton" references="true" setter="false" stamp="1517071252877" textual="false" version="1.0"/>
-</session>

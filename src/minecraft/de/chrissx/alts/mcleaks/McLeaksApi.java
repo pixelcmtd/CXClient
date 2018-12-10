@@ -21,7 +21,7 @@ public class McLeaksApi {
 	static Gson gson = new Gson();
 	
 	/**
-	 * 
+	 * Redeems an MCLeaks token.
 	 * @param token The McLeaks-Token
 	 * @return The current McLeaks-Session
 	 * @throws ConnectionNullException

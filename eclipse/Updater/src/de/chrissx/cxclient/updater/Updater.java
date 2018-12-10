@@ -3,6 +3,7 @@ package de.chrissx.cxclient.updater;
 import java.io.File;
 import java.io.FileInputStream;
 import java.net.URL;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
@@ -12,8 +13,8 @@ import java.util.zip.ZipInputStream;
 import javax.swing.JOptionPane;
 
 public class Updater {
-	public static final String VERSION_URL = "version url";
-	public static final String CLIENT_URL = "client url";
+	public static final String VERSION_URL = "https://chrissx.ga/cdn/cxc/ver";
+	public static final String CLIENT_URL_URL = "https://chrissx.ga/cdn/cxc/url";
 	public static final String versionPath = Util.generateTempFile("cxclient_version", ".txt");
 	
 	//updater.jar [running_file] [jar]
@@ -23,8 +24,8 @@ public class Updater {
 			if(args.length == 0) {
 				window = new UpdaterWindow("Debug-Window", 500, 75, true);
 				window.setVisible(true);
-				for(int n = 5; n <= 100; n += 5) {
-					Thread.sleep(200);
+				for(int n = 1; n <= 100; n++) {
+					Thread.sleep(40);
 					window.setProgress(n);
 				}
 			}else {
@@ -57,12 +58,13 @@ public class Updater {
 				window.setProgress(0);
 				int svrbld = Integer.parseInt(new String(Util.downloadBytes(VERSION_URL)));
 				window.setProgress(100);
-				if(bldnum > 0)
+				if(svrbld > bldnum)
 				{
+					String url = new String(Util.downloadBytes(CLIENT_URL_URL), StandardCharsets.US_ASCII);
 					jar.delete();
-					Util.downloadFile(CLIENT_URL, jar, window);
+					Util.downloadFile(url, jar, window);
 				}
-				else if(bldnum < 0)
+				else if(svrbld < bldnum)
 					JOptionPane.showMessageDialog(null, "Your build number is " + bldnum + ", but the server's build number is " + svrbld + ", this should not happen usually.");
 			}
 			window.setVisible(false);

@@ -18,8 +18,11 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.ItemFood;
+import net.minecraft.item.ItemSoup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagDouble;
@@ -355,5 +358,21 @@ public class Util {
 			used.add(j);
 		}
 		return s.toString();
+	}
+	
+	public static int firstFoodIndex(ItemStack[] inv)
+	{
+		for(int i = 27; i < 36; i++)
+			if(inv[i].getItem() instanceof ItemFood)
+				return i - 27;
+		return -1;
+	}
+	
+	public static int firstSoupIndex(ItemStack[] inv)
+	{
+		for(int i = 27; i < 36; i++)
+			if(inv[i].getItem() instanceof ItemSoup)
+				return i - 27;
+		return -1;
 	}
 }
