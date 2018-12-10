@@ -91,12 +91,6 @@ public class HackedClient {
 		onDisable();
 		
 		try {
-			altManager.onShutdown();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		
-		try {
 			HotkeySaving.saveHotkeys(new File(Consts.hotkeyFile), hotkeys);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -234,7 +228,7 @@ public class HackedClient {
 				String s = args[1];
 				for(int i = 2; i < args.length; i++)
 					s += " " + args[i];
-				altManager.getAlts().addAll(CxcsvParser.loadAlts(Paths.get(s)));
+				altManager.loadCxcsv(Paths.get(s));
 			}else
 				guiRenameWorld("#help", gui);
 		} catch (Exception e) {

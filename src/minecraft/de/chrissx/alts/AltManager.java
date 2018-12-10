@@ -1,9 +1,11 @@
 package de.chrissx.alts;
 
-import java.io.File;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.net.Proxy;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.security.InvalidKeyException;
@@ -14,66 +16,25 @@ import java.util.List;
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
-import javax.crypto.spec.SecretKeySpec;
 
 import com.mojang.authlib.Agent;
 import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService;
 import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
 
-import de.chrissx.util.Consts;
-import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 
 public class AltManager {
 
-	public static final String DEFAULT_USER = "CXCLIENT_DEFAULT", DEFAULT_PASS = "MINECRAFT_LAUNCHER";
-	public Alt currentAlt = new Alt(DEFAULT_USER, DEFAULT_PASS);
+	public Alt currentAlt = new Alt("LOGGED IN WITH", "THE MINECRAFT LAUNCHER");
 	YggdrasilUserAuthentication auth = (YggdrasilUserAuthentication) new
 			YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
 	Minecraft mc = Minecraft.getMinecraft();
 	List<Alt> alts;
-	public static final File ALT_FILE = Paths.get(Consts.configPath, "altmanageralts.crypt").toFile();
-	public static final Path KEY_FILE = Paths.get(Consts.configPath, "altmanagerkey.crypt");
-	SecretKeySpec key;
-	final String keyString = "CXCLIENT___THE CAKE'S A LIE--DO NOT TRY TO CRACK THIS*�#+���+*'.:;_:-.,.-.-,()()8145689147";
 
 	public AltManager() {
-		if(KEY_FILE.toFile().exists())
-			try {
-				key = AltCryptography.aesLoadKey(KEY_FILE);
-			} catch (IOException e) {
-				e.printStackTrace();
-				try {
-					key = AltCryptography.createKey(Util.randomSortString(keyString));
-				} catch (Exception e2) {
-					e2.printStackTrace();
-					key = new SecretKeySpec(new byte[] {1,0,0,1,0,0,1,1,1,1,0,0,0,0,1,1}, "AES");
-				}
-			}
-		else
-			try {
-				key = AltCryptography.createKey(Util.randomSortString(keyString));
-			} catch (Exception e) {
-				e.printStackTrace();
-				key = new SecretKeySpec(new byte[] {1,0,0,1,0,0,1,1,1,1,0,0,0,0,1,1}, "AES");
-			}
-		
-		if(ALT_FILE.exists())
-			try {
-				alts = AltCryptography.aesDecrypt(key, ALT_FILE.toPath());
-			} catch (Exception e) {
-				e.printStackTrace();
-				alts = new ArrayList<Alt>();
-			}
-		else
-			alts = new ArrayList<Alt>();
-	}
-	
-	public void onShutdown() throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
-		AltCryptography.aesSaveKey(key, KEY_FILE);
-		AltCryptography.aesEncrypt(key, alts, ALT_FILE.toPath());
+		alts = new ArrayList<Alt>();
 	}
 	
 	public List<Alt> getAlts() {
@@ -121,5 +82,60 @@ public class AltManager {
 	
 	public void loadAlt(String name) throws AuthenticationException, AltNotFoundException {
 		patchAlt(getAlt(name));
+	}
+	
+	public void storeVault(String file, String password) throws IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException
+	{
+		ByteArrayOutputStream raw = new ByteArrayOutputStream();
+		for(Alt a : alts)
+		{
+			raw.write(a.getEmail().getBytes(StandardCharsets.UTF_8));
+			raw.write(10);
+			raw.write(a.getPassword().getBytes(StandardCharsets.UTF_8));
+			raw.write(10);
+		}
+		AltCryptography.encrypt(Paths.get(file), password, raw.toByteArray());
+	}
+	
+	public void loadVault(String file, String password) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException
+	{
+		ByteArrayInputStream raw = new ByteArrayInputStream(
+				AltCryptography.decrypt(Paths.get(file), password));
+		alts = new ArrayList<Alt>();
+		int i;
+		while((i = raw.read()) != -1)
+		{
+			List<Byte> bfr = new ArrayList<Byte>();
+			while(i != 10)
+			{
+				bfr.add((byte)i);
+				i = raw.read();
+			}
+			byte[] rs = new byte[bfr.size()];
+			for(i = 0; i < bfr.size(); i++)
+				rs[i] = bfr.get(i);
+			String email = new String(rs, StandardCharsets.UTF_8);
+			bfr.clear();
+			while((i = raw.read()) != 10)
+				bfr.add((byte)i);
+			rs = new byte[bfr.size()];
+			for(i = 0; i < bfr.size(); i++)
+				rs[i] = bfr.get(i);
+			alts.add(new Alt(email, new String(rs, StandardCharsets.UTF_8)));
+		}
+	}
+	
+	/**
+	 * Loads the alts from the given CXColonSeparatedValues-file.
+	 * @param cxcsv The path of the file the CXCSV is located in.
+	 * @return The loaded Alts.
+	 */
+	public void loadCxcsv(Path file) throws IOException
+	{
+		for(String s : Files.readAllLines(file))
+		{
+			String[] t = s.split(":");
+			alts.add(new Alt(t[0], t[1]));
+		}
 	}
 }
