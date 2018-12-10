@@ -20,12 +20,12 @@ public class Util {
 	static volatile UpdaterWindow window = null;
 	static volatile int count = 0;
 	
-	public static void downloadFile(String url, File file, UpdaterWindow window) {
+	public static void downloadFile(String url, File file, final UpdaterWindow window) {
 		try {
 			URL u = new URL(url);
 			URLConnection c = u.openConnection();
 			c.connect();
-			long len = c.getContentLength();
+			final long len = c.getContentLength();
 			BufferedInputStream bis = new BufferedInputStream(u.openStream());
 			FileOutputStream fos = new FileOutputStream(file);
 			byte data[] = new byte[512];

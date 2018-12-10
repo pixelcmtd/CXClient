@@ -66,9 +66,9 @@ public class Killaura extends Mod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length == 1) {
+		if(args.length == 1)
 			toggle();
-		}else {
+		else {
 			if(args[1].equalsIgnoreCase("range"))
 				try {
 					max_range = Double.parseDouble(args[2]);
