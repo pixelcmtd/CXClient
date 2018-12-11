@@ -17,9 +17,6 @@ public class Consts {
 	public static final String modsPath = Paths.get(eapiPath, "mods").toString();
 	public static final String enabledPath = Paths.get(modsPath, "enabled").toString();
 	public static final String togglePath = Paths.get(modsPath, "toggle").toString();
-	public static final String tempPath = System.getProperty("java.io.tmpdir");
-	//public static final String updaterUrl = "https://chrissxyt.github.io/CXClient/updater/ud.dl";
-	//public static final String updaterFile = Util.generateTempFile(tempPath, "cxclient_updater", ".jar");
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
@@ -62,5 +59,5 @@ public class Consts {
 			+ "#fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
 			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, "
 			+ "#sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, "
-			+ "#norender, #rollhead, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
+			+ "#norender, #rollhead, #autosoup, #autoleave, #dropinventory, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
 }
