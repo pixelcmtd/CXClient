@@ -126,6 +126,7 @@ public class AddonManager {
 		commands.add(new Command("#automine", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoMine.processCommand(t);}}));
 		commands.add(new Command("#autosoup", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoSoup.processCommand(t);}}));
 		commands.add(new Command("#autoleave", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoLeave.processCommand(t);}}));
+		commands.add(new Command("#dropinventory", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.dropInventory.processCommand(t);}}));
 	}
 
 	/**

@@ -335,7 +335,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     private final MinecraftSessionService sessionService;
     private SkinManager skinManager;
     private final Queue < FutureTask<? >> scheduledTasks = Queues. < FutureTask<? >> newArrayDeque();
-    private long field_175615_aJ = 0L;
+    //private long field_175615_aJ = 0L;
     private final Thread mcThread = Thread.currentThread();
     private ModelManager modelManager;
 
@@ -839,7 +839,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
 
                 if (!flag)
                 {
-                    Iterator i = set.iterator();
+                    Iterator<DisplayMode> i = set.iterator();
                     DisplayMode dm3;
 
                     while (true)
@@ -847,7 +847,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
                         if (!i.hasNext())
                             continue label53;
 
-                        dm3 = (DisplayMode)i.next();
+                        dm3 = i.next();
 
                         if (dm3.getBitsPerPixel() == 32 && dm3.getWidth() == dm1.getWidth() / 2 && dm3.getHeight() == dm1.getHeight() / 2)
                             break;
@@ -1026,7 +1026,8 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     /**
      * Called repeatedly from run()
      */
-    void runGameLoop() throws IOException
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+	void runGameLoop() throws IOException
     {
         long i = System.nanoTime();
         mcProfiler.startSection("root");
