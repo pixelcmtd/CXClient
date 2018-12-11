@@ -13,7 +13,7 @@ public class AutoSoup extends Mod {
 	public void onTick()
 	{
 		int i;
-		if(mc.thePlayer.getHealth() < mc.thePlayer.getMaxHealth() &&
+		if(enabled && mc.thePlayer.getHealth() < mc.thePlayer.getMaxHealth() &&
 				(i = Util.firstSoupIndex(
 						mc.thePlayer.inventory.mainInventory)) != -1)
 		{

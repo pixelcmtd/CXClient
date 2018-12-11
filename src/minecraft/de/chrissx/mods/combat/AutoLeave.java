@@ -23,17 +23,17 @@ public class AutoLeave extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(mc.thePlayer.getHealth() < min)
+		if(enabled && mc.thePlayer.getHealth() < min)
 		{
         	HackedClient.getClient().onDisconnectedOrLeft();
             mc.theWorld.sendQuittingDisconnectingPacket();
             mc.loadWorld((WorldClient)null);
             if (mc.isIntegratedServerRunning())
-                this.mc.displayGuiScreen(new GuiMainMenu());
+                mc.displayGuiScreen(new GuiMainMenu());
             else if (mc.func_181540_al())
                 new RealmsBridge().switchToRealms(new GuiMainMenu());
             else
-                this.mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
+                mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
 		}
 	}
 

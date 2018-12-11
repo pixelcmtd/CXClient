@@ -13,7 +13,7 @@ public class AutoEat extends Mod {
 	public void onTick()
 	{
 		int i;
-		if(mc.thePlayer.canEat(false) &&
+		if(enabled && mc.thePlayer.canEat(false) &&
 				(i = Util.firstFoodIndex(
 						mc.thePlayer.inventory.mainInventory))
 				!= -1)

@@ -9,7 +9,6 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Map.Entry;
 
 import org.lwjgl.input.Keyboard;
@@ -18,7 +17,6 @@ import com.google.common.io.Files;
 
 import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
-import de.chrissx.alts.CxcsvParser;
 import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
 import de.chrissx.hotkeys.Hotkey;
@@ -56,7 +54,7 @@ public class HackedClient {
 	boolean disableHotkeys = true;
 	final AddonManager addonManager;
 	final Thread updateThread;
-	
+
 	public void onDraw(FontRenderer r)
 	{
 		if(!invis)
@@ -69,7 +67,7 @@ public class HackedClient {
 					i++;
 		}
 	}
-	
+
 	public void onDisable() {
 		for(StopListener l : mods.stopListeners)
 			l.onStop();
@@ -77,16 +75,17 @@ public class HackedClient {
 			if(m.isEnabled())
 				m.toggle();
 	}
-	
+
 	public void onDisconnectedOrLeft() {
 		disableHotkeys = true;
 		onDisable();
 	}
-	
+
 	public void onJoined() {
 		disableHotkeys = false;
 	}
-	
+
+	@SuppressWarnings("deprecation")
 	public void onShutdown() {
 		onDisable();
 
@@ -104,7 +103,7 @@ public class HackedClient {
 		
 		updateThread.stop();
 	}
-	
+
 	public HackedClient()
 	{
 		instance = this;
@@ -190,7 +189,7 @@ public class HackedClient {
 		});
 		updateThread.start();
 	}
-	
+
 	public void guiRenameWorld(String input, GuiRenameWorld gui) {
 		try {
 			String[] args = input.split(" ");

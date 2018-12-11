@@ -20,7 +20,7 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 2710";
+	public static final String version = "2.7";
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
@@ -33,7 +33,7 @@ public class Consts {
 		"-Added an AutoSoup that soups automatically in PVP if you have soups in your hotbar",
 		"-Added an AutoLeave that leaves once your health is below a certain value",
 		"-Fixed disconnecting from a server or leaving the world invoking onDisable twice",
-		"-Added a DropInventory that drops your whole inventory - like the name implies"
+		"-Added a DropInventory that drops your whole inventory - like the name implies (it doesnt work 100% yet)"
 	};
 
 	public static final String[] credits = new String[] {
