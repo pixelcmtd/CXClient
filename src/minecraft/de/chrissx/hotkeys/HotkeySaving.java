@@ -1,11 +1,8 @@
 package de.chrissx.hotkeys;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,12 +10,10 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.Base64.Decoder;
 import java.util.Base64.Encoder;
-import java.util.HashMap;
 import java.util.List;
 
 import de.chrissx.HackedClient;
 import de.chrissx.mods.Bindable;
-import de.chrissx.util.Util;
 
 public class HotkeySaving {
 
@@ -64,6 +59,10 @@ public class HotkeySaving {
 		byte[] key = keyToBinary(hk.key);
 		byte[] handler = bindableToString(hk.handler).getBytes(StandardCharsets.UTF_8);
 		byte[] b = new byte[4 + handler.length];
+		b[0] = key[0];
+		b[1] = key[1];
+		b[2] = key[2];
+		b[3] = key[3];
 		for(int i = 0; i < handler.length; i++)
 			b[i + 4] = handler[i];
 		return e.encodeToString(b);

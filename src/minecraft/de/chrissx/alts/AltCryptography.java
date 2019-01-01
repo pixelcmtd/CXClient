@@ -1,16 +1,12 @@
 package de.chrissx.alts;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.security.InvalidKeyException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Base64;
-import java.util.List;
 import java.util.Random;
 
 import javax.crypto.BadPaddingException;
@@ -28,7 +24,7 @@ public class AltCryptography {
 			new SecretKeySpec(generateKey(password), "AES"));
 		Files.write(file, ci.doFinal(b));
 	}
-	
+
 	public static byte[] decrypt(Path file, String password) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException
 	{
 		Cipher ci = Cipher.getInstance("AES");
@@ -36,7 +32,7 @@ public class AltCryptography {
 			new SecretKeySpec(generateKey(password), "AES"));
 		return ci.doFinal(Files.readAllBytes(file));
 	}
-	
+
 	static byte[] generateKey(String s) throws NoSuchAlgorithmException
 	{
 		MessageDigest md = MessageDigest.getInstance("SHA-256");
@@ -81,7 +77,8 @@ public class AltCryptography {
 		return c;
 	}
 
-	//old stuff
+	////old stuff,
+	////because why shouldnt we keep it
 	////7/**
 	////7 * 
 	////7 * @param a random string to use for key-creation
