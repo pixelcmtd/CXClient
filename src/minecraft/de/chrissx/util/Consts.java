@@ -20,20 +20,11 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "2.7";
+	public static final String version = "alpha 3001";
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-Added an AutoMine that just makes you mine automatically",
-		"-Fixed HotkeySaving",
-		"-Improved the overall Hotkey system",
-		"-Fixed hotkeys being triggered when typing in an anvil",
-		"-Improved/Fixed the iAPI for it's official release (a few more changes will have to be done)",
-		"-We fixed some fishy coices we made earlier, including reducing the size of hotkey saves",
-		"-Added an AutoSoup that soups automatically in PVP if you have soups in your hotbar",
-		"-Added an AutoLeave that leaves once your health is below a certain value",
-		"-Fixed disconnecting from a server or leaving the world invoking onDisable twice",
-		"-Added a DropInventory that drops your whole inventory - like the name implies (it doesnt work 100% yet)"
+		"-Fixed hotkey saving once more"
 	};
 
 	public static final String[] credits = new String[] {

@@ -94,12 +94,6 @@ public class HackedClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
-		try {
-			//the new updater will come soon
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
 		
 		updateThread.stop();
 	}
@@ -222,11 +216,31 @@ public class HackedClient {
 				for(Alt a : altManager.getAlts())
 					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));
 			else if(cmd.equalsIgnoreCase("#cxcsv")) {
-				String s = args[1];
-				for(int i = 2; i < args.length; i++)
+				String s = args[2];
+				for(int i = 3; i < args.length; i++)
 					s += " " + args[i];
-				altManager.loadCxcsv(Paths.get(s));
-			}else
+				if(args[1].equalsIgnoreCase("load"))
+					altManager.loadCxcsv(Paths.get(s));
+				else if(args[1].equalsIgnoreCase("save"))
+					altManager.saveCxcsv(s);
+				else
+					gui.setText("#cxcsv load/save [file]");
+			}
+			else if(cmd.equalsIgnoreCase("#clear"))
+				altManager.clear();
+			else if(cmd.equalsIgnoreCase("#vault"))
+			{
+				String s = args[3];
+				for(int i = 4; i < args.length; i++)
+					s += " " + args[i];
+				if(args[1].equalsIgnoreCase("load"))
+					altManager.loadVault(s, args[2]);
+				else if(args[1].equalsIgnoreCase("save"))
+					altManager.storeVault(s, args[2]);
+				else
+					gui.setText("#cxcsv load/save [password (no spaces!)] [file]");
+			}
+			else
 				guiRenameWorld("#help", gui);
 		} catch (Exception e) {
 			gui.setText(e.getMessage());

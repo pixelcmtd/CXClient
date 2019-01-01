@@ -2,6 +2,7 @@ package de.chrissx.alts;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.Proxy;
 import java.nio.charset.StandardCharsets;
@@ -39,6 +40,11 @@ public class AltManager {
 	
 	public List<Alt> getAlts() {
 		return alts;
+	}
+	
+	public void clear()
+	{
+		alts.clear();
 	}
 	
 	public void login(String name, String pass) throws AuthenticationException {
@@ -79,11 +85,11 @@ public class AltManager {
 		auth.logIn();
 		return auth.getSelectedProfile().getName();
 	}
-	
+
 	public void loadAlt(String name) throws AuthenticationException, AltNotFoundException {
 		patchAlt(getAlt(name));
 	}
-	
+
 	public void storeVault(String file, String password) throws IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException
 	{
 		ByteArrayOutputStream raw = new ByteArrayOutputStream();
@@ -137,5 +143,19 @@ public class AltManager {
 			String[] t = s.split(":");
 			alts.add(new Alt(t[0], t[1]));
 		}
+	}
+
+	public void saveCxcsv(String file) throws IOException
+	{
+		FileOutputStream fos = new FileOutputStream(file);
+		for(Alt a : alts)
+		{
+			byte[] b = a.getEmail().getBytes();
+			fos.write(b, 0, b.length);
+			fos.write(':');
+			b = a.getPassword().getBytes();
+			fos.write(b, 0, b.length);
+		}
+		fos.close();
 	}
 }
