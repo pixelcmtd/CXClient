@@ -9,5 +9,5 @@ servers go offline, it will annoy you on every shutdown.
 If you *have* to update, you won't be able to use the really old versions in a
 few years, which would be fatal retro-wise.  
 
-The two quotes from Bryan Lunduke, we said that in his talk
+The two quotes from Bryan Lunduke, he said that in his talk
 "programmers_are_evil();".
