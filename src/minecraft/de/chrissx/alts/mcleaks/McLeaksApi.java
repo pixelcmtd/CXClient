@@ -95,8 +95,7 @@ public class McLeaksApi {
             result.append(line);
         }
         reader.close();
-        @SuppressWarnings("unchecked")
-		final JsonElement jsonElement = (JsonElement)gson.fromJson(result.toString(), (Class)JsonElement.class);
+		final JsonElement jsonElement = (JsonElement)gson.fromJson(result.toString(), JsonElement.class);
         System.out.println(result.toString());
         if (!jsonElement.isJsonObject())
             return "The json element isn't a json object.";

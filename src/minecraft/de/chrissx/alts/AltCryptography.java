@@ -20,7 +20,7 @@ public class AltCryptography {
 	public static void encrypt(Path file, String password, byte[] b) throws IllegalBlockSizeException, BadPaddingException, IOException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException
 	{
 		Cipher ci = Cipher.getInstance("AES");
-		ci.init(Cipher.DECRYPT_MODE,
+		ci.init(Cipher.ENCRYPT_MODE,
 			new SecretKeySpec(generateKey(password), "AES"));
 		Files.write(file, ci.doFinal(b));
 	}
@@ -28,7 +28,7 @@ public class AltCryptography {
 	public static byte[] decrypt(Path file, String password) throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, IOException
 	{
 		Cipher ci = Cipher.getInstance("AES");
-		ci.init(Cipher.ENCRYPT_MODE,
+		ci.init(Cipher.DECRYPT_MODE,
 			new SecretKeySpec(generateKey(password), "AES"));
 		return ci.doFinal(Files.readAllBytes(file));
 	}
@@ -59,9 +59,9 @@ public class AltCryptography {
 			return b;
 		byte[] c = new byte[l];
 		for(int i = 0; i < b.length; i++)
-			b[i] = b[i];
+			c[i] = b[i];
 		for(int i = b.length; i < l; i++)
-			b[i] = (byte)(i ^ l);
+			c[i] = (byte)(i ^ l);
 		return c;
 	}
 

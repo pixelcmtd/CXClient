@@ -278,6 +278,7 @@ public class ModList implements Iterable<Mod> {
 		return mods[i];
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Iterator iterator() {
 		return Arrays.asList(mods).iterator();

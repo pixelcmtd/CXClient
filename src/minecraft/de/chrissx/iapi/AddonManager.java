@@ -15,17 +15,18 @@ import java.util.function.Consumer;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
 
+import de.chrissx.ChatGuiRenameWorld;
 import de.chrissx.HackedClient;
+import de.chrissx.IGuiRenameWorld;
 import de.chrissx.mods.ModList;
+import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class AddonManager {
 
 	List<CommandExecutor> cmdExecs = new ArrayList<CommandExecutor>();
-
 	Map<Addon, AddonProperties> addons = new HashMap<Addon, AddonProperties>();
-	
 	List<Command> commands = new ArrayList<Command>();
 
 	/**
@@ -51,7 +52,7 @@ public class AddonManager {
 				AddonProperties p = loadProperties(f);
 				addAddon((Addon) URLClassLoader.newInstance(new URL[] {f.toURI().toURL()}).loadClass(p.mainClass).newInstance(), p);
 			} catch (Exception e) {
-				mc.logger.fatal("Failed to load addon " + f);
+				Minecraft.logger.fatal("Failed to load addon " + f);
 				e.printStackTrace();
 			}
 		
@@ -127,6 +128,7 @@ public class AddonManager {
 		commands.add(new Command("#autosoup", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoSoup.processCommand(t);}}));
 		commands.add(new Command("#autoleave", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoLeave.processCommand(t);}}));
 		commands.add(new Command("#dropinventory", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.dropInventory.processCommand(t);}}));
+		commands.add(new Command("#alt", new Consumer<String[]>() {@Override public void accept(String[] t) {String s = Util.combineParts(t, 1, " "); HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));}}));
 	}
 
 	/**
@@ -203,12 +205,18 @@ public class AddonManager {
 	}
 
 	/**
-	 * tries to execute the command with every registered commandexecutor
-	 * @param args the args of the processCommand
-	 * @return true if any commandexecutor was able to execute the command, false if not
+	 * tries to execute the command
+	 * @param args the args ' '-splitted args
+	 * @return true if we were able to execute the command, false if not
 	 */
 	public boolean execCmd(String[] args)
 	{
+		for(Command c : commands)
+			if(c.cmd.equalsIgnoreCase(args[0]))
+			{
+				c.handler.accept(args);
+				return true;
+			}
 		for(CommandExecutor ce : cmdExecs)
 			if(ce.onCommand(args))
 				return true;
@@ -224,29 +232,9 @@ public class AddonManager {
 	{
 		return addons.get(a).name;
 	}
-
-	/**
-	 * Registers the command.
-	 * @param arg0 The args[0] (for example "#help")
-	 * @param handler The handler that executes the command.
-	 */
-	public void registerCommand(String arg0, Consumer<String[]> handler)
+	
+	public int getBuildNumber()
 	{
-		commands.add(new Command(arg0, handler));
-	}
-
-	/**
-	 * Tries to execute the command at args[0].
-	 * @param args The arguments (for example {"#bind", "F", "velocity"})
-	 */
-	public void executeCommand(String[] args)
-	{
-		String cmd = args[0];
-		for(Command c : commands)
-			if(c.cmd.equalsIgnoreCase(args[0]))
-			{
-				c.handler.accept(args);
-				return;
-			}
+		return Consts.BLDNUM;
 	}
 }

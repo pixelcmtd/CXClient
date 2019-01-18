@@ -1,18 +1,17 @@
 package net.minecraft.client.gui;
 
 import java.io.IOException;
-import net.minecraft.client.resources.I18n;
-import net.minecraft.world.storage.ISaveFormat;
-import net.minecraft.world.storage.WorldInfo;
+
 import org.lwjgl.input.Keyboard;
 
 import de.chrissx.HackedClient;
+import de.chrissx.IGuiRenameWorld;
 
-public class GuiRenameWorld extends GuiScreen
+public class GuiRenameWorld extends GuiScreen implements IGuiRenameWorld
 {
-    private GuiScreen parentScreen;
-    private GuiTextField field_146583_f;
-    private final String saveName;
+    GuiScreen parentScreen;
+    GuiTextField field_146583_f;
+    final String saveName;
 
     public GuiRenameWorld(GuiScreen parentScreenIn, String saveNameIn)
     {
@@ -38,12 +37,12 @@ public class GuiRenameWorld extends GuiScreen
         this.buttonList.clear();
         this.buttonList.add(new GuiButton(0, this.width / 2 - 100, this.height / 4 + 96 + 12, "Process alt-command"));
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, this.height / 4 + 120 + 12, "Close"));
-        ISaveFormat isaveformat = this.mc.getSaveLoader();
+        mc.getSaveLoader();
         this.field_146583_f = new GuiTextField(2, this.fontRendererObj, this.width / 2 - 100, 60, 200, 20);
         this.field_146583_f.setFocused(true);
         this.field_146583_f.setText("");
     }
-    
+
     /**
      * Called when the screen is unloaded. Used to disable keyboard repeat events
      */
@@ -60,13 +59,9 @@ public class GuiRenameWorld extends GuiScreen
         if (button.enabled)
         {
             if (button.id == 1)
-            {
                 this.mc.displayGuiScreen(this.parentScreen);
-            }
             else if (button.id == 0)
-            {
             	HackedClient.getClient().guiRenameWorld(field_146583_f.getText(), this);
-            }
         }
     }
 
@@ -99,10 +94,10 @@ public class GuiRenameWorld extends GuiScreen
      */
     public void drawScreen(int mouseX, int mouseY, float partialTicks)
     {
-        this.drawDefaultBackground();
-        this.drawCenteredString(this.fontRendererObj, "Alt-Manager", this.width / 2, 20, 16777215);
-        this.drawString(this.fontRendererObj, "Enter command", this.width / 2 - 100, 47, 10526880);
-        this.field_146583_f.drawTextBox();
+        drawDefaultBackground();
+        drawCenteredString(this.fontRendererObj, "Alt-Manager", width / 2, 20, 16777215);
+        drawString(this.fontRendererObj, "Enter command", width / 2 - 100, 47, 10526880);
+        field_146583_f.drawTextBox();
         super.drawScreen(mouseX, mouseY, partialTicks);
     }
 
@@ -110,6 +105,7 @@ public class GuiRenameWorld extends GuiScreen
 		field_146583_f.setText(string);
 	}
 	
+    @Override
 	public String getText() {
 		return field_146583_f.getText();
 	}

@@ -8,5 +8,5 @@ public interface CommandExecutor {
 	 * @return true if the command was executed, false if it wasn't executed
 	 */
 	public boolean onCommand(String[] args);
-	
+
 }
