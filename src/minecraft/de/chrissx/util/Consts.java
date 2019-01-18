@@ -1,7 +1,6 @@
 package de.chrissx.util;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Consts {
@@ -20,11 +19,16 @@ public class Consts {
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3001";
+	public static final String version = "alpha 3005";
+	public static final int BLDNUM = -3005;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-Fixed hotkey saving once more"
+		"-Fixed hotkey saving once more",
+		"-Fixed stupid iAPI concepts",
+		"-Added AltVaults",
+		"-Added CXCSV saving",
+		"-Added #alt to run AltManager commands while in game"
 	};
 
 	public static final String[] credits = new String[] {

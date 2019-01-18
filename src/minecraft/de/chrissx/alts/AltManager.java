@@ -74,7 +74,7 @@ public class AltManager {
 	}
 	
 	public String getName(Alt a) throws AuthenticationException {
-		return getName(a.getEmail(), a.getPassword());
+		return a.isCracked() ? a.getEmail() : getName(a.getEmail(), a.getPassword());
 	}
 	
 	public String getName(String email, String pass) throws AuthenticationException {

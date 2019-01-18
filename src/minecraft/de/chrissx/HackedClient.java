@@ -11,6 +11,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
+import org.apache.commons.codec.binary.Base64;
 import org.lwjgl.input.Keyboard;
 
 import com.google.common.io.Files;
@@ -35,7 +36,6 @@ import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
-import net.minecraft.client.gui.GuiRenameWorld;
 import net.minecraft.client.gui.GuiRepair;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -172,19 +172,19 @@ public class HackedClient {
 								m.apiUpdate();
 							invis = disableIAUI.exists();
 						} catch (Exception e) {
-							mc.logger.warn(e);
+							Minecraft.logger.warn(e);
 						}
 						Thread.sleep(1000);
 					}
 				} catch (Exception e) {
-					mc.logger.fatal(e);
+					Minecraft.logger.fatal(e);
 				}
 			}
 		});
 		updateThread.start();
 	}
 
-	public void guiRenameWorld(String input, GuiRenameWorld gui) {
+	public void guiRenameWorld(String input, IGuiRenameWorld gui) {
 		try {
 			String[] args = input.split(" ");
 			String cmd = args[0];
@@ -202,7 +202,7 @@ public class HackedClient {
 					gui.setText("Logged into premium account.");
 				}
 			}else if(cmd.equalsIgnoreCase("#help"))
-				gui.setText("Alt-commands: #login, #help, #load, #mcleaks, #alts, #cxcsv");
+				gui.setText("Alt-commands: #login, #help, #load, #mcleaks, #alts, #cxcsv, #vault");
 			else if(cmd.equalsIgnoreCase("#load")) {
 				altManager.loadAlt(args[1]);
 				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
@@ -230,19 +230,28 @@ public class HackedClient {
 				altManager.clear();
 			else if(cmd.equalsIgnoreCase("#vault"))
 			{
+				if(args.length < 4)
+					throw new Exception("Not enough arguments.");
 				String s = args[3];
 				for(int i = 4; i < args.length; i++)
 					s += " " + args[i];
-				if(args[1].equalsIgnoreCase("load"))
+				if(args[1].charAt(0) == 'l')
+				{
 					altManager.loadVault(s, args[2]);
-				else if(args[1].equalsIgnoreCase("save"))
+					gui.setText("Load successful.");
+				}
+				else if(args[1].charAt(0) == 's')
+				{
 					altManager.storeVault(s, args[2]);
+					gui.setText("Store successful.");
+				}
 				else
-					gui.setText("#cxcsv load/save [password (no spaces!)] [file]");
+					gui.setText("#vault l/s [password (no spaces!)] [file]");
 			}
 			else
 				guiRenameWorld("#help", gui);
 		} catch (Exception e) {
+			e.printStackTrace();
 			gui.setText(e.getMessage());
 		}
 	}
@@ -356,6 +365,7 @@ public class HackedClient {
 				Util.sendMessage(a.getName() + " " + ap.name + " " + ap.author + " " + ap.version + " " + ap.mainClass + " " + ap.desc);
 			}
 			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
+			Util.sendMessage(Consts.dotMinecraftPath);
 		}
 		else if(cmd.equalsIgnoreCase("#credits"))
 			for(String s : Consts.credits)
