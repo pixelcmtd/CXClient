@@ -1,16 +1,14 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.HackedClient;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Commandable;
-import de.chrissx.mods.Mod;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
 public class Text implements Bindable, Commandable {
 
-	private Minecraft mc = Minecraft.getMinecraft();
+	Minecraft mc = Minecraft.getMinecraft();
 
 	@Override
 	public void onHotkey() {

@@ -1,8 +1,6 @@
 package de.chrissx.mods.render;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.settings.GameSettings;
 
 public class Fullbright extends Mod {

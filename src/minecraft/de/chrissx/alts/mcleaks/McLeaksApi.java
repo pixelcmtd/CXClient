@@ -8,26 +8,22 @@ import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLConnection;
+import java.nio.charset.StandardCharsets;
 
 import javax.net.ssl.HttpsURLConnection;
 
 import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 
 public class McLeaksApi {
 
 	static Gson gson = new Gson();
-	
+
 	/**
 	 * Redeems an MCLeaks token.
 	 * @param token The McLeaks-Token
 	 * @return The current McLeaks-Session
-	 * @throws ConnectionNullException
-	 * @throws ResultGettingException
-	 * @throws CorruptedResultException
-	 * @throws IOException 
 	 */
 	public static McLeaksSession redeemMcleaksToken(String token) throws ConnectException, ResultGettingException, CorruptedResultException, IOException {
 		URLConnection con = preparePostRequest("http://auth.mcleaks.net/v1/redeem", "{\"token\":\"" + token + "\"}");
@@ -44,16 +40,13 @@ public class McLeaksApi {
 		return new McLeaksSession(json.get("session").getAsString(), json.get("mcname").getAsString());
 		
 	}
-	
+
 	/**
 	 * 
 	 * @param session The current session
 	 * @param mcName The player-name
 	 * @param serverHash The mc-server-hash
 	 * @param server The server to connect to
-	 * @throws ConnectionNullException
-	 * @throws ResultGettingException
-	 * @throws IOException
 	 */
 	public static void joinServer(McLeaksSession mclssession, String serverHash, String server) throws ConnectException, ResultGettingException, IOException {
 		URLConnection con = preparePostRequest("http://auth.mcleaks.net/v1/joinserver", "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname() + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
@@ -63,7 +56,7 @@ public class McLeaksApi {
 		if(o instanceof String)
 			throw new ResultGettingException((String)o);
 	}
-	
+
 	static URLConnection preparePostRequest(final String url, final String body) {
         try {
             HttpURLConnection con;
@@ -76,7 +69,7 @@ public class McLeaksApi {
             con.setRequestMethod("POST");
             con.setDoOutput(true);
             final DataOutputStream wr = new DataOutputStream(con.getOutputStream());
-            wr.write(body.getBytes("UTF-8"));
+            wr.write(body.getBytes(StandardCharsets.UTF_8));
             wr.flush();
             wr.close();
             return con;

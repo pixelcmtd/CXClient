@@ -2,7 +2,6 @@ package de.chrissx.mods.combat;
 
 import de.chrissx.mods.Mod;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.C03PacketPlayer;

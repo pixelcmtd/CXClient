@@ -17,6 +17,8 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class AltCryptography {
 
+	public static int SHA_ROUNDS = 1 << 20;
+
 	public static void encrypt(Path file, String password, byte[] b) throws IllegalBlockSizeException, BadPaddingException, IOException, InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException
 	{
 		Cipher ci = Cipher.getInstance("AES");
@@ -39,7 +41,7 @@ public class AltCryptography {
 		byte[] b = pad(s.getBytes(StandardCharsets.UTF_8), 6);
 		byte[] o = b;
 		Random r = newRand(b);
-		for(int i = 0; i < 1024; i++)
+		for(int i = 0; i < SHA_ROUNDS; i++)
 		{
 			byte[] salt = new byte[r.nextInt(100)];
 			r.nextBytes(salt);

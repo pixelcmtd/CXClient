@@ -1,18 +1,15 @@
 package de.chrissx.mods.fun;
 
 import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Mod;
+import de.chrissx.mods.Commandable;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 
-public class Throw extends Mod {
-
-	public Throw() {
-		super("Throw");
-	}
+public class Throw implements Bindable, Commandable {
 
 	long throwCount = 500;
 	long delay = 1;
+	Minecraft mc = Minecraft.getMinecraft();
 
 	@Override
 	public void processCommand(String[] args) {
@@ -24,18 +21,17 @@ public class Throw extends Mod {
 				throwCount = Long.parseLong(args[1]);
 				delay = Long.parseLong(args[2]);
 			}catch (Exception e) {
-				Util.sendMessage("�4Error parsing longs.");
+				Util.sendMessage("\u00a74Error parsing longs.");
 			}
 			toggle();
 		}
 	}
 	
-	@Override
-	public void toggle() {
+	void toggle()
+	{
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				enabled = true;
 				for(long i = 0; i < throwCount; i++) {
 					try {
 						Thread.sleep(delay);
@@ -43,9 +39,19 @@ public class Throw extends Mod {
 						e.printStackTrace();
 					}
 					mc.rightClickMouse();
+					Util.sendMessage((i + 1) + "/" + throwCount + " thrown.");
 				}
-				enabled = false;
 			}
 		}).start();
+	}
+
+	@Override
+	public String getName() {
+		return "Throw";
+	}
+
+	@Override
+	public void onHotkey() {
+		toggle();
 	}
 }

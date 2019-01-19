@@ -1,15 +1,12 @@
 package de.chrissx.util;
 
-import com.mojang.authlib.GameProfile;
-
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityOtherPlayerMP;
-import net.minecraft.world.World;
 
 public class EntityFakePlayer extends EntityOtherPlayerMP {
 
-	private Minecraft mc = Minecraft.getMinecraft();
-	
+	Minecraft mc = Minecraft.getMinecraft();
+
 	public EntityFakePlayer() {
 		super(Minecraft.getMinecraft().theWorld, Minecraft.getMinecraft().thePlayer.getGameProfile());
 		copyLocationAndAnglesFrom(mc.thePlayer);
@@ -26,17 +23,9 @@ public class EntityFakePlayer extends EntityOtherPlayerMP {
 		
 		mc.theWorld.addEntityToWorld(getEntityId(), this);
 	}
-	
+
 	public void destruct() {
-		setBackPlayer();
-		despawn();
-	}
-	
-	public void setBackPlayer() {
 		mc.thePlayer.setPositionAndRotation(posX, posY, posZ, rotationYaw, rotationPitch);
-	}
-	
-	public void despawn() {
 		mc.theWorld.removeEntityFromWorld(getEntityId());
 	}
 }

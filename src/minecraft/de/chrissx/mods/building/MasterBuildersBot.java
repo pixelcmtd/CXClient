@@ -4,8 +4,6 @@ package de.chrissx.mods.building;
 
 import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.net.MalformedURLException;
 
 import de.chrissx.mods.Commandable;
 import de.chrissx.mods.RenderedObject;
@@ -18,14 +16,14 @@ public class MasterBuildersBot implements Commandable, TickListener, StopListene
 
 	boolean enabled = false;
 	BufferedImage drawAfter;
-	
+
 	@Override
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(enabled)
 			r.drawString("MasterBuildersBot", x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
-	
+
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length == 1)

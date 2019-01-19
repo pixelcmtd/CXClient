@@ -66,10 +66,9 @@ public class AltManager {
 	}
 	
 	Alt getAlt(String name) throws AuthenticationException, AltNotFoundException {
-		for(Alt a : alts) {
+		for(Alt a : alts)
 			if(getName(a).equalsIgnoreCase(name))
 				return a;
-		}
 		throw new AltNotFoundException("Can't get alt from name.");
 	}
 	
@@ -136,12 +135,16 @@ public class AltManager {
 	 * @param file The path of the file the CXCSV is located in.
 	 * @return The loaded Alts.
 	 */
-	public void loadCxcsv(Path file) throws IOException
+	public void loadCxcsv(Path file) throws Exception
 	{
 		for(String s : Files.readAllLines(file))
 		{
-			String[] t = s.split(":");
-			alts.add(new Alt(t[0], t[1]));
+			try {
+				String[] t = s.split(":");
+				alts.add(new Alt(t[0], t[1]));
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}
 	}
 

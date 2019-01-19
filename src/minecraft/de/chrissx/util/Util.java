@@ -10,6 +10,7 @@ import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
+import de.chrissx.HackedClient;
 import de.chrissx.locations.LocFloat64;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -36,7 +37,14 @@ import net.minecraft.world.World;
 
 public class Util {
 	
-	static final Minecraft mc = Minecraft.getMinecraft();
+	static Minecraft mc;
+	static HackedClient hc;
+
+	public static void init()
+	{
+		mc = Minecraft.getMinecraft();
+		hc = HackedClient.getClient();
+	}
 
 	public static void checkIfExistsAndMake(String dir, String name)
 	{
@@ -44,7 +52,7 @@ public class Util {
 		if(!f.exists())
 		{
 			f.mkdirs();
-			mc.logger.info("Made " + name + ".");
+			Minecraft.logger.info("Made " + name + ".");
 		}
 	}
 	
@@ -58,6 +66,11 @@ public class Util {
 			sb.append(strings[i]);
 		}
 		return sb.toString();
+	}
+	
+	public static void googleImageSearch(String query)
+	{
+		String s = "https://www.google.com/search?q=" + query + "&tbm=isch";
 	}
 	
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
