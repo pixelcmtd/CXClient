@@ -3,7 +3,6 @@ package de.chrissx.mods.combat;
 import de.chrissx.mods.Mod;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import net.minecraft.potion.Potion;
-import net.minecraft.potion.PotionEffect;
 
 public class AntiPotion extends Mod {
 

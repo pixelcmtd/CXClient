@@ -1,8 +1,6 @@
 package de.chrissx.mods.movement;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
-import net.minecraft.client.Minecraft;
 import net.minecraft.network.play.client.C03PacketPlayer;
 
 public class Nofall extends Mod {

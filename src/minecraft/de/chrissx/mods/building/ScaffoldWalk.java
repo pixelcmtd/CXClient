@@ -5,8 +5,6 @@ import net.minecraft.block.Block;
 import net.minecraft.block.BlockLiquid;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.client.renderer.EnumFaceDirection;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.network.play.client.C03PacketPlayer;
 import net.minecraft.util.BlockPos;
@@ -26,7 +24,6 @@ public class ScaffoldWalk extends Mod {
 		if(enabled)
 		{
 			EntityPlayerSP p = mc.thePlayer;
-			WorldClient w = mc.theWorld;
 			BlockPos pb = new BlockPos(p.posX, p.getEntityBoundingBox().minY, mc.thePlayer.posZ);
 			if(valid(pb.add(0, -2, 0)))
 				place(pb.add(0, -1, 0), EnumFacing.UP);
@@ -57,7 +54,7 @@ public class ScaffoldWalk extends Mod {
 			}
 		}
 	}
-	
+
 	void place(BlockPos p, EnumFacing f)
 	{
 		if(f == EnumFacing.UP)
@@ -70,9 +67,9 @@ public class ScaffoldWalk extends Mod {
 			p = p.add(0, 0, -1);
 		else if(f == EnumFacing.WEST)
 			p = p.add(1, 0, 0);
-		
+
 		EntityPlayerSP _p = mc.thePlayer;
-		
+
 		if(_p.getHeldItem() != null && _p.getHeldItem().getItem() instanceof ItemBlock)
 		{
 			if(!hc.getMods().noswing.isEnabled())
@@ -87,7 +84,7 @@ public class ScaffoldWalk extends Mod {
 			mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C06PacketPlayerPosLook(_p.posX, _p.posY, _p.posZ, yaw, pitch, _p.onGround));
 		}
 	}
-	
+
 	boolean valid(BlockPos p)
 	{
 		Block b = mc.theWorld.getBlock(p);

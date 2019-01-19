@@ -12,7 +12,6 @@ import com.google.common.io.Files;
 import de.chrissx.HackedClient;
 import de.chrissx.util.Consts;
 import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 
 public abstract class Mod implements Commandable, Bindable, TickListener, StopListener, RenderedObject {

@@ -13,7 +13,7 @@ public class Autosteal extends Mod {
 	boolean bypass = false;
 	byte timer = 0;
 	File bpf, tf;
-	
+
 	public Autosteal() {
 		super("AutoSteal");
 		bpf = getApiFile("bypass");
@@ -47,16 +47,13 @@ public class Autosteal extends Mod {
 			}
 		}
 	}
-	
+
 	@Override
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(isEnabled())
 			r.drawString(getName() + (bypass ? "(BYPASS)" : ""), x, y, Color.WHITE.getRGB());
 		return isEnabled();
 	}
-
-	@Override
-	public void onStop() {}
 
 	@Override
 	public void processCommand(String[] args) {
@@ -66,11 +63,6 @@ public class Autosteal extends Mod {
 			bypass = !bypass;
 		else
 			Util.sendMessage("#autosteal to toggle, #autosteal bypass to toggle the bypass.");
-	}
-
-	@Override
-	public void onHotkey() {
-		toggle();
 	}
 
 	@Override

@@ -1,9 +1,7 @@
 package de.chrissx.mods.building;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 
 public class FastBreak extends Mod {
 	

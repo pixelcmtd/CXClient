@@ -97,7 +97,6 @@ public class ModList implements Iterable<Mod> {
 	public final Tracer tracer = new Tracer();
 	public final MassTpa massTpa = new MassTpa();
 	public final VanillaFly vanillaFly = new VanillaFly();
-	public final Throw thrower = new Throw();
 	public final AutoArmor autoArmor = new AutoArmor();
 	public final Twerk twerk = new Twerk();
 	public final FastLadder fastLadder = new FastLadder();
@@ -150,6 +149,7 @@ public class ModList implements Iterable<Mod> {
 	public final TrollPotion trollPotion = new TrollPotion();
 	public final Flip flip = new Flip();
 	public final DropInventory dropInventory = new DropInventory();
+	public final Throw thrower = new Throw();
 
 	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 
@@ -175,7 +175,6 @@ public class ModList implements Iterable<Mod> {
 			tracer,
 			massTpa,
 			vanillaFly,
-			thrower,
 			autoArmor,
 			twerk,
 			fastLadder,
@@ -237,6 +236,7 @@ public class ModList implements Iterable<Mod> {
 		addBindable(multiText);
 		addBindable(flip);
 		addBindable(dropInventory);
+		addBindable(thrower);
 		
 		for(Mod m : mods) {
 			renderedObjects.add(m);
@@ -278,7 +278,7 @@ public class ModList implements Iterable<Mod> {
 		return mods[i];
 	}
 
-	@SuppressWarnings("unchecked")
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
 	public Iterator iterator() {
 		return Arrays.asList(mods).iterator();

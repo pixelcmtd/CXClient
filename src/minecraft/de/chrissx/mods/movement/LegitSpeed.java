@@ -1,6 +1,5 @@
 package de.chrissx.mods.movement;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 
 public class LegitSpeed extends Mod {

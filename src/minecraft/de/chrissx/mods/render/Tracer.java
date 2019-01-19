@@ -5,15 +5,10 @@ import java.awt.Color;
 import org.lwjgl.opengl.GL11;
 
 import de.chrissx.locations.LocFloat64;
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.Vec3;
-import net.minecraft.util.Vector3d;
 
 public class Tracer extends Mod {
 

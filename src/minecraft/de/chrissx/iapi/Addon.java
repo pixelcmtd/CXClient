@@ -1,7 +1,6 @@
 package de.chrissx.iapi;
 
 import de.chrissx.HackedClient;
-import de.chrissx.mods.StopListener;
 import net.minecraft.client.Minecraft;
 
 public abstract class Addon {
@@ -11,7 +10,7 @@ public abstract class Addon {
 	 * @return The AddonManager
 	 */
 	public AddonManager getManager() {
-		return HackedClient.getClient().getAddonManager();
+		return getClient().getAddonManager();
 	}
 
 	/**
@@ -35,6 +34,6 @@ public abstract class Addon {
 	 * @return The Addon's name
 	 */
 	public String getName() {
-		return HackedClient.getClient().getAddonManager().getName(this);
+		return getManager().getName(this);
 	}
 }

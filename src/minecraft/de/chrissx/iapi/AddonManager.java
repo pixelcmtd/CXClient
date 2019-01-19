@@ -17,7 +17,6 @@ import java.util.zip.ZipFile;
 
 import de.chrissx.ChatGuiRenameWorld;
 import de.chrissx.HackedClient;
-import de.chrissx.IGuiRenameWorld;
 import de.chrissx.mods.ModList;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;

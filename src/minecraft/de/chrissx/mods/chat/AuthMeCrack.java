@@ -3,16 +3,13 @@ package de.chrissx.mods.chat;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
@@ -25,7 +22,7 @@ public class AuthMeCrack extends Mod {
 			"sicher\r\n" + "safe\r\n" + "me\r\n" + "ich\r\n" + "penis\r\n" + "penis1\r\n" + "penis12\r\n" + "penis123\r\n" + "minecraft\r\n" + "minecraft1\r\n" + "minecraft12\r\n" + 
 			"minecraft123\r\n" + "mc\r\n" + "admin\r\n" + "server\r\n" + "yourmom\r\n" + "tester\r\n" + "account\r\n" + "creeper\r\n" + "gronkh\r\n" + "lol\r\n" + "lel\r\n" + 
 			"kek\r\n" + "auth\r\n" + "authme\r\n" + "qwerty\r\n" + "qwertz\r\n" + "ficken\r\n" + "ficken1\r\n" + "ficken12\r\n" + "ficken123\r\n" + "fuck\r\n" + "fuckme\r\n" + "fuckyou";
-	
+
 	List<String> pws;
 	
 	File pwFile = Paths.get(Consts.configPath, "authmecracker.cfg").toFile();
@@ -52,15 +49,11 @@ public class AuthMeCrack extends Mod {
 			pws = Arrays.asList(DEFAULT_AUTHME.split("\r\n"));
 		}
 	}
-
-	void tryCrack() {
-		Util.sendChat("/login "+pws.get(times-1));
-	}
 	
 	@Override
 	public void onTick() {
 		if(enabled && times != 0) {
-			tryCrack();
+			Util.sendChat("/login " + pws.get(times - 1));
 			times--;
 		}else {
 			enabled = false;

@@ -11,7 +11,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map.Entry;
 
-import org.apache.commons.codec.binary.Base64;
 import org.lwjgl.input.Keyboard;
 
 import com.google.common.io.Files;
@@ -102,6 +101,8 @@ public class HackedClient {
 	{
 		instance = this;
 		
+		Util.init();
+		
 		HotkeySaving.init(this);
 		
 		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
@@ -188,12 +189,14 @@ public class HackedClient {
 		try {
 			String[] args = input.split(" ");
 			String cmd = args[0];
-			if(cmd.equalsIgnoreCase("#login")) {
+			if(cmd.charAt(0) == '#')
+				cmd = cmd.substring(1);
+			if(cmd.equalsIgnoreCase("login")) {
 				if(args.length == 2) {
 					altManager.login(args[1], "");
 					gui.setText("Logged into cracked account.");
 				}else if(args.length == 1)
-					gui.setText("#login <email> [password] - don't use password if account is cracked.");
+					gui.setText("login <email> [password] - don't use password if account is cracked.");
 				else {
 					String pass = args[2];
 					for(int i = 3; i < args.length; i++)
@@ -201,21 +204,23 @@ public class HackedClient {
 					altManager.login(args[1], pass);
 					gui.setText("Logged into premium account.");
 				}
-			}else if(cmd.equalsIgnoreCase("#help"))
-				gui.setText("Alt-commands: #login, #help, #load, #mcleaks, #alts, #cxcsv, #vault");
-			else if(cmd.equalsIgnoreCase("#load")) {
+			}else if(cmd.equalsIgnoreCase("help"))
+				gui.setText("Alt-commands: login, help, load, mcleaks, alts, cxcsv, vault");
+			else if(cmd.equalsIgnoreCase("load")) {
 				altManager.loadAlt(args[1]);
 				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
-			}else if(cmd.equalsIgnoreCase("#mcleaks")) {
+			}else if(cmd.equalsIgnoreCase("mcleaks")) {
+				if(args.length < 2)
+					throw new Exception("Not enough arguments.");
 				String token = args[1];
 				for(int i = 2; i < args.length; i++)
 					token += " " + args[i];
 				mcLeaksSession = McLeaksApi.redeemMcleaksToken(token);
 				altManager.login(mcLeaksSession.getMcname(), "");
-			}else if(cmd.equalsIgnoreCase("#alts"))
+			}else if(cmd.equalsIgnoreCase("alts"))
 				for(Alt a : altManager.getAlts())
 					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));
-			else if(cmd.equalsIgnoreCase("#cxcsv")) {
+			else if(cmd.equalsIgnoreCase("cxcsv")) {
 				String s = args[2];
 				for(int i = 3; i < args.length; i++)
 					s += " " + args[i];
@@ -224,11 +229,11 @@ public class HackedClient {
 				else if(args[1].equalsIgnoreCase("save"))
 					altManager.saveCxcsv(s);
 				else
-					gui.setText("#cxcsv load/save [file]");
+					gui.setText("cxcsv load/save [file]");
 			}
-			else if(cmd.equalsIgnoreCase("#clear"))
+			else if(cmd.equalsIgnoreCase("clear"))
 				altManager.clear();
-			else if(cmd.equalsIgnoreCase("#vault"))
+			else if(cmd.equalsIgnoreCase("vault"))
 			{
 				if(args.length < 4)
 					throw new Exception("Not enough arguments.");
@@ -246,10 +251,10 @@ public class HackedClient {
 					gui.setText("Store successful.");
 				}
 				else
-					gui.setText("#vault l/s [password (no spaces!)] [file]");
+					gui.setText("vault l/s [password (no spaces!)] [file]");
 			}
 			else
-				guiRenameWorld("#help", gui);
+				guiRenameWorld("help", gui);
 		} catch (Exception e) {
 			e.printStackTrace();
 			gui.setText(e.getMessage());

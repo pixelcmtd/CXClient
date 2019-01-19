@@ -2,7 +2,6 @@ package de.chrissx.mods.movement;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Random;
-import de.chrissx.util.Util;
 
 public class AntiAfk extends Mod {
 

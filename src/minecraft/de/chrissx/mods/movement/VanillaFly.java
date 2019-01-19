@@ -1,9 +1,7 @@
 package de.chrissx.mods.movement;
 
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 
 public class VanillaFly extends Mod {
 
@@ -36,7 +34,7 @@ public class VanillaFly extends Mod {
 			try {
 				setSpeed(Float.parseFloat(args[2]));
 			} catch (Exception e) {
-				Util.sendMessage("�4Error parsing float.");
+				Util.sendMessage("\u00a74Error parsing float.");
 			}
 		else
 			Util.sendMessage("#fly to toggle, #fly speed <float> to set speed.");
