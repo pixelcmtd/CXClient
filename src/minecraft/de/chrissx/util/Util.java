@@ -9,6 +9,7 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
 
 import de.chrissx.HackedClient;
 import de.chrissx.locations.LocFloat64;
@@ -67,12 +68,12 @@ public class Util {
 		}
 		return sb.toString();
 	}
-	
+
 	public static void googleImageSearch(String query)
 	{
 		String s = "https://www.google.com/search?q=" + query + "&tbm=isch";
 	}
-	
+
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
 		BufferedImage i = new BufferedImage(w, h, 1); // type_int_rgb
 	    for (int x = 0; x < w; x++)
@@ -276,7 +277,8 @@ public class Util {
 	}
 
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + msg.replaceAll("\"", "\\\"") + "\"}"));
+		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + 
+				msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
 	}
 
 	public static void faceEntity(Entity e) {

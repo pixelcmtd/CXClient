@@ -368,7 +368,7 @@ public class Minecraft implements IThreadListener, IPlayerUsage
     
     HackedClient hc;
 
-    public Minecraft(GameConfiguration gameConfig)
+    public Minecraft(GameConfiguration gameConfig) throws IOException
     {
         theMinecraft = this;
         this.mcDataDir = gameConfig.folderInfo.mcDataDir;

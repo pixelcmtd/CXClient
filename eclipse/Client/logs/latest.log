@@ -1,183 +1,32 @@
-[16:59:47] [Client thread/ERROR]: Can't find the resource index file: assets\indexes\1.8.json
-[16:59:47] [Client thread/INFO]: Setting user: Player539
-[16:59:47] [Client thread/INFO]: (Session ID is token:0:Player539)
-[16:59:50] [Client thread/INFO]: CXClient Version: alpha 3005
-[16:59:50] [Client thread/INFO]: LWJGL Version: 2.9.4
-[16:59:52] [Client thread/INFO]: Reloading ResourceManager: Default
-[16:59:52] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[16:59:53] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[16:59:53] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[16:59:53] [Thread-7/INFO]: OpenAL initialized.
-[16:59:53] [Sound Library Loader/INFO]: Sound engine started
-[16:59:54] [Client thread/INFO]: Created: 512x512 textures-atlas
-[16:59:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[16:59:58] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[16:59:58] [Server thread/INFO]: Generating keypair
-[16:59:58] [Server thread/INFO]: Preparing start region for level 0
-[16:59:59] [Server thread/INFO]: Preparing spawn area: 84%
-[16:59:59] [Server thread/INFO]: Changing view distance to 8, from 10
-[17:00:00] [Server thread/INFO]: Player539[local:E:ab7c2c28] logged in with entity id 326 at (130.80347497937476, 73.16610926093821, 175.253077495576)
-[17:00:00] [Server thread/INFO]: Player539 joined the game
-[17:00:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.pig.say
-[17:00:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.game
-[17:00:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[17:00:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:18] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:19] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:20] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:20] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:00:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:00:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:30] [Server thread/INFO]: <Player539> t
-[17:00:30] [Client thread/INFO]: [CHAT] <Player539> t
-[17:00:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[17:00:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[17:00:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[17:00:43] [Client thread/INFO]: [CHAT] §c[CXClient] §fLogged into cracked account.
-[17:00:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.say
-[17:00:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:00:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:00:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.sheep.step
-[17:01:24] [Client thread/INFO]: [CHAT] §c[CXClient] §fStore successful.
-[17:01:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:dig.grass
-[17:01:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt.fall.big
-[17:01:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
-[17:01:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt.fall.small
-[17:01:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
-[17:01:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt.fall.small
-[17:01:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
-[17:01:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:01:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:11] [Client thread/INFO]: [CHAT] §c[CXClient] §fLoad successful.
-[17:02:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.grass
-[17:02:17] [Server thread/INFO]: Saving and pausing game...
-[17:02:17] [Server thread/INFO]: Saving chunks for level New World/Overworld
-[17:02:17] [Server thread/INFO]: Saving chunks for level New World/Nether
-[17:02:17] [Server thread/INFO]: Saving chunks for level New World/The End
-[17:02:18] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[17:02:18] [Server thread/INFO]: Stopping server
-[17:02:18] [Server thread/INFO]: Saving players
-[17:02:18] [Server thread/INFO]: Saving worlds
-[17:02:18] [Server thread/INFO]: Saving chunks for level New World/Overworld
-[17:02:18] [Server thread/INFO]: Saving chunks for level New World/Nether
-[17:02:18] [Server thread/INFO]: Saving chunks for level New World/The End
-[17:02:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[17:02:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[17:02:24] [Client thread/INFO]: Stopping CXClient.
-[17:02:24] [Client thread/INFO]: SoundSystem shutting down...
-[17:02:24] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[20:18:57] [Client thread/INFO]: Setting user: Player824
+[20:18:57] [Client thread/INFO]: (Session ID is token:0:Player824)
+[20:18:58] [Client thread/INFO]: CXClient Version: alpha 3006
+[20:18:58] [Client thread/INFO]: LWJGL Version: 2.9.4
+[20:18:59] [Client thread/INFO]: Reloading ResourceManager: Default
+[20:18:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[20:18:59] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[20:18:59] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[20:18:59] [Thread-7/INFO]: OpenAL initialized.
+[20:18:59] [Sound Library Loader/INFO]: Sound engine started
+[20:19:01] [Client thread/INFO]: Created: 512x512 textures-atlas
+[20:19:04] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[20:19:04] [Server thread/INFO]: Generating keypair
+[20:19:04] [Server thread/INFO]: Preparing start region for level 0
+[20:19:04] [Server thread/INFO]: Changing view distance to 8, from 10
+[20:19:05] [Server thread/INFO]: Player824[local:E:efbbd7e7] logged in with entity id 150 at (606.6529357840258, 69.24918707874468, 277.6414021670235)
+[20:19:05] [Server thread/INFO]: Player824 joined the game
+[20:19:07] [Client thread/INFO]: [CHAT] §c[CXClient] §fHotkeys: enabled
+[20:19:07] [Client thread/INFO]: [CHAT] §c[CXClient] §fD:\Bibliotheken\Desktop\cxclient\eclipse\Client
+[20:19:28] [Server thread/INFO]: Saving and pausing game...
+[20:19:28] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[20:19:28] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[20:19:28] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[20:19:29] [Server thread/INFO]: Stopping server
+[20:19:29] [Server thread/INFO]: Saving players
+[20:19:29] [Server thread/INFO]: Saving worlds
+[20:19:29] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[20:19:29] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[20:19:29] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[20:19:30] [Client thread/INFO]: Stopping CXClient.
+[20:19:30] [Client thread/INFO]: SoundSystem shutting down...
+[20:19:30] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

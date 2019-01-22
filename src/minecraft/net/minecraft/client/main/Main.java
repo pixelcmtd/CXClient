@@ -5,6 +5,7 @@ import com.google.gson.GsonBuilder;
 import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.authlib.properties.PropertyMap.Serializer;
 import java.io.File;
+import java.io.IOException;
 import java.net.Authenticator;
 import java.net.InetSocketAddress;
 import java.net.PasswordAuthentication;
@@ -20,7 +21,7 @@ import net.minecraft.util.Session;
 
 public class Main
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         System.setProperty("java.net.preferIPv4Stack", "true");
         OptionParser parser = new OptionParser();

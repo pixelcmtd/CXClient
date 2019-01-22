@@ -97,7 +97,7 @@ public class HackedClient {
 		updateThread.stop();
 	}
 
-	public HackedClient()
+	public HackedClient() throws IOException
 	{
 		instance = this;
 		
@@ -134,6 +134,10 @@ public class HackedClient {
 		
 		f.deleteOnExit();
 		
+		f = new File(Consts.versionFile);
+		int i = Consts.APIVER;
+		Files.write(new byte[] {(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
+		
 		for(Mod m : mods)
 			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
 		
@@ -148,7 +152,7 @@ public class HackedClient {
 						try {
 							for(Mod m : mods)
 							{
-								File f = Paths.get(Consts.togglePath, m.getName()).toFile();
+								final File f = Paths.get(Consts.togglePath, m.getName()).toFile();
 								if(f.exists())
 								{
 									m.toggle();
@@ -166,7 +170,8 @@ public class HackedClient {
 									e.printStackTrace();
 								}
 							}
-							b.put((byte) 4);
+							//does this do anything but break some libcxclients?
+							//b.put((byte) 4);
 							enabledFile.createNewFile();
 							Files.write(b.array(), enabledFile);
 							for(Mod m : mods)
@@ -200,7 +205,7 @@ public class HackedClient {
 				else {
 					String pass = args[2];
 					for(int i = 3; i < args.length; i++)
-						pass+=" "+args[i];
+						pass += " " + args[i];
 					altManager.login(args[1], pass);
 					gui.setText("Logged into premium account.");
 				}
@@ -260,7 +265,7 @@ public class HackedClient {
 			gui.setText(e.getMessage());
 		}
 	}
-	
+
 	public void onTick() {
 		for(TickListener l : mods.tickListeners)
 			l.onTick();
@@ -268,29 +273,27 @@ public class HackedClient {
 		if(!disableHotkeys)
 			updateKeyboard();
 	}
-	
+
 	void updateKeyboard() {
 		for(Hotkey hk : hotkeys)
-			if(Keyboard.isKeyDown(hk.key) && !lastPressed.contains(hk.key) && !(mc.currentScreen instanceof GuiChat) && !(mc.currentScreen instanceof GuiRepair))
+			if(Keyboard.isKeyDown(hk.key) && !lastPressed.contains(hk.key) &&
+					!(mc.currentScreen instanceof GuiChat) && !(mc.currentScreen instanceof GuiRepair))
 				hk.handler.onHotkey();
-		
+
 		lastPressed = new ArrayList<Integer>();
 		for(Hotkey hk : hotkeys)
 			if(Keyboard.isKeyDown(hk.key))
 				lastPressed.add(hk.key);
 	}
-	
+
 	public AddonManager getAddonManager() {
 		return addonManager;
 	}
-	
+
 	public void onCommand(final String[] args) {
 		final String cmd = args[0];
-		
-		if(cmd.equalsIgnoreCase("#changelog"))
-			for(String s : Consts.changelog)
-				Util.sendMessage(s);
-      	else if(cmd.equalsIgnoreCase("#cmdblock")) {
+
+		if(cmd.equalsIgnoreCase("#cmdblock")) {
 			if(args.length < 2) {
 				Util.sendMessage("Please enter a command!");
 				return;
@@ -363,7 +366,8 @@ public class HackedClient {
 			}
 		else if(cmd.equalsIgnoreCase("#debug"))
 		{
-			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, "random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
+			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ,
+					"random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
 			for(Addon a : addonManager.getAddons())
 			{
 				AddonProperties ap = addonManager.getProps(a);
@@ -372,9 +376,6 @@ public class HackedClient {
 			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 		}
-		else if(cmd.equalsIgnoreCase("#credits"))
-			for(String s : Consts.credits)
-				Util.sendMessage(s);
 		else if(!addonManager.execCmd(args))
 			Util.sendMessage(Consts.help);
   	}

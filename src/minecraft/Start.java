@@ -1,14 +1,12 @@
-import java.io.File;
-import java.lang.reflect.Field;
+import java.io.IOException;
 import java.util.Arrays;
 
-import de.chrissx.HackedClient;
 import de.chrissx.util.Consts;
 import net.minecraft.client.main.Main;
 
 public class Start
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
         Main.main(concat(new String[] {"--version", Consts.clientName.toLowerCase(), "--accessToken", "0", "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
     }

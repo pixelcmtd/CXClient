@@ -17,18 +17,21 @@ public class Consts {
 	public static final String enabledPath = Paths.get(modsPath, "enabled").toString();
 	public static final String togglePath = Paths.get(modsPath, "toggle").toString();
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
+	public static final String versionFile = Paths.get(eapiPath, "version").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3005";
-	public static final int BLDNUM = -3005;
+	public static final String version = "alpha 3006";
+	public static final int BLDNUM = -3006;
+	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
 		"-Fixed hotkey saving once more",
-		"-Fixed stupid iAPI concepts",
+		"-Fixed stupid iAPI concepts (of course it is still not ready)",
 		"-Added AltVaults",
 		"-Added CXCSV saving",
-		"-Added #alt to run AltManager commands while in game"
+		"-Added #alt to run AltManager commands while in game",
+		"-Finally fixed most of the sound problems!!"
 	};
 
 	public static final String[] credits = new String[] {
@@ -43,14 +46,14 @@ public class Consts {
 		"Thanks to:",
 		"",
 		"-Garkolym for showing a few exploits in his videos (for example #text)",
-		"-A few other people we stealt the Fly- and Speed-Bypasses from",
 		"-The developers of Wurst for making another open source client, we looked at, when we needed ideas for hacks or when we just f*ed up",
-		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://tinyurl.com/trcechnl"
+		"-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://tinyurl.com/trcechnl",
+		"-A few other people we stealt the Fly- and Speed-Bypasses from"
 	};
 
 	public static final String help = "Commands: #text, #multitext, #killpotion, #automine, #spam, #clearspam, #kaboom, #twerk, #nocobweb, "
 			+ "#timer, #spider, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, "
-			+ "#autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #nofall, #antipotion, "
+			+ "#autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #alt, #nofall, #antipotion, "
 			+ "#fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
 			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, "
 			+ "#sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, "
