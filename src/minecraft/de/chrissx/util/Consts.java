@@ -20,8 +20,8 @@ public class Consts {
 	public static final String versionFile = Paths.get(eapiPath, "version").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3006";
-	public static final int BLDNUM = -3006;
+	public static final String version = "3.0";
+	public static final int BLDNUM = 300;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
