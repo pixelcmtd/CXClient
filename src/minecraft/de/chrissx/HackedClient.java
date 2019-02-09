@@ -52,7 +52,6 @@ public class HackedClient {
 	McLeaksSession mcLeaksSession = null;
 	boolean disableHotkeys = true;
 	final AddonManager addonManager;
-	final Thread updateThread;
 
 	public void onDraw(FontRenderer r)
 	{
@@ -84,7 +83,6 @@ public class HackedClient {
 		disableHotkeys = false;
 	}
 
-	@SuppressWarnings("deprecation")
 	public void onShutdown() {
 		onDisable();
 
@@ -93,8 +91,6 @@ public class HackedClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		updateThread.stop();
 	}
 
 	public HackedClient() throws IOException
@@ -131,17 +127,26 @@ public class HackedClient {
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
-		
+
 		f.deleteOnExit();
-		
-		f = new File(Consts.versionFile);
+
+		f = new File(Consts.eapiVersionFile);
 		int i = Consts.APIVER;
 		Files.write(new byte[] {(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
-		
+
+		f = new File(Consts.mcVersionFile);
+		Files.write(StandardCharsets.UTF_8.encode(Consts.mcVersion).array(), f);
+
+		f = new File(Consts.launchedVersionFile);
+		Files.write(StandardCharsets.UTF_8.encode(mc.getVersion()).array(), f);
+
+		f = new File(Consts.cxclientVersionFile);
+		Files.write(StandardCharsets.UTF_8.encode(Consts.version).array(), f);
+
 		for(Mod m : mods)
 			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
-		
-		updateThread = new Thread(new Runnable() {
+
+		Thread t = new Thread(new Runnable() {
 			@Override
 			public void run() {
 				try {
@@ -187,7 +192,8 @@ public class HackedClient {
 				}
 			}
 		});
-		updateThread.start();
+		t.setDaemon(true);
+		t.start();
 	}
 
 	public void guiRenameWorld(String input, IGuiRenameWorld gui) {
