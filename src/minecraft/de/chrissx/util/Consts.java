@@ -17,21 +17,20 @@ public class Consts {
 	public static final String enabledPath = Paths.get(modsPath, "enabled").toString();
 	public static final String togglePath = Paths.get(modsPath, "toggle").toString();
 	public static final String runningFile = Paths.get(eapiPath, "running").toString();
-	public static final String versionFile = Paths.get(eapiPath, "version").toString();
+	public static final String eapiVersionFile = Paths.get(eapiPath, "eapi_version").toString();
+	public static final String mcVersionFile = Paths.get(eapiPath, "mc_version").toString();
+	public static final String launchedVersionFile = Paths.get(eapiPath, "launched_version").toString();
+	public static final String cxclientVersionFile = Paths.get(eapiPath, "cxclient_version").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "3.0";
-	public static final int BLDNUM = 300;
+	public static final String version = "alpha 3101";
+	public static final String mcVersion = "1.8.8";
+	public static final int BLDNUM = -3101;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-Fixed hotkey saving once more",
-		"-Fixed stupid iAPI concepts (of course it is still not ready)",
-		"-Added AltVaults",
-		"-Added CXCSV saving",
-		"-Added #alt to run AltManager commands while in game",
-		"-Finally fixed most of the sound problems!!"
+		"-Added more eAPI functionality",
 	};
 
 	public static final String[] credits = new String[] {
@@ -39,7 +38,7 @@ public class Consts {
 		"",
 		"Author: chrissx",
 		"Released by: chrissx Media Inc.",
-		"Licensed under: GNU GPLv3",
+		"Licensed under: BSD 3-clause",
 		"Official website (alpha): https://tinyurl.com/cxclhmpg",
 		"Source branch: https://tinyurl.com/cxclmstr",
 		"",
