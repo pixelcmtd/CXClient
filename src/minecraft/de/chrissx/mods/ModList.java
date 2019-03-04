@@ -70,6 +70,7 @@ import de.chrissx.mods.movement.StepJump;
 import de.chrissx.mods.movement.Timer;
 import de.chrissx.mods.movement.VanillaFly;
 import de.chrissx.mods.movement.Velocity;
+import de.chrissx.mods.movement.WaterWalk;
 import de.chrissx.mods.render.Freecam;
 import de.chrissx.mods.render.Fullbright;
 import de.chrissx.mods.render.NoRender;
@@ -140,6 +141,7 @@ public class ModList implements Iterable<Mod> {
 	public final AutoMine autoMine = new AutoMine();
 	public final AutoSoup autoSoup = new AutoSoup();
 	public final AutoLeave autoLeave = new AutoLeave();
+	public final WaterWalk waterWalk = new WaterWalk();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -217,7 +219,8 @@ public class ModList implements Iterable<Mod> {
 			rollHead,
 			autoMine,
 			autoSoup,
-			autoLeave
+			autoLeave,
+			waterWalk
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();

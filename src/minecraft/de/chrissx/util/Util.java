@@ -9,10 +9,10 @@ import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.regex.Matcher;
 
 import de.chrissx.HackedClient;
 import de.chrissx.locations.LocFloat64;
+import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
@@ -279,6 +279,12 @@ public class Util {
 	public static void sendMessage(String msg) {
 		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + 
 				msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+	}
+	
+	public static boolean isWater(Block b)
+	{
+		int id = Block.getIdFromBlock(b);
+		return id == 8 || id == 9;
 	}
 
 	public static void faceEntity(Entity e) {

@@ -1,0 +1,55 @@
+[14:02:52] [Client thread/INFO]: Setting user: Player779
+[14:02:52] [Client thread/INFO]: (Session ID is *censored*)
+[14:02:53] [Client thread/INFO]: CXClient Version: alpha 3101
+[14:02:53] [Client thread/INFO]: LWJGL Version: 2.9.4
+[14:02:55] [Client thread/INFO]: Reloading ResourceManager: Default
+[14:02:55] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[14:02:55] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[14:02:55] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:02:55] [Thread-7/INFO]: OpenAL initialized.
+[14:02:55] [Sound Library Loader/INFO]: Sound engine started
+[14:03:05] [Client thread/INFO]: Created: 512x512 textures-atlas
+[14:03:09] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[14:03:09] [Server thread/INFO]: Generating keypair
+[14:03:09] [Server thread/INFO]: Preparing start region for level 0
+[14:03:10] [Server thread/INFO]: Changing view distance to 8, from 10
+[14:03:10] [Server thread/INFO]: Player779[local:E:304b15f8] logged in with entity id 184 at (469.8657604756293, 62.62581738542803, 184.74317123047788)
+[14:03:10] [Server thread/INFO]: Player779 joined the game
+[14:03:19] [Client thread/INFO]: [CHAT] Saved screenshot as 2019-03-04_14.03.19.png
+[14:03:29] [Server thread/INFO]: Saving and pausing game...
+[14:03:29] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:03:29] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:03:29] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:03:57] [Server thread/INFO]: Saving and pausing game...
+[14:03:57] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:03:57] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:03:57] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:03:58] [Server thread/INFO]: Saving and pausing game...
+[14:03:58] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:03:58] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:03:58] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:06:02] [Server thread/INFO]: Saving and pausing game...
+[14:06:02] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:06:02] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:06:02] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:07:59] [Server thread/INFO]: Saving and pausing game...
+[14:07:59] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:07:59] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:07:59] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:09:53] [Server thread/INFO]: Saving and pausing game...
+[14:09:53] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:09:53] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:09:53] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:12:27] [Server thread/INFO]: Saving and pausing game...
+[14:12:27] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:12:27] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:12:27] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:12:28] [Server thread/INFO]: Stopping server
+[14:12:28] [Server thread/INFO]: Saving players
+[14:12:28] [Server thread/INFO]: Saving worlds
+[14:12:28] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:12:28] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:12:28] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:12:29] [Client thread/INFO]: Stopping CXClient.
+[14:12:29] [Client thread/INFO]: SoundSystem shutting down...
+[14:12:30] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
