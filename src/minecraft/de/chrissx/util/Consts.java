@@ -23,15 +23,16 @@ public class Consts {
 	public static final String cxclientVersionFile = Paths.get(eapiPath, "cxclient_version").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3101";
+	public static final String version = "alpha 3103";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3102;
+	public static final int BLDNUM = -3103;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
 		"-Added more eAPI functionality",
-		"-Added an industry-leading WaterWalk/Jesus"
+		"-Added an industry-leading WaterWalk/Jesus",
+		"-Added a simple AutoJump",
 	};
 
 	public static final String[] credits = new String[] {
@@ -54,7 +55,7 @@ public class Consts {
 	public static final String help = "Commands: #text, #multitext, #killpotion, #automine, #spam, #clearspam, #kaboom, #twerk, #nocobweb, "
 			+ "#timer, #spider, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, #jesus, "
 			+ "#autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #alt, #nofall, #antipotion, "
-			+ "#fullbright, #panic, #flyvanilla, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
+			+ "#fullbright, #panic, #flyvanilla, #autojump, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
 			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, "
 			+ "#sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, "
 			+ "#norender, #rollhead, #autosoup, #autoleave, #dropinventory, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
