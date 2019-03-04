@@ -50,6 +50,7 @@ import de.chrissx.mods.movement.ACFly1;
 import de.chrissx.mods.movement.ACFly2;
 import de.chrissx.mods.movement.ACSpeed1;
 import de.chrissx.mods.movement.AntiAfk;
+import de.chrissx.mods.movement.AutoJump;
 import de.chrissx.mods.movement.AutoWalk;
 import de.chrissx.mods.movement.Autosprint;
 import de.chrissx.mods.movement.Dolphin;
@@ -142,6 +143,7 @@ public class ModList implements Iterable<Mod> {
 	public final AutoSoup autoSoup = new AutoSoup();
 	public final AutoLeave autoLeave = new AutoLeave();
 	public final WaterWalk waterWalk = new WaterWalk();
+	public final AutoJump autoJump = new AutoJump();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -220,7 +222,8 @@ public class ModList implements Iterable<Mod> {
 			autoMine,
 			autoSoup,
 			autoLeave,
-			waterWalk
+			waterWalk,
+			autoJump
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
