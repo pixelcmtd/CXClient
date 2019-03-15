@@ -240,4 +240,15 @@ public class AddonManager {
 	{
 		return Consts.BLDNUM;
 	}
+	
+	public String getHelp()
+	{
+		StringBuilder s = new StringBuilder("Commands:");
+		for(Command c : commands)
+		{
+			s.append(' ');
+			s.append(c.cmd);
+		}
+		return s.toString();
+	}
 }

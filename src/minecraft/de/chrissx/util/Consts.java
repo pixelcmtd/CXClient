@@ -22,10 +22,12 @@ public class Consts {
 	public static final String launchedVersionFile = Paths.get(eapiPath, "launched_version").toString();
 	public static final String cxclientVersionFile = Paths.get(eapiPath, "cxclient_version").toString();
 	public static final String hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
+	public static final String optionsFile = Paths.get(configPath, "options.cfg").toString();
+	public static final String eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3103";
+	public static final String version = "alpha 3104";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3103;
+	public static final int BLDNUM = -3104;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
@@ -33,6 +35,7 @@ public class Consts {
 		"-Added more eAPI functionality",
 		"-Added an industry-leading WaterWalk/Jesus",
 		"-Added a simple AutoJump",
+		"-Added an Option system that only controls the eAPI sleep time at the moment",
 	};
 
 	public static final String[] credits = new String[] {
@@ -52,11 +55,5 @@ public class Consts {
 		"-A few other people we stealt the Fly- and Speed-Bypasses from"
 	};
 
-	public static final String help = "Commands: #text, #multitext, #killpotion, #automine, #spam, #clearspam, #kaboom, #twerk, #nocobweb, "
-			+ "#timer, #spider, #speedac1, #speedlegit, #skinblink, #fastplace, #fastbreak, #throw, #tracer, #masstpa, #dolphin, #jesus, "
-			+ "#autoarmor, #say, #bedfucker, #aimbot, #fastbow, #stepjump, #autoswitch, #flip, #cmdblock, #alt, #nofall, #antipotion, "
-			+ "#fullbright, #panic, #flyvanilla, #autojump, #flyac1, #flyac2, #autowalk, #trollpotion, #givebypass, #reach, #regen, #fastfall, "
-			+ "#xray, #fasthit, #autoclicker, #derp, #noswing, #phase, #nick, #authmecrack, #antiafk, #highjump, #give, #velocity, "
-			+ "#sprint, #scaffoldwalk, #jetpack, #autosteal, #killaura, #tired, #parkour, #fasteat, #glide, #nuker, #antifire, #sneak, "
-			+ "#norender, #rollhead, #autosoup, #autoleave, #dropinventory, #changelog, #credits, #bind, #unbind, #binds, #mods, #help";
+	public static final String extraHelp = " #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help";
 }
