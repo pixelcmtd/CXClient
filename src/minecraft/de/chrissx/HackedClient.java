@@ -52,6 +52,7 @@ public class HackedClient {
 	McLeaksSession mcLeaksSession = null;
 	boolean disableHotkeys = true;
 	final AddonManager addonManager;
+	final Options options;
 
 	public void onDraw(FontRenderer r)
 	{
@@ -91,6 +92,9 @@ public class HackedClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
+		
+		options.stop(new File(Consts.optionsFile));
+		options.eapi.stop(new File(Consts.eapiOptionsFile));
 	}
 
 	public HackedClient() throws IOException
@@ -120,6 +124,10 @@ public class HackedClient {
 		addonManager = new AddonManager();
 		addonManager.init(Consts.addonPath);
 		
+		options = new Options();
+		options.init(new File(Consts.optionsFile));
+		options.eapi.init(new File(Consts.optionsFile));
+		
 		f = new File(Consts.runningFile);
 		
 		try {
@@ -134,14 +142,9 @@ public class HackedClient {
 		int i = Consts.APIVER;
 		Files.write(new byte[] {(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
 
-		f = new File(Consts.mcVersionFile);
-		Files.write(StandardCharsets.UTF_8.encode(Consts.mcVersion).array(), f);
-
-		f = new File(Consts.launchedVersionFile);
-		Files.write(StandardCharsets.UTF_8.encode(mc.getVersion()).array(), f);
-
-		f = new File(Consts.cxclientVersionFile);
-		Files.write(StandardCharsets.UTF_8.encode(Consts.version).array(), f);
+		Files.write(StandardCharsets.UTF_8.encode(Consts.mcVersion).array(), new File(Consts.mcVersionFile));
+		Files.write(StandardCharsets.UTF_8.encode(mc.getVersion()).array(), new File(Consts.launchedVersionFile));
+		Files.write(StandardCharsets.UTF_8.encode(Consts.version).array(), new File(Consts.cxclientVersionFile));
 
 		for(Mod m : mods)
 			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
@@ -175,7 +178,7 @@ public class HackedClient {
 									e.printStackTrace();
 								}
 							}
-							//does this do anything but break some libcxclients?
+							//does this do anything but break some libraries?
 							//b.put((byte) 4);
 							enabledFile.createNewFile();
 							Files.write(b.array(), enabledFile);
@@ -185,7 +188,7 @@ public class HackedClient {
 						} catch (Exception e) {
 							Minecraft.logger.warn(e);
 						}
-						Thread.sleep(1000);
+						Thread.sleep(options.eapi.sleep);
 					}
 				} catch (Exception e) {
 					Minecraft.logger.fatal(e);
@@ -382,8 +385,14 @@ public class HackedClient {
 			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 		}
+		else if(cmd.equalsIgnoreCase("#set"))
+			options.set(args);
+		else if(cmd.equalsIgnoreCase("#get"))
+			options.get(args);
+		else if(cmd.equalsIgnoreCase("#list"))
+			options.list(args);
 		else if(!addonManager.execCmd(args))
-			Util.sendMessage(Consts.help);
+			Util.sendMessage(addonManager.getHelp() + Consts.extraHelp);
   	}
 
 	public McLeaksSession getMcLeaksSession() {
