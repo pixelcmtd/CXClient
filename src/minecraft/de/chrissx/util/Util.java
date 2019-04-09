@@ -58,8 +58,7 @@ public class Util {
 	}
 	
 	public static String combineParts(String[] strings, int startIndex, String seperator) {
-		if(startIndex >= strings.length)
-			return "";
+		if(startIndex >= strings.length) return "";
 		StringBuilder sb = new StringBuilder();
 		sb.append(strings[startIndex]);
 		for(int i = startIndex + 1; i < strings.length; i++) {
@@ -82,36 +81,32 @@ public class Util {
 	    return i;
 	}
 	
-	//removed getThisJar(), we'll need a new one that works better
-	
 	/**
-	 * Splits the string without trying something with regexes but just the single character separator.
+	 * Splits the string without trying something with regexes but just a single character separator.
 	 * @param s The string to split
 	 * @param separator The separator at which the string should be splitted.
 	 * @return The splitted string (as an array).
 	 */
 	public static String[] split(String s, char separator) {
 		int i = 0;
-		for(char c : s.toCharArray())
-			if(c == separator)
-				i++;
+		char[] chars = s.toCharArray();
+		for(char c : chars) if(c == separator) i++;
 		String[] split = new String[i];
 		int j = 0;
 		int l = 0;
 		for(int k = 0; k < s.length(); k++)
-			if(s.charAt(k) == separator) {
-				split[j] = s.substring(l, k);
-				j++;
+			if(chars[k] == separator) {
+				split[j++] = s.substring(l, k);
 				l = k + 1;
 			}
 		return split;
 	}
-	
+
 	public static void swapSlots(int slot1, int slot2, int windowId) {
 		mc.playerController.windowClick(windowId, slot1, 0, 1, mc.thePlayer);
 		mc.playerController.windowClick(windowId, slot2, 0, 1, mc.thePlayer);
 	}
-	
+
 	/**
 	 * Sends the packet to break the block instantly.
 	 * @param block The block to break.
@@ -179,7 +174,7 @@ public class Util {
 		  NBTTagList lore = new NBTTagList();
 		  
 		  entityTag.setString("Command", "gamerule commandBlockOutput false");
-		  entityTag.setString("CustomName", "CXClient");
+		  entityTag.setString("CustomName", Consts.clientName);
 		  entityTag.setBoolean("TrackOutput", false);
 		  
 		  lore.appendTag(new NBTTagString("gamerule commandBlockOutput false"));
@@ -345,14 +340,14 @@ public class Util {
 		boolean h = w.isAirBlock(new BlockPos(i, j, k + 1));
 		boolean l = w.isAirBlock(new BlockPos(i, j + 1, k));
 		boolean m = w.isAirBlock(new BlockPos(i, j - 1, k));
-		if((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k))
-			return true;
-		else
-			return false;
+		if((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k)) return true;
+		else return false;
 	}
 	
 	public static LocFloat64 getEyePos() {
-		return new LocFloat64(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
+		return new LocFloat64(mc.thePlayer.posX,
+							  mc.thePlayer.posY + mc.thePlayer.getEyeHeight(),
+							  mc.thePlayer.posZ);
 	}
 	
 	static float[] getNeededRotations(LocFloat64 vec) {
@@ -362,20 +357,6 @@ public class Util {
 	    
 	    return new float[] {MathHelper.wrapAngleTo180_float((float)Math.toDegrees(Math.atan2(z, x)) - 90),
 	    		MathHelper.wrapAngleTo180_float((float)-Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))};
-	}
-	
-	public static String randomSortString(String originalString) {
-		char[] chars = originalString.toCharArray();
-		StringBuilder s = new StringBuilder();
-		List<Integer> used = new ArrayList<Integer>();
-		for(int i = 0; i < chars.length; i++) {
-			int j = Random.rand(chars.length);
-			while(used.contains(j))
-				j = Random.rand(chars.length);
-			s.append(chars[j]);
-			used.add(j);
-		}
-		return s.toString();
 	}
 	
 	public static int firstFoodIndex(ItemStack[] inv)

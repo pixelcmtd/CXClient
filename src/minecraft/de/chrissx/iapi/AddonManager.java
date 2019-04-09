@@ -1,7 +1,9 @@
 package de.chrissx.iapi;
 
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
@@ -24,7 +26,6 @@ import net.minecraft.client.Minecraft;
 
 public class AddonManager {
 
-	List<CommandExecutor> cmdExecs = new ArrayList<CommandExecutor>();
 	Map<Addon, AddonProperties> addons = new HashMap<Addon, AddonProperties>();
 	List<Command> commands = new ArrayList<Command>();
 
@@ -147,24 +148,23 @@ public class AddonManager {
 		String version = "";
 		String desc = "";
 		String main = "";
+		String s;
 		ZipFile zip = new ZipFile(f);
-		byte[] bfr = new byte[1024*1024]; //yea this means the c.addon file cannot be larger than 1 MiB
-		int size = zip.getInputStream(zip.getEntry("c.addon")).read(bfr);
-		String rawData = new String(bfr, 0, size, StandardCharsets.UTF_8);
-		zip.close();
-		for(String s : rawData.replace("\r", "").split("\n")) {
+		BufferedReader br = new BufferedReader(
+								new InputStreamReader(
+									zip.getInputStream(zip.getEntry("c.addon")),
+									StandardCharsets.UTF_8));
+		
+		while((s = br.readLine()) != null) {
 			String[] tokens = s.split(" ");
-			if(tokens[0].equalsIgnoreCase("name"))
-				name = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("author"))
-				author = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("version"))
-				version = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("desc"))
-				desc = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("main"))
-				main = tokens[1];
+				 if(tokens[0].equalsIgnoreCase("name"))    name    = Util.combineParts(tokens, 1, " ");
+			else if(tokens[0].equalsIgnoreCase("author"))  author  = Util.combineParts(tokens, 1, " ");
+			else if(tokens[0].equalsIgnoreCase("version")) version = Util.combineParts(tokens, 1, " ");
+			else if(tokens[0].equalsIgnoreCase("desc"))    desc    = Util.combineParts(tokens, 1, " ");
+			else if(tokens[0].equalsIgnoreCase("main"))    main    = tokens[1];
+			else mc.logger.info("Can't read addon config line \"" + s + "\".");
 		}
+		zip.close();
 		return new AddonProperties(name, author, version, desc, main);
 	}
 
@@ -203,27 +203,26 @@ public class AddonManager {
 	 * adds the commandexecutor to the list
 	 * @param cmdExec the commandexecutor
 	 */
-	public void registerCommandExecutor(CommandExecutor cmdExec) {
-		cmdExecs.add(cmdExec);
+	
+	public void registerCommand(Command c)
+	{
+		commands.add(c);
 	}
 
 	/**
-	 * tries to execute the command
-	 * @param args the args ' '-splitted args
-	 * @return true if we were able to execute the command, false if not
+	 * executes the command
+	 * @param args the ' '-splitted args
 	 */
-	public boolean execCmd(String[] args)
+	public void execCmd(String[] args)
 	{
+		String cmd = args[0];
 		for(Command c : commands)
-			if(c.cmd.equalsIgnoreCase(args[0]))
+			if(c.cmd.equalsIgnoreCase(cmd))
 			{
 				c.handler.accept(args);
-				return true;
+				return;
 			}
-		for(CommandExecutor ce : cmdExecs)
-			if(ce.onCommand(args))
-				return true;
-		return false;
+		Util.sendMessage(getHelp() + Consts.extraHelp);
 	}
 
 	public Set<Addon> getAddons()
