@@ -1,32 +1,30 @@
-[21:48:54] [Client thread/INFO]: Setting user: Player458
-[21:48:54] [Client thread/INFO]: (Session ID is *censored*)
-[21:48:55] [Client thread/INFO]: CXClient Version: alpha 3103
-[21:48:55] [Client thread/INFO]: LWJGL Version: 2.9.4
-[21:48:56] [Client thread/INFO]: Reloading ResourceManager: Default
-[21:48:56] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[21:48:56] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[21:48:56] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[21:48:56] [Thread-7/INFO]: OpenAL initialized.
-[21:48:57] [Sound Library Loader/INFO]: Sound engine started
-[21:49:06] [Client thread/INFO]: Created: 512x512 textures-atlas
-[21:49:10] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[21:49:10] [Server thread/INFO]: Generating keypair
-[21:49:10] [Server thread/INFO]: Preparing start region for level 0
-[21:49:11] [Server thread/INFO]: Changing view distance to 8, from 10
-[21:49:11] [Server thread/INFO]: Player458[local:E:02e6a6df] logged in with entity id 282 at (569.6791456454993, 68.0, 148.98373083955084)
-[21:49:11] [Server thread/INFO]: Player458 joined the game
-[21:49:23] [Server thread/INFO]: Player458 has just earned the achievement [Taking Inventory]
-[21:49:23] [Client thread/INFO]: [CHAT] Player458 has just earned the achievement [Taking Inventory]
-[21:50:24] [Server thread/INFO]: Saving and pausing game...
-[21:50:24] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[21:50:24] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[21:50:24] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[21:50:25] [Server thread/INFO]: Stopping server
-[21:50:25] [Server thread/INFO]: Saving players
-[21:50:25] [Server thread/INFO]: Saving worlds
-[21:50:25] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[21:50:25] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[21:50:25] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[21:50:26] [Client thread/INFO]: Stopping CXClient.
-[21:50:26] [Client thread/INFO]: SoundSystem shutting down...
-[21:50:26] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[20:21:05] [Client thread/INFO]: Setting user: Player646
+[20:21:05] [Client thread/INFO]: (Session ID is *censored*)
+[20:21:06] [Client thread/INFO]: CXClient Version: alpha 3104
+[20:21:06] [Client thread/INFO]: LWJGL Version: 2.9.4
+[20:21:07] [Client thread/INFO]: Reloading ResourceManager: Default
+[20:21:07] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[20:21:07] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[20:21:07] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[20:21:07] [Thread-7/INFO]: OpenAL initialized.
+[20:21:08] [Sound Library Loader/INFO]: Sound engine started
+[20:21:17] [Client thread/INFO]: Created: 512x512 textures-atlas
+[20:21:20] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[20:21:20] [Server thread/INFO]: Generating keypair
+[20:21:21] [Server thread/INFO]: Preparing start region for level 0
+[20:21:21] [Server thread/INFO]: Changing view distance to 8, from 10
+[20:21:22] [Server thread/INFO]: Player646[local:E:b2ccd71c] logged in with entity id 212 at (531.5663873893463, 80.0, 186.45851062720757)
+[20:21:23] [Server thread/INFO]: Player646 joined the game
+[20:21:29] [Server thread/INFO]: Saving and pausing game...
+[20:21:29] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[20:21:29] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[20:21:29] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[20:21:30] [Server thread/INFO]: Stopping server
+[20:21:30] [Server thread/INFO]: Saving players
+[20:21:30] [Server thread/INFO]: Saving worlds
+[20:21:30] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[20:21:30] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[20:21:30] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[20:21:32] [Client thread/INFO]: Stopping CXClient.
+[20:21:32] [Client thread/INFO]: SoundSystem shutting down...
+[20:21:32] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

@@ -382,7 +382,7 @@ public class HackedClient {
 				AddonProperties ap = addonManager.getProps(a);
 				Util.sendMessage(a.getName() + " " + ap.name + " " + ap.author + " " + ap.version + " " + ap.mainClass + " " + ap.desc);
 			}
-			Util.sendMessage("Hotkeys: " + (disableHotkeys ? "disabled" : "enabled"));
+			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 		}
 		else if(cmd.equalsIgnoreCase("#set"))
@@ -391,8 +391,7 @@ public class HackedClient {
 			options.get(args);
 		else if(cmd.equalsIgnoreCase("#list"))
 			options.list(args);
-		else if(!addonManager.execCmd(args))
-			Util.sendMessage(addonManager.getHelp() + Consts.extraHelp);
+		else addonManager.execCmd(args);
   	}
 
 	public McLeaksSession getMcLeaksSession() {
