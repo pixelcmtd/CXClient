@@ -16,19 +16,27 @@ import de.chrissx.util.Util;
 
 public class AuthMeCrack extends Mod {
 
-	public static final String DEFAULT_AUTHME = 
-			"password\r\n" + "passwort\r\n" + "password1\r\n" + "passwort1\r\n" + "password123\r\n" + "passwort123\r\n" + "pass\r\n" + "pw\r\n" + "pw1\r\n" + 
-			"pw123\r\n" + "123\r\n" + "1234\r\n" + "12345\r\n" + "123456\r\n" + "1234567\r\n" + "12345678\r\n" + "123456789\r\n" + "login\r\n" + "register\r\n" + "test\r\n" + 
-			"sicher\r\n" + "safe\r\n" + "me\r\n" + "ich\r\n" + "penis\r\n" + "penis1\r\n" + "penis12\r\n" + "penis123\r\n" + "minecraft\r\n" + "minecraft1\r\n" + "minecraft12\r\n" + 
-			"minecraft123\r\n" + "mc\r\n" + "admin\r\n" + "server\r\n" + "yourmom\r\n" + "tester\r\n" + "account\r\n" + "creeper\r\n" + "gronkh\r\n" + "lol\r\n" + "lel\r\n" + 
-			"kek\r\n" + "auth\r\n" + "authme\r\n" + "qwerty\r\n" + "qwertz\r\n" + "ficken\r\n" + "ficken1\r\n" + "ficken12\r\n" + "ficken123\r\n" + "fuck\r\n" + "fuckme\r\n" + "fuckyou";
+	public static final String[] DEFAULT_AUTHME = {
+			"password", "passwort", "password1", "passwort1",
+			"password123", "passwort123", "pass", "pw",
+			"pw1", "pw123", "123", "1234", "12345",
+			"123456", "1234567", "12345678", "123456789",
+			"login", "register", "test", "sicher",
+			"safe", "me", "ich", "penis", "penis1",
+			"penis12", "penis123", "minecraft", "minecraft1",
+			"minecraft12", "minecraft123", "mc", "admin",
+			"server", "yourmom", "tester", "account",
+			"creeper", "gronkh", "lol", "lel", "kek",
+			"auth", "authme", "qwerty", "qwertz",
+			"ficken", "ficken1", "ficken12", "ficken123",
+			"fuck", "fuckme", "fuckyou" };
 
 	List<String> pws;
-	
+
 	File pwFile = Paths.get(Consts.configPath, "authmecracker.cfg").toFile();
-	
+
 	int times = 0;
-	
+
 	public AuthMeCrack() {
 		super("AuthMeCracker");
 		if(pwFile.exists()) {
@@ -37,19 +45,17 @@ public class AuthMeCrack extends Mod {
 				BufferedReader reader;
 				reader = new BufferedReader(new FileReader(pwFile));
 				String s = "";
-				while((s = reader.readLine()) != "" && s != null) {
+				while((s = reader.readLine()) != "" && s != null)
 					pwsL.add(s);
-				}
 				reader.close();
 				pws = pwsL;
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		}else {
-			pws = Arrays.asList(DEFAULT_AUTHME.split("\r\n"));
-		}
+		}else
+			pws = Arrays.asList(DEFAULT_AUTHME);
 	}
-	
+
 	@Override
 	public void onTick() {
 		if(enabled && times != 0) {
@@ -60,20 +66,18 @@ public class AuthMeCrack extends Mod {
 			times = 0;
 		}
 	}
-	
+
 	@Override
 	public void toggle() {
 		enabled = true;
 		times = pws.size();
 	}
-	
+
 	@Override
 	public void onStop() {
 		try {
-			if(!pwFile.exists())
-				pwFile.createNewFile();
-			if(pws.size() == 0)
-				return;
+			if(!pwFile.exists()) pwFile.createNewFile();
+			if(pws.size() == 0) return;
 			BufferedWriter writer = new BufferedWriter(new FileWriter(pwFile));
 			writer.write(pws.get(0));
 			for(int i = 1; i < pws.size(); i++) {
@@ -85,7 +89,7 @@ public class AuthMeCrack extends Mod {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void addPw(String pw) {
 		pws.add(pw);
 	}
