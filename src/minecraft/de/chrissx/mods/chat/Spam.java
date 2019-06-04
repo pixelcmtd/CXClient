@@ -17,7 +17,7 @@ public class Spam extends Mod {
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length < 4) {
-			Util.sendMessage("�4Not enough arguments, usage: #(clear)spam <times> <delay> <message>");
+			Util.sendMessage("\u00a74Not enough arguments, usage: #(clear)spam <times> <delay> <message>");
 			return;
 		}
 		
@@ -26,44 +26,40 @@ public class Spam extends Mod {
 		final long delay;
 		final boolean clear;
 		
-		if(args[0].equalsIgnoreCase("#spam"))
-			clear = false;
-		else
-			clear = true;
+		clear = !args[0].equalsIgnoreCase("#spam");
 		
 		try {
 			times = Integer.parseInt(args[1]);
 		}catch(Exception e) {
-			Util.sendMessage("�4Error parsing times.");
+			Util.sendMessage("\u00a74Error parsing times.");
 			return;
 		}
 		
 		try {
 			delay = Long.parseLong(args[2]);
 		} catch (Exception e) {
-			Util.sendMessage("�4Error parsing delay.");
+			Util.sendMessage("\u00a74Error parsing delay.");
 			return;
 		}
 		
 		msg.append(args[3]);
-		for(int i = 4; i < args.length; i++) {
-			msg.append(" "+args[i]);
-		}
+		for(int i = 4; i < args.length; i++)
+			msg.append(" " + args[i]);
 		
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				enabled = true;
-				int last = -1;
+				String last = "-1";
 				final String m = msg.toString();
 				for(int i = 0; i < times; i++) {
 					if(clear)
 						Util.sendChat(m);
 					else {
-						int r = Random.rand(1000);
+						String r = last;
 						while(last == r)
-							r = Random.rand(1000);
-						Util.sendChat(m+" : "+r);
+							r = Integer.toHexString(Random.rand(0x1000));
+						Util.sendChat(m + " :" + r);
 						last = r;
 					}
 					try {
