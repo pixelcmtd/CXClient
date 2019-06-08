@@ -122,11 +122,16 @@ public class AuthMeCrack extends Mod {
 	
 	bf_stuff bruteForceRound()
 	{
-		if(bfPw.charAt(0) == crs.get(crs.size() - 1))
+		boolean b = true;
+		for(char c : bfPw.toCharArray())
+			if(c != crs.get(crs.size() - 1))
+				b = false;
+		if(b)
 			return new bf_stuff(bfPw, false);
 		String s = bfPw;
 		int i;
 		for(i = bfPw.length() - 1; i > -1 && bfPw.charAt(i) == crs.get(crs.size() - 1); i--);
+		if(i < 0) i = 0;
 		replaceCharAt(bfPw, i, crs.get(crs.indexOf(bfPw.charAt(i)) + 1));
 		for(i++; i < bfPw.length(); i++)
 			replaceCharAt(bfPw, i, crs.get(0));
