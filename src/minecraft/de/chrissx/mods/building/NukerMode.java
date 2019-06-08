@@ -1,12 +1,14 @@
 package de.chrissx.mods.building;
 
 public enum NukerMode {
-ALL((byte)0), CLICK((byte)1);
 
-final byte b;
+	ALL(0),
+	CLICK(1);
 
-NukerMode(byte b)
-{
-	this.b = b;
-}
+	final int b;
+
+	NukerMode(int b)
+	{
+		this.b = b;
+	}
 }
