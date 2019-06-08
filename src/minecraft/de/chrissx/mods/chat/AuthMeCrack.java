@@ -88,12 +88,14 @@ public class AuthMeCrack extends Mod {
 			if(mode == PasswordCrackMode.DICT)
 			{
 				Util.sendChat("/login " + pws.get(times - 1));
+				Util.sendMessage(pws.get(times - 1));
 				times--;
 			}
 			else if(mode == PasswordCrackMode.BRUTE_FORCE)
 			{
 				bf_stuff bf = bruteForceRound();
 				Util.sendChat("/login " + bf.pw);
+				Util.sendMessage(bf.pw);
 				enabled = bf.more;
 			}
 			else
