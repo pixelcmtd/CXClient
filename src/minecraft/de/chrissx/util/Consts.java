@@ -25,9 +25,9 @@ public class Consts {
 	public static final String optionsFile = Paths.get(configPath, "options.cfg").toString();
 	public static final String eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3104";
+	public static final String version = "alpha 3105";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3104;
+	public static final int BLDNUM = -3105;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
@@ -36,6 +36,7 @@ public class Consts {
 		"-Added an industry-leading WaterWalk/Jesus",
 		"-Added a simple AutoJump",
 		"-Added an Option system that only controls the eAPI sleep time at the moment",
+		"-Added an AuthMeCracker brute-force mode",
 	};
 
 	public static final String[] credits = new String[] {
@@ -45,7 +46,7 @@ public class Consts {
 		"Released by: chrissx Media Inc.",
 		"Licensed under: BSD 3-clause",
 		"Official website (alpha): https://tinyurl.com/cxclhmpg",
-		"Source branch: https://tinyurl.com/cxclmstr",
+		"Source code: https://tinyurl.com/cxclmstr",
 		"",
 		"Thanks to:",
 		"",

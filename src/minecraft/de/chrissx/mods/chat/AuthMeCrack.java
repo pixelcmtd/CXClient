@@ -47,7 +47,7 @@ public class AuthMeCrack extends Mod {
 	File crFile = Paths.get(Consts.configPath, "authmecrackchars.cfg").toFile();
 	int times = 0;
 	PasswordCrackMode mode = PasswordCrackMode.DICT;
-	String bfPw;
+	String bfPw = "";
 
 	public AuthMeCrack() {
 		super("AuthMeCracker");
@@ -84,12 +84,16 @@ public class AuthMeCrack extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && times > 0) {
+		if(enabled) {
 			if(mode == PasswordCrackMode.DICT)
 			{
-				Util.sendChat("/login " + pws.get(times - 1));
-				Util.sendMessage(pws.get(times - 1));
-				times--;
+				if(times > 0)
+				{
+					Util.sendChat("/login " + pws.get(times - 1));
+					Util.sendMessage(pws.get(times - 1));
+					times--;
+				}
+				else enabled = false;
 			}
 			else if(mode == PasswordCrackMode.BRUTE_FORCE)
 			{
@@ -98,14 +102,10 @@ public class AuthMeCrack extends Mod {
 				Util.sendMessage(bf.pw);
 				enabled = bf.more;
 			}
-			else
-				Util.sendMessage("[AuthMeCrack]Unrecognized PasswordCrackMode!");
-		}else {
-			enabled = false;
-			times = 0;
+			else Util.sendMessage("[AuthMeCrack]Unrecognized PasswordCrackMode!");
 		}
 	}
-	
+
 	class bf_stuff
 	{
 		String pw;
@@ -116,37 +116,44 @@ public class AuthMeCrack extends Mod {
 			this.more = more;
 		}
 	}
-	
-	void replaceCharAt(String s, int i, char c)
+
+	String replaceCharAt(String s, int i, char c)
 	{
-		s = s.substring(0, i) + c + s.substring(i + 1);
+		return s.substring(0, i) + c + s.substring(i + 1);
 	}
-	
-	bf_stuff bruteForceRound()
+
+	boolean stringOnlyOf(String s, char c)
 	{
 		boolean b = true;
-		for(char c : bfPw.toCharArray())
-			if(c != crs.get(crs.size() - 1))
-				b = false;
-		if(b)
-			return new bf_stuff(bfPw, false);
+		for(char d : bfPw.toCharArray())
+			if(d != c) b = false;
+		return b;
+	}
+
+	bf_stuff bruteForceRound()
+	{
+		char lc = crs.get(crs.size() - 1); //last char
+		if(stringOnlyOf(bfPw, lc)) return new bf_stuff(bfPw, false);
 		String s = bfPw;
-		int i;
-		for(i = bfPw.length() - 1; i > -1 && bfPw.charAt(i) == crs.get(crs.size() - 1); i--);
+		int i = bfPw.length() - 1;
+		for(; i > -1 && bfPw.charAt(i) == lc; i--);
 		if(i < 0) i = 0;
-		replaceCharAt(bfPw, i, crs.get(crs.indexOf(bfPw.charAt(i)) + 1));
+		bfPw = replaceCharAt(bfPw, i, crs.get(crs.indexOf(bfPw.charAt(i)) + 1));
 		for(i++; i < bfPw.length(); i++)
-			replaceCharAt(bfPw, i, crs.get(0));
+			bfPw = replaceCharAt(bfPw, i, crs.get(0));
 		return new bf_stuff(s, true);
 	}
 
 	@Override
 	public void toggle() {
-		enabled = true;
-		if(mode == PasswordCrackMode.DICT)
-			times = pws.size();
-		else if(mode == PasswordCrackMode.BRUTE_FORCE)
-			bfPw = "00000000";
+		enabled = !enabled;
+		if(enabled)
+		{
+			if(mode == PasswordCrackMode.DICT)
+				times = pws.size();
+			else if(mode == PasswordCrackMode.BRUTE_FORCE)
+				bfPw = "00000000";
+		}
 	}
 
 	@Override
@@ -175,7 +182,7 @@ public class AuthMeCrack extends Mod {
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	public void processCommand(String[] args)
 	{
@@ -205,9 +212,19 @@ public class AuthMeCrack extends Mod {
 	public void addPw(String pw) {
 		pws.add(pw);
 	}
-	
+
 	public void addCr(char cr)
 	{
 		crs.add(cr);
+	}
+
+	public String getCrs()
+	{
+		StringBuilder sb = new StringBuilder();
+		for(char c : crs)
+		{
+			sb.append(c);
+		}
+		return sb.toString();
 	}
 }
