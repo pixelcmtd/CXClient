@@ -384,6 +384,7 @@ public class HackedClient {
 			}
 			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
+			Util.sendMessage(mods.authMeCrack.getCrs());
 		}
 		else if(cmd.equalsIgnoreCase("#set"))
 			options.set(args);
