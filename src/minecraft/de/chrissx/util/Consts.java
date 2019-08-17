@@ -25,9 +25,9 @@ public class Consts {
 	public static final String optionsFile = Paths.get(configPath, "options.cfg").toString();
 	public static final String eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3105";
+	public static final String version = "alpha 3106";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3105;
+	public static final int BLDNUM = -3106;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
@@ -43,7 +43,7 @@ public class Consts {
 		clientName + " " + version + " Credits:",
 		"",
 		"Author: chrissx",
-		"Released by: chrissx Media Inc.",
+		"Released by: chrissx Media",
 		"Licensed under: BSD 3-clause",
 		"Official website (alpha): https://tinyurl.com/cxclhmpg",
 		"Source code: https://tinyurl.com/cxclmstr",

@@ -12,6 +12,10 @@ public class Random {
 		return rand.nextInt();
 	}
 	
+	public static byte randByte() {
+		return (byte) rand();
+	}
+	
 	public static boolean randBool() {
 		return rand.nextBoolean();
 	}
