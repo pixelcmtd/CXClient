@@ -63,8 +63,7 @@ public class AuthMeCrack extends Mod {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		else
-			pws = Arrays.asList(DEFAULT_PASSWORDS);
+		else pws = Arrays.asList(DEFAULT_PASSWORDS);
 		
 		if(crFile.exists())
 			try {
@@ -78,8 +77,7 @@ public class AuthMeCrack extends Mod {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		else
-			crs = Arrays.asList(DEFAULT_CHARS);
+		else crs = Arrays.asList(DEFAULT_CHARS);
 	}
 
 	@Override

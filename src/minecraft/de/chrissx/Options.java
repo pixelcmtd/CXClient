@@ -51,7 +51,7 @@ public class Options implements IOptions {
 
 		@Override
 		public void init(File config) {
-			if(!config.exists())return;
+			if(!config.exists()) return;
 			try {
 				FileInputStream fis = new FileInputStream(config);
 				byte[] b = new byte[4];
@@ -67,16 +67,14 @@ public class Options implements IOptions {
 		public void set(String[] args) {
 			if(args.length > 2 && args[2].equalsIgnoreCase("sleep"))
 				sleep = Integer.parseInt(args[3]);
-			else
-				list(args);
+			else list(args);
 		}
 
 		@Override
 		public void get(String[] args) {
 			if(args.length > 2 && args[2].equalsIgnoreCase("sleep"))
 				Util.sendMessage(Integer.toString(sleep));
-			else
-				list(args);
+			else list(args);
 		}
 
 		@Override

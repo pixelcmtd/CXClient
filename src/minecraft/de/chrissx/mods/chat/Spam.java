@@ -1,23 +1,25 @@
 package de.chrissx.mods.chat;
 
+import org.apache.commons.lang3.RandomStringUtils;
+
 import de.chrissx.mods.Mod;
-import de.chrissx.util.Consts;
-import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 
 public class Spam extends Mod {
-	
+
+	String[] last = new String[] {"#spam", "20", "50", "You're getting flooded by chrissx' CXClient! ;)"};
+
 	public Spam() {
 		super("Spam");
 	}
-	
+
 	@Override
 	public void toggle() {}
 
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length < 4) {
-			Util.sendMessage("\u00a74Not enough arguments, usage: #(clear)spam <times> <delay> <message>");
+			Util.sendMessage("\u00a74Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
 			return;
 		}
 		
@@ -58,8 +60,8 @@ public class Spam extends Mod {
 					else {
 						String r = last;
 						while(last == r)
-							r = Integer.toHexString(Random.rand(0x1000));
-						Util.sendChat(m + " :" + r);
+							r = RandomStringUtils.randomAlphanumeric(2);
+						Util.sendChat(m + " #" + r);
 						last = r;
 					}
 					try {
@@ -68,12 +70,15 @@ public class Spam extends Mod {
 						e.printStackTrace();
 					}
 				}
+				enabled = false;
 			}
 		}).start();
+		
+		last = args;
 	}
 
 	@Override
 	public void onHotkey() {
-		processCommand(new String[] {"#spam", "20", "50", "Sponsored by " + Consts.clientName + " by chrissx"});
+		processCommand(last);
 	}
 }
