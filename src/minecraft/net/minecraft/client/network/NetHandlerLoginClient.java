@@ -5,9 +5,16 @@ import com.mojang.authlib.exceptions.AuthenticationException;
 import com.mojang.authlib.exceptions.AuthenticationUnavailableException;
 import com.mojang.authlib.exceptions.InvalidCredentialsException;
 import com.mojang.authlib.minecraft.MinecraftSessionService;
+
+import de.chrissx.HackedClient;
+import de.chrissx.alts.mcleaks.McLeaksApi;
+import de.chrissx.alts.mcleaks.ResultGettingException;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+
+import java.io.IOException;
 import java.math.BigInteger;
+import java.net.ConnectException;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 import net.minecraft.client.Minecraft;
@@ -53,7 +60,7 @@ public class NetHandlerLoginClient implements INetHandlerLoginClient
         {
             try
             {
-                this.getSessionService().joinServer(this.mc.getSession().getProfile(), this.mc.getSession().getToken(), s1);
+                getSessionService().joinServer(this.mc.getSession().getProfile(), this.mc.getSession().getToken(), s1);
             }
             catch (AuthenticationException var10)
             {
@@ -64,23 +71,29 @@ public class NetHandlerLoginClient implements INetHandlerLoginClient
         {
             try
             {
-                this.getSessionService().joinServer(this.mc.getSession().getProfile(), this.mc.getSession().getToken(), s1);
+                if(HackedClient.getClient().getMcLeaksSession() != null)
+                	McLeaksApi.joinServer(HackedClient.getClient().getMcLeaksSession(), s1, s);
+                else
+                	getSessionService().joinServer(mc.getSession().getProfile(), this.mc.getSession().getToken(), s1);
             }
-            catch (AuthenticationUnavailableException var7)
+            catch (AuthenticationUnavailableException e)
             {
-                this.networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {new ChatComponentTranslation("disconnect.loginFailedInfo.serversUnavailable", new Object[0])}));
+                networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {new ChatComponentTranslation("disconnect.loginFailedInfo.serversUnavailable", new Object[0])}));
                 return;
             }
-            catch (InvalidCredentialsException var8)
+            catch (InvalidCredentialsException e)
             {
-                this.networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {new ChatComponentTranslation("disconnect.loginFailedInfo.invalidSession", new Object[0])}));
+                networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {new ChatComponentTranslation("disconnect.loginFailedInfo.invalidSession", new Object[0])}));
                 return;
             }
-            catch (AuthenticationException authenticationexception)
+            catch (AuthenticationException e)
             {
-                this.networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {authenticationexception.getMessage()}));
+                networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {e.getMessage()}));
                 return;
-            }
+            } catch (Exception e) {
+                networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {e.getMessage()}));
+                return;
+			}
         }
 
         this.networkManager.sendPacket(new C01PacketEncryptionResponse(secretkey, publickey, packetIn.getVerifyToken()), new GenericFutureListener < Future <? super Void >> ()

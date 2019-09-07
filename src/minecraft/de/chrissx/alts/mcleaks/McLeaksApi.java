@@ -26,7 +26,7 @@ public class McLeaksApi {
 	 * @return The current McLeaks-Session
 	 */
 	public static McLeaksSession redeemMcleaksToken(String token) throws ConnectException, ResultGettingException, CorruptedResultException, IOException {
-		URLConnection con = preparePostRequest("http://auth.mcleaks.net/v1/redeem", "{\"token\":\"" + token + "\"}");
+		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/redeem", "{\"token\":\"" + token + "\"}");
 		if(con == null)
 			throw new ConnectException("The connection is null, please check your internet connection!");
 		Object o = getResult(con);
@@ -49,7 +49,7 @@ public class McLeaksApi {
 	 * @param server The server to connect to
 	 */
 	public static void joinServer(McLeaksSession mclssession, String serverHash, String server) throws ConnectException, ResultGettingException, IOException {
-		URLConnection con = preparePostRequest("http://auth.mcleaks.net/v1/joinserver", "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname() + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
+		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/joinserver", "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname() + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
 		if(con == null)
 			throw new ConnectException("The connection is null, please check your internet connection!");
 		Object o = getResult(con);
@@ -59,15 +59,12 @@ public class McLeaksApi {
 
 	static URLConnection preparePostRequest(final String url, final String body) {
         try {
-            HttpURLConnection con;
-            if (url.toLowerCase().startsWith("https://"))
-                con = (HttpsURLConnection)new URL(url).openConnection();
-            else
-                con = (HttpURLConnection)new URL(url).openConnection();
+            HttpURLConnection con = (HttpsURLConnection)new URL(url).openConnection();
             con.setConnectTimeout(10000);
             con.setReadTimeout(10000);
             con.setRequestMethod("POST");
             con.setDoOutput(true);
+            System.out.println("[MCLeaksAPI] Sending POST-request with body \"" + body + "\" to URL \"" + url + "\"");
             final DataOutputStream wr = new DataOutputStream(con.getOutputStream());
             wr.write(body.getBytes(StandardCharsets.UTF_8));
             wr.flush();
@@ -79,17 +76,16 @@ public class McLeaksApi {
         	return null;
         }
     }
-	
+
 	static Object getResult(final URLConnection urlConnection) throws IOException {
         final BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
         final StringBuilder result = new StringBuilder();
         String line;
-        while ((line = reader.readLine()) != null) {
+        while ((line = reader.readLine()) != null)
             result.append(line);
-        }
         reader.close();
 		final JsonElement jsonElement = (JsonElement)gson.fromJson(result.toString(), JsonElement.class);
-        System.out.println(result.toString());
+        System.out.println("[MCLeaksAPI] Got result: \"" + result + "\"");
         if (!jsonElement.isJsonObject())
             return "The json element isn't a json object.";
         if(!jsonElement.getAsJsonObject().has("success"))

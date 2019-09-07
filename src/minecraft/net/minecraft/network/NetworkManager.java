@@ -45,7 +45,6 @@ import io.netty.handler.timeout.TimeoutException;
 import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
-import net.minecraft.network.play.client.C03PacketPlayer;
 import net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition;
 import net.minecraft.network.play.client.C03PacketPlayer.C06PacketPlayerPosLook;
 import net.minecraft.util.ChatComponentText;
@@ -143,6 +142,7 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
     public void exceptionCaught(ChannelHandlerContext channelHandler, Throwable caughtException) throws Exception
     {
         ChatComponentTranslation cct;
+        caughtException.printStackTrace();
 
         if (caughtException instanceof TimeoutException)
         {

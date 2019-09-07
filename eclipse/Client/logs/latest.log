@@ -1,14 +1,91 @@
-[21:32:10] [Client thread/INFO]: Setting user: Player671
-[21:32:10] [Client thread/INFO]: (Session ID is *censored*)
-[21:32:12] [Client thread/INFO]: CXClient Version: alpha 3105
-[21:32:12] [Client thread/INFO]: LWJGL Version: 2.9.4
-[21:32:13] [Client thread/INFO]: Reloading ResourceManager: Default
-[21:32:13] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[21:32:13] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[21:32:13] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[21:32:13] [Thread-7/INFO]: OpenAL initialized.
-[21:32:14] [Sound Library Loader/INFO]: Sound engine started
-[21:32:15] [Client thread/INFO]: Created: 512x512 textures-atlas
-[21:55:05] [Client thread/INFO]: Stopping CXClient.
-[21:55:05] [Client thread/INFO]: SoundSystem shutting down...
-[21:55:05] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[18:43:54] [Client thread/INFO]: Setting user: Player409
+[18:43:54] [Client thread/INFO]: (Session ID is *censored*)
+[18:43:56] [Client thread/INFO]: CXClient Version: alpha 3106
+[18:43:56] [Client thread/INFO]: LWJGL Version: 2.9.4
+[18:43:57] [Client thread/INFO]: Reloading ResourceManager: Default
+[18:43:57] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[18:43:58] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[18:43:58] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[18:43:58] [Thread-7/INFO]: OpenAL initialized.
+[18:43:58] [Sound Library Loader/INFO]: Sound engine started
+[18:44:00] [Client thread/INFO]: Created: 512x512 textures-atlas
+[18:48:30] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[18:51:47] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[18:53:12] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[18:54:03] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:00:34] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:01:18] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:03:47] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:05:28] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:15:12] [Client thread/INFO]: Connecting to mc.gommehd.com.:25565
+[19:15:40] [Client thread/INFO]: Connecting to minecraft.de:25565
+[19:15:57] [Client thread/INFO]: Connecting to mc.hypixel.net.:25565
+[19:16:54] [Client thread/INFO]: Connecting to play.ml-mc.net:25565
+[19:16:54] [Server Connector #12/ERROR]: Couldn't connect to server
+java.net.UnknownHostException: play.ml-mc.net
+	at java.net.Inet4AddressImpl.lookupAllHostAddr(Native Method) ~[?:1.8.0_221]
+	at java.net.InetAddress$2.lookupAllHostAddr(Unknown Source) ~[?:1.8.0_221]
+	at java.net.InetAddress.getAddressesFromNameService(Unknown Source) ~[?:1.8.0_221]
+	at java.net.InetAddress.getAllByName0(Unknown Source) ~[?:1.8.0_221]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_221]
+	at java.net.InetAddress.getAllByName(Unknown Source) ~[?:1.8.0_221]
+	at java.net.InetAddress.getByName(Unknown Source) ~[?:1.8.0_221]
+	at net.minecraft.client.multiplayer.GuiConnecting$1.run(GuiConnecting.java:64) [bin/:?]
+[19:17:02] [Client thread/INFO]: Connecting to play.ml-mc.com:25565
+[19:17:40] [Client thread/INFO]: Connecting to mc-6357.nordsky.de.:25565
+[19:17:43] [Client thread/INFO]: [CHAT] ? + Itrixy
+[19:17:43] [Client thread/INFO]: [CHAT] 
+[19:17:43] [Client thread/INFO]: [CHAT] » Herzlich Willkommen auf NordSky.de
+[19:17:43] [Client thread/INFO]: [CHAT] » Kostenlose-Items: /vote
+[19:17:43] [Client thread/INFO]: [CHAT] » Alle Commands: /hilfe
+[19:17:43] [Client thread/INFO]: [CHAT] » Updates: /update
+[19:17:43] [Client thread/INFO]: [CHAT] » BIG EVENT: 0HEUTE 19 UHR0
+[19:17:43] [Client thread/INFO]: [CHAT] 
+[19:17:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:none
+[19:17:57] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:17:58] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:17:59] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:18:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:none
+[19:18:50] [Client thread/INFO]: [CHAT] 
+[19:18:50] [Client thread/INFO]: [CHAT] » In (60) Sekunden werden Items entfernt.
+[19:18:50] [Client thread/INFO]: [CHAT] 
+[19:19:19] [Client thread/INFO]: [CHAT] NordSky » Einlagerungspause /IS
+[19:19:20] [Client thread/INFO]: [CHAT] NordSky » Einlagerungspause /IS
+[19:19:20] [Client thread/INFO]: [CHAT] NordSky » Einlagerungspause /IS
+[19:19:29] [Client thread/INFO]: [CHAT] NordSky ? Alle Spieler haben ein Item erhalten.
+[19:19:30] [Client thread/INFO]: [CHAT] 
+[19:19:30] [Client thread/INFO]: [CHAT] » In (20) Sekunden werden Items entfernt.
+[19:19:30] [Client thread/INFO]: [CHAT] 
+[19:19:30] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[19:19:33] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[19:19:40] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[19:19:50] [Client thread/INFO]: [CHAT] 
+[19:19:50] [Client thread/INFO]: [CHAT] » Alle Items werden entfernt...
+[19:19:50] [Client thread/INFO]: [CHAT] 
+[19:19:52] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:19:55] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:19:55] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:19:56] [Client thread/INFO]: [CHAT] ? + Sytaxera
+[19:19:57] [Client thread/INFO]: [CHAT] ? - sincereeX
+[19:19:58] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[19:20:01] [Client thread/INFO]: [CHAT] -----»* VOTE *«-----
+[19:20:01] [Client thread/INFO]: [CHAT] 
+[19:20:01] [Client thread/INFO]: [CHAT] » Spieler ? x_N_x (/VOTE)
+[19:20:01] [Client thread/INFO]: [CHAT] » Hat für folgende Items gevotet:
+[19:20:01] [Client thread/INFO]: [CHAT]    
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 3x VoteCoins
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 3x Vote Crates
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 3x Profit Crates
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 1x Waffen Crate
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 1x Rüstungs Crate
+[19:20:01] [Client thread/INFO]: [CHAT] ? ? 3h Vote-Respawn Kit
+[19:20:01] [Client thread/INFO]: [CHAT]    
+[19:20:01] [Client thread/INFO]: [CHAT] -----»* VOTE *«-----
+[19:20:04] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:20:04] [Client thread/INFO]: [CHAT] NordSky » Es geht weiter /EVENT
+[19:21:01] [Client thread/INFO]: [CHAT] NordSky » JETZT KOMMT DIE OP KISTE
+[19:21:16] [Client thread/INFO]: [CHAT] NordSky » IN DIESER KISTE IST EIN DRAGON EGG DRIN!
+[19:21:21] [Client thread/INFO]: [CHAT] Team × JrBuilder ? ZuMotiviert: Jaaa
+[19:21:33] [Client thread/INFO]: Stopping CXClient.
+[19:21:33] [Client thread/INFO]: SoundSystem shutting down...
+[19:21:33] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
