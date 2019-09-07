@@ -51,7 +51,7 @@ public class GuiConnecting extends GuiScreen
     private void connect(final String ip, final int port)
     {
         logger.info("Connecting to " + ip + ":" + port);
-        (new Thread("Server Connector #" + CONNECTION_ID.incrementAndGet())
+        new Thread("Server Connector #" + CONNECTION_ID.incrementAndGet())
         {
             public void run()
             {
@@ -59,14 +59,9 @@ public class GuiConnecting extends GuiScreen
 
                 try
                 {
-                    if (cancel)
-                    {
-                        return;
-                    }
+                    if (cancel) return;
 
                     inetaddress = InetAddress.getByName(ip);
-                    if(HackedClient.getClient().getMcLeaksSession() != null)
-                    	McLeaksApi.joinServer(HackedClient.getClient().getMcLeaksSession(), Integer.toString(ip.hashCode()), ip);
                     GuiConnecting.this.networkManager = NetworkManager.func_181124_a(inetaddress, port, GuiConnecting.this.mc.gameSettings.func_181148_f());
                     GuiConnecting.this.networkManager.setNetHandler(new NetHandlerLoginClient(GuiConnecting.this.networkManager, GuiConnecting.this.mc, GuiConnecting.this.previousGuiScreen));
                     GuiConnecting.this.networkManager.sendPacket(new C00Handshake(47, ip, port, EnumConnectionState.LOGIN));
@@ -76,10 +71,7 @@ public class GuiConnecting extends GuiScreen
                 catch (UnknownHostException unknownhostexception)
                 {
                 	System.out.println("Unknown host exception!");
-                    if (GuiConnecting.this.cancel)
-                    {
-                        return;
-                    }
+                    if (GuiConnecting.this.cancel) return;
 
                     unknownhostexception.printStackTrace();
                     
@@ -90,10 +82,7 @@ public class GuiConnecting extends GuiScreen
                 {
                 	System.out.println("Unspecified exception!");
                 	
-                    if (GuiConnecting.this.cancel)
-                    {
-                        return;
-                    }
+                    if (GuiConnecting.this.cancel) return;
 
                     t.printStackTrace();
                     
@@ -109,7 +98,7 @@ public class GuiConnecting extends GuiScreen
                     GuiConnecting.this.mc.displayGuiScreen(new GuiDisconnected(GuiConnecting.this.previousGuiScreen, "connect.failed", new ChatComponentTranslation("disconnect.genericReason", new Object[] {s})));
                 }
             }
-        }).start();
+        }.start();
     }
 
     /**
@@ -117,16 +106,10 @@ public class GuiConnecting extends GuiScreen
      */
     public void updateScreen()
     {
-        if (this.networkManager != null)
+        if (networkManager != null)
         {
-            if (this.networkManager.isChannelOpen())
-            {
-                this.networkManager.processReceivedPackets();
-            }
-            else
-            {
-                this.networkManager.checkDisconnected();
-            }
+            if (networkManager.isChannelOpen()) networkManager.processReceivedPackets();
+            else networkManager.checkDisconnected();
         }
     }
 
@@ -134,9 +117,7 @@ public class GuiConnecting extends GuiScreen
      * Fired when a key is typed (except F11 which toggles full screen). This is the equivalent of
      * KeyListener.keyTyped(KeyEvent e). Args : character (character on the key), keyCode (lwjgl Keyboard key code)
      */
-    protected void keyTyped(char typedChar, int keyCode) throws IOException
-    {
-    }
+    protected void keyTyped(char typedChar, int keyCode) throws IOException {}
 
     /**
      * Adds the buttons (and other controls) to the screen in question. Called when the GUI is displayed and when the
@@ -158,9 +139,7 @@ public class GuiConnecting extends GuiScreen
             this.cancel = true;
 
             if (this.networkManager != null)
-            {
                 this.networkManager.closeChannel(new ChatComponentText("Aborted"));
-            }
 
             this.mc.displayGuiScreen(this.previousGuiScreen);
         }

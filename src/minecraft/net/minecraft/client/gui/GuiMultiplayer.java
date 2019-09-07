@@ -219,13 +219,9 @@ public class GuiMultiplayer extends GuiScreen implements GuiYesNoCallback
             this.directConnect = false;
 
             if (result)
-            {
                 this.connectToServer(this.selectedServer);
-            }
             else
-            {
                 this.mc.displayGuiScreen(this);
-            }
         }
         else if (this.addingServer)
         {

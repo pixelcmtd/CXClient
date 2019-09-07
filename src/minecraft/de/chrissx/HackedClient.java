@@ -225,7 +225,7 @@ public class HackedClient {
 				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
 			}else if(cmd.equalsIgnoreCase("mcleaks")) {
 				if(args.length < 2)
-					throw new Exception("Not enough arguments.");
+					throw new Exception("mcleaks [token]");
 				String token = args[1];
 				for(int i = 2; i < args.length; i++)
 					token += " " + args[i];
