@@ -12,6 +12,7 @@ import com.google.common.io.Files;
 import de.chrissx.HackedClient;
 import de.chrissx.util.Consts;
 import net.minecraft.client.Minecraft;
+import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 
 public abstract class Mod implements Commandable, Bindable, TickListener, StopListener, RenderedObject {
@@ -22,33 +23,50 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 	protected final HackedClient hc = HackedClient.getClient();
 	protected final String apiDir;
 
-	public Mod(String name) {
+	public Mod(String name)
+	{
 		this.name = name;
 		apiDir = Paths.get(Consts.modsPath, name).toString();
 	}
+	
+	public EntityPlayerSP player()
+	{
+		return mc.thePlayer;
+	}
 
-	public void toggle() {
+	public void toggle()
+	{
 		enabled = !enabled;
 	}
 
-	public boolean isEnabled() {
+	public boolean isEnabled()
+	{
 		return enabled;
+	}
+	
+	@Override
+	public String getRenderstring()
+	{
+		return name;
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
+	public boolean onRender(FontRenderer r, int x, int y)
+	{
 		if(enabled)
-			r.drawString(name, x, y, Color.WHITE.getRGB());
+			r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
 
 	@Override
-	public void processCommand(String[] args) {
+	public void processCommand(String[] args)
+	{
 		toggle();
 	}
 
 	@Override
-	public void onHotkey() {
+	public void onHotkey()
+	{
 		toggle();
 	}
 
@@ -56,7 +74,8 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 	public void onStop() {}
 
 	@Override
-	public String getName() {
+	public String getName()
+	{
 		return name;
 	}
 

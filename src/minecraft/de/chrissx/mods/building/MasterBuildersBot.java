@@ -20,7 +20,7 @@ public class MasterBuildersBot implements Commandable, TickListener, StopListene
 	@Override
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(enabled)
-			r.drawString("MasterBuildersBot", x, y, Color.WHITE.getRGB());
+			r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
 
@@ -48,4 +48,9 @@ public class MasterBuildersBot implements Commandable, TickListener, StopListene
 
 	@Override
 	public void onStop() {}
+
+	@Override
+	public String getRenderstring() {
+		return getName();
+	}
 }

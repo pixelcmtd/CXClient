@@ -162,7 +162,7 @@ public class AddonManager {
 			else if(tokens[0].equalsIgnoreCase("version")) version = Util.combineParts(tokens, 1, " ");
 			else if(tokens[0].equalsIgnoreCase("desc"))    desc    = Util.combineParts(tokens, 1, " ");
 			else if(tokens[0].equalsIgnoreCase("main"))    main    = tokens[1];
-			else mc.logger.info("Can't read addon config line \"" + s + "\".");
+			else Util.info("Can't read addon config line \"" + s + "\".");
 		}
 		zip.close();
 		return new AddonProperties(name, author, version, desc, main);

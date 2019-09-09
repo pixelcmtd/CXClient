@@ -13,6 +13,7 @@ import java.util.List;
 import de.chrissx.HackedClient;
 import de.chrissx.locations.LocFloat64;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockAir;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
@@ -47,13 +48,18 @@ public class Util {
 		hc = HackedClient.getClient();
 	}
 
+	public static void info(String s)
+	{
+		Minecraft.logger.info(s);
+	}
+
 	public static void checkIfExistsAndMake(String dir, String name)
 	{
 		File f = new File(dir);
 		if(!f.exists())
 		{
 			f.mkdirs();
-			Minecraft.logger.info("Made " + name + ".");
+			info("Made " + name + ".");
 		}
 	}
 	
@@ -304,22 +310,29 @@ public class Util {
         		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
     }
 
-	public static BlockPos[] getBlocksAround(EntityPlayer player, int range, boolean mustBeVisible) {
-		long i = (long)player.posX;
-		long j = (long)player.posY;
-		long k = (long)player.posZ;
-		long l = i + range;
-		long m = j + range;
-		long n = k + range;
-		long o = i - range;
-		long p = j - range;
-		long q = k - range;
+	/**
+	 * 
+	 * @param pl the player
+	 * @param r the range around the player to search in
+	 * @param mbv whether the block must be visible
+	 * @return
+	 */
+	public static BlockPos[] getBlocksAround(EntityPlayer pl, int r, boolean mbv) {
+		final long px = (long)pl.posX;
+		final long py = (long)pl.posY;
+		final long pz = (long)pl.posZ;
+		final long ex = px + r;
+		final long ey = py + r;
+		final long ez = pz + r;
+		final long sx = px - r;
+		final long sy = py - r;
+		final long sz = pz - r;
 		List<BlockPos> b = new ArrayList<BlockPos>();
-		for(long x = (long)o; x < l; x++)
-			for(long y = (long)p; y < m; y++)
-				for(long z = (long)q; z < n; z++) {
+		for(long x = sx; x < ex; x++)
+			for(long y = sy; y < ey; y++)
+				for(long z = sz; z < ez; z++) {
 					BlockPos pos = new BlockPos(x, y, z);
-					if(!mc.theWorld.isAirBlock(pos) && (!mustBeVisible || isBlockVisible(pos)))
+					if(!mc.theWorld.isAirBlock(pos) && (!mbv || isBlockVisible(pos)))
 						b.add(pos);
 				}
 		return b.toArray(new BlockPos[b.size()]);
@@ -343,13 +356,13 @@ public class Util {
 		if((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k)) return true;
 		else return false;
 	}
-	
+
 	public static LocFloat64 getEyePos() {
 		return new LocFloat64(mc.thePlayer.posX,
 							  mc.thePlayer.posY + mc.thePlayer.getEyeHeight(),
 							  mc.thePlayer.posZ);
 	}
-	
+
 	static float[] getNeededRotations(LocFloat64 vec) {
 	    double x = vec.x - mc.thePlayer.posX;
 	    double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
@@ -358,7 +371,7 @@ public class Util {
 	    return new float[] {MathHelper.wrapAngleTo180_float((float)Math.toDegrees(Math.atan2(z, x)) - 90),
 	    		MathHelper.wrapAngleTo180_float((float)-Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))};
 	}
-	
+
 	public static int firstFoodIndex(ItemStack[] inv)
 	{
 		for(int i = 27; i < 36; i++)
@@ -366,7 +379,7 @@ public class Util {
 				return i - 27;
 		return -1;
 	}
-	
+
 	public static int firstSoupIndex(ItemStack[] inv)
 	{
 		for(int i = 27; i < 36; i++)

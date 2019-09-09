@@ -4,6 +4,7 @@ import java.io.File;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
+import net.minecraft.block.BlockBed;
 import net.minecraft.network.play.client.C07PacketPlayerDigging;
 import net.minecraft.network.play.client.C07PacketPlayerDigging.Action;
 import net.minecraft.util.BlockPos;
@@ -11,7 +12,7 @@ import net.minecraft.util.EnumFacing;
 
 public class BedFucker extends Mod {
 
-	byte range = 6;
+	int range = 6;
 	File rf;
 	
 	public BedFucker() {
@@ -22,12 +23,21 @@ public class BedFucker extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled) {
-			BlockPos[] bps = Util.getBlocksAround(mc.thePlayer, range, false);
-			for(BlockPos bp : bps)
+			BlockPos[] bps = Util.getBlocksAround(player(), range, false);
+			for(final BlockPos bp : bps) {
 				if(mc.theWorld.getBlock(bp).getUnlocalizedName().equals("tile.bed")) {
-					mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
-					mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
-				}
+					new Thread(new Runnable() {
+						public void run() {
+							player().sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
+							try {
+								Thread.sleep(100);
+							} catch (InterruptedException e) {
+								e.printStackTrace();
+							}
+							player().sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
+						}
+					}).start();
+				}}
 		}
 	}
 
@@ -37,9 +47,9 @@ public class BedFucker extends Mod {
 			toggle();
 		else if(args.length == 3 && args[1].equalsIgnoreCase("range"))
 			try {
-				range = Byte.parseByte(args[2]);
+				range = Integer.parseInt(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("Error parsing byte.");
+				Util.sendMessage("Error parsing range.");
 			}
 		else
 			Util.sendMessage("#bedfucker to toggle, #bedfucker range <int> to set the range.");

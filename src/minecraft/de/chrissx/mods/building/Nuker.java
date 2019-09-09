@@ -1,15 +1,13 @@
 package de.chrissx.mods.building;
 
-import java.awt.Color;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 import net.minecraft.block.Block;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.util.BlockPos;
 
 public class Nuker extends Mod {
@@ -40,11 +38,10 @@ public class Nuker extends Mod {
 								Util.breakBlock(p);
 						}else {
 							List<Integer> sent = new ArrayList<Integer>();
-							Random r = new Random();
 							for(int i = 0; i < 11; i++) {
-								int rr = r.nextInt(positions.length-1);
+								int rr = Random.rand(positions.length-1);
 								while(sent.contains(rr))
-									rr = r.nextInt(positions.length-1);
+									rr = Random.rand(positions.length-1);
 								Util.breakBlock(positions[rr]);
 								sent.add(rr);
 							}
@@ -67,28 +64,24 @@ public class Nuker extends Mod {
 								Util.breakBlock(p);
 						else {
 							List<Integer> sent = new ArrayList<Integer>();
-							Random r = new Random();
 							for(int i = 0; i < 11; i++) {
-								int rr = r.nextInt(poss.size()-1);
+								int rr = Random.rand(poss.size()-1);
 								while(sent.contains(rr))
-									rr = r.nextInt(poss.size()-1);
+									rr = Random.rand(poss.size()-1);
 								Util.breakBlock(poss.get(rr));
 								sent.add(rr);
 							}
 						}
 					}
-				}else
-					Util.sendMessage("\u00a74Well...I guess I f*cked up and forgot to add an else if for your mode, please report this!");
+				} else Util.sendMessage("\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
 				count = 21;
-			}else count--;
+			} else count--;
 		}
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(isEnabled())
-			r.drawString(bypass ? name+"(BYPASS,MODE:"+mode+")" : name+"(MODE:"+mode+")", x, y, Color.WHITE.getRGB());
-		return isEnabled();
+	public String getRenderstring() {
+		return bypass ? name + "(BYPASS,MODE:" + mode + ")" : name + "(MODE:" + mode + ")";
 	}
 
 	@Override

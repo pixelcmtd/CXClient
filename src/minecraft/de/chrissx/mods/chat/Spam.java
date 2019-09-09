@@ -28,7 +28,7 @@ public class Spam extends Mod {
 		final long delay;
 		final boolean clear;
 		
-		clear = !args[0].equalsIgnoreCase("#spam");
+		clear = args[0].equalsIgnoreCase("#clearspam");
 		
 		try {
 			times = Integer.parseInt(args[1]);
