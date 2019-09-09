@@ -1,11 +1,9 @@
 package de.chrissx.mods;
 
-import java.awt.Color;
 import java.io.File;
 
 import de.chrissx.util.Random;
 import de.chrissx.util.Util;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.inventory.GuiChest;
 
 public class Autosteal extends Mod {
@@ -49,10 +47,8 @@ public class Autosteal extends Mod {
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(isEnabled())
-			r.drawString(getName() + (bypass ? "(BYPASS)" : ""), x, y, Color.WHITE.getRGB());
-		return isEnabled();
+	public String getRenderstring() {
+		return name + (bypass ? "(BYPASS)" : "");
 	}
 
 	@Override

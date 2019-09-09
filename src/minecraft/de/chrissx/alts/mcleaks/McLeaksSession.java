@@ -1,13 +1,11 @@
 package de.chrissx.alts.mcleaks;
 
-import net.minecraft.util.Session;
-
 public class McLeaksSession {
 	String session = "null";
 	String mcname = "null";
-	
+
 	public McLeaksSession() {}
-	
+
 	public McLeaksSession(String session, String mcname) {
 		this.session = session;
 		this.mcname = mcname;
