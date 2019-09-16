@@ -59,6 +59,7 @@ import de.chrissx.mods.movement.FastLadder;
 import de.chrissx.mods.movement.Flip;
 import de.chrissx.mods.movement.Glide;
 import de.chrissx.mods.movement.HighJump;
+import de.chrissx.mods.movement.InventoryWalk;
 import de.chrissx.mods.movement.Jetpack;
 import de.chrissx.mods.movement.LegitSpeed;
 import de.chrissx.mods.movement.NoCobweb;
@@ -144,6 +145,7 @@ public class ModList implements Iterable<Mod> {
 	public final AutoLeave autoLeave = new AutoLeave();
 	public final WaterWalk waterWalk = new WaterWalk();
 	public final AutoJump autoJump = new AutoJump();
+	public final InventoryWalk invWalk = new InventoryWalk();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -223,12 +225,13 @@ public class ModList implements Iterable<Mod> {
 			autoSoup,
 			autoLeave,
 			waterWalk,
-			autoJump
+			autoJump,
+			invWalk,
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
-	
+
 	@SuppressWarnings("unlikely-arg-type")
 	public ModList() {
 		for(Mod m : mods)

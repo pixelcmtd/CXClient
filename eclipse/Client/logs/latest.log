@@ -1,38 +1,34 @@
-[17:37:40] [Client thread/INFO]: Setting user: Player540
-[17:37:40] [Client thread/INFO]: (Session ID is *censored*)
-[17:37:42] [Client thread/INFO]: CXClient Version: alpha 3107
-[17:37:42] [Client thread/INFO]: LWJGL Version: 2.9.4
-[17:37:43] [Client thread/INFO]: Reloading ResourceManager: Default
-[17:37:44] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[17:37:44] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[17:37:44] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[17:37:44] [Thread-7/INFO]: OpenAL initialized.
-[17:37:44] [Sound Library Loader/INFO]: Sound engine started
-[17:37:55] [Client thread/INFO]: Created: 512x512 textures-atlas
-[17:37:59] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[17:37:59] [Server thread/INFO]: Generating keypair
-[17:37:59] [Server thread/INFO]: Preparing start region for level 0
-[17:38:00] [Server thread/INFO]: Preparing spawn area: 97%
-[17:38:00] [Server thread/INFO]: Changing view distance to 12, from 10
-[17:38:01] [Server thread/INFO]: Player540[local:E:73a3da1a] logged in with entity id 195 at (581.540599874498, 66.54040525373046, 216.3702658248743)
-[17:38:01] [Server thread/INFO]: Player540 joined the game
-[17:38:49] [Server thread/INFO]: Player540 has just earned the achievement [Taking Inventory]
-[17:38:49] [Client thread/INFO]: [CHAT] Player540 has just earned the achievement [Taking Inventory]
-[17:39:40] [Server thread/INFO]: Saving and pausing game...
-[17:39:40] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[17:39:40] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[17:39:40] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[17:46:54] [Client thread/INFO]: [CHAT] You can only sleep at night
-[17:53:42] [Server thread/INFO]: Saving and pausing game...
-[17:53:42] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[17:53:42] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[17:53:42] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[17:53:43] [Server thread/INFO]: Stopping server
-[17:53:43] [Server thread/INFO]: Saving players
-[17:53:43] [Server thread/INFO]: Saving worlds
-[17:53:43] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[17:53:43] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[17:53:43] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[17:54:07] [Client thread/INFO]: Stopping CXClient.
-[17:54:07] [Client thread/INFO]: SoundSystem shutting down...
-[17:54:08] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[21:02:56] [Client thread/INFO]: Setting user: Player930
+[21:02:56] [Client thread/INFO]: (Session ID is *censored*)
+[21:02:57] [Client thread/INFO]: Made InventoryWalkPath.
+[21:02:57] [Client thread/INFO]: CXClient Version: alpha 3109
+[21:02:57] [Client thread/INFO]: LWJGL Version: 2.9.4
+[21:02:58] [Client thread/INFO]: Reloading ResourceManager: Default
+[21:02:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[21:02:59] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[21:02:59] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[21:02:59] [Thread-7/INFO]: OpenAL initialized.
+[21:02:59] [Sound Library Loader/INFO]: Sound engine started
+[21:03:10] [Client thread/INFO]: Created: 512x512 textures-atlas
+[21:03:18] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[21:03:18] [Server thread/INFO]: Generating keypair
+[21:03:18] [Server thread/INFO]: Preparing start region for level 0
+[21:03:19] [Server thread/INFO]: Changing view distance to 12, from 10
+[21:03:19] [Server thread/INFO]: Player930[local:E:70cf7b3e] logged in with entity id 158 at (535.0073920607127, 71.0, 187.83280744147802)
+[21:03:19] [Server thread/INFO]: Player930 joined the game
+[21:03:24] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #invwalk #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[21:03:30] [Server thread/INFO]: Player930 has just earned the achievement [Taking Inventory]
+[21:03:30] [Client thread/INFO]: [CHAT] Player930 has just earned the achievement [Taking Inventory]
+[21:04:26] [Server thread/INFO]: Saving and pausing game...
+[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[21:04:28] [Server thread/INFO]: Stopping server
+[21:04:28] [Server thread/INFO]: Saving players
+[21:04:28] [Server thread/INFO]: Saving worlds
+[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[21:04:29] [Client thread/INFO]: Stopping CXClient.
+[21:04:29] [Client thread/INFO]: SoundSystem shutting down...
+[21:04:29] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
