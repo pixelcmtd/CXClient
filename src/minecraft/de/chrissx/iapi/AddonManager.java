@@ -130,6 +130,7 @@ public class AddonManager {
 		commands.add(new Command("#dropinventory", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.dropInventory.processCommand(t);}}));
 		commands.add(new Command("#jesus", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.waterWalk.processCommand(t);}}));
 		commands.add(new Command("#autojump", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoJump.processCommand(t);}}));
+		commands.add(new Command("#invwalk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.invWalk.processCommand(t);}}));
 		commands.add(new Command("#alt", new Consumer<String[]>() {@Override public void accept(String[] t) {String s = Util.combineParts(t, 1, " "); HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));}}));
 		commands.add(new Command("#changelog", new Consumer<String[]>() {@Override public void accept(String[] t) {for(String s : Consts.changelog) Util.sendMessage(s);}}));
 		commands.add(new Command("#credits", new Consumer<String[]>() {@Override public void accept(String[] t) {for(String s : Consts.credits) Util.sendMessage(s);}}));

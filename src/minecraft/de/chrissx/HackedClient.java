@@ -333,7 +333,7 @@ public class HackedClient {
 			if(args.length < 2)
 				Util.sendMessage("#unbind <key>");
 			else
-				hotkeys.remove(Keyboard.getKeyIndex(args[1]));
+				Util.removeHotkeyFromList(hotkeys, Keyboard.getKeyIndex(args[1]));
 		else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
 				Util.sendMessage("\u00a74Please enter a message.");

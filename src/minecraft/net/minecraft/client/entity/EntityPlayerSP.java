@@ -27,7 +27,6 @@ import net.minecraft.entity.item.EntityMinecart;
 import net.minecraft.entity.passive.EntityHorse;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.play.client.C01PacketChatMessage;
 import net.minecraft.network.play.client.C03PacketPlayer;
@@ -534,12 +533,12 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public BlockPos getPosition()
     {
-        return new BlockPos(this.posX + 0.5D, this.posY + 0.5D, this.posZ + 0.5D);
+        return new BlockPos(posX + 0.5D, posY + 0.5D, posZ + 0.5D);
     }
 
     public void playSound(String name, float volume, float pitch)
     {
-        this.worldObj.playSound(this.posX, this.posY, this.posZ, name, volume, pitch, false);
+        this.worldObj.playSound(posX, posY, posZ, name, volume, pitch, false);
     }
 
     /**
@@ -552,22 +551,22 @@ public class EntityPlayerSP extends AbstractClientPlayer
 
     public boolean isRidingHorse()
     {
-        return this.ridingEntity != null && this.ridingEntity instanceof EntityHorse && ((EntityHorse)this.ridingEntity).isHorseSaddled();
+        return ridingEntity != null && this.ridingEntity instanceof EntityHorse && ((EntityHorse)ridingEntity).isHorseSaddled();
     }
 
     public float getHorseJumpPower()
     {
-        return this.horseJumpPower;
+        return horseJumpPower;
     }
 
     public void openEditSign(TileEntitySign signTile)
     {
-        this.mc.displayGuiScreen(new GuiEditSign(signTile));
+        mc.displayGuiScreen(new GuiEditSign(signTile));
     }
 
     public void openEditCommandBlock(CommandBlockLogic cmdBlockLogic)
     {
-        this.mc.displayGuiScreen(new GuiCommandBlock(cmdBlockLogic));
+        mc.displayGuiScreen(new GuiCommandBlock(cmdBlockLogic));
     }
 
     /**
@@ -575,12 +574,8 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void displayGUIBook(ItemStack bookStack)
     {
-        Item item = bookStack.getItem();
-
-        if (item == Items.writable_book)
-        {
-            this.mc.displayGuiScreen(new GuiScreenBook(this, bookStack, true));
-        }
+        if (bookStack.getItem() == Items.writable_book)
+            mc.displayGuiScreen(new GuiScreenBook(this, bookStack, true));
     }
 
     /**
@@ -591,38 +586,24 @@ public class EntityPlayerSP extends AbstractClientPlayer
         String s = chestInventory instanceof IInteractionObject ? ((IInteractionObject)chestInventory).getGuiID() : "minecraft:container";
 
         if ("minecraft:chest".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiChest(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiChest(inventory, chestInventory));
         else if ("minecraft:hopper".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiHopper(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiHopper(inventory, chestInventory));
         else if ("minecraft:furnace".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiFurnace(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiFurnace(inventory, chestInventory));
         else if ("minecraft:brewing_stand".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiBrewingStand(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiBrewingStand(inventory, chestInventory));
         else if ("minecraft:beacon".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiBeacon(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiBeacon(inventory, chestInventory));
         else if (!"minecraft:dispenser".equals(s) && !"minecraft:dropper".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiChest(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiChest(inventory, chestInventory));
         else
-        {
-            this.mc.displayGuiScreen(new GuiDispenser(this.inventory, chestInventory));
-        }
+            mc.displayGuiScreen(new GuiDispenser(inventory, chestInventory));
     }
 
     public void displayGUIHorse(EntityHorse horse, IInventory horseInventory)
     {
-        this.mc.displayGuiScreen(new GuiScreenHorseInventory(this.inventory, horseInventory, horse));
+        mc.displayGuiScreen(new GuiScreenHorseInventory(inventory, horseInventory, horse));
     }
 
     public void displayGui(IInteractionObject guiOwner)
@@ -630,17 +611,11 @@ public class EntityPlayerSP extends AbstractClientPlayer
         String s = guiOwner.getGuiID();
 
         if ("minecraft:crafting_table".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiCrafting(this.inventory, this.worldObj));
-        }
+            this.mc.displayGuiScreen(new GuiCrafting(inventory, worldObj));
         else if ("minecraft:enchanting_table".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiEnchantment(this.inventory, this.worldObj, guiOwner));
-        }
+            this.mc.displayGuiScreen(new GuiEnchantment(inventory, worldObj, guiOwner));
         else if ("minecraft:anvil".equals(s))
-        {
-            this.mc.displayGuiScreen(new GuiRepair(this.inventory, this.worldObj));
-        }
+            this.mc.displayGuiScreen(new GuiRepair(inventory, worldObj));
     }
 
     public void displayVillagerTradeGui(IMerchant villager)
@@ -666,29 +641,28 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public boolean isSneaking()
     {
-        boolean flag = this.movementInput != null ? this.movementInput.sneak : false;
-        return flag && !this.sleeping;
+        return (movementInput != null ? movementInput.sneak : false) && !this.sleeping;
     }
 
     public void updateEntityActionState()
     {
         super.updateEntityActionState();
 
-        if (this.isCurrentViewEntity())
+        if (isCurrentViewEntity())
         {
-            this.moveStrafing = this.movementInput.moveStrafe;
-            this.moveForward = this.movementInput.moveForward;
-            this.isJumping = this.movementInput.jump;
-            this.prevRenderArmYaw = this.renderArmYaw;
-            this.prevRenderArmPitch = this.renderArmPitch;
-            this.renderArmPitch = (float)((double)this.renderArmPitch + (double)(this.rotationPitch - this.renderArmPitch) * 0.5D);
-            this.renderArmYaw = (float)((double)this.renderArmYaw + (double)(this.rotationYaw - this.renderArmYaw) * 0.5D);
+            moveStrafing = movementInput.moveStrafe;
+            moveForward = movementInput.moveForward;
+            isJumping = movementInput.jump;
+            prevRenderArmYaw = renderArmYaw;
+            prevRenderArmPitch = renderArmPitch;
+            renderArmPitch = (float)((double)renderArmPitch + (double)(rotationPitch - renderArmPitch) * 0.5D);
+            renderArmYaw = (float)((double)renderArmYaw + (double)(rotationYaw - renderArmYaw) * 0.5D);
         }
     }
 
     protected boolean isCurrentViewEntity()
     {
-        return this.mc.getRenderViewEntity() == this;
+        return mc.getRenderViewEntity() == this;
     }
 
     /**

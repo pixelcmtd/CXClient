@@ -11,9 +11,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.HackedClient;
+import de.chrissx.hotkeys.Hotkey;
 import de.chrissx.locations.LocFloat64;
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockAir;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
@@ -46,6 +46,19 @@ public class Util {
 	{
 		mc = Minecraft.getMinecraft();
 		hc = HackedClient.getClient();
+	}
+
+	public static void removeHotkeyFromList(List<Hotkey> hotkeys, int key)
+	{
+		for(int i = 0; i < hotkeys.size(); i++)
+		{
+			if(hotkeys.get(i).key == key)
+			{
+				hotkeys.remove(i);
+				removeHotkeyFromList(hotkeys, key);
+				return;
+			}
+		}
 	}
 
 	public static void info(String s)

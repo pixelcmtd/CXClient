@@ -28,9 +28,7 @@ public class KeyBinding implements Comparable<KeyBinding>
             KeyBinding keybinding = (KeyBinding)hash.lookup(keyCode);
 
             if (keybinding != null)
-            {
                 ++keybinding.pressTime;
-            }
         }
     }
 
@@ -133,11 +131,9 @@ public class KeyBinding implements Comparable<KeyBinding>
     {
         int i = I18n.format(this.keyCategory, new Object[0]).compareTo(I18n.format(p_compareTo_1_.keyCategory, new Object[0]));
 
-        if (i == 0)
-        {
-            i = I18n.format(this.keyDescription, new Object[0]).compareTo(I18n.format(p_compareTo_1_.keyDescription, new Object[0]));
-        }
-
-        return i;
+        if(i != 0)
+        	return i;
+        else
+            return I18n.format(this.keyDescription, new Object[0]).compareTo(I18n.format(p_compareTo_1_.keyDescription, new Object[0]));
     }
 }
