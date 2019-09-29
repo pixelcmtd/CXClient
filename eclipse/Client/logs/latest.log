@@ -1,34 +1,33 @@
-[21:02:56] [Client thread/INFO]: Setting user: Player930
-[21:02:56] [Client thread/INFO]: (Session ID is *censored*)
-[21:02:57] [Client thread/INFO]: Made InventoryWalkPath.
-[21:02:57] [Client thread/INFO]: CXClient Version: alpha 3109
-[21:02:57] [Client thread/INFO]: LWJGL Version: 2.9.4
-[21:02:58] [Client thread/INFO]: Reloading ResourceManager: Default
-[21:02:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[21:02:59] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[21:02:59] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[21:02:59] [Thread-7/INFO]: OpenAL initialized.
-[21:02:59] [Sound Library Loader/INFO]: Sound engine started
-[21:03:10] [Client thread/INFO]: Created: 512x512 textures-atlas
-[21:03:18] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[21:03:18] [Server thread/INFO]: Generating keypair
-[21:03:18] [Server thread/INFO]: Preparing start region for level 0
-[21:03:19] [Server thread/INFO]: Changing view distance to 12, from 10
-[21:03:19] [Server thread/INFO]: Player930[local:E:70cf7b3e] logged in with entity id 158 at (535.0073920607127, 71.0, 187.83280744147802)
-[21:03:19] [Server thread/INFO]: Player930 joined the game
-[21:03:24] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #invwalk #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
-[21:03:30] [Server thread/INFO]: Player930 has just earned the achievement [Taking Inventory]
-[21:03:30] [Client thread/INFO]: [CHAT] Player930 has just earned the achievement [Taking Inventory]
-[21:04:26] [Server thread/INFO]: Saving and pausing game...
-[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[21:04:26] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[21:04:28] [Server thread/INFO]: Stopping server
-[21:04:28] [Server thread/INFO]: Saving players
-[21:04:28] [Server thread/INFO]: Saving worlds
-[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[21:04:28] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[21:04:29] [Client thread/INFO]: Stopping CXClient.
-[21:04:29] [Client thread/INFO]: SoundSystem shutting down...
-[21:04:29] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[14:30:39] [Client thread/INFO]: Setting user: Player181
+[14:30:39] [Client thread/INFO]: (Session ID is *censored*)
+[14:30:41] [Client thread/INFO]: CXClient Version: 3.1
+[14:30:41] [Client thread/INFO]: LWJGL Version: 2.9.4
+[14:30:42] [Client thread/INFO]: Reloading ResourceManager: Default
+[14:30:42] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[14:30:42] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[14:30:42] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:30:43] [Thread-7/INFO]: OpenAL initialized.
+[14:30:43] [Sound Library Loader/INFO]: Sound engine started
+[14:30:55] [Client thread/INFO]: Created: 512x512 textures-atlas
+[14:30:59] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[14:30:59] [Server thread/INFO]: Generating keypair
+[14:30:59] [Server thread/INFO]: Preparing start region for level 0
+[14:31:00] [Server thread/INFO]: Changing view distance to 12, from 10
+[14:31:01] [Server thread/INFO]: Player181[local:E:59593271] logged in with entity id 148 at (537.4143039311067, 103.0, 207.70151705579707)
+[14:31:01] [Server thread/INFO]: Player181 joined the game
+[14:31:10] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #invwalk #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
+[14:31:16] [Server thread/INFO]: Player181 has just earned the achievement [Taking Inventory]
+[14:31:16] [Client thread/INFO]: [CHAT] Player181 has just earned the achievement [Taking Inventory]
+[14:31:50] [Server thread/INFO]: Saving and pausing game...
+[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:31:51] [Server thread/INFO]: Stopping server
+[14:31:51] [Server thread/INFO]: Saving players
+[14:31:51] [Server thread/INFO]: Saving worlds
+[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:31:53] [Client thread/INFO]: Stopping CXClient.
+[14:31:53] [Client thread/INFO]: SoundSystem shutting down...
+[14:31:53] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
