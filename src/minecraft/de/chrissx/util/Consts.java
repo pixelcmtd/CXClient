@@ -25,21 +25,14 @@ public class Consts {
 	public static final String optionsFile = Paths.get(configPath, "options.cfg").toString();
 	public static final String eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "3.1";
+	public static final String version = "3.1.1";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = 310;
+	public static final int BLDNUM = 311;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-Added more eAPI functionality",
-		"-Added an industry-leading WaterWalk/Jesus",
-		"-Added a simple AutoJump",
-		"-Added an option system that only controls the eAPI sleep time at the moment",
-		"-Added an AuthMeCracker brute-force mode",
-		"-Fixed the MCLeaksAPI",
-		"-Fixed the hotkey unbinding",
-		"-Added an InventoryWalk",
+		"-Fixed InventoryWalk being active in spite of actually being disabled",
 	};
 
 	public static final String[] credits = new String[] {
