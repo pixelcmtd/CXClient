@@ -1,33 +1,14 @@
-[14:30:39] [Client thread/INFO]: Setting user: Player181
-[14:30:39] [Client thread/INFO]: (Session ID is *censored*)
-[14:30:41] [Client thread/INFO]: CXClient Version: 3.1
-[14:30:41] [Client thread/INFO]: LWJGL Version: 2.9.4
-[14:30:42] [Client thread/INFO]: Reloading ResourceManager: Default
-[14:30:42] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[14:30:42] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[14:30:42] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[14:30:43] [Thread-7/INFO]: OpenAL initialized.
-[14:30:43] [Sound Library Loader/INFO]: Sound engine started
-[14:30:55] [Client thread/INFO]: Created: 512x512 textures-atlas
-[14:30:59] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[14:30:59] [Server thread/INFO]: Generating keypair
-[14:30:59] [Server thread/INFO]: Preparing start region for level 0
-[14:31:00] [Server thread/INFO]: Changing view distance to 12, from 10
-[14:31:01] [Server thread/INFO]: Player181[local:E:59593271] logged in with entity id 148 at (537.4143039311067, 103.0, 207.70151705579707)
-[14:31:01] [Server thread/INFO]: Player181 joined the game
-[14:31:10] [Client thread/INFO]: [CHAT] §c[CXClient] §fCommands: #text #multitext #killpotion #spam #skinblink #fastplace #fastbreak #nofall #fullbright #xray #fasthit #autoclicker #noswing #authmecrack #antiafk #autosteal #killaura #nuker #sneak #tracer #clearspam #panic #throw #flyvanilla #masstpa #autoarmor #trollpotion #twerk #fastladder #reach #velocity #flyac1 #flyac2 #timer #speedac1 #sprint #bedfucker #speedlegit #freecam #aimbot #jailsmcbot #norender #stepjump #jetpack #regen #flip #lag #scaffoldwalk #fastfall #fasteat #autoswitch #tired #derp #antipotion #nocobweb #parkour #phase #fastbow #spider #antifire #highjump #autowalk #autorespawn #dolphin #kaboom #glide #rollhead #automine #autosoup #autoleave #dropinventory #jesus #autojump #invwalk #alt #changelog #credits #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help
-[14:31:16] [Server thread/INFO]: Player181 has just earned the achievement [Taking Inventory]
-[14:31:16] [Client thread/INFO]: [CHAT] Player181 has just earned the achievement [Taking Inventory]
-[14:31:50] [Server thread/INFO]: Saving and pausing game...
-[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[14:31:50] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[14:31:51] [Server thread/INFO]: Stopping server
-[14:31:51] [Server thread/INFO]: Saving players
-[14:31:51] [Server thread/INFO]: Saving worlds
-[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[14:31:51] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[14:31:53] [Client thread/INFO]: Stopping CXClient.
-[14:31:53] [Client thread/INFO]: SoundSystem shutting down...
-[14:31:53] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[18:20:59] [Client thread/INFO]: Setting user: Player473
+[18:20:59] [Client thread/INFO]: (Session ID is *censored*)
+[18:21:00] [Client thread/INFO]: CXClient Version: 3.1.1
+[18:21:00] [Client thread/INFO]: LWJGL Version: 2.9.4
+[18:21:01] [Client thread/INFO]: Reloading ResourceManager: Default
+[18:21:01] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[18:21:02] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[18:21:02] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[18:21:02] [Thread-7/INFO]: OpenAL initialized.
+[18:21:02] [Sound Library Loader/INFO]: Sound engine started
+[18:21:13] [Client thread/INFO]: Created: 512x512 textures-atlas
+[18:22:46] [Client thread/INFO]: Stopping CXClient.
+[18:22:46] [Client thread/INFO]: SoundSystem shutting down...
+[18:22:46] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

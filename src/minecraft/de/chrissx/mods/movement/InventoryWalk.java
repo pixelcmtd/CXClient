@@ -17,7 +17,7 @@ public class InventoryWalk extends Mod {
 	@Override
 	public void onTick()
 	{
-		if (mc.currentScreen == null || mc.currentScreen instanceof GuiChat) return;
+		if (!enabled || mc.currentScreen == null || mc.currentScreen instanceof GuiChat) return;
 
         KeyBinding[] movebinds = {mc.gameSettings.keyBindForward, mc.gameSettings.keyBindBack, mc.gameSettings.keyBindLeft, mc.gameSettings.keyBindRight, mc.gameSettings.keyBindJump};
 
