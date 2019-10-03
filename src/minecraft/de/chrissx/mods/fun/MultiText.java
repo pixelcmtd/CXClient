@@ -1,14 +1,14 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
+import de.chrissx.mods.Semimod;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 
-public class MultiText implements Bindable, Commandable {
-	
-	Minecraft mc = Minecraft.getMinecraft();
+public class MultiText extends Semimod {
+
+	public MultiText() {
+		super("MultiText");
+	}
 
 	@Override
 	public void processCommand(String[] args) {
@@ -22,9 +22,9 @@ public class MultiText implements Bindable, Commandable {
 			}
 			for(int i = 1; i < args.length; i++) {
 				Util.cheatArmorStand(args[i],
-						mc.thePlayer.posX,
-						mc.thePlayer.posY+((args.length-2)*0.3)-(i*0.3),
-						mc.thePlayer.posZ,
+						player().posX,
+						player().posY+((args.length-2)*0.3)-(i*0.3),
+						player().posZ,
 						Consts.packetPlayerInventorySlots[i-1]);
 			}
 		}
@@ -39,7 +39,5 @@ public class MultiText implements Bindable, Commandable {
 	}
 
 	@Override
-	public String getName() {
-		return "MultiText";
-	}
+	public void toggle() {}
 }

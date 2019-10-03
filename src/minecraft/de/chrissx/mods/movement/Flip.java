@@ -1,30 +1,21 @@
 package de.chrissx.mods.movement;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
+import de.chrissx.mods.Semimod;
 
-public class Flip implements Bindable, Commandable {
+public class Flip extends Semimod {
 
-	EntityPlayerSP p = Minecraft.getMinecraft().thePlayer;
-	
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length == 1)
-			p.rotationYaw += 180;
-		else
-			p.rotationYaw += Float.parseFloat(args[1]);
+		if(args.length == 1) toggle();
+		else player().rotationYaw += Float.parseFloat(args[1]);
+	}
+
+	public Flip() {
+		super("Flip");
 	}
 
 	@Override
-	public void onHotkey() {
-		p.rotationYaw += 180;
+	public void toggle() {
+		player().rotationYaw += 180;
 	}
-
-	@Override
-	public String getName() {
-		return "Flip";
-	}
-
 }

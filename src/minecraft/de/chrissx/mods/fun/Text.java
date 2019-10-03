@@ -1,14 +1,14 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
+import de.chrissx.mods.Semimod;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 
-public class Text implements Bindable, Commandable {
+public class Text extends Semimod {
 
-	Minecraft mc = Minecraft.getMinecraft();
+	public Text() {
+		super("Text");
+	}
 
 	@Override
 	public void onHotkey() {
@@ -18,14 +18,11 @@ public class Text implements Bindable, Commandable {
 	@Override
 	public void processCommand(String[] args) {
 		String message = "";
-        for (int i = 1; i < args.length; i++) {
-        	message = message + args[i] + " ";
-        }
-        Util.cheatArmorStand(message.replace('&', '\u00a7'), mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, 36);
+        for (int i = 1; i < args.length; i++)
+        	message += args[i] + " ";
+        Util.cheatArmorStand(message.replace('&', '\u00a7'), player().posX, player().posY, player().posZ, 36);
 	}
 
 	@Override
-	public String getName() {
-		return "Text";
-	}
+	public void toggle() {}
 }

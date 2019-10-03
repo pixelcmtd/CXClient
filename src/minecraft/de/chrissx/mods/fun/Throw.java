@@ -1,15 +1,16 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
+import de.chrissx.mods.Semimod;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 
-public class Throw implements Bindable, Commandable {
+public class Throw extends Semimod {
+
+	public Throw() {
+		super("Throw");
+	}
 
 	long throwCount = 500;
 	long delay = 1;
-	Minecraft mc = Minecraft.getMinecraft();
 
 	@Override
 	public void processCommand(String[] args) {
@@ -26,8 +27,9 @@ public class Throw implements Bindable, Commandable {
 			toggle();
 		}
 	}
-	
-	void toggle()
+
+	@Override
+	public void toggle()
 	{
 		new Thread(new Runnable() {
 			@Override
@@ -43,15 +45,5 @@ public class Throw implements Bindable, Commandable {
 				}
 			}
 		}).start();
-	}
-
-	@Override
-	public String getName() {
-		return "Throw";
-	}
-
-	@Override
-	public void onHotkey() {
-		toggle();
 	}
 }

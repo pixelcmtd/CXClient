@@ -9,29 +9,18 @@ import java.nio.file.Paths;
 
 import com.google.common.io.Files;
 
-import de.chrissx.HackedClient;
 import de.chrissx.util.Consts;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.gui.FontRenderer;
 
-public abstract class Mod implements Commandable, Bindable, TickListener, StopListener, RenderedObject {
+public abstract class Mod extends Semimod implements TickListener, StopListener, RenderedObject {
 
 	protected volatile boolean enabled = false;
-	protected final String name;
-	protected final Minecraft mc = Minecraft.getMinecraft();
-	protected final HackedClient hc = HackedClient.getClient();
 	protected final String apiDir;
 
-	public Mod(String name)
+	protected Mod(String name)
 	{
-		this.name = name;
+		super(name);
 		apiDir = Paths.get(Consts.modsPath, name).toString();
-	}
-	
-	public EntityPlayerSP player()
-	{
-		return mc.thePlayer;
 	}
 
 	public void toggle()
@@ -59,25 +48,7 @@ public abstract class Mod implements Commandable, Bindable, TickListener, StopLi
 	}
 
 	@Override
-	public void processCommand(String[] args)
-	{
-		toggle();
-	}
-
-	@Override
-	public void onHotkey()
-	{
-		toggle();
-	}
-
-	@Override
 	public void onStop() {}
-
-	@Override
-	public String getName()
-	{
-		return name;
-	}
 
 	@Override
 	public void onTick() {}

@@ -1,16 +1,15 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
+import de.chrissx.mods.Semimod;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagList;
 
-public class TrollPotion implements Bindable, Commandable {
+public class TrollPotion extends Semimod {
 
 	@Override
-	public void onHotkey() {
-		if(!Minecraft.getMinecraft().playerController.isInCreativeMode()) {
+	public void toggle() {
+		if(!mc.playerController.isInCreativeMode()) {
 			Util.sendMessage("\u00a74You have to be in gm 1 in order to execute this!");
 			return;
 		}
@@ -20,13 +19,7 @@ public class TrollPotion implements Bindable, Commandable {
 		Util.cheatItem(Util.getCustomPotion(l, "Troller Potion of Trolling"), 36);
 	}
 
-	@Override
-	public void processCommand(String[] args) {
-		onHotkey();
-	}
-
-	@Override
-	public String getName() {
-		return "TrollPotion";
+	public TrollPotion() {
+		super("TrollPotion");
 	}
 }

@@ -1,24 +1,15 @@
 package de.chrissx.mods.fun;
 
-import de.chrissx.mods.Bindable;
-import de.chrissx.mods.Commandable;
-import net.minecraft.client.Minecraft;
+import de.chrissx.mods.Semimod;
 
-public class DropInventory implements Bindable, Commandable {
+public class DropInventory extends Semimod {
 
-	@Override
-	public void processCommand(String[] args) {
-		Minecraft.getMinecraft().thePlayer.inventory.dropAllItems();
+	public DropInventory() {
+		super("DropInventory");
 	}
 
 	@Override
-	public void onHotkey() {
-		Minecraft.getMinecraft().thePlayer.inventory.dropAllItems();
+	public void toggle() {
+		inventory().dropAllItems();
 	}
-
-	@Override
-	public String getName() {
-		return "DropInventory";
-	}
-
 }
