@@ -12,6 +12,6 @@ public class NoCobweb extends Mod {
 	public void onTick()
 	{
 		if(enabled)
-			mc.thePlayer.isInWeb = false;
+			player().isInWeb = false;
 	}
 }

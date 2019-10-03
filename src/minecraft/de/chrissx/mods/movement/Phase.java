@@ -13,21 +13,21 @@ public class Phase extends Mod {
 	{
 		if(enabled)
 		{
-		    mc.thePlayer.fallDistance = 0;
-		    mc.thePlayer.onGround = true;
+		    player().fallDistance = 0;
+		    player().onGround = true;
 		    if(mc.gameSettings.keyBindJump.isKeyDown())
-		    	mc.thePlayer.motionY = 0.1;
+		    	player().motionY = 0.1;
 		    else if(mc.gameSettings.keyBindSneak.isKeyDown())
-		    	mc.thePlayer.motionY = -0.1;
+		    	player().motionY = -0.1;
 		    else
-		    	mc.thePlayer.motionY = 0;
+		    	player().motionY = 0;
 		}
 	}
-	
+
 	@Override
 	public void toggle()
 	{
-		mc.thePlayer.motionY = 0;
+		player().motionY = 0;
 		enabled = !enabled;
 	}
 }

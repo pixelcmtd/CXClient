@@ -13,7 +13,7 @@ public class AutoRespawn extends Mod {
 	{
 		if(enabled && mc.thePlayer.isDead)
 		{
-			mc.thePlayer.respawnPlayer();
+			player().respawnPlayer();
 			mc.displayGuiScreen(null);
 		}
 	}

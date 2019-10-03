@@ -13,6 +13,6 @@ public class Tired extends Mod {
 	public void onTick()
 	{
 		if(enabled)
-			mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(mc.thePlayer.rotationYaw, mc.thePlayer.ticksExisted % 100, mc.thePlayer.onGround));
+			player().sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(player().rotationYaw, player().ticksExisted % 100, player().onGround));
 	}
 }

@@ -28,11 +28,11 @@ public class SkinBlinker extends Mod {
 				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.LEFT_SLEEVE);
 			else
 				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.RIGHT_SLEEVE);
-			if(i < 6) {
+
+			if(i < 6)
 				i++;
-			}else {
+			else
 				i = 0;
-			}
 		}
 	}
 }

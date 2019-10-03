@@ -13,11 +13,10 @@ public class AutoSoup extends Mod {
 	public void onTick()
 	{
 		int i;
-		if(enabled && mc.thePlayer.getHealth() < mc.thePlayer.getMaxHealth() &&
-				(i = Util.firstSoupIndex(
-						mc.thePlayer.inventory.mainInventory)) != -1)
+		if(enabled && player().getHealth() < player().getMaxHealth() &&
+			(i = Util.firstSoupIndex(inventory().mainInventory)) != -1)
 		{
-			mc.thePlayer.inventory.currentItem = i;
+			player().inventory.currentItem = i;
 			mc.rightClickMouse();
 		}
 	}

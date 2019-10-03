@@ -12,8 +12,8 @@ public class AntiFire extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && mc.thePlayer.isBurning() && !mc.thePlayer.capabilities.isCreativeMode && mc.thePlayer.onGround)
+		if(enabled && player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
 			for(int i = 0; i < 100; i++)
-				mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer());
+				player().sendQueue.addToSendQueue(new C03PacketPlayer());
 	}
 }

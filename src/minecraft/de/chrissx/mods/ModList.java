@@ -9,75 +9,12 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
-import de.chrissx.mods.building.AutoMine;
-import de.chrissx.mods.building.BedFucker;
-import de.chrissx.mods.building.FastBreak;
-import de.chrissx.mods.building.FastPlace;
-import de.chrissx.mods.building.Kaboom;
-import de.chrissx.mods.building.Nuker;
-import de.chrissx.mods.building.ScaffoldWalk;
-import de.chrissx.mods.chat.AuthMeCrack;
-import de.chrissx.mods.chat.Home;
-import de.chrissx.mods.chat.MassTpa;
-import de.chrissx.mods.chat.Spam;
-import de.chrissx.mods.combat.Aimbot;
-import de.chrissx.mods.combat.AntiFire;
-import de.chrissx.mods.combat.AntiPotion;
-import de.chrissx.mods.combat.AutoArmor;
-import de.chrissx.mods.combat.AutoLeave;
-import de.chrissx.mods.combat.AutoRespawn;
-import de.chrissx.mods.combat.AutoSoup;
-import de.chrissx.mods.combat.Autoclicker;
-import de.chrissx.mods.combat.FastBow;
-import de.chrissx.mods.combat.Fasthit;
-import de.chrissx.mods.combat.Killaura;
-import de.chrissx.mods.combat.Noswing;
-import de.chrissx.mods.combat.Reach;
-import de.chrissx.mods.fun.AutoSwitch;
-import de.chrissx.mods.fun.Derp;
-import de.chrissx.mods.fun.DropInventory;
-import de.chrissx.mods.fun.JailsmcBot;
-import de.chrissx.mods.fun.KillPotion;
-import de.chrissx.mods.fun.MultiText;
-import de.chrissx.mods.fun.RollHead;
-import de.chrissx.mods.fun.SkinBlinker;
-import de.chrissx.mods.fun.Text;
-import de.chrissx.mods.fun.Throw;
-import de.chrissx.mods.fun.Tired;
-import de.chrissx.mods.fun.TrollPotion;
-import de.chrissx.mods.fun.Twerk;
-import de.chrissx.mods.movement.ACFly1;
-import de.chrissx.mods.movement.ACFly2;
-import de.chrissx.mods.movement.ACSpeed1;
-import de.chrissx.mods.movement.AntiAfk;
-import de.chrissx.mods.movement.AutoJump;
-import de.chrissx.mods.movement.AutoWalk;
-import de.chrissx.mods.movement.Autosprint;
-import de.chrissx.mods.movement.Dolphin;
-import de.chrissx.mods.movement.FastFall;
-import de.chrissx.mods.movement.FastLadder;
-import de.chrissx.mods.movement.Flip;
-import de.chrissx.mods.movement.Glide;
-import de.chrissx.mods.movement.HighJump;
-import de.chrissx.mods.movement.InventoryWalk;
-import de.chrissx.mods.movement.Jetpack;
-import de.chrissx.mods.movement.LegitSpeed;
-import de.chrissx.mods.movement.NoCobweb;
-import de.chrissx.mods.movement.Nofall;
-import de.chrissx.mods.movement.Parkour;
-import de.chrissx.mods.movement.Phase;
-import de.chrissx.mods.movement.Sneak;
-import de.chrissx.mods.movement.Spider;
-import de.chrissx.mods.movement.StepJump;
-import de.chrissx.mods.movement.Timer;
-import de.chrissx.mods.movement.VanillaFly;
-import de.chrissx.mods.movement.Velocity;
-import de.chrissx.mods.movement.WaterWalk;
-import de.chrissx.mods.render.Freecam;
-import de.chrissx.mods.render.Fullbright;
-import de.chrissx.mods.render.NoRender;
-import de.chrissx.mods.render.Tracer;
-import de.chrissx.mods.render.Xray;
+import de.chrissx.mods.building.*;
+import de.chrissx.mods.chat.*;
+import de.chrissx.mods.combat.*;
+import de.chrissx.mods.fun.*;
+import de.chrissx.mods.movement.*;
+import de.chrissx.mods.render.*;
 
 public class ModList implements Iterable<Mod> {
 
@@ -234,9 +171,6 @@ public class ModList implements Iterable<Mod> {
 
 	@SuppressWarnings("unlikely-arg-type")
 	public ModList() {
-		for(Mod m : mods)
-			addBindable(m);
-		
 		addBindable(home);
 		addBindable(panic);
 		addBindable(trollPotion);
@@ -246,8 +180,9 @@ public class ModList implements Iterable<Mod> {
 		addBindable(flip);
 		addBindable(dropInventory);
 		addBindable(thrower);
-		
+
 		for(Mod m : mods) {
+			addBindable(m);
 			renderedObjects.add(m);
 			tickListeners.add(m);
 			stopListeners.add(m);
@@ -261,7 +196,7 @@ public class ModList implements Iterable<Mod> {
 			if(b instanceof StopListener && !stopListeners.contains(b))
 				stopListeners.add((StopListener) b);
 		}
-		
+
 		int len = 1;
 		for(Mod m : mods)
 		{
@@ -271,8 +206,8 @@ public class ModList implements Iterable<Mod> {
 		length = len;
 	}
 	
-	public void addBindable(Bindable bindable) {
-		this.bindable.put(bindable.getName().toLowerCase(), bindable);
+	public void addBindable(Bindable b) {
+		bindable.put(b.getName().toLowerCase(), b);
 	}
 	
 	public Set<Entry<String, Bindable>> getBindEntrys() {
