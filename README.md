@@ -1,13 +1,13 @@
 # CXClient - Minecraft Hacked Client
 ## History
-|Time                    |Version|original publication and licensing                     |
-|------------------------|-------|-------------------------------------------------------|
-|December 2017           |1.0    |completely private                                     |
-|January-February 2018   |2.0-2.1|public through MediaFire and German YouTube, obfuscated|
-|February 2018           |2.2    |planned to be released, was never released             |
-|July 2018               |2.3    |no more obfuscation, still no source code              |
-|August 2018-January 2019|2.4-3.0|GitHub source under GPLv3                              |
-|future                  |3.1+   |GitHub source under BSD 3-clause                       |
+|Time                    |Version  |original publication and licensing                     |
+|------------------------|---------|-------------------------------------------------------|
+|December 2017           |1.0      |completely private                                     |
+|January-February 2018   |2.0-2.1  |public through MediaFire and German YouTube, obfuscated|
+|February 2018           |2.2      |planned to be released, was never released             |
+|July 2018               |2.3      |no more obfuscation, still no source code              |
+|August 2018-January 2019|2.4-3.0  |GitHub source under GPLv3                              |
+|September 2019          |3.1-3.1.1|GitHub source under BSD 3-clause                       |
 ## Building
     git clone https://github.com/chrissxyt/cxclient
 Open eclipse with /path/to/cxclient/eclipse as the workspace, add a new Java
