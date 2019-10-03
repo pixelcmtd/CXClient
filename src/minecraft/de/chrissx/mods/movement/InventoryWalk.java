@@ -25,16 +25,16 @@ public class InventoryWalk extends Mod {
             KeyBinding.setKeyBindState(kb.getKeyCode(), Keyboard.isKeyDown(kb.getKeyCode()));
 
         if (Keyboard.isKeyDown(Keyboard.KEY_UP))
-            mc.thePlayer.rotationPitch--;
+            player().rotationPitch -= 2;
 
         if (Keyboard.isKeyDown(Keyboard.KEY_DOWN))
-            mc.thePlayer.rotationPitch++;
+            player().rotationPitch += 2;
 
         if (Keyboard.isKeyDown(Keyboard.KEY_LEFT))
-            mc.thePlayer.rotationYaw--;
+            player().rotationYaw -= 2;
 
         if (Keyboard.isKeyDown(Keyboard.KEY_RIGHT))
-            mc.thePlayer.rotationYaw++;
+            player().rotationYaw += 2;
 	}
 
 }
