@@ -2,7 +2,6 @@ package de.chrissx.alts.mcleaks;
 
 import java.io.BufferedReader;
 import java.io.DataOutputStream;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
@@ -30,10 +29,8 @@ public class McLeaksApi {
 		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/redeem", "{\"token\":\"" + token + "\"}");
 		if(con == null)
 			throw new ConnectException("The connection is null, please check your internet connection!");
-		Object o = getResult(con);
-		if(o == null)
-			throw new Exception("error in getResult()");
-		JsonObject json = (JsonObject)o;
+		JsonObject json = getResult(con);
+		if(json == null) throw new Exception("Server didn't return the session.");
 		if(!json.has("mcname"))
 			throw new CorruptedResultException("The result doesn't contain the name.");
 		if(!json.has("session"))
@@ -53,8 +50,7 @@ public class McLeaksApi {
 		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/joinserver", "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname() + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
 		if(con == null)
 			throw new ConnectException("The connection couldn't be established, please check your internet connection!");
-		if(getResult(con) == null)
-			throw new Exception("error in getResult()");
+		getResult(con);
 	}
 
 	static URLConnection preparePostRequest(final String url, final String body) {
@@ -77,7 +73,7 @@ public class McLeaksApi {
         }
     }
 
-	static Object getResult(final URLConnection urlConnection) throws IOException {
+	static JsonObject getResult(final URLConnection urlConnection) throws Exception {
         final BufferedReader reader = new BufferedReader(new InputStreamReader(urlConnection.getInputStream()));
         final StringBuilder result = new StringBuilder();
         String line;
@@ -90,7 +86,7 @@ public class McLeaksApi {
         	!jsonElement.getAsJsonObject().has("success") ||
         	!jsonElement.getAsJsonObject().get("success").getAsBoolean() ||
         	!jsonElement.getAsJsonObject().has("result"))
-            	return null;
-        return jsonElement.getAsJsonObject().get("result").isJsonObject() ? jsonElement.getAsJsonObject().get("result").getAsJsonObject() : false;
+            	throw new Exception("Getting the result didn't succeed.");
+        return jsonElement.getAsJsonObject().get("result").isJsonObject() ? jsonElement.getAsJsonObject().get("result").getAsJsonObject() : null;
     }
 }
