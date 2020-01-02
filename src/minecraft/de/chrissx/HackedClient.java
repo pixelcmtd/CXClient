@@ -30,6 +30,7 @@ import de.chrissx.mods.ModList;
 import de.chrissx.mods.RenderedObject;
 import de.chrissx.mods.StopListener;
 import de.chrissx.mods.TickListener;
+import de.chrissx.options.Options;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;

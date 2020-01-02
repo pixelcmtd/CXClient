@@ -27,6 +27,6 @@ public class Alt {
 	}
 
 	public boolean isCracked() {
-		return pass.equals("") || pass == null;
+		return pass == null || pass.length() == 0;
 	}
 }

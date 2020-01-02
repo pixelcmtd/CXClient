@@ -24,21 +24,21 @@ public class McLeaksApi {
 	 * Redeems an MCLeaks token.
 	 * @param token The McLeaks-Token
 	 * @return The current McLeaks-Session
+	 * @throws Exception 
 	 */
-	public static McLeaksSession redeemMcleaksToken(String token) throws ConnectException, ResultGettingException, CorruptedResultException, IOException {
+	public static McLeaksSession redeemMcleaksToken(String token) throws Exception {
 		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/redeem", "{\"token\":\"" + token + "\"}");
 		if(con == null)
 			throw new ConnectException("The connection is null, please check your internet connection!");
 		Object o = getResult(con);
-		if(o instanceof String)
-			throw new ResultGettingException((String)o);
+		if(o == null)
+			throw new Exception("error in getResult()");
 		JsonObject json = (JsonObject)o;
 		if(!json.has("mcname"))
 			throw new CorruptedResultException("The result doesn't contain the name.");
 		if(!json.has("session"))
 			throw new CorruptedResultException("The result doesn't contain the session.");
 		return new McLeaksSession(json.get("session").getAsString(), json.get("mcname").getAsString());
-		
 	}
 
 	/**
@@ -47,14 +47,14 @@ public class McLeaksApi {
 	 * @param mcName The player-name
 	 * @param serverHash The mc-server-hash
 	 * @param server The server to connect to
+	 * @throws Exception 
 	 */
-	public static void joinServer(McLeaksSession mclssession, String serverHash, String server) throws ConnectException, ResultGettingException, IOException {
+	public static void joinServer(McLeaksSession mclssession, String serverHash, String server) throws Exception {
 		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/joinserver", "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname() + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
 		if(con == null)
-			throw new ConnectException("The connection is null, please check your internet connection!");
-		Object o = getResult(con);
-		if(o instanceof String)
-			throw new ResultGettingException((String)o);
+			throw new ConnectException("The connection couldn't be established, please check your internet connection!");
+		if(getResult(con) == null)
+			throw new Exception("error in getResult()");
 	}
 
 	static URLConnection preparePostRequest(final String url, final String body) {
@@ -86,14 +86,11 @@ public class McLeaksApi {
         reader.close();
 		final JsonElement jsonElement = (JsonElement)gson.fromJson(result.toString(), JsonElement.class);
         System.out.println("[MCLeaksAPI] Got result: \"" + result + "\"");
-        if (!jsonElement.isJsonObject())
-            return "The json element isn't a json object.";
-        if(!jsonElement.getAsJsonObject().has("success"))
-        	return "The json element doesn't have the success tag.";
-        if (!jsonElement.getAsJsonObject().get("success").getAsBoolean())
-            return jsonElement.getAsJsonObject().has("errorMessage") ? jsonElement.getAsJsonObject().get("errorMessage").getAsString() : "The operation didn't succeed but the error message isn't defined.";
-        if (!jsonElement.getAsJsonObject().has("result"))
-            return "Json doesn't contain the result.";
-        return jsonElement.getAsJsonObject().get("result").isJsonObject() ? jsonElement.getAsJsonObject().get("result").getAsJsonObject() : null;
+        if (!jsonElement.isJsonObject() || 
+        	!jsonElement.getAsJsonObject().has("success") ||
+        	!jsonElement.getAsJsonObject().get("success").getAsBoolean() ||
+        	!jsonElement.getAsJsonObject().has("result"))
+            	return null;
+        return jsonElement.getAsJsonObject().get("result").isJsonObject() ? jsonElement.getAsJsonObject().get("result").getAsJsonObject() : false;
     }
 }

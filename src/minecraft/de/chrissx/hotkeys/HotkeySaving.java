@@ -38,10 +38,8 @@ public class HotkeySaving {
 		StringBuilder sb = new StringBuilder();
 		boolean b = false;
 		for(Hotkey hk : hotkeys) {
-			if(b)
-				sb.append("$");
-			else
-				b = true;
+			if(b) sb.append("$");
+			else  b = true;
 			sb.append(hotkeyToBase64(hk));
 		}
 		return sb.toString().getBytes(StandardCharsets.UTF_8);

@@ -37,22 +37,36 @@ public class AltManager {
 	public AltManager() {
 		alts = new ArrayList<Alt>();
 	}
-	
+
 	public List<Alt> getAlts() {
 		return alts;
 	}
-	
+
+	/**
+	 * alts.clear()
+	 */
 	public void clear()
 	{
 		alts.clear();
 	}
-	
+
+	/**
+	 * adds a new alt { name, pass } and runs patchAlt() on it
+	 * @param name the name/email for the alt
+	 * @param pass the password for the alt
+	 * @throws AuthenticationException
+	 */
 	public void login(String name, String pass) throws AuthenticationException {
 		currentAlt = new Alt(name, pass);
 		patchAlt(currentAlt);
 		alts.add(currentAlt);
 	}
-	
+
+	/**
+	 * logs into the alt and sets mc.session accordingly
+	 * @param a the alt
+	 * @throws AuthenticationException
+	 */
 	void patchAlt(Alt a) throws AuthenticationException {
 		if(auth.isLoggedIn())
 			auth.logOut();
@@ -64,18 +78,38 @@ public class AltManager {
 		}else
 			mc.session = new Session(a.getEmail(), "", "", "mojang");
 	}
-	
+
+	/**
+	 * gets an alt from ingame name
+	 * @param name the name of the alt
+	 * @return the alt
+	 * @throws AuthenticationException
+	 * @throws AltNotFoundException
+	 */
 	Alt getAlt(String name) throws AuthenticationException, AltNotFoundException {
 		for(Alt a : alts)
 			if(getName(a).equalsIgnoreCase(name))
 				return a;
 		throw new AltNotFoundException("Can't get alt from name.");
 	}
-	
+
+	/**
+	 * gets the ingame name from the alt
+	 * @param a the alt
+	 * @return the ig name
+	 * @throws AuthenticationException
+	 */
 	public String getName(Alt a) throws AuthenticationException {
 		return a.isCracked() ? a.getEmail() : getName(a.getEmail(), a.getPassword());
 	}
-	
+
+	/**
+	 * gets the name of the minecraft account with email and pass
+	 * @param email the email of the account
+	 * @param pass the password of the account
+	 * @return the name of the account
+	 * @throws AuthenticationException
+	 */
 	public String getName(String email, String pass) throws AuthenticationException {
 		if(auth.isLoggedIn())
 			auth.logOut();
@@ -85,10 +119,27 @@ public class AltManager {
 		return auth.getSelectedProfile().getName();
 	}
 
+	/**
+	 * tries to load the alt found by name
+	 * @param name
+	 * @throws AuthenticationException
+	 * @throws AltNotFoundException
+	 */
 	public void loadAlt(String name) throws AuthenticationException, AltNotFoundException {
 		patchAlt(getAlt(name));
 	}
 
+	/**
+	 * Uses password to store the alts a new Vault at file.
+	 * @param file the file to save to
+	 * @param password the password to use
+	 * @throws IOException
+	 * @throws InvalidKeyException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchPaddingException
+	 */
 	public void storeVault(String file, String password) throws IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException
 	{
 		ByteArrayOutputStream raw = new ByteArrayOutputStream();
@@ -101,7 +152,18 @@ public class AltManager {
 		}
 		AltCryptography.encrypt(Paths.get(file), password, raw.toByteArray());
 	}
-	
+
+	/**
+	 * Uses password to load the Vault at file.
+	 * @param file the file to load from
+	 * @param password the password used to decrypt
+	 * @throws InvalidKeyException
+	 * @throws NoSuchAlgorithmException
+	 * @throws NoSuchPaddingException
+	 * @throws IllegalBlockSizeException
+	 * @throws BadPaddingException
+	 * @throws IOException
+	 */
 	public void loadVault(String file, String password) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException
 	{
 		ByteArrayInputStream raw = new ByteArrayInputStream(
@@ -131,7 +193,7 @@ public class AltManager {
 	}
 
 	/**
-	 * Loads the alts from the given CXColonSeparatedValues-file.
+	 * Loads the alts from the given CXCSV-file.
 	 * @param file The path of the file the CXCSV is located in.
 	 * @return The loaded Alts.
 	 */
@@ -148,6 +210,11 @@ public class AltManager {
 		}
 	}
 
+	/**
+	 * Saves all alts to a CXCSV at file.
+	 * @param file the file to save to
+	 * @throws IOException
+	 */
 	public void saveCxcsv(String file) throws IOException
 	{
 		FileOutputStream fos = new FileOutputStream(file);

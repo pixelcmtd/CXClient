@@ -32,7 +32,7 @@ public class Consts {
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-Fixed InventoryWalk being active in spite of actually being disabled",
+		"-",
 	};
 
 	public static final String[] credits = new String[] {
