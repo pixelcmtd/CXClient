@@ -2,7 +2,6 @@ package de.chrissx.mods.fun;
 
 import de.chrissx.mods.Semimod;
 import de.chrissx.util.Util;
-import net.minecraft.client.Minecraft;
 import net.minecraft.nbt.NBTTagList;
 
 public class TrollPotion extends Semimod {

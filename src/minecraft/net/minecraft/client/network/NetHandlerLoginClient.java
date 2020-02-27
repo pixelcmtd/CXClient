@@ -8,13 +8,10 @@ import com.mojang.authlib.minecraft.MinecraftSessionService;
 
 import de.chrissx.HackedClient;
 import de.chrissx.alts.mcleaks.McLeaksApi;
-import de.chrissx.alts.mcleaks.ResultGettingException;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
 
-import java.io.IOException;
 import java.math.BigInteger;
-import java.net.ConnectException;
 import java.security.PublicKey;
 import javax.crypto.SecretKey;
 import net.minecraft.client.Minecraft;
@@ -86,11 +83,8 @@ public class NetHandlerLoginClient implements INetHandlerLoginClient
                 networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {new ChatComponentTranslation("disconnect.loginFailedInfo.invalidSession", new Object[0])}));
                 return;
             }
-            catch (AuthenticationException e)
+            catch (Exception e)
             {
-                networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {e.getMessage()}));
-                return;
-            } catch (Exception e) {
                 networkManager.closeChannel(new ChatComponentTranslation("disconnect.loginFailedInfo", new Object[] {e.getMessage()}));
                 return;
 			}
