@@ -32,7 +32,7 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 	{
 		return enabled;
 	}
-	
+
 	@Override
 	public String getRenderstring()
 	{
@@ -49,10 +49,8 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 
 	@Override
 	public void onStop() {}
-
 	@Override
 	public void onTick() {}
-
 	public void apiUpdate() {}
 
 	public String getApiDir()
