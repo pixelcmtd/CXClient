@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 import de.chrissx.HackedClient;
@@ -399,5 +400,15 @@ public class Util {
 			if(inv[i].getItem() instanceof ItemSoup)
 				return i - 27;
 		return -1;
+	}
+
+	public static String enc64(byte[] b)
+	{
+		return Base64.getEncoder().encodeToString(b);
+	}
+
+	public static byte[] dec64(String s)
+	{
+		return Base64.getDecoder().decode(s);
 	}
 }
