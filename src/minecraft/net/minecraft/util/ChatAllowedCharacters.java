@@ -9,6 +9,10 @@ public class ChatAllowedCharacters
 
     public static boolean isAllowedCharacter(char character)
     {
+    	//a char is valid if:
+    	//- its greater than or equal to 32 (0x20 or ' ')
+    	//- its not char 167 (0xa7 or '\u00a7', cant check it into git, but its the paragraph symbol)
+    	//- its not char 127 (0x7f or the DEL/backspace character)
         return character != 167 && character >= 32 && character != 127;
     }
 

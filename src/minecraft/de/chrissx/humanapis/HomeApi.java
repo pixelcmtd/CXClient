@@ -9,7 +9,7 @@ public class HomeApi {
 
 	public static void sethome(String name)
 	{
-		Util.sendChat("/sethome " + name);
+		Util.sendChat("/sethome " + (name == null ? "" : name));
 	}
 
 	private static ArrayList<String> generated_homes = new ArrayList<String>();
@@ -28,6 +28,6 @@ public class HomeApi {
 
 	public static void home(String name)
 	{
-		Util.sendChat("/home " + name);
+		Util.sendChat("/home " + (name == null ? "" : name));
 	}
 }

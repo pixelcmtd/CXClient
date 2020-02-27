@@ -1528,12 +1528,4 @@ public abstract class MinecraftServer implements Runnable, ICommandSender, IThre
     {
         return Thread.currentThread() == this.serverThread;
     }
-
-    /**
-     * The compression treshold. If the packet is larger than the specified amount of bytes, it will be compressed
-     */
-    public int getNetworkCompressionTreshold()
-    {
-        return 256;
-    }
 }

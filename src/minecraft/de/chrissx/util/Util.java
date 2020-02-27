@@ -33,6 +33,7 @@ import net.minecraft.network.play.client.C07PacketPlayerDigging;
 import net.minecraft.network.play.client.C07PacketPlayerDigging.Action;
 import net.minecraft.network.play.client.C10PacketCreativeInventoryAction;
 import net.minecraft.util.BlockPos;
+import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
@@ -410,5 +411,13 @@ public class Util {
 	public static byte[] dec64(String s)
 	{
 		return Base64.getDecoder().decode(s);
+	}
+
+	public static String chatFilter(String s) {
+		StringBuilder b = new StringBuilder();
+		for(char c : s.toCharArray())
+			if(ChatAllowedCharacters.isAllowedCharacter(c))
+				b.append(c);
+		return b.toString();
 	}
 }

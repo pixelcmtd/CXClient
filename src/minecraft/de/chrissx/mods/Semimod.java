@@ -6,15 +6,14 @@ import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.entity.player.InventoryPlayer;
 
-public abstract class Semimod implements Bindable, Commandable, Toggleable {
+public abstract class Semimod extends EapiModule implements Bindable, Commandable, Toggleable {
 
-	protected final String name;
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
 
 	protected Semimod(String name)
 	{
-		this.name = name;
+		super(name);
 	}
 
 	protected EntityPlayerSP player()
@@ -39,9 +38,7 @@ public abstract class Semimod implements Bindable, Commandable, Toggleable {
 	public void onHotkey() {
 		toggle();
 	}
-	
+
 	@Override
-	public String getName() {
-		return name;
-	}
+	public void apiUpdate() {}
 }

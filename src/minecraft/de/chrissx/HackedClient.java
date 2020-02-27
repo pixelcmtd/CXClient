@@ -25,6 +25,7 @@ import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
 import de.chrissx.iapi.AddonProperties;
 import de.chrissx.mods.Bindable;
+import de.chrissx.mods.EapiModule;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
 import de.chrissx.mods.RenderedObject;
@@ -168,7 +169,7 @@ public class HackedClient {
 									f.delete();
 								}
 							}
-							ByteBuffer b = ByteBuffer.allocate(mods.length);
+							ByteBuffer b = ByteBuffer.allocate(mods.enabled_length);
 							for(Mod m : mods)
 							{
 								try {
@@ -183,16 +184,21 @@ public class HackedClient {
 							//b.put((byte) 4);
 							enabledFile.createNewFile();
 							Files.write(b.array(), enabledFile);
-							for(Mod m : mods)
-								m.apiUpdate();
+							for(EapiModule m : mods.eapiModules)
+								try {
+									m.apiUpdate();
+								} catch (Exception e) {
+									System.out.println("Error in " + m.getName() + ":");
+									e.printStackTrace();
+								}
 							invis = disableIAUI.exists();
 						} catch (Exception e) {
-							Minecraft.logger.warn(e);
+							e.printStackTrace();
 						}
 						Thread.sleep(options.eapi.sleep);
 					}
 				} catch (Exception e) {
-					Minecraft.logger.fatal(e);
+					e.printStackTrace();
 				}
 			}
 		});

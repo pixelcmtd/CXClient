@@ -25,14 +25,14 @@ public class Consts {
 	public static final String optionsFile = Paths.get(configPath, "options.cfg").toString();
 	public static final String eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	public static final String clientName = "CXClient";
-	public static final String version = "3.1.1";
+	public static final String version = "alpha 3201";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = 311;
+	public static final int BLDNUM = -3201;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
 		"",
-		"-",
+		"-Added an EAPI system for setting homes and tping to them",
 	};
 
 	public static final String[] credits = new String[] {

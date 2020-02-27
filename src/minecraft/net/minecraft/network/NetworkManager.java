@@ -45,6 +45,8 @@ import io.netty.handler.timeout.TimeoutException;
 import io.netty.util.AttributeKey;
 import io.netty.util.concurrent.Future;
 import io.netty.util.concurrent.GenericFutureListener;
+import net.minecraft.client.Minecraft;
+import net.minecraft.network.play.client.C01PacketChatMessage;
 import net.minecraft.network.play.client.C03PacketPlayer.C04PacketPlayerPosition;
 import net.minecraft.network.play.client.C03PacketPlayer.C06PacketPlayerPosLook;
 import net.minecraft.util.ChatComponentText;
@@ -181,6 +183,8 @@ public class NetworkManager extends SimpleChannelInboundHandler<Packet>
 
     public void sendPacket(Packet packetIn)
     {
+    	if(packetIn instanceof C01PacketChatMessage)
+    		Minecraft.logger.info("[SENT] " + ((C01PacketChatMessage)packetIn).getMessage());
         if (this.isChannelOpen())
         {
             this.flushOutboundQueue();

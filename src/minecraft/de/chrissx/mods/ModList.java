@@ -96,7 +96,7 @@ public class ModList implements Iterable<Mod> {
 
 	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 
-	public final int length;
+	public final int enabled_length;
 
 	final Mod[] mods = new Mod[] {
 			skinBlinker,
@@ -168,8 +168,8 @@ public class ModList implements Iterable<Mod> {
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
+	public final List<EapiModule> eapiModules = new ArrayList<EapiModule>();
 
-	@SuppressWarnings("unlikely-arg-type")
 	public ModList() {
 		addBindable(home);
 		addBindable(panic);
@@ -181,20 +181,18 @@ public class ModList implements Iterable<Mod> {
 		addBindable(dropInventory);
 		addBindable(thrower);
 
-		for(Mod m : mods) {
+		for(Mod m : mods)
 			addBindable(m);
-			renderedObjects.add(m);
-			tickListeners.add(m);
-			stopListeners.add(m);
-		}
 		
 		for(Bindable b : bindable.values()) {
-			if(b instanceof RenderedObject && !renderedObjects.contains(b))
+			if(b instanceof RenderedObject)
 				renderedObjects.add((RenderedObject) b);
-			if(b instanceof TickListener && !tickListeners.contains(b))
+			if(b instanceof TickListener)
 				tickListeners.add((TickListener) b);
-			if(b instanceof StopListener && !stopListeners.contains(b))
+			if(b instanceof StopListener)
 				stopListeners.add((StopListener) b);
+			if(b instanceof EapiModule)
+				eapiModules.add((EapiModule) b);
 		}
 
 		int len = 1;
@@ -203,7 +201,7 @@ public class ModList implements Iterable<Mod> {
 			len += m.getName().length();
 			len += 2;
 		}
-		length = len;
+		enabled_length = len;
 	}
 	
 	public void addBindable(Bindable b) {
