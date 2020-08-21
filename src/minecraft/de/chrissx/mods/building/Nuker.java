@@ -12,8 +12,8 @@ import net.minecraft.util.BlockPos;
 
 public class Nuker extends Mod {
 
-	short count = 21;
-	boolean bypass = false;
+	int count = 6;
+	NukerBypassLevel bypass = NukerBypassLevel.NONE;
 	NukerMode mode = NukerMode.ALL;
 	File bpf, mf;
 	
@@ -23,25 +23,30 @@ public class Nuker extends Mod {
 		mf = getApiFile("mode");
 	}
 
+	int breaksPerCycle() {
+		return bypass == NukerBypassLevel.SLOW ? 3 : 1;
+	}
+
 	@Override
 	public void onTick() {
 		if(enabled) {
-			if(!bypass || count < 1) {
-				BlockPos[] positions = Util.getBlocksAround(mc.thePlayer, (byte) (bypass ? 3 : 6), bypass);
+			if(bypass == NukerBypassLevel.NONE || count < 1) {
+				BlockPos[] positions = Util.getBlocksAround(mc.thePlayer, (bypass == NukerBypassLevel.NONE ? 6 : 3), bypass != NukerBypassLevel.NONE);
 				if(mode.equals(NukerMode.ALL)) {
-					if(!bypass) {
+					if(bypass == NukerBypassLevel.NONE) {
 						for(BlockPos p : positions)
 							Util.breakBlock(p);
 					}else {
-						if(positions.length <= 11) {
+						if(positions.length <= breaksPerCycle()) {
 							for(BlockPos p : positions)
 								Util.breakBlock(p);
 						}else {
 							List<Integer> sent = new ArrayList<Integer>();
-							for(int i = 0; i < 11; i++) {
+							for(int i = 0; i < breaksPerCycle(); i++) {
 								int rr = Random.rand(positions.length-1);
 								while(sent.contains(rr))
 									rr = Random.rand(positions.length-1);
+								if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(positions[rr]);
 								Util.breakBlock(positions[rr]);
 								sent.add(rr);
 							}
@@ -50,7 +55,7 @@ public class Nuker extends Mod {
 				}else if(mode.equals(NukerMode.CLICK)) {
 					BlockPos b = mc.playerController.clickedBlock;
 					if(b == null) return;
-					if(!bypass) {
+					if(bypass == NukerBypassLevel.NONE) {
 						for(BlockPos p : positions)
 							if(Block.getIdFromBlock(mc.theWorld.getBlock(p)) == Block.getIdFromBlock(mc.theWorld.getBlock(b)))
 								Util.breakBlock(p);
@@ -60,50 +65,52 @@ public class Nuker extends Mod {
 							if(Block.getIdFromBlock(mc.theWorld.getBlock(p)) == Block.getIdFromBlock(mc.theWorld.getBlock(b)))
 								poss.add(p);
 						
-						if(poss.size() <= 11)
+						if(poss.size() <= breaksPerCycle())
 							for(BlockPos p : poss)
 								Util.breakBlock(p);
 						else {
 							List<Integer> sent = new ArrayList<Integer>();
-							for(int i = 0; i < 11; i++) {
+							for(int i = 0; i < breaksPerCycle(); i++) {
 								int rr = Random.rand(poss.size()-1);
 								while(sent.contains(rr))
 									rr = Random.rand(poss.size()-1);
+								if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(poss.get(rr));
 								Util.breakBlock(poss.get(rr));
 								sent.add(rr);
 							}
 						}
 					}
 				} else Util.sendMessage("\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
-				count = 21;
+				count = 6;
 			} else count--;
 		}
 	}
 
 	@Override
 	public String getRenderstring() {
-		return bypass ? name + "(BYPASS,MODE:" + mode + ")" : name + "(MODE:" + mode + ")";
+		return name + "(BYPASS:" + bypass + ",MODE:" + mode + ")";
 	}
 
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length == 1)
 			toggle();
-		else
-			if(args[1].equalsIgnoreCase("bypass"))
-				bypass = !bypass;
-			else if(args[1].equalsIgnoreCase("mode"))
-				try {
-					mode = NukerMode.valueOf(args[2].toUpperCase());
-				}catch (Exception e) {
-					Util.sendMessage("\u00a74Error valueOf-ing NukerMode.");
-				}
-			else Util.sendMessage("#nuker to toggle, #nuker bypass to toggle NCP-bypass, #nuker mode [ALL/CLICK] to set the mode");
+		else if(args[1].equalsIgnoreCase("bypass"))
+			bypass = bypass == NukerBypassLevel.NONE ? NukerBypassLevel.SLOW :
+					 bypass == NukerBypassLevel.SLOW ? NukerBypassLevel.LEGIT :
+							 						   NukerBypassLevel.NONE;
+		else if(args[1].equalsIgnoreCase("mode"))
+			try {
+				mode = NukerMode.valueOf(args[2].toUpperCase());
+			}catch (Exception e) {
+				Util.sendMessage("\u00a74Error valueOf-ing NukerMode.");
+			}
+		else Util.sendMessage("#nuker to toggle, #nuker bypass to toggle bypasses, #nuker mode [ALL/CLICK] to set the mode");
 	}
 
 	@Override
 	public void apiUpdate() {
-		write(bpf, bypass);
+		write(bpf, bypass.b);
 		write(mf, mode.b);
 	}
 }

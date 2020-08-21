@@ -1,34 +1,13 @@
-[08:43:32] [Client thread/INFO]: Setting user: Player102
-[08:43:32] [Client thread/INFO]: (Session ID is *censored*)
-[08:43:32] [Client thread/INFO]: CXClient Version: alpha 3201
-[08:43:32] [Client thread/INFO]: LWJGL Version: 2.9.4
-[08:43:33] [Client thread/INFO]: Reloading ResourceManager: Default
-[08:43:33] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[08:43:33] [Thread-7/INFO]: Initializing LWJGL OpenAL
-[08:43:33] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[08:43:33] [Thread-7/INFO]: OpenAL initialized.
-[08:43:33] [Sound Library Loader/INFO]: Sound engine started
-[08:43:36] [Client thread/INFO]: Created: 512x512 textures-atlas
-[08:43:45] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[08:43:45] [Server thread/INFO]: Generating keypair
-[08:43:45] [Server thread/INFO]: Preparing start region for level 0
-[08:43:46] [Server thread/INFO]: Changing view distance to 12, from 10
-[08:43:46] [Server thread/INFO]: Player102[local:E:873d792e] logged in with entity id 163 at (547.9969196202652, 68.0, 177.69999998807907)
-[08:43:46] [Server thread/INFO]: Player102 joined the game
-[08:43:54] [Server thread/INFO]: Player102 has just earned the achievement [Taking Inventory]
-[08:43:54] [Client thread/INFO]: [CHAT] Player102 has just earned the achievement [Taking Inventory]
-[08:44:03] [Thread-5/INFO]: [SENT] /sethome PK&?TK?l9?..mimetypeapplication/vnd.oasis.opendocument.spreadsheetPK&?TKConfigurations2/pro
-[08:44:03] [Client thread/INFO]: [CHAT] Unknown command. Try /help for a list of commands
-[08:44:25] [Server thread/INFO]: Saving and pausing game...
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[08:44:25] [Server thread/INFO]: Stopping server
-[08:44:25] [Server thread/INFO]: Saving players
-[08:44:25] [Server thread/INFO]: Saving worlds
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[08:44:25] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[08:44:27] [Client thread/INFO]: Stopping CXClient.
-[08:44:27] [Client thread/INFO]: SoundSystem shutting down...
-[08:44:27] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[00:01:05] [Server thread/INFO]: Saving and pausing game...
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[00:01:05] [Server thread/INFO]: Stopping server
+[00:01:05] [Server thread/INFO]: Saving players
+[00:01:05] [Server thread/INFO]: Saving worlds
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[00:01:07] [Client thread/INFO]: Stopping CXClient.
+[00:01:07] [Client thread/INFO]: SoundSystem shutting down...
+[00:01:07] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

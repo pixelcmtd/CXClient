@@ -22,10 +22,9 @@ public class Timer extends Mod {
 		else if(args.length == 3 && args[1].equalsIgnoreCase("speed"))
 			try {
 				factor = Float.parseFloat(args[2]);
-				if(enabled)
-					net.minecraft.util.Timer.timerSpeed = factor;
+				net.minecraft.util.Timer.timerSpeed = enabled ? factor : 1;
 			} catch (Exception e) {
-				Util.sendMessage("�4Error parsing float.");
+				Util.sendMessage("\u00a74Error parsing float.");
 			}
 		else
 			Util.sendMessage("#timer to toggle, #timer speed <double> to change the factor.");
@@ -34,10 +33,7 @@ public class Timer extends Mod {
 	@Override
 	public void toggle() {
 		enabled = !enabled;
-		if(enabled)
-			net.minecraft.util.Timer.timerSpeed = factor;
-		else
-			net.minecraft.util.Timer.timerSpeed = 1;
+		net.minecraft.util.Timer.timerSpeed = enabled ? factor : 1;
 	}
 
 	@Override

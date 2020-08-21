@@ -89,11 +89,6 @@ public class Util {
 		return sb.toString();
 	}
 
-	public static void googleImageSearch(String query)
-	{
-		String s = "https://www.google.com/search?q=" + query + "&tbm=isch";
-	}
-
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
 		BufferedImage i = new BufferedImage(w, h, 1); // type_int_rgb
 	    for (int x = 0; x < w; x++)
@@ -215,7 +210,7 @@ public class Util {
 		  
 		  cheatLever();
 	}
-	  
+
 	static void cheatCmd(String cmd) {
 		ItemStack itm = new ItemStack(Blocks.command_block);
 		
@@ -241,7 +236,7 @@ public class Util {
 		
 		cheatItem(itm, 37);
 	}
-	
+
 	static void cheatLever() {
 		ItemStack itm = new ItemStack(Blocks.lever);
 		
@@ -296,31 +291,31 @@ public class Util {
 		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + 
 				msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
 	}
-	
+
 	public static boolean isWater(Block b)
 	{
 		int id = Block.getIdFromBlock(b);
 		return id == 8 || id == 9;
 	}
 
-	public static void faceEntity(Entity e) {
-		float[] rotations = getRotationsNeeded(e);
-		if(rotations != null) {
-			mc.thePlayer.rotationYaw = rotations[0];
-			mc.thePlayer.rotationPitch = rotations[1] + 8.1f;
-		}
+	public static void faceBlock(BlockPos p) {
+		applyRotations(getRotationsNeeded(p.getX(), p.getY(), p.getZ(), 0.5f));
 	}
 
-	static float[] getRotationsNeeded(Entity e) {
-        double x = e.posX - mc.thePlayer.posX;
-        double y;
-        if(e instanceof EntityLivingBase)
-        {
-            EntityLivingBase elb = (EntityLivingBase)e;
-            y = elb.posY + elb.getEyeHeight() * 0.9 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
-        }else
-            y = (e.boundingBox.minY + e.boundingBox.maxY) / 2 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
-        double z = e.posZ - mc.thePlayer.posZ;
+	public static void faceEntity(Entity e) {
+		applyRotations(getRotationsNeeded(e.posX, e.posY, e.posZ, e.getEyeHeight()));
+	}
+
+	static void applyRotations(float[] rotations) {
+		if(rotations == null) return;
+		mc.thePlayer.rotationYaw = rotations[0];
+		mc.thePlayer.rotationPitch = rotations[1] + 8.1f;
+	}
+
+	static float[] getRotationsNeeded(double posX, double posY, double posZ, float eyeHeight) {
+        double x = posX - mc.thePlayer.posX;
+        double y = posY + eyeHeight * 0.9 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
+        double z = posZ - mc.thePlayer.posZ;
         return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
         		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
     }
