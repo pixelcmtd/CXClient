@@ -9,15 +9,15 @@
 |August 2018-January 2019|2.4-3.0  |GitHub source under GPLv3                              |
 |September 2019          |3.1-3.1.1|GitHub source under BSD 3-clause                       |
 ## Building
-    git clone https://github.com/chrissxyt/cxclient
+    git clone https://github.com/chrissxYT/CXClient.git
 Open eclipse with /path/to/cxclient/eclipse as the workspace, add a new Java
-Project called "Client", export that project as a Runnable Jar File.
+Project called "Client", export that project as `Runnable Jar File`.
 ## Installing
-Grab a build, extract the folder (usually called something like "cxclient_x.x")
-into your ~/.minecraft/versions/ or %APPDATA%\\.minecraft\versions\, depending
+Grab a build, extract the folder (called something like "cxclient_x.y")
+into your ~/.minecraft/versions/ or %APPDATA%\.minecraft\versions\, depending
 on your OS. If you want to use your own build: replace the jar file inside the
 folder (usually called something like "cxclient_x.x.jar") with your own one.
 ## Updating
 We planned an updater and now it is technically easily possible, but...we won't
 do it! There are reasons, you can find them [here](UPDATER.md). For pure
-updating you can just replace the old JAR or put the new folder there.
+updating you can just put the new folder there and change your profile in the launcher.
