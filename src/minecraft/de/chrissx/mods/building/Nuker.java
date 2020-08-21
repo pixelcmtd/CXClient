@@ -49,6 +49,7 @@ public class Nuker extends Mod {
 					}
 				}else if(mode.equals(NukerMode.CLICK)) {
 					BlockPos b = mc.playerController.clickedBlock;
+					if(b == null) return;
 					if(!bypass) {
 						for(BlockPos p : positions)
 							if(Block.getIdFromBlock(mc.theWorld.getBlock(p)) == Block.getIdFromBlock(mc.theWorld.getBlock(b)))
