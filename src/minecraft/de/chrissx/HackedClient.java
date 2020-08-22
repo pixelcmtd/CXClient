@@ -61,6 +61,7 @@ public class HackedClient {
 		if(!invis)
 		{
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
+			//TODO: also this drawString call should be a renderedObject
 			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
