@@ -115,7 +115,7 @@ public class TextureMap extends AbstractTexture implements ITickableTextureObjec
                         }
                     }
 
-                    Iterator iterator = list.iterator();
+                    Iterator<Integer> iterator = list.iterator();
 
                     while (iterator.hasNext())
                     {

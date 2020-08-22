@@ -45,7 +45,7 @@ public class Profiler
 
             this.profilingSection = this.profilingSection + name;
             this.sectionList.add(this.profilingSection);
-            this.timestampList.add(Long.valueOf(System.nanoTime()));
+            this.timestampList.add(System.nanoTime());
         }
     }
 
@@ -166,11 +166,11 @@ public class Profiler
         public double field_76330_b;
         public String field_76331_c;
 
-        public Result(String p_i1554_1_, double p_i1554_2_, double p_i1554_4_)
+        public Result(String s, double d, double f)
         {
-            this.field_76331_c = p_i1554_1_;
-            this.field_76332_a = p_i1554_2_;
-            this.field_76330_b = p_i1554_4_;
+            this.field_76331_c = s;
+            this.field_76332_a = d;
+            this.field_76330_b = f;
         }
 
         public int compareTo(Profiler.Result p_compareTo_1_)

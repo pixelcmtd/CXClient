@@ -6,14 +6,12 @@ import java.io.File;
 import java.io.IOException;
 import java.net.InetAddress;
 import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 import net.minecraft.client.ClientBrandRetriever;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ThreadLanServerPing;
 import net.minecraft.command.ServerCommandManager;
 import net.minecraft.crash.CrashReport;
 import net.minecraft.entity.player.EntityPlayerMP;
-import net.minecraft.profiler.PlayerUsageSnooper;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.CryptManager;
 import net.minecraft.util.HttpUtil;
@@ -149,7 +147,7 @@ public class IntegratedServer extends MinecraftServer
             {
                 while (!this.futureTaskQueue.isEmpty())
                 {
-                    Util.runFutureTask((FutureTask)this.futureTaskQueue.poll(), logger);
+                    Util.runFutureTask(futureTaskQueue.poll(), logger);
                 }
             }
         }
@@ -285,20 +283,6 @@ public class IntegratedServer extends MinecraftServer
         {
             this.mc.theWorld.getWorldInfo().setDifficulty(difficulty);
         }
-    }
-
-    public void addServerStatsToSnooper(PlayerUsageSnooper playerSnooper)
-    {
-        super.addServerStatsToSnooper(playerSnooper);
-        playerSnooper.addClientStat("snooper_partner", this.mc.getPlayerUsageSnooper().getUniqueID());
-    }
-
-    /**
-     * Returns whether snooping is enabled or not.
-     */
-    public boolean isSnooperEnabled()
-    {
-        return Minecraft.getMinecraft().isSnooperEnabled();
     }
 
     /**

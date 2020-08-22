@@ -49,8 +49,7 @@ public class Killaura extends Mod {
 						mc.thePlayer.swingItem();
 					if(!legit2 || (attack && !miss))
 						mc.playerController.attackEntity(mc.thePlayer, e);
-					if(legit)
-						return;
+					if(legit) return;
 				}
 			}
 		}
