@@ -32,7 +32,7 @@ public class Main
         OptionSpec<String> server = parser.accepts("server").withRequiredArg();
         OptionSpec<Integer> port = parser.accepts("port").withRequiredArg().ofType(Integer.class).defaultsTo(Integer.valueOf(25565), new Integer[0]);
         OptionSpec<File> gameDir = parser.accepts("gameDir").withRequiredArg().ofType(File.class).defaultsTo(new File("."), new File[0]);
-        OptionSpec<File> assetsDir = parser.accepts("assetsDir").withRequiredArg().<File>ofType(File.class);
+        OptionSpec<File> assetsDir = parser.accepts("assetsDir").withRequiredArg().defaultsTo("assets").<File>ofType(File.class);
         OptionSpec<File> resourcePackDir = parser.accepts("resourcePackDir").withRequiredArg().<File>ofType(File.class);
         OptionSpec<String> proxyHost = parser.accepts("proxyHost").withRequiredArg();
         OptionSpec<Integer> proxyPort = parser.accepts("proxyPort").withRequiredArg().defaultsTo("8080", new String[0]).<Integer>ofType(Integer.class);
@@ -63,10 +63,7 @@ public class Main
             {
                 proxy = new Proxy(Type.SOCKS, new InetSocketAddress(s, ((Integer)parsedArgs.valueOf(proxyPort)).intValue()));
             }
-            catch (Exception var46)
-            {
-                ;
-            }
+            catch (Exception var46) {}
 
         final String s1 = (String)parsedArgs.valueOf(proxyUser);
         final String s2 = (String)parsedArgs.valueOf(proxyPass);

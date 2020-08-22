@@ -8,7 +8,7 @@ public class Start
 {
     public static void main(String[] args) throws IOException
     {
-        Main.main(concat(new String[] {"--version", Consts.clientName.toLowerCase(), "--accessToken", "0", "--assetsDir", "assets", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
+        Main.main(concat(new String[] {"--version", Consts.clientName.toLowerCase(), "--accessToken", "0", "--assetIndex", "1.8", "--userProperties", "{}"}, args));
     }
 
     public static <T> T[] concat(T[] first, T[] second)

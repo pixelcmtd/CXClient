@@ -480,7 +480,7 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
         GlStateManager.popMatrix();
 
         this.drawString(this.fontRendererObj, Consts.clientName + " | Minecraft 1.8.8", 2, this.height - 10, -1);
-        String s1 = "Copyright Mojang AB & chrissx Media Inc. Do not distribute!";
+        String s1 = "Copyright Mojang AB & chrissx Media. Do not distribute!";
         this.drawString(this.fontRendererObj, s1, this.width - this.fontRendererObj.getStringWidth(s1) - 2, this.height - 10, -1);
 
         if (this.openGLWarning1 != null && this.openGLWarning1.length() > 0)

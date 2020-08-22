@@ -1,13 +1,36 @@
-[00:01:05] [Server thread/INFO]: Saving and pausing game...
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[00:01:05] [Server thread/INFO]: Stopping server
-[00:01:05] [Server thread/INFO]: Saving players
-[00:01:05] [Server thread/INFO]: Saving worlds
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[00:01:05] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[00:01:07] [Client thread/INFO]: Stopping CXClient.
-[00:01:07] [Client thread/INFO]: SoundSystem shutting down...
-[00:01:07] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[02:23:10] [Client thread/INFO]: Setting user: Player644
+[02:23:10] [Client thread/INFO]: (Session ID is *censored*)
+[02:23:11] [Client thread/INFO]: CXClient Version: alpha 3203
+[02:23:11] [Client thread/INFO]: LWJGL Version: 2.9.4
+[02:23:11] [Client thread/INFO]: Reloading ResourceManager: Default
+[02:23:11] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[02:23:12] [Thread-7/INFO]: Initializing LWJGL OpenAL
+[02:23:12] [Thread-7/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[02:23:12] [Thread-7/INFO]: OpenAL initialized.
+[02:23:12] [Sound Library Loader/INFO]: Sound engine started
+[02:23:12] [Client thread/INFO]: Created: 512x512 textures-atlas
+[02:23:18] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[02:23:18] [Server thread/INFO]: Generating keypair
+[02:23:18] [Server thread/INFO]: Preparing start region for level 0
+[02:23:18] [Server thread/INFO]: Changing view distance to 12, from 10
+[02:23:19] [Server thread/INFO]: Player644[local:E:68e46883] logged in with entity id 43 at (987.5670357095231, 70.75922671211941, 963.4257770553439)
+[02:23:19] [Server thread/INFO]: Player644 joined the game
+[02:23:29] [Client thread/INFO]: [SENT] /kill
+[02:23:29] [Server thread/INFO]: Player644 fell out of the world
+[02:23:29] [Server thread/INFO]: [Player644: Killed Player644]
+[02:23:29] [Client thread/INFO]: [CHAT] Player644 fell out of the world
+[02:23:29] [Client thread/INFO]: [CHAT] Killed Player644
+[02:23:31] [Client thread/INFO]: [CHAT] Your home bed was missing or obstructed
+[02:24:25] [Server thread/INFO]: Saving and pausing game...
+[02:24:25] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[02:24:25] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[02:24:25] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[02:26:14] [Server thread/INFO]: Stopping server
+[02:26:14] [Server thread/INFO]: Saving players
+[02:26:14] [Server thread/INFO]: Saving worlds
+[02:26:14] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[02:26:14] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[02:26:14] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[02:26:16] [Client thread/INFO]: Stopping CXClient.
+[02:26:16] [Client thread/INFO]: SoundSystem shutting down...
+[02:26:16] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
