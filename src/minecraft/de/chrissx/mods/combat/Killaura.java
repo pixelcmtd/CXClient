@@ -37,7 +37,11 @@ public class Killaura extends Mod {
 			if(legit && player().isEating())
 				return;
 			for(Entity e : world().loadedEntityList) {
-				if(!(e instanceof EntityLivingBase) || e == player() || player().getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead)
+				if(!(e instanceof EntityLivingBase) ||
+				   e == player() ||
+				   player().getDistanceToEntity(e) > max_range ||
+				   (!attackInvis && e.isInvisible()) ||
+				   e.isDead || ((EntityLivingBase)e).getHealth() <= 0) /* skip while entity is dying */
 					continue;
 				else {
 					boolean attack = Random.rand(3) == 2;

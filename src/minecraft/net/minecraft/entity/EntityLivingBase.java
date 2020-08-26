@@ -120,11 +120,6 @@ public abstract class EntityLivingBase extends Entity
      */
     protected int recentlyHit;
 
-    /**
-     * This gets set on entity death, but never used. Looks like a duplicate of isDead
-     */
-    protected boolean dead;
-
     /** The age of this EntityLiving (used to determine when it dies) */
     protected int entityAge;
     protected float prevOnGroundSpeedFactor;
@@ -948,7 +943,6 @@ public abstract class EntityLivingBase extends Entity
         if (entity != null)
             entity.onKillEntity(this);
 
-        dead = true;
         getCombatTracker().reset();
 
         if (!worldObj.isRemote)

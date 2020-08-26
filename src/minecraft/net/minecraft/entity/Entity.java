@@ -123,6 +123,7 @@ public abstract class Entity implements ICommandSender
 
     /**
      * gets set by setEntityDead, so this must be the flag whether an Entity is dead (inactive may be better term)
+     * (usually set way too late)
      */
     public boolean isDead;
 
