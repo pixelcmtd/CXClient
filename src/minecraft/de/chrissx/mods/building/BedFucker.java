@@ -24,16 +24,16 @@ public class BedFucker extends Mod {
 		if(enabled) {
 			BlockPos[] bps = Util.getBlocksAround(player(), range, false);
 			for(final BlockPos bp : bps) {
-				if(mc.theWorld.getBlock(bp).getUnlocalizedName().equals("tile.bed")) {
+				if(world().getBlock(bp).getUnlocalizedName().equals("tile.bed")) {
 					new Thread(new Runnable() {
 						public void run() {
-							player().sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
+							sendPacket(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
 							try {
 								Thread.sleep(100);
 							} catch (InterruptedException e) {
 								e.printStackTrace();
 							}
-							player().sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
+							sendPacket(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
 						}
 					}).start();
 				}}

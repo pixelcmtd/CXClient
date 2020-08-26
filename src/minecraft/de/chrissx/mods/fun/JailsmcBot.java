@@ -18,9 +18,9 @@ public class JailsmcBot extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled) {
-			if(mc.thePlayer.inventory.getFirstEmptyStack() != -1) {
-				for(BlockPos p : Util.getBlocksAround(mc.thePlayer, (byte) 4, false)) {
-					Block b = mc.theWorld.getBlock(p);
+			if(inventory().getFirstEmptyStack() != -1) {
+				for(BlockPos p : Util.getBlocksAround(player(), 4, false)) {
+					Block b = world().getBlock(p);
 					if(!(b instanceof BlockObsidian) && !(b instanceof BlockGlowstone) && !(b instanceof BlockBasePressurePlate) && !(b instanceof BlockAir))
 						Util.breakBlock(p);
 				}

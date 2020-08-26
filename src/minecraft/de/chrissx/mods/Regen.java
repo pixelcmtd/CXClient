@@ -10,21 +10,21 @@ public class Regen extends Mod {
 
 	File sf;
 	int speed = 250;
-	
+
 	public Regen() {
 		super("Regen");
 		sf = getApiFile("speed");
 	}
-	
+
 	@Override
 	public void onTick()
 	{
-		EntityPlayerSP p = mc.thePlayer;
-		if(enabled && !mc.playerController.isInCreativeMode() && p.getFoodStats().getFoodLevel() > 17 && p.getHealth() < 20 && p.getHealth() != 0 && p.onGround)
+		EntityPlayerSP p = player();
+		if(enabled && !playerController().isInCreativeMode() && p.getFoodStats().getFoodLevel() > 17 && p.getHealth() < 20 && p.getHealth() != 0 && p.onGround)
 			for(short i = 0; i < speed; i++)
-				mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer());
+				sendPacket(new C03PacketPlayer());
 	}
-	
+
 	@Override
 	public void processCommand(String[] args)
 	{
@@ -42,7 +42,7 @@ public class Regen extends Mod {
 		else
 			Util.sendMessage("#regen to toggle, #regen speed <int> to set packets per tick (default is 100)");
 	}
-	
+
 	@Override
 	public void apiUpdate()
 	{

@@ -21,8 +21,8 @@ public class Aimbot extends Mod {
 	public void onTick() {
 		if(enabled)
 			if(mode == AimbotMode.GUN)
-				for(Entity e : mc.theWorld.loadedEntityList)
-					if(!(e instanceof EntityLivingBase) || e == mc.thePlayer || e.isInvisible() || e.isDead || mc.thePlayer.getDistanceToEntity(e) > 30)
+				for(Entity e : world().loadedEntityList)
+					if(!(e instanceof EntityLivingBase) || e == player() || e.isInvisible() || e.isDead || player().getDistanceToEntity(e) > 30)
 						continue;
 					else {
 						Util.faceEntity(e);

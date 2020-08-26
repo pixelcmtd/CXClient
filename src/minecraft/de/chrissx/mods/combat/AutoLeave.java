@@ -2,7 +2,6 @@ package de.chrissx.mods.combat;
 
 import java.io.File;
 
-import de.chrissx.HackedClient;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
 import net.minecraft.client.gui.GuiMainMenu;
@@ -23,10 +22,10 @@ public class AutoLeave extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && mc.thePlayer.getHealth() < min)
+		if(enabled && player().getHealth() < min)
 		{
-        	HackedClient.getClient().onDisconnectedOrLeft();
-            mc.theWorld.sendQuittingDisconnectingPacket();
+        	hc.onDisconnectedOrLeft();
+            world().sendQuittingDisconnectingPacket();
             mc.loadWorld((WorldClient)null);
             if (mc.isIntegratedServerRunning())
                 mc.displayGuiScreen(new GuiMainMenu());

@@ -20,9 +20,9 @@ public class Freecam extends Mod {
 			player().onGround = false;
 			player().fallDistance = 0;
 			
-			if(mc.gameSettings.keyBindJump.isKeyDown())
+			if(settings().keyBindJump.isKeyDown())
 				player().motionY = player().capabilities.getFlySpeed();
-			if(mc.gameSettings.keyBindSneak.isKeyDown())
+			if(settings().keyBindSneak.isKeyDown())
 				player().motionY = -player().capabilities.getFlySpeed();
 		}
 	}

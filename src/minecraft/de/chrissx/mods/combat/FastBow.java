@@ -15,15 +15,15 @@ public class FastBow extends Mod {
 	@Override
 	public void onTick()
 	{
-		EntityPlayerSP p = mc.thePlayer;
+		EntityPlayerSP p = player();
 		ItemStack is;
-		if(enabled && mc.gameSettings.keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 &&
-				(is = p.inventory.getCurrentItem()) != null && is.stackSize > 0 && is.getItem() instanceof ItemBow)
+		if(enabled && settings().keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 &&
+				(is = inventory().getCurrentItem()) != null && is.stackSize > 0 && is.getItem() instanceof ItemBow)
 		{
-			mc.rightClickMouse();
+			click(false);
 			for (int i = 0; i < 20; i++)
-			  mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer(false));
-			mc.playerController.onStoppedUsingItem(p);
+			  sendPacket(new C03PacketPlayer(false));
+			playerController().onStoppedUsingItem(p);
 		}
 	}
 }

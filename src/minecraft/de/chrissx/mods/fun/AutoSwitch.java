@@ -11,9 +11,9 @@ public class AutoSwitch extends Mod {
 	public void onTick()
 	{
 		if(enabled)
-			if(mc.thePlayer.inventory.currentItem == 8)
-				mc.thePlayer.inventory.currentItem = 0;
+			if(inventory().currentItem == 8)
+				inventory().currentItem = 0;
 			else
-				mc.thePlayer.inventory.currentItem++;
+				inventory().currentItem++;
 	}
 }

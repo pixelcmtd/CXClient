@@ -15,7 +15,7 @@ public class Glide extends Mod {
 	@Override
 	public void onTick()
 	{
-		EntityPlayerSP p = mc.thePlayer;
+		EntityPlayerSP p = player();
 		if(enabled && p.isAirBorne && !p.isInWater() && !p.isInLava() && !p.isOnLadder() && p.motionY < 0.0)
 	        p.motionY = speed;
 	}

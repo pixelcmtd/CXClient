@@ -11,7 +11,7 @@ public class Dolphin extends Mod {
 	@Override
 	public void onTick()
 	{
-		if (enabled && mc.thePlayer.isInWater())
-			mc.thePlayer.motionY += 0.04;
+		if (enabled && player().isInWater())
+			player().motionY += 0.04;
 	}
 }

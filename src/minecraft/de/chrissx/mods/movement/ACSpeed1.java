@@ -21,10 +21,10 @@ public class ACSpeed1 extends Mod {
 	public void onTick() {
 		if(enabled)
 		{
-			if(mc.thePlayer.onGround)
-				mc.thePlayer.jump();
+			if(player().onGround)
+				player().jump();
 			else
-				mc.thePlayer.motionY -= speed;
+				player().motionY -= speed;
 		}
 	}
 

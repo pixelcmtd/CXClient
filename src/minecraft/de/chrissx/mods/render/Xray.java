@@ -16,17 +16,13 @@ public class Xray extends Mod {
 	public Xray() {
 		super("XRay");
 	}
-	
+
 	@Override
 	public void toggle() {
 		enabled = !enabled;
-		GameSettings gs = mc.gameSettings;
-		if(enabled) {
-			gammaBefore = gs.gammaSetting;
-			gs.gammaSetting = 100;
-		}else {
-			gs.gammaSetting = gammaBefore;
-		}
+		GameSettings gs = settings();
+		gammaBefore = gs.gammaSetting;
+		gs.gammaSetting = enabled ? 100 : gammaBefore;
 		mc.renderGlobal.loadRenderers();
 	}
 
@@ -35,9 +31,9 @@ public class Xray extends Mod {
 		if(args.length == 1)
 			toggle();
 		else if(args[1].equalsIgnoreCase("add"))
-			xrayBlocks.add(Block.getIdFromBlock(mc.theWorld.getBlock(mc.playerController.clickedBlock)));
+			xrayBlocks.add(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
 		else if(args[1].equalsIgnoreCase("remove"))
-			xrayBlocks.remove(Block.getIdFromBlock(mc.theWorld.getBlock(mc.playerController.clickedBlock)));
+			xrayBlocks.remove(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
 		else
 			Util.sendMessage("#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
 	}

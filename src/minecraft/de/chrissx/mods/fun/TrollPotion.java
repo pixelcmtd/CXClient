@@ -8,7 +8,7 @@ public class TrollPotion extends Semimod {
 
 	@Override
 	public void toggle() {
-		if(!mc.playerController.isInCreativeMode()) {
+		if(!playerController().isInCreativeMode()) {
 			Util.sendMessage("\u00a74You have to be in gm 1 in order to execute this!");
 			return;
 		}

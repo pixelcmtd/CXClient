@@ -20,7 +20,7 @@ public class Autosteal extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && mc.currentScreen instanceof GuiChest)
+		if(enabled && currentScreen() instanceof GuiChest)
 		{
 			if(bypass)
 			{
@@ -28,20 +28,20 @@ public class Autosteal extends Mod {
 					timer++;
 				else {
 					timer = 0;
-					GuiChest gui = (GuiChest)mc.currentScreen;
+					GuiChest gui = (GuiChest)currentScreen();
 					for(int i = 0; i < gui.getUpper().getSizeInventory(); i++)
 						if(gui.inventorySlots.getSlot(i).getHasStack()) {
-							mc.playerController.windowClick(gui.inventorySlots.windowId, i, 0, 1, mc.thePlayer);
+							playerController().windowClick(gui.inventorySlots.windowId, i, 0, 1, player());
 							return;
 						}
 				}
 			}
 			else
 			{
-				GuiChest gui = (GuiChest)mc.currentScreen;
+				GuiChest gui = (GuiChest)currentScreen();
 				for(int i = 0; i < gui.getUpper().getSizeInventory(); i++)
 					if(gui.inventorySlots.getSlot(i).getHasStack())
-						mc.playerController.windowClick(gui.inventorySlots.windowId, i, 0, 1, mc.thePlayer);
+						playerController().windowClick(gui.inventorySlots.windowId, i, 0, 1, player());
 			}
 		}
 	}

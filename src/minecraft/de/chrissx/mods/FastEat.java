@@ -21,18 +21,19 @@ public class FastEat extends Mod {
 	@Override
 	public void onTick()
 	{
-		EntityPlayerSP p = mc.thePlayer;
+		EntityPlayerSP p = player();
 		ItemStack is;
 		try
 		{
-			if(enabled && p.getHealth() > 0
+			if(enabled
+					&& p.getHealth() > 0
 					&& p.onGround
-					&& mc.gameSettings.keyBindUseItem.isKeyDown()
+					&& settings().keyBindUseItem.isKeyDown()
 					&& p.getFoodStats().needFood()
 					&& (is = p.getHeldItem()) != null
 					&& is.getItem() instanceof ItemFood)
 		        for(int i = 0; i < speed; i++)
-		        	mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer(false));
+		        	sendPacket(new C03PacketPlayer(false));
 		}
 		catch(Exception e)
 		{

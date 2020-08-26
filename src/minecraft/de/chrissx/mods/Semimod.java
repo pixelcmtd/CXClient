@@ -3,8 +3,12 @@ package de.chrissx.mods;
 import de.chrissx.HackedClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.gui.GuiScreen;
+import net.minecraft.client.multiplayer.PlayerControllerMP;
 import net.minecraft.client.multiplayer.WorldClient;
+import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.player.InventoryPlayer;
+import net.minecraft.network.Packet;
 
 public abstract class Semimod extends EapiModule implements Bindable, Commandable, Toggleable {
 
@@ -16,17 +20,58 @@ public abstract class Semimod extends EapiModule implements Bindable, Commandabl
 		super(name);
 	}
 
+	/***
+	 * mc.thePlayer
+	 */
 	protected EntityPlayerSP player()
 	{
 		return mc.thePlayer;
 	}
 
+	/***
+	 * mc.playerController
+	 */
+	protected PlayerControllerMP playerController() {
+		return mc.playerController;
+	}
+
+	/***
+	 * mc.inventory
+	 */
 	protected InventoryPlayer inventory() {
 		return player().inventory;
 	}
-	
+
+	/***
+	 * mc.theWorld
+	 */
 	protected WorldClient world() {
 		return mc.theWorld;
+	}
+
+	/***
+	 * mc.currentScreen
+	 */
+	protected GuiScreen currentScreen() {
+		return mc.currentScreen;
+	}
+
+	protected GameSettings settings() {
+		return mc.gameSettings;
+	}
+
+	/***
+	 * Simulates a mouse click.
+	 * @param button true if you want a left click, false if you want a right click
+	 */
+	protected void click(boolean button) {
+		if(button) mc.clickMouse();
+		else mc.rightClickMouse();
+	}
+
+	@SuppressWarnings("rawtypes")
+	protected void sendPacket(Packet p) {
+		player().sendQueue.addToSendQueue(p);
 	}
 
 	@Override

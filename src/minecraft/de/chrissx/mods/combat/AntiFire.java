@@ -14,6 +14,6 @@ public class AntiFire extends Mod {
 	{
 		if(enabled && player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
 			for(int i = 0; i < 100; i++)
-				player().sendQueue.addToSendQueue(new C03PacketPlayer());
+				sendPacket(new C03PacketPlayer());
 	}
 }

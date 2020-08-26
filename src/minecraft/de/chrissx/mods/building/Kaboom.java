@@ -19,8 +19,8 @@ public class Kaboom extends Mod {
 		if (enabled && p.capabilities.isCreativeMode && p.onGround)
 		{
 			//does not create sound,
-			//which seems to be related to mc.thePlayer not being a tnt entity
-			new Explosion(mc.theWorld, p, p.posX, p.posY, p.posZ, 6, false, true).doExplosionB(true);
+			//which seems to be related to thePlayer not being a tnt entity
+			new Explosion(world(), p, p.posX, p.posY, p.posZ, 6, false, true).doExplosionB(true);
 	        for (BlockPos bp : Util.getBlocksAround(p, 6, false))
 	            for(int i = 0; i < 32; i++)
 	            	Util.breakBlock(bp);

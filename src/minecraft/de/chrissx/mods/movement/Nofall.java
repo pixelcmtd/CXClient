@@ -11,9 +11,7 @@ public class Nofall extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			if(mc.thePlayer.fallDistance > 2)
-				mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer(true));
-		}
+		if(enabled && player().fallDistance > 2)
+			sendPacket(new C03PacketPlayer(true));
 	}
 }

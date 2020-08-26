@@ -10,17 +10,14 @@ public class VanillaFly extends Mod {
 	}
 	
 	public void setSpeed(float speed) {
-		mc.thePlayer.capabilities.setFlySpeed(speed);
+		player().capabilities.setFlySpeed(speed);
 	}
 	
 	@Override
 	public void toggle() {
 		enabled = !enabled;
 		try {
-			if(enabled)
-				mc.thePlayer.capabilities.allowFlying = true;
-			else
-				mc.thePlayer.capabilities.allowFlying = false;
+			player().capabilities.allowFlying = enabled;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

@@ -34,10 +34,10 @@ public class Killaura extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled) {
-			if(legit && mc.thePlayer.isEating())
+			if(legit && player().isEating())
 				return;
-			for(Entity e : mc.theWorld.loadedEntityList) {
-				if(!(e instanceof EntityLivingBase) || e == mc.thePlayer || mc.thePlayer.getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead)
+			for(Entity e : world().loadedEntityList) {
+				if(!(e instanceof EntityLivingBase) || e == player() || player().getDistanceToEntity(e) > max_range || (!attackInvis && e.isInvisible()) || e.isDead)
 					continue;
 				else {
 					boolean attack = Random.rand(3) == 2;
@@ -46,9 +46,9 @@ public class Killaura extends Mod {
 					if(legit && attack && !miss)
 						Util.faceEntity(e);
 					if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
-						mc.thePlayer.swingItem();
+						player().swingItem();
 					if(!legit2 || (attack && !miss))
-						mc.playerController.attackEntity(mc.thePlayer, e);
+						playerController().attackEntity(player(), e);
 					if(legit) return;
 				}
 			}

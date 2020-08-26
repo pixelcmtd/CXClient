@@ -16,13 +16,13 @@ public class WaterWalk extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !mc.gameSettings.keyBindSneak.pressed)
+		if(enabled && !settings().keyBindSneak.pressed)
 		{
-			EntityPlayerSP p = mc.thePlayer;
-			if(p.isInWater() || Util.isWater(mc.theWorld.getBlock(new BlockPos(p.posX, p.posY, p.posZ))))
+			EntityPlayerSP p = player();
+			if(p.isInWater() || Util.isWater(world().getBlock(new BlockPos(p.posX, p.posY, p.posZ))))
 			{
 				if(p.motionY < 0) p.motionY = 0;
-				if(mc.gameSettings.keyBindJump.pressed) p.jump();
+				if(settings().keyBindJump.pressed) p.jump();
 				else p.isAirBorne = false;
 			}
 		}

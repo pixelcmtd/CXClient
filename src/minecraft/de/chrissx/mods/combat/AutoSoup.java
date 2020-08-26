@@ -17,7 +17,7 @@ public class AutoSoup extends Mod {
 			(i = Util.firstSoupIndex(inventory().mainInventory)) != -1)
 		{
 			player().inventory.currentItem = i;
-			mc.rightClickMouse();
+			click(false);
 		}
 	}
 }

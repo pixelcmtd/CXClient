@@ -13,7 +13,7 @@ public class Twerk extends Mod {
 	public void onTick() {
 		if(enabled)
 		{
-			KeyBinding sneak = mc.gameSettings.keyBindSneak;
+			KeyBinding sneak = settings().keyBindSneak;
 			sneak.pressed = !sneak.pressed;
 		}
 	}

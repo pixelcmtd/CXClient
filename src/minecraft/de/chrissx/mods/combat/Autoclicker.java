@@ -17,10 +17,7 @@ public class Autoclicker extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled)
-			if(mouseButton)
-				mc.clickMouse();
-			else
-				mc.rightClickMouse();
+			click(mouseButton);
 	}
 	
 	@Override

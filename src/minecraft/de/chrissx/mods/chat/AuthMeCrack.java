@@ -221,9 +221,7 @@ public class AuthMeCrack extends Mod {
 	{
 		StringBuilder sb = new StringBuilder();
 		for(char c : crs)
-		{
 			sb.append(c);
-		}
 		return sb.toString();
 	}
 }

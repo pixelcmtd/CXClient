@@ -31,7 +31,7 @@ public class Nuker extends Mod {
 	public void onTick() {
 		if(enabled) {
 			if(bypass == NukerBypassLevel.NONE || count < 1) {
-				BlockPos[] positions = Util.getBlocksAround(mc.thePlayer, (bypass == NukerBypassLevel.NONE ? 6 : 3), bypass != NukerBypassLevel.NONE);
+				BlockPos[] positions = Util.getBlocksAround(player(), (bypass == NukerBypassLevel.NONE ? 6 : 3), bypass != NukerBypassLevel.NONE);
 				if(mode.equals(NukerMode.ALL)) {
 					if(bypass == NukerBypassLevel.NONE) {
 						for(BlockPos p : positions)
@@ -53,16 +53,16 @@ public class Nuker extends Mod {
 						}
 					}
 				}else if(mode.equals(NukerMode.CLICK)) {
-					BlockPos b = mc.playerController.clickedBlock;
+					BlockPos b = playerController().clickedBlock;
 					if(b == null) return;
 					if(bypass == NukerBypassLevel.NONE) {
 						for(BlockPos p : positions)
-							if(Block.getIdFromBlock(mc.theWorld.getBlock(p)) == Block.getIdFromBlock(mc.theWorld.getBlock(b)))
+							if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
 								Util.breakBlock(p);
 					}else {
 						List<BlockPos> poss = new ArrayList<BlockPos>();
 						for(BlockPos p : positions)
-							if(Block.getIdFromBlock(mc.theWorld.getBlock(p)) == Block.getIdFromBlock(mc.theWorld.getBlock(b)))
+							if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
 								poss.add(p);
 						
 						if(poss.size() <= breaksPerCycle())

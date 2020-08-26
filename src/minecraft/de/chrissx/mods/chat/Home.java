@@ -2,7 +2,6 @@ package de.chrissx.mods.chat;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 
 import com.google.common.base.Charsets;
 import com.google.common.io.Files;

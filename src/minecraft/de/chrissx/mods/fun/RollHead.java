@@ -16,9 +16,9 @@ public class RollHead extends Mod {
 	{
 		if(enabled)
 		{
-			EntityPlayerSP p = mc.thePlayer;
+			EntityPlayerSP p = player();
 			float f = (float) (p.ticksExisted % 20 / 10F * Math.PI);
-		    p.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(p.rotationYaw, MathHelper.sin(f) * 90, p.onGround));
+		    sendPacket(new C03PacketPlayer.C05PacketPlayerLook(p.rotationYaw, MathHelper.sin(f) * 90, p.onGround));
 		}
 	}
 }

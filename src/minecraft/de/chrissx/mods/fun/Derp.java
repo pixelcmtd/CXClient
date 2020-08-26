@@ -14,7 +14,7 @@ public class Derp extends Mod {
 	public void onTick()
 	{
 		if(enabled)
-			mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer.C05PacketPlayerLook(mc.thePlayer.rotationYaw
-					+ Random.randFloat() * 360 - 180, Random.randFloat() * 180 - 90, mc.thePlayer.onGround));
+			sendPacket(new C03PacketPlayer.C05PacketPlayerLook(player().rotationYaw
+					+ Random.randFloat() * 360 - 180, Random.randFloat() * 180 - 90, player().onGround));
 	}
 }

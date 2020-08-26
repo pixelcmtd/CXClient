@@ -14,13 +14,13 @@ public class AutoArmor extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && mc.currentScreen instanceof GuiInventory) {
+		if(enabled && currentScreen() instanceof GuiInventory) {
 			int[] bestArmorSlots = new int[4];
 			int[] bestArmorValues = new int[4];
 				
 			for(int armorType = 0; armorType < 4; armorType++)
 			{
-				ItemStack oldArmor = mc.thePlayer.inventory.armorItemInSlot(armorType);
+				ItemStack oldArmor = inventory().armorItemInSlot(armorType);
 				if(oldArmor != null && oldArmor.getItem() instanceof ItemArmor)
 				bestArmorValues[armorType] = ((ItemArmor)oldArmor.getItem()).damageReduceAmount;
 					
@@ -29,7 +29,7 @@ public class AutoArmor extends Mod {
 				
 			for(int slot = 0; slot < 36; slot++)
 			{
-				ItemStack stack = mc.thePlayer.inventory.getStackInSlot(slot);
+				ItemStack stack = inventory().getStackInSlot(slot);
 				if(stack == null || !(stack.getItem() instanceof ItemArmor))
 					continue;
 					
@@ -50,13 +50,13 @@ public class AutoArmor extends Mod {
 					if(slot == -1)
 						continue;
 						
-					ItemStack oldArmor = mc.thePlayer.inventory.armorItemInSlot(armorType);
-					if(oldArmor == null || mc.thePlayer.inventory.getFirstEmptyStack() != -1)
+					ItemStack oldArmor = inventory().armorItemInSlot(armorType);
+					if(oldArmor == null || inventory().getFirstEmptyStack() != -1)
 					{
 						if(slot < 9)
 							slot += 36;
 						
-						Util.swapSlots(slot, 8 - armorType, ((GuiInventory)mc.currentScreen).inventorySlots.windowId);
+						Util.swapSlots(slot, 8 - armorType, ((GuiInventory)currentScreen()).inventorySlots.windowId);
 						
 						break;
 					}

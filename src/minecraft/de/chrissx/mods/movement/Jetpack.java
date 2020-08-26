@@ -7,12 +7,12 @@ public class Jetpack extends Mod {
 	public Jetpack() {
 		super("Jetpack");
 	}
-	
+
 	@Override
 	public void onTick()
 	{
-		if(enabled && mc.gameSettings.keyBindJump.isKeyDown())
-			mc.thePlayer.motionY = 0.4;
+		if(enabled && settings().keyBindJump.isKeyDown())
+			player().motionY = 0.4;
 	}
 
 }

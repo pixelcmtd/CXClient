@@ -15,19 +15,19 @@ public class SkinBlinker extends Mod {
 	public void onTick() {
 		if(enabled) {
 			if(i == 0)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.HAT);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.HAT);
 			else if(i == 1)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.JACKET);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.JACKET);
 			else if(i == 2)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.CAPE);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.CAPE);
 			else if(i == 3)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.LEFT_PANTS_LEG);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.LEFT_PANTS_LEG);
 			else if(i == 4)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.RIGHT_PANTS_LEG);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.RIGHT_PANTS_LEG);
 			else if(i == 5)
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.LEFT_SLEEVE);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.LEFT_SLEEVE);
 			else
-				mc.gameSettings.switchModelPartEnabled(EnumPlayerModelParts.RIGHT_SLEEVE);
+				settings().switchModelPartEnabled(EnumPlayerModelParts.RIGHT_SLEEVE);
 
 			if(i < 6)
 				i++;

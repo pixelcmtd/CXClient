@@ -10,9 +10,9 @@ public class LegitSpeed extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && mc.thePlayer.onGround) {
-			mc.thePlayer.jump();
-			mc.thePlayer.setSprinting(true);
+		if(enabled && player().onGround) {
+			player().jump();
+			player().setSprinting(true);
 		}
 	}
 }

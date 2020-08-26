@@ -10,11 +10,11 @@ public class Fullbright extends Mod {
 	public Fullbright() {
 		super("FullBright");
 	}
-	
+
 	@Override
 	public void toggle() {
 		enabled = !enabled;
-		GameSettings gs = mc.gameSettings;
+		GameSettings gs = settings();
 		if(enabled) {
 			gammaBefore = gs.gammaSetting;
 			gs.gammaSetting = 100;

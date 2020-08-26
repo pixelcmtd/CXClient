@@ -207,6 +207,12 @@ public class HackedClient {
 		t.start();
 	}
 
+	/**
+	 * This func is called whenever "GuiRenameWorld" aka the Alt-Manager
+	 * wants to exec a command.
+	 * @param input
+	 * @param gui
+	 */
 	public void guiRenameWorld(String input, IGuiRenameWorld gui) {
 		try {
 			String[] args = input.split(" ");
@@ -285,7 +291,11 @@ public class HackedClient {
 
 	public void onTick() {
 		for(TickListener l : mods.tickListeners)
-			l.onTick();
+			try {
+				l.onTick();
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		
 		if(!disableHotkeys)
 			updateKeyboard();

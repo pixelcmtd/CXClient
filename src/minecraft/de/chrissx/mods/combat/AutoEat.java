@@ -13,13 +13,11 @@ public class AutoEat extends Mod {
 	public void onTick()
 	{
 		int i;
-		if(enabled && mc.thePlayer.canEat(false) &&
-				(i = Util.firstFoodIndex(
-						mc.thePlayer.inventory.mainInventory))
-				!= -1)
+		if(enabled && player().canEat(false) &&
+				(i = Util.firstFoodIndex(inventory().mainInventory)) != -1)
 		{
-			mc.thePlayer.inventory.currentItem = i - 27;
-			//START EATING
+			inventory().currentItem = i - 27;
+			//TODO: START EATING
 		}
 	}
 }

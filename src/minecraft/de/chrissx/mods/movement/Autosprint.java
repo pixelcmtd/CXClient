@@ -11,6 +11,6 @@ public class Autosprint extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled)
-			mc.gameSettings.keyBindSprint.pressed = true;
+			settings().keyBindSprint.pressed = true;
 	}
 }

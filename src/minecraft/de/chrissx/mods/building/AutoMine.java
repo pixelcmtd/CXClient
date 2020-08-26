@@ -13,8 +13,8 @@ public class AutoMine extends Mod {
 	{
 		if(enabled && mc.objectMouseOver != null &&
 				mc.objectMouseOver.getBlockPos() != null &&
-				!mc.gameSettings.keyBindAttack.pressed)
-			mc.gameSettings.keyBindAttack.pressed =
-			!mc.theWorld.isAirBlock(mc.objectMouseOver.getBlockPos());
+				!settings().keyBindAttack.pressed)
+			settings().keyBindAttack.pressed =
+			!world().isAirBlock(mc.objectMouseOver.getBlockPos());
 	}
 }

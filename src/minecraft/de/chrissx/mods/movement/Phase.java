@@ -15,9 +15,9 @@ public class Phase extends Mod {
 		{
 		    player().fallDistance = 0;
 		    player().onGround = true;
-		    if(mc.gameSettings.keyBindJump.isKeyDown())
+		    if(settings().keyBindJump.isKeyDown())
 		    	player().motionY = 0.1;
-		    else if(mc.gameSettings.keyBindSneak.isKeyDown())
+		    else if(settings().keyBindSneak.isKeyDown())
 		    	player().motionY = -0.1;
 		    else
 		    	player().motionY = 0;

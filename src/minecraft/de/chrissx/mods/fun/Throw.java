@@ -40,7 +40,7 @@ public class Throw extends Semimod {
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
-					mc.rightClickMouse();
+					click(false);
 					Util.sendMessage((i + 1) + "/" + throwCount + " thrown.");
 				}
 			}

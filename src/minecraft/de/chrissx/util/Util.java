@@ -18,7 +18,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -77,7 +76,7 @@ public class Util {
 			info("Made " + name + ".");
 		}
 	}
-	
+
 	public static String combineParts(String[] strings, int startIndex, String seperator) {
 		if(startIndex >= strings.length) return "";
 		StringBuilder sb = new StringBuilder();
@@ -96,7 +95,7 @@ public class Util {
 	            i.setRGB(x, y, src.getRGB(x * src.getWidth() / w, y * src.getHeight() / h));
 	    return i;
 	}
-	
+
 	/**
 	 * Splits the string without trying something with regexes but just a single character separator.
 	 * @param s The string to split
@@ -131,7 +130,7 @@ public class Util {
 		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
 		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
 	}
-	
+
 	public static String generateTempFile(String tmp, String name, String ext) {
 		String out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString();
 		File f = new File(out);
@@ -139,7 +138,7 @@ public class Util {
 			f = new File(out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString());
 		return out;
 	}
-	
+
 	public static void downloadFile(final String url, final String file) throws IOException {
 		final BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
 		final FileOutputStream out = new FileOutputStream(file);
@@ -153,7 +152,7 @@ public class Util {
 		out.close();
 		in.close();
 	}
-	
+
 	public static void cheatArmorStand(String msg, double x, double y, double z, int slot) {
 		ItemStack itm = new ItemStack(Items.armor_stand);
 	    
@@ -180,7 +179,7 @@ public class Util {
 	    
 	    cheatItem(itm, slot);
 	  }
-	  
+
 	  public static void cheatCmdBlock(String command) {
 		  ItemStack itm = new ItemStack(Blocks.command_block);
 		  
@@ -255,7 +254,7 @@ public class Util {
 		
 		cheatItem(itm, 38);
 	}
-	
+
 	public static NBTTagList newEffects() {
 		return new NBTTagList();
 	}

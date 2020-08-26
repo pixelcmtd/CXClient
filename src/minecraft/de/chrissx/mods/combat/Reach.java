@@ -23,7 +23,7 @@ public class Reach extends Mod {
 			try {
 				reach = Float.parseFloat(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("�4Error parsing float.");
+				Util.sendMessage("\u00a74Error parsing float.");
 			}
 		else
 			Util.sendMessage("#reach to toggle, #reach range <float> to set your extended range.");

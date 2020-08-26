@@ -22,11 +22,9 @@ public class Sneak extends Mod {
 	@Override
 	public void onTick() {
 		if(enabled)
-			if(mode.equals(SneakMode.PACKET))
-				;
-			else if(mode.equals(SneakMode.BYPASS))
-				mc.gameSettings.keyBindSneak.pressed = true;
-			else
+			if(mode.equals(SneakMode.BYPASS))
+				settings().keyBindSneak.pressed = true;
+			else if(!mode.equals(SneakMode.PACKET))
 				Util.sendMessage("Currently your mode is not supported, this should be a bug, please report to chrissx!");
 	}
 
@@ -34,7 +32,7 @@ public class Sneak extends Mod {
 	public void toggle() {
 		enabled = !enabled;
 		if(mode.equals(SneakMode.PACKET))
-			mc.thePlayer.sendQueue.addToSendQueue(new C0BPacketEntityAction(mc.thePlayer, enabled ? Action.START_SNEAKING : Action.STOP_SNEAKING));
+			sendPacket(new C0BPacketEntityAction(player(), enabled ? Action.START_SNEAKING : Action.STOP_SNEAKING));
 	}
 
 	@Override

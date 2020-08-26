@@ -12,14 +12,14 @@ public class ACFly1 extends Mod {
 	public void onTick() {
 		if(enabled)
 		{
-			if(mc.thePlayer.isSneaking())
-				mc.thePlayer.motionY = -0.4;
-			else if(mc.gameSettings.keyBindJump.isKeyDown())
-				mc.thePlayer.motionY = 0.4;
+			if(player().isSneaking())
+				player().motionY = -0.4;
+			else if(settings().keyBindJump.isKeyDown())
+				player().motionY = 0.4;
 			else
-				mc.thePlayer.motionY = 0;
-			mc.thePlayer.motionX *= 1.1;
-			mc.thePlayer.motionZ *= 1.1;
+				player().motionY = 0;
+			player().motionX *= 1.1;
+			player().motionZ *= 1.1;
 		}
 	}
 }

@@ -11,8 +11,8 @@ public class AutoJump extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && mc.thePlayer.onGround)
-			mc.thePlayer.jump();
+		if(enabled && player().onGround)
+			player().jump();
 	}
 
 }

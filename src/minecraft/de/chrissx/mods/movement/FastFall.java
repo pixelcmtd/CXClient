@@ -18,10 +18,8 @@ public class FastFall extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !mc.thePlayer.onGround && mc.thePlayer.motionY < 0)
-		{
-			mc.thePlayer.motionY = speed;
-		}
+		if(enabled && !player().onGround && player().motionY < 0)
+			player().motionY = speed;
 	}
 	
 	@Override
@@ -33,8 +31,7 @@ public class FastFall extends Mod {
 			try
 			{
 				double d = Double.parseDouble(args[2]);
-				if(d > 0)
-					throw new Exception("Speed should be negative.");
+				if(d > 0) throw new Exception("Speed must be negative.");
 				speed = d;
 			}
 			catch(Exception e)

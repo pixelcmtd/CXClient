@@ -35,7 +35,7 @@ public class MassTpa extends Mod {
 	public void toggle() {
 		enabled = !enabled;
 		tpaed = new ArrayList<Integer>();
-		players = mc.theWorld.playerEntities;
+		players = world().playerEntities;
 		if(players.size() < 2)
 			enabled = false;
 	}

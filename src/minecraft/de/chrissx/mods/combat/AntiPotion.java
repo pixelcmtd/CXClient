@@ -9,8 +9,8 @@ public class AntiPotion extends Mod {
 	final Potion[] blockedEffects = {
 			Potion.hunger, Potion.moveSlowdown, Potion.digSlowdown, Potion.harm,
 			Potion.confusion, Potion.blindness, Potion.weakness, Potion.wither, Potion.poison
-			};
-	
+	};
+
 	public AntiPotion() {
 		super("AntiPotion");
 	}
@@ -18,17 +18,17 @@ public class AntiPotion extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !mc.thePlayer.capabilities.isCreativeMode && mc.thePlayer.onGround && hasBadEffect())
+		if(enabled && !player().capabilities.isCreativeMode && player().onGround && hasBadEffect())
 			for (int i = 0; i < 1000; i++)
-				mc.thePlayer.sendQueue.addToSendQueue(new C03PacketPlayer());
+				sendPacket(new C03PacketPlayer());
 	}
-	
+
 	boolean hasBadEffect()
 	{
-		if (mc.thePlayer.getActivePotionEffects().isEmpty())
+		if (player().getActivePotionEffects().isEmpty())
 		  return false;
 		for(Potion e : blockedEffects)
-			if (mc.thePlayer.isPotionActive(e))
+			if (player().isPotionActive(e))
 				return true;
 		return false;
 	}

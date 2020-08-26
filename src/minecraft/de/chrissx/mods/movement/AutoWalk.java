@@ -12,6 +12,6 @@ public class AutoWalk extends Mod {
 	public void onTick()
 	{
 		if(enabled)
-			mc.gameSettings.keyBindForward.pressed = true;
+			settings().keyBindForward.pressed = true;
 	}
 }

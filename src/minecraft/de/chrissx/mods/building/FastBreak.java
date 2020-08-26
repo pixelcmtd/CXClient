@@ -6,11 +6,11 @@ import de.chrissx.util.Util;
 public class FastBreak extends Mod {
 	
 	public float speed = 2;
-	
+
 	public FastBreak() {
 		super("FastBreak");
 	}
-	
+
 	@Override
 	public void processCommand(String[] args)
 	{
