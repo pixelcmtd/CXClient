@@ -42,9 +42,9 @@ public class Consts {
 	public static String optionsFile;
 	public static String eapiOptionsFile;
 	public static final String clientName = "CXClient";
-	public static final String version = "alpha 3203";
+	public static final String version = "alpha 3204";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3203;
+	public static final int BLDNUM = -3204;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
@@ -52,6 +52,7 @@ public class Consts {
 		"-Added an EAPI system for setting homes and tping to them",
 		"-Fixed a bug where the client would crash when you didn't click any block and enabled click Nuker",
 		"-Added a legit bypass level to Nuker, so you would be almost undetectable",
+		"-When (un)binding hotkeys the keys are now matched better",
 	};
 
 	public static final String[] credits = new String[] {

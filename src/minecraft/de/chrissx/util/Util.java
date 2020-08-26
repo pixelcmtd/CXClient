@@ -11,6 +11,8 @@ import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
 
+import org.lwjgl.input.Keyboard;
+
 import de.chrissx.HackedClient;
 import de.chrissx.hotkeys.Hotkey;
 import de.chrissx.locations.LocFloat64;
@@ -413,5 +415,12 @@ public class Util {
 			if(ChatAllowedCharacters.isAllowedCharacter(c))
 				b.append(c);
 		return b.toString();
+	}
+
+	public static int getKeyId(String key) {
+		int keyId = Keyboard.getKeyIndex(key);
+		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toUpperCase());
+		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toLowerCase());
+		return keyId;
 	}
 }

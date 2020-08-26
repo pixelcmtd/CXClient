@@ -334,12 +334,16 @@ public class HackedClient {
 				Util.sendMessage("#bind <key> <mod-name>");
 				return;
 			}
-			else if(Hotkey.containsKey(hotkeys, Keyboard.getKeyIndex(args[1])))
+			int keyId = Util.getKeyId(args[1]);
+			Bindable bindable = mods.getBindable(args[2].toLowerCase());
+			if(keyId == Keyboard.KEY_NONE)
+				Util.sendMessage("\u00a74LWJGL can't find that key.");
+			else if(Hotkey.containsKey(hotkeys, keyId))
 				Util.sendMessage("\u00a74Key already registered.");
-			else if(mods.getBindable(args[2].toLowerCase()) == null)
-				Util.sendMessage("\u00a74Bindable does not exist.");
+			else if(bindable == null)
+				Util.sendMessage("\u00a74That Bindable does not exist.");
 			else
-				hotkeys.add(new Hotkey(Keyboard.getKeyIndex(args[1]), mods.getBindable(args[2].toLowerCase())));
+				hotkeys.add(new Hotkey(keyId, bindable));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
 			Iterator<Entry<String, Bindable>> it = mods.getBindEntrys().iterator();
 			String s = "Bindables: "+it.next().getKey();
@@ -347,12 +351,12 @@ public class HackedClient {
 				s+=", "+it.next().getKey();
 			}
 			Util.sendMessage(s);
-		}else if(cmd.equalsIgnoreCase("#unbind"))
+		}else if(cmd.equalsIgnoreCase("#unbind")) {
 			if(args.length < 2)
 				Util.sendMessage("#unbind <key>");
 			else
-				Util.removeHotkeyFromList(hotkeys, Keyboard.getKeyIndex(args[1]));
-		else if(cmd.equalsIgnoreCase("#say")) {
+				Util.removeHotkeyFromList(hotkeys, Util.getKeyId(args[1]));
+		}else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
 				Util.sendMessage("\u00a74Please enter a message.");
 				return;
