@@ -30,9 +30,7 @@ public class RenderGuardian extends RenderLiving<EntityGuardian>
     public boolean shouldRender(EntityGuardian livingEntity, ICamera camera, double camX, double camY, double camZ)
     {
         if (super.shouldRender(livingEntity, camera, camX, camY, camZ))
-        {
             return true;
-        }
         else
         {
             if (livingEntity.hasTargetedEntity())
@@ -45,9 +43,7 @@ public class RenderGuardian extends RenderLiving<EntityGuardian>
                     Vec3 vec31 = this.func_177110_a(livingEntity, (double)livingEntity.getEyeHeight(), 1.0F);
 
                     if (camera.isBoundingBoxInFrustum(AxisAlignedBB.fromBounds(vec31.xCoord, vec31.yCoord, vec31.zCoord, vec3.xCoord, vec3.yCoord, vec3.zCoord)))
-                    {
                         return true;
-                    }
                 }
             }
 
@@ -113,29 +109,27 @@ public class RenderGuardian extends RenderLiving<EntityGuardian>
             double d1 = (double)f2 * 0.05D * (1.0D - (double)(i & 1) * 2.5D);
             worldrenderer.begin(7, DefaultVertexFormats.POSITION_TEX_COLOR);
             float f7 = f * f;
-            int j = 64 + (int)(f7 * 240.0F);
-            int k = 32 + (int)(f7 * 192.0F);
-            int l = 128 - (int)(f7 * 64.0F);
-            double d2 = (double)i * 0.2D;
+            int j = 64 + (int)(f7 * 240);
+            int k = 32 + (int)(f7 * 192);
+            int l = 128 - (int)(f7 * 64);
+            double d2 = (double)i * 0.2;
             double d3 = d2 * 1.41D;
-            double d4 = 0.0D + Math.cos(d1 + 2.356194490192345D) * d3;
-            double d5 = 0.0D + Math.sin(d1 + 2.356194490192345D) * d3;
-            double d6 = 0.0D + Math.cos(d1 + (Math.PI / 4D)) * d3;
-            double d7 = 0.0D + Math.sin(d1 + (Math.PI / 4D)) * d3;
-            double d8 = 0.0D + Math.cos(d1 + 3.9269908169872414D) * d3;
-            double d9 = 0.0D + Math.sin(d1 + 3.9269908169872414D) * d3;
-            double d10 = 0.0D + Math.cos(d1 + 5.497787143782138D) * d3;
-            double d11 = 0.0D + Math.sin(d1 + 5.497787143782138D) * d3;
-            double d12 = 0.0D + Math.cos(d1 + Math.PI) * d2;
-            double d13 = 0.0D + Math.sin(d1 + Math.PI) * d2;
-            double d14 = 0.0D + Math.cos(d1 + 0.0D) * d2;
-            double d15 = 0.0D + Math.sin(d1 + 0.0D) * d2;
-            double d16 = 0.0D + Math.cos(d1 + (Math.PI / 2D)) * d2;
-            double d17 = 0.0D + Math.sin(d1 + (Math.PI / 2D)) * d2;
-            double d18 = 0.0D + Math.cos(d1 + (Math.PI * 3D / 2D)) * d2;
-            double d19 = 0.0D + Math.sin(d1 + (Math.PI * 3D / 2D)) * d2;
-            double d20 = 0.0D;
-            double d21 = 0.4999D;
+            double d4 = Math.cos(d1 + 2.356194490192345D) * d3;
+            double d5 = Math.sin(d1 + 2.356194490192345D) * d3;
+            double d6 = Math.cos(d1 + (Math.PI / 4D)) * d3;
+            double d7 = Math.sin(d1 + (Math.PI / 4D)) * d3;
+            double d8 = Math.cos(d1 + 3.9269908169872414D) * d3;
+            double d9 = Math.sin(d1 + 3.9269908169872414D) * d3;
+            double d10 = Math.cos(d1 + 5.497787143782138D) * d3;
+            double d11 = Math.sin(d1 + 5.497787143782138D) * d3;
+            double d12 = Math.cos(d1 + Math.PI) * d2;
+            double d13 = Math.sin(d1 + Math.PI) * d2;
+            double d14 = Math.cos(d1 + 0.0D) * d2;
+            double d15 = Math.sin(d1 + 0.0D) * d2;
+            double d16 = Math.cos(d1 + (Math.PI / 2D)) * d2;
+            double d17 = Math.sin(d1 + (Math.PI / 2D)) * d2;
+            double d18 = Math.cos(d1 + (Math.PI * 3D / 2D)) * d2;
+            double d19 = Math.sin(d1 + (Math.PI * 3D / 2D)) * d2;
             double d22 = (double)(-1.0F + f3);
             double d23 = d0 * (0.5D / d2) + d22;
             worldrenderer.pos(d12, d0, d13).tex(0.4999D, d23).color(j, k, l, 255).endVertex();
@@ -146,12 +140,10 @@ public class RenderGuardian extends RenderLiving<EntityGuardian>
             worldrenderer.pos(d16, 0.0D, d17).tex(0.4999D, d22).color(j, k, l, 255).endVertex();
             worldrenderer.pos(d18, 0.0D, d19).tex(0.0D, d22).color(j, k, l, 255).endVertex();
             worldrenderer.pos(d18, d0, d19).tex(0.0D, d23).color(j, k, l, 255).endVertex();
-            double d24 = 0.0D;
+            double d24 = 0;
 
             if (entity.ticksExisted % 2 == 0)
-            {
-                d24 = 0.5D;
-            }
+                d24 = 0.5;
 
             worldrenderer.pos(d4, d0, d5).tex(0.5D, d24 + 0.5D).color(j, k, l, 255).endVertex();
             worldrenderer.pos(d6, d0, d7).tex(1.0D, d24 + 0.5D).color(j, k, l, 255).endVertex();
@@ -163,8 +155,7 @@ public class RenderGuardian extends RenderLiving<EntityGuardian>
     }
 
     /**
-     * Allows the render to do any OpenGL state modifications necessary before the model is rendered. Args:
-     * entityLiving, partialTickTime
+     * Makes the guardian bigger if it is elder.
      */
     protected void preRenderCallback(EntityGuardian entitylivingbaseIn, float partialTickTime)
     {

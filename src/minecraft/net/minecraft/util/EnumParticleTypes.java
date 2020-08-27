@@ -47,8 +47,7 @@ public enum EnumParticleTypes
     BLOCK_CRACK("blockcrack_", 37, false, 1),
     BLOCK_DUST("blockdust_", 38, false, 1),
     WATER_DROP("droplet", 39, false),
-    ITEM_TAKE("take", 40, false),
-    MOB_APPEARANCE("mobappearance", 41, true);
+    ITEM_TAKE("take", 40, false);
 
     private final String particleName;
     private final int particleID;

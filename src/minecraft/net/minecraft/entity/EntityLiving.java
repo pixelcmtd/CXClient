@@ -453,7 +453,7 @@ public abstract class EntityLiving extends EntityLivingBase
         super.onLivingUpdate();
         this.worldObj.theProfiler.startSection("looting");
 
-        if (!this.worldObj.isRemote && this.canPickUpLoot() && !this.dead && this.worldObj.getGameRules().getBoolean("mobGriefing"))
+        if (!this.worldObj.isRemote && this.canPickUpLoot() && !this.isDead && this.worldObj.getGameRules().getBoolean("mobGriefing"))
         {
             for (EntityItem entityitem : this.worldObj.getEntitiesWithinAABB(EntityItem.class, this.getEntityBoundingBox().expand(1.0D, 0.0D, 1.0D)))
             {
@@ -885,17 +885,10 @@ public abstract class EntityLiving extends EntityLivingBase
             {
                 switch (((ItemArmor)stack.getItem()).armorType)
                 {
-                    case 0:
-                        return 4;
-
-                    case 1:
-                        return 3;
-
-                    case 2:
-                        return 2;
-
-                    case 3:
-                        return 1;
+                    case 0: return 4;
+                    case 1: return 3;
+                    case 2: return 2;
+                    case 3: return 1;
                 }
             }
 

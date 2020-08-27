@@ -95,9 +95,7 @@ public class ModelGuardian extends ModelBase
         Entity entity = Minecraft.getMinecraft().getRenderViewEntity();
 
         if (entityguardian.hasTargetedEntity())
-        {
             entity = entityguardian.getTargetedEntity();
-        }
 
         if (entity != null)
         {
@@ -105,14 +103,7 @@ public class ModelGuardian extends ModelBase
             Vec3 vec31 = entityIn.getPositionEyes(0.0F);
             double d0 = vec3.yCoord - vec31.yCoord;
 
-            if (d0 > 0.0D)
-            {
-                this.guardianEye.rotationPointY = 0.0F;
-            }
-            else
-            {
-                this.guardianEye.rotationPointY = 1.0F;
-            }
+            guardianEye.rotationPointY = d0 > 0 ? 0 : 1;
 
             Vec3 vec32 = entityIn.getLook(0.0F);
             vec32 = new Vec3(vec32.xCoord, 0.0D, vec32.zCoord);

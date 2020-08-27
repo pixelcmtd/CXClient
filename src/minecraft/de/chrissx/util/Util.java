@@ -284,10 +284,17 @@ public class Util {
 		mc.thePlayer.sendQueue.addToSendQueue(new C10PacketCreativeInventoryAction(slot, itm));
 	}
 
+	/**
+	 * Sends msg to the server as if it was typed into the ingame chat.
+	 */
 	public static void sendChat(String msg) {
 		mc.thePlayer.sendChatMessage(msg);
 	}
 
+	/**
+	 * Sends the player a msg by showing it to them in the chat.
+	 * (not sent anywhere at all)
+	 */
 	public static void sendMessage(String msg) {
 		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + 
 				msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));

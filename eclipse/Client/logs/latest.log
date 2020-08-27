@@ -1,20 +1,15 @@
-[04:54:58] [Client thread/INFO]: Setting user: Player778
-[04:54:58] [Client thread/INFO]: (Session ID is *censored*)
-[04:54:58] [Client thread/INFO]: CXClient Version: alpha 3203
-[04:54:58] [Client thread/INFO]: LWJGL Version: 2.9.4
-[04:54:58] [Client thread/INFO]: Reloading ResourceManager: Default
-[04:54:59] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[04:54:59] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[04:54:59] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[04:54:59] [Thread-5/INFO]: OpenAL initialized.
-[04:54:59] [Sound Library Loader/INFO]: Sound engine started
-[04:54:59] [Client thread/INFO]: Created: 512x512 textures-atlas
-[04:55:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[04:55:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[04:55:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.menu
-[04:55:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[04:55:18] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[04:55:19] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[04:55:19] [Client thread/INFO]: Stopping CXClient.
-[04:55:19] [Client thread/INFO]: SoundSystem shutting down...
-[04:55:19] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[20:01:26] [Client thread/INFO]: Setting user: Player764
+[20:01:26] [Client thread/INFO]: (Session ID is *censored*)
+[20:01:27] [Client thread/INFO]: CXClient Version: alpha 3205
+[20:01:27] [Client thread/INFO]: LWJGL Version: 2.9.4
+[20:01:27] [Client thread/INFO]: Reloading ResourceManager: Default
+[20:01:27] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[20:01:28] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[20:01:28] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[20:01:28] [Thread-5/INFO]: OpenAL initialized.
+[20:01:28] [Sound Library Loader/INFO]: Sound engine started
+[20:01:28] [Client thread/INFO]: Created: 512x512 textures-atlas
+[20:01:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[20:01:30] [Client thread/INFO]: Stopping CXClient.
+[20:01:30] [Client thread/INFO]: SoundSystem shutting down...
+[20:01:30] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

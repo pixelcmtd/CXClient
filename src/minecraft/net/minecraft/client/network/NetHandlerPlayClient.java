@@ -6,6 +6,7 @@ import com.google.common.util.concurrent.Futures;
 import com.mojang.authlib.GameProfile;
 
 import de.chrissx.HackedClient;
+import de.chrissx.util.Util;
 import io.netty.buffer.Unpooled;
 import java.io.File;
 import java.io.IOException;
@@ -546,14 +547,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         entityotherplayermp.prevPosZ = entityotherplayermp.lastTickPosZ = (double)(entityotherplayermp.serverPosZ = packetIn.getZ());
         int i = packetIn.getCurrentItemID();
 
-        if (i == 0)
-        {
-            entityotherplayermp.inventory.mainInventory[entityotherplayermp.inventory.currentItem] = null;
-        }
-        else
-        {
-            entityotherplayermp.inventory.mainInventory[entityotherplayermp.inventory.currentItem] = new ItemStack(Item.getItemById(i), 1, 0);
-        }
+        entityotherplayermp.inventory.mainInventory[entityotherplayermp.inventory.currentItem] = i == 0 ? null : new ItemStack(Item.getItemById(i), 1, 0);
 
         entityotherplayermp.setPositionAndRotation(d0, d1, d2, f, f1);
         this.clientWorldController.addEntityToWorld(packetIn.getEntityID(), entityotherplayermp);
@@ -1426,8 +1420,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
         }
         else if (i == 10)
         {
-            this.clientWorldController.spawnParticle(EnumParticleTypes.MOB_APPEARANCE, entityplayer.posX, entityplayer.posY, entityplayer.posZ, 0.0D, 0.0D, 0.0D, new int[0]);
-            this.clientWorldController.playSound(entityplayer.posX, entityplayer.posY, entityplayer.posZ, "mob.guardian.curse", 1.0F, 1.0F, false);
+        	Util.sendMessage("A guardian cursed you...");
         }
     }
 

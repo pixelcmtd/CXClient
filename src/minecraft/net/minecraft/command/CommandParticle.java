@@ -39,32 +39,33 @@ public class CommandParticle extends CommandBase
     public void processCommand(ICommandSender sender, String[] args) throws CommandException
     {
         if (args.length < 8)
-        {
             throw new WrongUsageException("commands.particle.usage", new Object[0]);
-        }
         else
         {
             boolean flag = false;
-            EnumParticleTypes enumparticletypes = null;
+            EnumParticleTypes particletype = null;
 
-            for (EnumParticleTypes enumparticletypes1 : EnumParticleTypes.values())
+            for (EnumParticleTypes particle : EnumParticleTypes.values())
             {
-                if (enumparticletypes1.hasArguments())
+                if (particle.hasArguments())
                 {
-                    if (args[0].startsWith(enumparticletypes1.getParticleName()))
+                    if (args[0].startsWith(particle.getParticleName()))
                     {
                         flag = true;
-                        enumparticletypes = enumparticletypes1;
+                        particletype = particle;
                         break;
                     }
                 }
-                else if (args[0].equals(enumparticletypes1.getParticleName()))
+                else if (args[0].equals(particle.getParticleName()))
                 {
                     flag = true;
-                    enumparticletypes = enumparticletypes1;
+                    particletype = particle;
                     break;
                 }
             }
+
+        	System.out.println("Particle:");
+        	System.out.println(particletype);
 
             if (!flag)
             {
@@ -84,25 +85,21 @@ public class CommandParticle extends CommandBase
                 int i = 0;
 
                 if (args.length > 8)
-                {
                     i = parseInt(args[8], 0);
-                }
 
                 boolean flag1 = false;
 
                 if (args.length > 9 && "force".equals(args[9]))
-                {
                     flag1 = true;
-                }
 
                 World world = sender.getEntityWorld();
 
                 if (world instanceof WorldServer)
                 {
                     WorldServer worldserver = (WorldServer)world;
-                    int[] aint = new int[enumparticletypes.getArgumentCount()];
+                    int[] aint = new int[particletype.getArgumentCount()];
 
-                    if (enumparticletypes.hasArguments())
+                    if (particletype.hasArguments())
                     {
                         String[] astring = args[0].split("_", 3);
 
@@ -119,8 +116,8 @@ public class CommandParticle extends CommandBase
                         }
                     }
 
-                    worldserver.spawnParticle(enumparticletypes, flag1, d6, d0, d1, i, d2, d3, d4, d5, aint);
-                    notifyOperators(sender, this, "commands.particle.success", new Object[] {s, Integer.valueOf(Math.max(i, 1))});
+                    worldserver.spawnParticle(particletype, flag1, d6, d0, d1, i, d2, d3, d4, d5, aint);
+                    notifyOperators(sender, this, "commands.particle.success", new Object[] {s, Math.max(i, 1)});
                 }
             }
         }
