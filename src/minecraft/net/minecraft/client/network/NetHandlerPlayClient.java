@@ -508,7 +508,7 @@ public class NetHandlerPlayClient implements INetHandlerPlayClient
 
         if (entity != null)
         {
-        	if(HackedClient.getClient().getMods().velocity.isEnabled())
+        	if(HackedClient.getClient().getMods().velocity.isEnabled() && entity instanceof EntityPlayer)
         		entity.setVelocity(0, 0, 0);
         	else
         		entity.setVelocity((double)packetIn.getMotionX() / 8000.0D, (double)packetIn.getMotionY() / 8000.0D, (double)packetIn.getMotionZ() / 8000.0D);

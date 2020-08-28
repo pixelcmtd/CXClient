@@ -1,15 +1,81 @@
-[20:01:26] [Client thread/INFO]: Setting user: Player764
-[20:01:26] [Client thread/INFO]: (Session ID is *censored*)
-[20:01:27] [Client thread/INFO]: CXClient Version: alpha 3205
-[20:01:27] [Client thread/INFO]: LWJGL Version: 2.9.4
-[20:01:27] [Client thread/INFO]: Reloading ResourceManager: Default
-[20:01:27] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[20:01:28] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[20:01:28] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[20:01:28] [Thread-5/INFO]: OpenAL initialized.
-[20:01:28] [Sound Library Loader/INFO]: Sound engine started
-[20:01:28] [Client thread/INFO]: Created: 512x512 textures-atlas
-[20:01:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[20:01:30] [Client thread/INFO]: Stopping CXClient.
-[20:01:30] [Client thread/INFO]: SoundSystem shutting down...
-[20:01:30] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[14:40:39] [Client thread/INFO]: Setting user: Player735
+[14:40:39] [Client thread/INFO]: (Session ID is *censored*)
+[14:40:40] [Client thread/INFO]: CXClient Version: alpha 3205
+[14:40:40] [Client thread/INFO]: LWJGL Version: 2.9.4
+[14:40:40] [Client thread/INFO]: Reloading ResourceManager: Default
+[14:40:40] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[14:40:41] [Thread-5/INFO]: Initializing LWJGL OpenAL
+[14:40:41] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[14:40:41] [Thread-5/INFO]: OpenAL initialized.
+[14:40:41] [Sound Library Loader/INFO]: Sound engine started
+[14:40:41] [Client thread/INFO]: Created: 512x512 textures-atlas
+[14:40:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:40:44] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[14:40:44] [Server thread/INFO]: Generating keypair
+[14:40:45] [Server thread/INFO]: Preparing start region for level 0
+[14:40:45] [Server thread/INFO]: Changing view distance to 12, from 10
+[14:40:45] [Server thread/INFO]: Player735[local:E:c7b880dd] logged in with entity id 149 at (556.466486063334, 70.0, 193.02994321466412)
+[14:40:45] [Server thread/INFO]: Player735 joined the game
+[14:40:46] [Server thread/INFO]: Player735 has just earned the achievement [Taking Inventory]
+[14:40:46] [Client thread/INFO]: [CHAT] Player735 has just earned the achievement [Taking Inventory]
+[14:40:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:liquid.lavapop
+[14:40:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.game.creative
+[14:40:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:liquid.lavapop
+[14:40:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:40:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:07] [Client thread/INFO]: [SENT] /gamemode 0
+[14:41:07] [Server thread/INFO]: [Player735: Set own game mode to Survival Mode]
+[14:41:07] [Client thread/INFO]: [CHAT] Your game mode has been updated
+[14:41:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.bow
+[14:41:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
+[14:41:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.bow
+[14:41:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
+[14:41:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.wood
+[14:41:20] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.bow
+[14:41:20] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:20] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
+[14:41:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:25] [Client thread/INFO]: [SENT] /velocity
+[14:41:25] [Client thread/INFO]: [CHAT] Unknown command. Try /help for a list of commands
+[14:41:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.bow
+[14:41:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.hurt
+[14:41:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
+[14:41:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[14:41:36] [Server thread/INFO]: Saving and pausing game...
+[14:41:36] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:41:36] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:41:36] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:41:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:41:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:41:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:41:38] [Server thread/INFO]: Stopping server
+[14:41:38] [Server thread/INFO]: Saving players
+[14:41:38] [Server thread/INFO]: Saving worlds
+[14:41:38] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[14:41:38] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[14:41:38] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[14:41:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:41:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[14:41:39] [Client thread/INFO]: Stopping CXClient.
+[14:41:39] [Client thread/INFO]: SoundSystem shutting down...
+[14:41:40] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
