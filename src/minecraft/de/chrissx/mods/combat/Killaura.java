@@ -16,11 +16,9 @@ public class Killaura extends Mod {
 
 	double max_range = 6;
 	KillauraMode mode = KillauraMode.BOTH;
-	boolean attackInvis = false;
-	boolean legit = false;
-	boolean legit2 = false;
+	boolean attackInvis = false, legit1 = false, legit2 = false, slowdown = false;
 	List<String> whitelistedPlayers = new ArrayList<String>();
-	File rf, mf, aif, lf, lf2;
+	File rf, mf, aif, lf, lf2, sd;
 
 	public Killaura() {
 		super("KillAura");
@@ -29,13 +27,14 @@ public class Killaura extends Mod {
 		aif = getApiFile("attack_invis");
 		lf = getApiFile("legit");
 		lf2 = getApiFile("legit2");
+		sd = getApiFile("slowdown");
 	}
 
 	@Override
 	public void onTick() {
 		if(enabled) {
-			if(legit && player().isEating())
-				return;
+			if((legit1 || legit2) && player().isEating()) return;
+			if(slowdown && Random.rand(4) == 3) return;
 			for(Entity e : world().loadedEntityList) {
 				if(!(e instanceof EntityLivingBase) ||
 				   e == player() ||
@@ -46,14 +45,14 @@ public class Killaura extends Mod {
 				else {
 					boolean attack = Random.rand(3) == 2;
 					boolean miss = (Random.randBool() && Random.randBool());
-					
-					if(legit && attack && !miss)
+
+					if(legit1 && attack && !miss)
 						Util.faceEntity(e);
 					if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
 						player().swingItem();
 					if(!legit2 || (attack && !miss))
 						playerController().attackEntity(player(), e);
-					if(legit) return;
+					if(legit1) return;
 				}
 			}
 		}
@@ -63,7 +62,7 @@ public class Killaura extends Mod {
 	public boolean onRender(FontRenderer r, int x, int y) {
 		if(enabled)
 			r.drawString(name+"(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA") +
-					",LEGIT1:" + (legit ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ")", x, y, Color.WHITE.getRGB());
+					",LEGIT1:" + (legit1 ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ",SD:" +slowdown+")", x, y, Color.WHITE.getRGB());
 		return enabled;
 	}
 
@@ -91,13 +90,15 @@ public class Killaura extends Mod {
 			else if(args[1].equalsIgnoreCase("remove"))
 				whitelistedPlayers.remove(args[2]);
 			else if(args[1].equalsIgnoreCase("legit1"))
-				legit = !legit;
+				legit1 = !legit1;
 			else if(args[1].equalsIgnoreCase("legit2"))
 				legit2 = !legit2;
+			else if(args[1].equalsIgnoreCase("slowdown"))
+				slowdown = !slowdown;
 			else
 				Util.sendMessage("#killaura to toggle, #killaura range <double> to set range, #killaura mode <KillauraMode> to set mode, "
 						+ "#killaura invis to toggle invis-attacking, #killaura add <String> to add whitelisted player, #killaura remove to remove whitelisted player, "
-						+ "#killaura legit1 to toggle targetting, #killaura legit2 to toggle missing.");
+						+ "#killaura legit1 to toggle targetting, #killaura legit2 to toggle missing, #killaura slowdown to make it slower.");
 		}
 	}
 
@@ -106,7 +107,8 @@ public class Killaura extends Mod {
 		write(rf, max_range);
 		write(mf, mode.b);
 		write(aif, attackInvis);
-		write(lf, legit);
+		write(lf, legit1);
 		write(lf2, legit2);
+		write(sd, slowdown);
 	}
 }
