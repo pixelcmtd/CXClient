@@ -19,7 +19,6 @@ import de.chrissx.locations.LocFloat64;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -33,6 +32,7 @@ import net.minecraft.nbt.NBTTagString;
 import net.minecraft.network.play.client.C07PacketPlayerDigging;
 import net.minecraft.network.play.client.C07PacketPlayerDigging.Action;
 import net.minecraft.network.play.client.C10PacketCreativeInventoryAction;
+import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.EnumFacing;
@@ -307,23 +307,26 @@ public class Util {
 	}
 
 	public static void faceBlock(BlockPos p) {
-		applyRotations(getRotationsNeeded(p.getX(), p.getY(), p.getZ(), 0.5f));
+		faceCoords(p.getX(), p.getY(), p.getZ(), p.getX() + 1, p.getY() + 1, p.getZ() + 1);
 	}
 
-	public static void faceEntity(Entity e) {
-		applyRotations(getRotationsNeeded(e.posX, e.posY, e.posZ, e.getEyeHeight()));
+	public static void faceBounds(AxisAlignedBB box) {
+		faceCoords(box.minX, box.minY, box.minZ, box.maxX, box.maxY, box.maxZ);
+	}
+
+	public static void faceCoords(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
+		applyRotations(getRotationsNeeded(minX, minY, minZ, maxX, maxY, maxZ));
 	}
 
 	static void applyRotations(float[] rotations) {
-		if(rotations == null) return;
 		mc.thePlayer.rotationYaw = rotations[0];
 		mc.thePlayer.rotationPitch = rotations[1] + 8.1f;
 	}
 
-	static float[] getRotationsNeeded(double posX, double posY, double posZ, float eyeHeight) {
-        double x = posX - mc.thePlayer.posX;
-        double y = posY + eyeHeight * 0.9 - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
-        double z = posZ - mc.thePlayer.posZ;
+	static float[] getRotationsNeeded(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
+        double x = Random.randDouble(minX, maxX) - mc.thePlayer.posX;
+        double y = Random.randDouble(minY, maxY) - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
+        double z = Random.randDouble(minZ, maxZ) - mc.thePlayer.posZ;
         return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
         		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
     }

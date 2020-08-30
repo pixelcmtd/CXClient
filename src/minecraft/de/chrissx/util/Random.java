@@ -38,4 +38,8 @@ public class Random {
 	public static double randDouble() {
 		return rand.nextDouble();
 	}
+
+	public static double randDouble(double min, double max) {
+		return rand.nextDouble() * (max - min) + min;
+	}
 }

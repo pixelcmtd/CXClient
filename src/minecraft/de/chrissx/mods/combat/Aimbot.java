@@ -25,11 +25,11 @@ public class Aimbot extends Mod {
 					if(!(e instanceof EntityLivingBase) || e == player() || e.isInvisible() || e.isDead || player().getDistanceToEntity(e) > 30)
 						continue;
 					else {
-						Util.faceEntity(e);
+						Util.faceBounds(e.boundingBox);
 						return;
 					}
 			else
-				Util.sendMessage("�4Currently bow mode isn't supported.");
+				Util.sendMessage("\u00a74Currently bow mode isn't supported.");
 	}
 
 	@Override

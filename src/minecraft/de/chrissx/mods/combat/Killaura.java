@@ -47,7 +47,7 @@ public class Killaura extends Mod {
 					boolean miss = (Random.randBool() && Random.randBool());
 
 					if(legit1 && attack && !miss)
-						Util.faceEntity(e);
+						Util.faceBounds(e.boundingBox);
 					if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
 						player().swingItem();
 					if(!legit2 || (attack && !miss))
