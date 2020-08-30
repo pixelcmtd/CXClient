@@ -12,6 +12,7 @@ import java.util.Base64;
 import java.util.List;
 
 import org.lwjgl.input.Keyboard;
+import org.lwjgl.opengl.GL11;
 
 import de.chrissx.HackedClient;
 import de.chrissx.hotkeys.Hotkey;
@@ -19,6 +20,11 @@ import de.chrissx.locations.LocFloat64;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
+import net.minecraft.client.renderer.GlStateManager;
+import net.minecraft.client.renderer.Tessellator;
+import net.minecraft.client.renderer.WorldRenderer;
+import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -432,5 +438,37 @@ public class Util {
 		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toUpperCase());
 		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toLowerCase());
 		return keyId;
+	}
+
+	public static float distance(LocFloat64 start, LocFloat64 end) {
+        float x = (float)(start.x - end.x);
+        float y = (float)(start.y - end.y);
+        float z = (float)(start.z - end.z);
+        return MathHelper.sqrt(x * x + y * y + z * z);
+	}
+
+	public static void drawLine(LocFloat64 s, LocFloat64 e, Entity p) {
+		//System.out.println("drawing line from {" + s.x + ", " + s.y + ", " + s.z + "} to {" + e.x + ", " + e.y + ", " + e.z + "}.");
+        GL11.glBlendFunc(770, 771);
+        GL11.glLineWidth(2.0F);
+        GL11.glPushMatrix();
+        GL11.glTranslated(-mc.getRenderManager().viewerPosX, -mc.getRenderManager().viewerPosY, -mc.getRenderManager().viewerPosZ);
+        double f = Math.cos(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
+        double f1 = Math.sin(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
+        double f2 = -Math.cos(-mc.thePlayer.rotationPitch * 0.017453292);
+        double f3 = Math.sin(-mc.thePlayer.rotationPitch * 0.017453292);
+        double startX = (f1 * f2) + mc.getRenderManager().viewerPosX;
+        double startY = f3 + mc.thePlayer.getEyeHeight() + mc.getRenderManager().viewerPosY;
+        double startZ = (f * f2) + mc.getRenderManager().viewerPosZ;
+        GL11.glBegin(GL11.GL_LINES);
+        AxisAlignedBB bb = p.getEntityBoundingBox();
+        double endX = bb.minX + (bb.maxX - bb.minX)/2 - p.posX - p.prevPosX;
+        double endY = bb.minY + (bb.maxY - bb.minY)/2 - p.posY - p.prevPosY;
+        double endZ = bb.minZ + (bb.maxZ - bb.minZ)/2 - p.posZ - p.prevPosZ;
+            GL11.glColor4f(2.0F, 1.0F, 0.0F, 0.5F);
+          GL11.glVertex3d(startX, startY, startZ);
+          GL11.glVertex3d(endX, endY, endZ);
+        GL11.glEnd();
+        GL11.glPopMatrix();
 	}
 }

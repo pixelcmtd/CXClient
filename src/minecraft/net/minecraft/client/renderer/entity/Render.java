@@ -40,7 +40,7 @@ public abstract class Render<T extends Entity>
     {
         AxisAlignedBB axisalignedbb = livingEntity.getEntityBoundingBox();
 
-        if (axisalignedbb.func_181656_b() || axisalignedbb.getAverageEdgeLength() == 0.0D)
+        if (axisalignedbb.isNaN() || axisalignedbb.getAverageEdgeLength() == 0.0D)
         {
             axisalignedbb = new AxisAlignedBB(livingEntity.posX - 2.0D, livingEntity.posY - 2.0D, livingEntity.posZ - 2.0D, livingEntity.posX + 2.0D, livingEntity.posY + 2.0D, livingEntity.posZ + 2.0D);
         }

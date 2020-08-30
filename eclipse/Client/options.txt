@@ -10,13 +10,13 @@ bobView:false
 anaglyph3d:false
 maxFps:260
 fboEnable:true
-difficulty:1
+difficulty:2
 fancyGraphics:true
 ao:2
 renderClouds:true
 resourcePacks:[]
 incompatibleResourcePacks:[]
-lastServer:gommehd.net
+lastServer:play.randomcraft.org
 lang:en_US
 chatVisibility:0
 chatColors:true
