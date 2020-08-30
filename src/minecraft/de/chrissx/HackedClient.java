@@ -38,6 +38,7 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiRepair;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
@@ -329,6 +330,10 @@ public class HackedClient {
 			for(int i = 2; i < args.length; i++)
 				Cmd += " " + args[i];
 			Util.cheatCmdBlock(Cmd);
+		}else if(cmd.equalsIgnoreCase("#print-players")) {
+			for(EntityPlayer p : mc.theWorld.playerEntities) {
+				Util.sendMessage(p.getName() + " (X: " + (long)p.posX + ", Y: " + (long)p.posY + ", Z: " + (long)p.posZ + ")");
+			}
 		}else if(cmd.equalsIgnoreCase("#bind")) {
 			if(args.length != 3) {
 				Util.sendMessage("#bind <key> <mod-name>");
