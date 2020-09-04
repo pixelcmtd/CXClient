@@ -2,9 +2,11 @@ package de.chrissx.mods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -83,6 +85,7 @@ public class ModList implements Iterable<Mod> {
 	public final WaterWalk waterWalk = new WaterWalk();
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
+	public final RewiWords rewiWords = new RewiWords();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -164,11 +167,13 @@ public class ModList implements Iterable<Mod> {
 			waterWalk,
 			autoJump,
 			invWalk,
+			rewiWords,
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
 	public final List<EapiModule> eapiModules = new ArrayList<EapiModule>();
+	public final List<ChatBot> chatBots = new ArrayList<ChatBot>();
 
 	public ModList() {
 		addBindable(home);
@@ -193,6 +198,8 @@ public class ModList implements Iterable<Mod> {
 				stopListeners.add((StopListener) b);
 			if(b instanceof EapiModule)
 				eapiModules.add((EapiModule) b);
+			if(b instanceof ChatBot)
+				chatBots.add((ChatBot) b);
 		}
 
 		int len = 1;

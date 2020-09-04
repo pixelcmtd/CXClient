@@ -1,18 +1,11 @@
 package de.chrissx.mods;
 
 import java.awt.Color;
-import java.io.File;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.Charset;
-import java.nio.file.Paths;
 
-import com.google.common.io.Files;
-
-import de.chrissx.util.Consts;
 import net.minecraft.client.gui.FontRenderer;
+import net.minecraft.util.IChatComponent;
 
-public abstract class Mod extends Semimod implements TickListener, StopListener, RenderedObject {
+public abstract class Mod extends Semimod implements TickListener, StopListener, RenderedObject, ChatBot {
 
 	protected volatile boolean enabled = false;
 
@@ -49,5 +42,7 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 	public void onStop() {}
 	@Override
 	public void onTick() {}
+	@Override
+	public void onChatMessage(IChatComponent component) {}
 	public void apiUpdate() {}
 }

@@ -25,6 +25,7 @@ import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
 import de.chrissx.iapi.AddonProperties;
 import de.chrissx.mods.Bindable;
+import de.chrissx.mods.ChatBot;
 import de.chrissx.mods.EapiModule;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
@@ -43,6 +44,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.util.IChatComponent;
 
 public class HackedClient {
 	static HackedClient instance = null;
@@ -301,6 +303,15 @@ public class HackedClient {
 		if(!disableHotkeys)
 			updateKeyboard();
 	}
+
+    public void onChatMessage(IChatComponent component) {
+		for(ChatBot l : mods.chatBots)
+			try {
+				l.onChatMessage(component);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+    }
 
 	void updateKeyboard() {
 		for(Hotkey hk : hotkeys)

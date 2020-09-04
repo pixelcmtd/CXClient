@@ -21,7 +21,6 @@ public class Consts {
 		optionsFile = Paths.get(configPath, "options.cfg").toString();
 		eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	}
-	public static final String prefix = "\u00a7c[CXClient] \u00a7f";
 	public static final int[] packetPlayerInventorySlots = new int[] {36, 37, 38, 39, 40, 41, 42, 43, 44,
 			9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35};
 	public static final int[] localPlayerInventorySlots = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,
@@ -42,6 +41,7 @@ public class Consts {
 	public static String optionsFile;
 	public static String eapiOptionsFile;
 	public static final String clientName = "CXClient";
+	public static final String prefix = "\u00a7c[" + clientName + "] \u00a7f";
 	public static final String version = "alpha 3209";
 	public static final String mcVersion = "1.8.8";
 	public static final int BLDNUM = -3209;

@@ -1,5 +1,6 @@
 package net.minecraft.client.entity;
 
+import de.chrissx.HackedClient;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.MovingSoundMinecartRiding;
 import net.minecraft.client.audio.PositionedSoundRecord;
@@ -516,6 +517,7 @@ public class EntityPlayerSP extends AbstractClientPlayer
      */
     public void addChatMessage(IChatComponent component)
     {
+    	HackedClient.getClient().onChatMessage(component);
         this.mc.ingameGUI.getChatGUI().printChatMessage(component);
     }
 
