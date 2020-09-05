@@ -16,7 +16,7 @@ public class Kaboom extends Mod {
 	public void onTick()
 	{
 		EntityPlayerSP p = player();
-		if (enabled && p.capabilities.isCreativeMode && p.onGround)
+		if (p.capabilities.isCreativeMode && p.onGround)
 		{
 			//does not create sound,
 			//which seems to be related to thePlayer not being a tnt entity

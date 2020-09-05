@@ -83,26 +83,24 @@ public class AuthMeCrack extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			if(mode == PasswordCrackMode.DICT)
+		if(mode == PasswordCrackMode.DICT)
+		{
+			if(times > 0)
 			{
-				if(times > 0)
-				{
-					Util.sendChat("/login " + pws.get(times - 1));
-					Util.sendMessage(pws.get(times - 1));
-					times--;
-				}
-				else enabled = false;
+				Util.sendChat("/login " + pws.get(times - 1));
+				Util.sendMessage(pws.get(times - 1));
+				times--;
 			}
-			else if(mode == PasswordCrackMode.BRUTE_FORCE)
-			{
-				bf_stuff bf = bruteForceRound();
-				Util.sendChat("/login " + bf.pw);
-				Util.sendMessage(bf.pw);
-				enabled = bf.more;
-			}
-			else Util.sendMessage("[AuthMeCrack]Unrecognized PasswordCrackMode!");
+			else enabled = false;
 		}
+		else if(mode == PasswordCrackMode.BRUTE_FORCE)
+		{
+			bf_stuff bf = bruteForceRound();
+			Util.sendChat("/login " + bf.pw);
+			Util.sendMessage(bf.pw);
+			enabled = bf.more;
+		}
+		else Util.sendMessage("[AuthMeCrack]Unrecognized PasswordCrackMode!");
 	}
 
 	class bf_stuff

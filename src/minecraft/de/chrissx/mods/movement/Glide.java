@@ -16,7 +16,7 @@ public class Glide extends Mod {
 	public void onTick()
 	{
 		EntityPlayerSP p = player();
-		if(enabled && p.isAirBorne && !p.isInWater() && !p.isInLava() && !p.isOnLadder() && p.motionY < 0.0)
+		if(p.isAirBorne && !p.isInWater() && !p.isInLava() && !p.isOnLadder() && p.motionY < 0.0)
 	        p.motionY = speed;
 	}
 

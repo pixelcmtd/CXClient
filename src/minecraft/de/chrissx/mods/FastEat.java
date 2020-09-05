@@ -22,23 +22,12 @@ public class FastEat extends Mod {
 	public void onTick()
 	{
 		EntityPlayerSP p = player();
-		ItemStack is;
-		try
-		{
-			if(enabled
-					&& p.getHealth() > 0
-					&& p.onGround
-					&& settings().keyBindUseItem.isKeyDown()
-					&& p.getFoodStats().needFood()
-					&& (is = p.getHeldItem()) != null
-					&& is.getItem() instanceof ItemFood)
-		        for(int i = 0; i < speed; i++)
-		        	sendPacket(new C03PacketPlayer(false));
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}
+		ItemStack is = p.getHeldItem();
+		if(p.getHealth() > 0 && p.onGround &&
+		   settings().keyBindUseItem.isKeyDown() && p.getFoodStats().needFood() &&
+		   is != null && is.getItem() instanceof ItemFood)
+			for(int i = 0; i < speed; i++)
+				sendPacket(new C03PacketPlayer(false));
 	}
 
 	@Override

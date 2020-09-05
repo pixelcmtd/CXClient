@@ -10,10 +10,9 @@ public class AutoSwitch extends Mod {
 
 	public void onTick()
 	{
-		if(enabled)
-			if(inventory().currentItem == 8)
-				inventory().currentItem = 0;
-			else
-				inventory().currentItem++;
+		if(inventory().currentItem == 8)
+			inventory().currentItem = 0;
+		else
+			inventory().currentItem++;
 	}
 }

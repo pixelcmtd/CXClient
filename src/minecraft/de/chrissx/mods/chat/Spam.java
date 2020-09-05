@@ -10,7 +10,7 @@ public class Spam extends Mod {
 	String[] last = new String[] {"#spam", "20", "50", "You're getting flooded by chrissx' CXClient! ;)"};
 
 	public Spam() {
-		super("Spam", "spam");
+		super("Spam", "spam", "clearspam");
 	}
 
 	@Override
@@ -22,28 +22,28 @@ public class Spam extends Mod {
 			Util.sendMessage("\u00a74Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
 			return;
 		}
-		
+
 		final int times;
 		final StringBuilder msg = new StringBuilder();
 		final long delay;
 		final boolean clear;
-		
+
 		clear = args[0].equalsIgnoreCase("#clearspam");
-		
+
 		try {
 			times = Integer.parseInt(args[1]);
 		}catch(Exception e) {
 			Util.sendMessage("\u00a74Error parsing times.");
 			return;
 		}
-		
+
 		try {
 			delay = Long.parseLong(args[2]);
 		} catch (Exception e) {
 			Util.sendMessage("\u00a74Error parsing delay.");
 			return;
 		}
-		
+
 		msg.append(args[3]);
 		for(int i = 4; i < args.length; i++)
 			msg.append(" " + args[i]);

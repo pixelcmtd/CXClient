@@ -11,7 +11,6 @@ public class RewiWords extends Mod {
 
 	@Override
 	public void onChatMessage(IChatComponent component) {
-		if(!enabled) return;
 		String s = component.getUnformattedText();
 		if(s.contains("GetDown") && s.contains("Welches Wort ist gesucht")) {
 			System.out.println("Got RewiWords message: " + s);

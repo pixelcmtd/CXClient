@@ -18,7 +18,7 @@ public class FastFall extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !player().onGround && player().motionY < 0)
+		if(!player().onGround && player().motionY < 0)
 			player().motionY = speed;
 	}
 	

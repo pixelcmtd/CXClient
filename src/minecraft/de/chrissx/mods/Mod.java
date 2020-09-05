@@ -9,7 +9,7 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 
 	protected volatile boolean enabled = false;
 
-	protected Mod(String name, String argv0)
+	protected Mod(String name, String... argv0)
 	{
 		super(name, argv0);
 	}
@@ -31,11 +31,9 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y)
+	public void onRender(FontRenderer r, int x, int y)
 	{
-		if(enabled)
-			r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
-		return enabled;
+		r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
 	}
 
 	@Override

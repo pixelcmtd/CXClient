@@ -16,9 +16,9 @@ public class FastBow extends Mod {
 	public void onTick()
 	{
 		EntityPlayerSP p = player();
-		ItemStack is;
-		if(enabled && settings().keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 &&
-				(is = inventory().getCurrentItem()) != null && is.stackSize > 0 && is.getItem() instanceof ItemBow)
+		ItemStack is = inventory().getCurrentItem();
+		if(settings().keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 &&
+				is != null && is.stackSize > 0 && is.getItem() instanceof ItemBow)
 		{
 			click(false);
 			for (int i = 0; i < 20; i++)

@@ -28,7 +28,7 @@ public class Reach extends Mod {
 		else
 			Util.sendMessage("#reach to toggle, #reach range <float> to set your extended range.");
 	}
-	
+
 	public float getReach() {
 		return reach;
 	}

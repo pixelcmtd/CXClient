@@ -58,11 +58,12 @@ public class AddonManager {
 			}
 
 		for(final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
-			commands.add(new Command(ce.getArgv0(), new Consumer<String[]>() {
-				@Override
-				public void accept(String[] t) {
-					ce.processCommand(t);
-				}}));
+			for(final String argv0 : ce.getArgv0())
+				commands.add(new Command(argv0, new Consumer<String[]>() {
+					@Override
+					public void accept(String[] t) {
+						ce.processCommand(t);
+					}}));
 
 		commands.add(new Command("#alt", new Consumer<String[]>() {
 			@Override

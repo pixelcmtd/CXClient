@@ -64,12 +64,12 @@ public class HackedClient {
 		if(!invis)
 		{
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
-			//TODO: also this drawString call should be a renderedObject
+			//TODO: also this drawString call should be a RenderedObject
 			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
 			int i = 1;
 			for(RenderedObject o : mods.renderedObjects)
-				if(o.onRender(r, 4, i * 8 + 4))
-					i++;
+				if(o.isEnabled())
+					o.onRender(r, 4, i++ * 8 + 4);
 		}
 	}
 
@@ -129,13 +129,13 @@ public class HackedClient {
 		mods = new ModList();
 		addonManager = new AddonManager();
 		addonManager.init(Consts.addonPath);
-		
+
 		options = new Options();
 		options.init(new File(Consts.optionsFile));
 		options.eapi.init(new File(Consts.optionsFile));
-		
+
 		f = new File(Consts.runningFile);
-		
+
 		try {
 			f.createNewFile();
 		} catch (IOException e1) {
@@ -296,7 +296,7 @@ public class HackedClient {
 	public void onTick() {
 		for(TickListener l : mods.tickListeners)
 			try {
-				l.onTick();
+				if(l.isEnabled()) l.onTick();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -306,9 +306,9 @@ public class HackedClient {
 	}
 
     public void onChatMessage(IChatComponent component) {
-		for(ChatBot l : mods.chatBots)
+		for(ChatBot b : mods.chatBots)
 			try {
-				l.onChatMessage(component);
+				if(b.isEnabled()) b.onChatMessage(component);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

@@ -10,7 +10,6 @@ public class Fasthit extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			mc.leftClickCounter = 0;
+		mc.leftClickCounter = 0;
 	}
 }

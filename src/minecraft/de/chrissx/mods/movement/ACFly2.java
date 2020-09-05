@@ -12,7 +12,7 @@ public class ACFly2 extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && startY > player().posY)
+		if(startY > player().posY)
 			player().motionY = 0.5;
 	}
 

@@ -15,7 +15,7 @@ public class Throw extends Semimod {
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length < 3 || args.length > 3) {
-			Util.sendMessage("#throw <long/count> <long/delay>");
+			Util.sendMessage("#throw <count> <delay>");
 			return;
 		}else {
 			try {

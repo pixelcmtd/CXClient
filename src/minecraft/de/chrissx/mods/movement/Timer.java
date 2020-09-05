@@ -29,7 +29,7 @@ public class Timer extends Mod {
 		else
 			Util.sendMessage("#timer to toggle, #timer speed <double> to change the factor.");
 	}
-	
+
 	@Override
 	public void toggle() {
 		enabled = !enabled;

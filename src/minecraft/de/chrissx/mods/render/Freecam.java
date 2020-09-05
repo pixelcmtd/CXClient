@@ -14,17 +14,15 @@ public class Freecam extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			player().capabilities.isFlying = true;
-			player().noClip = true;
-			player().onGround = false;
-			player().fallDistance = 0;
-			
-			if(settings().keyBindJump.isKeyDown())
-				player().motionY = player().capabilities.getFlySpeed();
-			if(settings().keyBindSneak.isKeyDown())
-				player().motionY = -player().capabilities.getFlySpeed();
-		}
+		player().capabilities.isFlying = true;
+		player().noClip = true;
+		player().onGround = false;
+		player().fallDistance = 0;
+
+		if(settings().keyBindJump.isKeyDown())
+			player().motionY = player().capabilities.getFlySpeed();
+		if(settings().keyBindSneak.isKeyDown())
+			player().motionY = -player().capabilities.getFlySpeed();
 	}
 
 	@Override

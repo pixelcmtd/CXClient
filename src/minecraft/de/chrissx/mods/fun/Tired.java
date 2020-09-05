@@ -12,7 +12,6 @@ public class Tired extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled)
-			sendPacket(new C03PacketPlayer.C05PacketPlayerLook(player().rotationYaw, player().ticksExisted % 100, player().onGround));
+		sendPacket(new C03PacketPlayer.C05PacketPlayerLook(player().rotationYaw, player().ticksExisted % 100, player().onGround));
 	}
 }

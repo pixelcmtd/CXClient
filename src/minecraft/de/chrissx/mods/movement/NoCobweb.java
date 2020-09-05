@@ -11,7 +11,6 @@ public class NoCobweb extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled)
-			player().isInWeb = false;
+		player().isInWeb = false;
 	}
 }

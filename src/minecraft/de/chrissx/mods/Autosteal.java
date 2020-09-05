@@ -20,7 +20,7 @@ public class Autosteal extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && currentScreen() instanceof GuiChest)
+		if(currentScreen() instanceof GuiChest)
 		{
 			if(bypass)
 			{

@@ -29,61 +29,59 @@ public class Nuker extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			if(bypass == NukerBypassLevel.NONE || count < 1) {
-				BlockPos[] positions = Util.getBlocksAround(player(), (bypass == NukerBypassLevel.NONE ? 6 : 3), bypass != NukerBypassLevel.NONE);
-				if(mode.equals(NukerMode.ALL)) {
-					if(bypass == NukerBypassLevel.NONE) {
+		if(bypass == NukerBypassLevel.NONE || count < 1) {
+			BlockPos[] positions = Util.getBlocksAround(player(), (bypass == NukerBypassLevel.NONE ? 6 : 3), bypass != NukerBypassLevel.NONE);
+			if(mode.equals(NukerMode.ALL)) {
+				if(bypass == NukerBypassLevel.NONE) {
+					for(BlockPos p : positions)
+						Util.breakBlock(p);
+				}else {
+					if(positions.length <= breaksPerCycle()) {
 						for(BlockPos p : positions)
 							Util.breakBlock(p);
 					}else {
-						if(positions.length <= breaksPerCycle()) {
-							for(BlockPos p : positions)
-								Util.breakBlock(p);
-						}else {
-							List<Integer> sent = new ArrayList<Integer>();
-							for(int i = 0; i < breaksPerCycle(); i++) {
-								int rr = Random.rand(positions.length-1);
-								while(sent.contains(rr))
-									rr = Random.rand(positions.length-1);
-								if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(positions[rr]);
-								Util.breakBlock(positions[rr]);
-								sent.add(rr);
-							}
+						List<Integer> sent = new ArrayList<Integer>();
+						for(int i = 0; i < breaksPerCycle(); i++) {
+							int rr = Random.rand(positions.length-1);
+							while(sent.contains(rr))
+								rr = Random.rand(positions.length-1);
+							if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(positions[rr]);
+							Util.breakBlock(positions[rr]);
+							sent.add(rr);
 						}
 					}
-				}else if(mode.equals(NukerMode.CLICK)) {
-					BlockPos b = playerController().clickedBlock;
-					if(b == null) return;
-					if(bypass == NukerBypassLevel.NONE) {
-						for(BlockPos p : positions)
-							if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
-								Util.breakBlock(p);
-					}else {
-						List<BlockPos> poss = new ArrayList<BlockPos>();
-						for(BlockPos p : positions)
-							if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
-								poss.add(p);
-						
-						if(poss.size() <= breaksPerCycle())
-							for(BlockPos p : poss)
-								Util.breakBlock(p);
-						else {
-							List<Integer> sent = new ArrayList<Integer>();
-							for(int i = 0; i < breaksPerCycle(); i++) {
-								int rr = Random.rand(poss.size()-1);
-								while(sent.contains(rr))
-									rr = Random.rand(poss.size()-1);
-								if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(poss.get(rr));
-								Util.breakBlock(poss.get(rr));
-								sent.add(rr);
-							}
+				}
+			}else if(mode.equals(NukerMode.CLICK)) {
+				BlockPos b = playerController().clickedBlock;
+				if(b == null) return;
+				if(bypass == NukerBypassLevel.NONE) {
+					for(BlockPos p : positions)
+						if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
+							Util.breakBlock(p);
+				}else {
+					List<BlockPos> poss = new ArrayList<BlockPos>();
+					for(BlockPos p : positions)
+						if(Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
+							poss.add(p);
+					
+					if(poss.size() <= breaksPerCycle())
+						for(BlockPos p : poss)
+							Util.breakBlock(p);
+					else {
+						List<Integer> sent = new ArrayList<Integer>();
+						for(int i = 0; i < breaksPerCycle(); i++) {
+							int rr = Random.rand(poss.size()-1);
+							while(sent.contains(rr))
+								rr = Random.rand(poss.size()-1);
+							if(bypass == NukerBypassLevel.LEGIT) Util.faceBlock(poss.get(rr));
+							Util.breakBlock(poss.get(rr));
+							sent.add(rr);
 						}
 					}
-				} else Util.sendMessage("\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
-				count = 6;
-			} else count--;
-		}
+				}
+			} else Util.sendMessage("\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
+			count = 6;
+		} else count--;
 	}
 
 	@Override

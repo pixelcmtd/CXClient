@@ -11,7 +11,6 @@ public class AutoWalk extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled)
-			settings().keyBindForward.pressed = true;
+		settings().keyBindForward.pressed = true;
 	}
 }

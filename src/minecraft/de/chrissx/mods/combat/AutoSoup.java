@@ -12,12 +12,13 @@ public class AutoSoup extends Mod {
 	@Override
 	public void onTick()
 	{
-		int i;
-		if(enabled && player().getHealth() < player().getMaxHealth() &&
-			(i = Util.firstSoupIndex(inventory().mainInventory)) != -1)
+		int i = Util.firstSoupIndex(inventory().mainInventory);
+		if(player().getHealth() < (player().getMaxHealth() - 7) && i != -1)
 		{
-			player().inventory.currentItem = i;
+			int before = inventory().currentItem;
+			inventory().currentItem = i;
 			click(false);
+			inventory().currentItem = before;
 		}
 	}
 }

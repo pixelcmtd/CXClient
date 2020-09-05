@@ -1,10 +1,7 @@
 package de.chrissx.mods.combat;
 
-import java.awt.Color;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
-import net.minecraft.client.gui.FontRenderer;
 
 public class Autoclicker extends Mod {
 
@@ -16,15 +13,12 @@ public class Autoclicker extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			click(mouseButton);
+		click(mouseButton);
 	}
-	
+
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(enabled)
-			r.drawString(name+"("+(mouseButton ? "LEFT" : "RIGHT")+")", x, y, Color.WHITE.getRGB());
-		return enabled;
+	public String getRenderstring() {
+		return name+"("+(mouseButton ? "LEFT" : "RIGHT")+")";
 	}
 
 	@Override

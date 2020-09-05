@@ -16,7 +16,7 @@ public class WaterWalk extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !settings().keyBindSneak.pressed)
+		if(!settings().keyBindSneak.pressed)
 		{
 			EntityPlayerSP p = player();
 			if(p.isInWater() || Util.isWater(world().getBlock(new BlockPos(p.posX, p.posY, p.posZ))))

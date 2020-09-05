@@ -19,18 +19,17 @@ public class MassTpa extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			int i = Random.rand(players.size()-1);
-			for(int a = 0; a < 50; a++)
-				if(tpaed.contains(i))
-					i = Random.rand(players.size()-1);
+		//dont spam too much
+		if(Random.rand(20) != 5) return;
+		int i = Random.rand(players.size()-1);
+		for(int a = 0; a < 50; a++)
 			if(tpaed.contains(i))
-				tpaed = new ArrayList<Integer>();
-			Util.sendChat("/tpa "+players.get(i).getName());
-			
-		}
+				i = Random.rand(players.size()-1);
+		if(tpaed.contains(i))
+			tpaed = new ArrayList<Integer>();
+		Util.sendChat("/tpa "+players.get(i).getName());
 	}
-	
+
 	@Override
 	public void toggle() {
 		enabled = !enabled;

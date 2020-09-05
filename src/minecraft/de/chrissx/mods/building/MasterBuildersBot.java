@@ -19,10 +19,8 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	BufferedImage drawAfter;
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(enabled)
-			r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
-		return enabled;
+	public void onRender(FontRenderer r, int x, int y) {
+		r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
 	}
 
 	@Override
@@ -56,7 +54,11 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	}
 
 	@Override
-	public String getArgv0() {
-		return "masterbuildersbot";
+	public String[] getArgv0() {
+		return new String[] {"masterbuildersbot"};
+	}
+
+	public boolean isEnabled() {
+		return enabled;
 	}
 }

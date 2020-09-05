@@ -17,7 +17,7 @@ public class FastLadder extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && player().isOnLadder())
+		if(player().isOnLadder())
 			player().motionY = motion;
 	}
 

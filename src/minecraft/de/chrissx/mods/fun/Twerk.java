@@ -1,7 +1,6 @@
 package de.chrissx.mods.fun;
 
 import de.chrissx.mods.Mod;
-import net.minecraft.client.settings.KeyBinding;
 
 public class Twerk extends Mod {
 
@@ -11,10 +10,6 @@ public class Twerk extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-		{
-			KeyBinding sneak = settings().keyBindSneak;
-			sneak.pressed = !sneak.pressed;
-		}
+		settings().keyBindSneak.pressed = !settings().keyBindSneak.pressed;
 	}
 }

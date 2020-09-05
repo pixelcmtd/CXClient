@@ -19,17 +19,15 @@ public class Aimbot extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			if(mode == AimbotMode.GUN)
-				for(Entity e : world().loadedEntityList)
-					if(!(e instanceof EntityLivingBase) || e == player() || e.isInvisible() || e.isDead || player().getDistanceToEntity(e) > 30)
-						continue;
-					else {
-						Util.faceBounds(e.boundingBox);
-						return;
-					}
-			else
-				Util.sendMessage("\u00a74Currently bow mode isn't supported.");
+		if(mode == AimbotMode.GUN)
+			for(Entity e : world().loadedEntityList)
+				if(!(e instanceof EntityLivingBase) || e == player() || e.isInvisible() || e.isDead || player().getDistanceToEntity(e) > 30)
+					continue;
+				else {
+					Util.faceBounds(e.boundingBox);
+					return;
+				}
+		else Util.sendMessage("\u00a74Currently bow mode isn't supported.");
 	}
 
 	@Override

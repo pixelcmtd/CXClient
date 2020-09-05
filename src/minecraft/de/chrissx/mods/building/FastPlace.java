@@ -10,7 +10,6 @@ public class FastPlace extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			mc.rightClickDelayTimer = 0;
+		mc.rightClickDelayTimer = 0;
 	}
 }

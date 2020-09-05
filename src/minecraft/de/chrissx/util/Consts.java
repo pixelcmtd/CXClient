@@ -42,9 +42,9 @@ public class Consts {
 	public static String eapiOptionsFile;
 	public static final String clientName = "CXClient";
 	public static final String prefix = "\u00a7c[" + clientName + "] \u00a7f";
-	public static final String version = "alpha 3209";
+	public static final String version = "alpha 3020012";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3209;
+	public static final int BLDNUM = -3020012;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 		clientName + " " + version + " Changelog:",
@@ -58,6 +58,9 @@ public class Consts {
 		"-Added a new slowdown mode to slow down Killaura without enabling other legit modes",
 		"-Killaura and Aimbot now don't target \"perfectly\", but always look at slightly different points on the target",
 		"-A temporary \"#print-players\" command (the current command system is not optimal and will be revised soon, but this one works temporarily)",
+		"-Improved many under the hood things (like a few things about the current command system, how rendering works, ...)",
+		"-Made MassTPA a lot slower to not trigger spam detection",
+		"-Massively improved AutoSoup",
 	};
 
 	public static final String[] credits = new String[] {

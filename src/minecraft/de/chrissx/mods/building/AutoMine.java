@@ -9,12 +9,8 @@ public class AutoMine extends Mod {
 	}
 
 	@Override
-	public void onTick()
-	{
-		if(enabled && mc.objectMouseOver != null &&
-				mc.objectMouseOver.getBlockPos() != null &&
-				!settings().keyBindAttack.pressed)
-			settings().keyBindAttack.pressed =
-			!world().isAirBlock(mc.objectMouseOver.getBlockPos());
+	public void onTick() {
+		if(mc.objectMouseOver != null && mc.objectMouseOver.getBlockPos() != null && !settings().keyBindAttack.pressed)
+			settings().keyBindAttack.pressed = !world().isAirBlock(mc.objectMouseOver.getBlockPos());
 	}
 }

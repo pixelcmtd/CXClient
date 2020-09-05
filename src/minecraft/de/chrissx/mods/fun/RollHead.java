@@ -14,11 +14,8 @@ public class RollHead extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled)
-		{
-			EntityPlayerSP p = player();
-			float f = (float) (p.ticksExisted % 20 / 10F * Math.PI);
-		    sendPacket(new C03PacketPlayer.C05PacketPlayerLook(p.rotationYaw, MathHelper.sin(f) * 90, p.onGround));
-		}
+		EntityPlayerSP p = player();
+		float f = (float) (p.ticksExisted % 20 / 10F * Math.PI);
+		sendPacket(new C03PacketPlayer.C05PacketPlayerLook(p.rotationYaw, MathHelper.sin(f) * 90, p.onGround));
 	}
 }

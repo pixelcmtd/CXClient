@@ -15,18 +15,14 @@ public class Tracer extends Mod {
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(enabled) {
-			r.drawString(name, x, y, Color.WHITE.getRGB());
-    
-    
-		    LocFloat64 start = Util.getEyePos();
-    
-		    for (Entity p : world().loadedEntityList) {
-		    	if(p == player()) continue;
-		    	Util.drawLine(start, new LocFloat64(p.posX, p.posY, p.posZ), p);
-		    }
+	public void onRender(FontRenderer r, int x, int y) {
+		r.drawString(name, x, y, Color.WHITE.getRGB());
+
+	    LocFloat64 start = Util.getEyePos();
+
+		for (Entity p : world().loadedEntityList) {
+		  	if(p == player()) continue;
+		   	Util.drawLine(start, new LocFloat64(p.posX, p.posY, p.posZ), p);
 		}
-		return enabled;
 	}
 }

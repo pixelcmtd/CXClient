@@ -19,13 +19,10 @@ public class ACSpeed1 extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-		{
-			if(player().onGround)
-				player().jump();
-			else
-				player().motionY -= speed;
-		}
+		if(player().onGround)
+			player().jump();
+		else
+			player().motionY -= speed;
 	}
 
 	@Override
@@ -43,12 +40,10 @@ public class ACSpeed1 extends Mod {
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(isEnabled())
-			r.drawString(name+"(SPEED:"+speed+")", x, y, Color.WHITE.getRGB());
-		return isEnabled();
+	public String getRenderstring() {
+		return name+"(SPEED:"+speed+")";
 	}
-	
+
 	@Override
 	public void apiUpdate()
 	{

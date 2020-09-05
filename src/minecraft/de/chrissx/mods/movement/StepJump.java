@@ -10,10 +10,9 @@ public class StepJump extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			if(player().isCollidedHorizontally && player().onGround) {
-				player().jump();
-				player().motionY = 1;
-			}
+		if(player().isCollidedHorizontally && player().onGround) {
+			player().jump();
+			player().motionY = 1;
+		}
 	}
 }

@@ -14,7 +14,7 @@ public class AutoArmor extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled && currentScreen() instanceof GuiInventory) {
+		if(currentScreen() instanceof GuiInventory) {
 			int[] bestArmorSlots = new int[4];
 			int[] bestArmorValues = new int[4];
 				

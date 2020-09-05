@@ -22,37 +22,34 @@ public class ScaffoldWalk extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled)
-		{
-			Entity p = player();
-			BlockPos pb = new BlockPos(p.posX, p.getEntityBoundingBox().minY, p.posZ);
-			if(valid(pb.add(0, -2, 0)))
-				place(pb.add(0, -1, 0), EnumFacing.UP);
-			else if(valid(pb.add(-1, -1, 0)))
-				place(pb.add(0, -1, 0), EnumFacing.EAST);
-			else if(valid(pb.add(1, -1, 0)))
-				place(pb.add(0, -1, 0), EnumFacing.WEST);
-			else if(valid(pb.add(0, -1, -1)))
-				place(pb.add(0, -1, 0), EnumFacing.SOUTH);
-			else if(valid(pb.add(0, -1, 1)))
-				place(pb.add(0, -1, 0), EnumFacing.NORTH);
-			else if(valid(pb.add(1, -1, 1))) {
-				if(valid(pb.add(0, -1, 1)))
-					place(pb.add(0, -1, 1), EnumFacing.NORTH);
-				place(pb.add(1, -1, 1), EnumFacing.EAST);
-			}else if(valid(pb.add(-1, -1, 1))) {
-				if(valid(pb.add(-1, -1, 0)))
-					place(pb.add(0, -1, 1), EnumFacing.WEST);
-				place(pb.add(-1, -1, 1), EnumFacing.SOUTH);
-			}else if(valid(pb.add(-1, -1, -1))) {
-				if(valid(pb.add(0, -1, -1)))
-					place(pb.add(0, -1, 1), EnumFacing.SOUTH);
-				place(pb.add(-1, -1, 1), EnumFacing.WEST);
-			}else if(valid(pb.add(1, -1, -1))) {
-				if(valid(pb.add(1, -1, 0)))
-					place(pb.add(1, -1, 0), EnumFacing.EAST);
-				place(pb.add(1, -1, -1), EnumFacing.NORTH);
-			}
+		Entity p = player();
+		BlockPos pb = new BlockPos(p.posX, p.getEntityBoundingBox().minY, p.posZ);
+		if(valid(pb.add(0, -2, 0)))
+			place(pb.add(0, -1, 0), EnumFacing.UP);
+		else if(valid(pb.add(-1, -1, 0)))
+			place(pb.add(0, -1, 0), EnumFacing.EAST);
+		else if(valid(pb.add(1, -1, 0)))
+			place(pb.add(0, -1, 0), EnumFacing.WEST);
+		else if(valid(pb.add(0, -1, -1)))
+			place(pb.add(0, -1, 0), EnumFacing.SOUTH);
+		else if(valid(pb.add(0, -1, 1)))
+			place(pb.add(0, -1, 0), EnumFacing.NORTH);
+		else if(valid(pb.add(1, -1, 1))) {
+			if(valid(pb.add(0, -1, 1)))
+				place(pb.add(0, -1, 1), EnumFacing.NORTH);
+			place(pb.add(1, -1, 1), EnumFacing.EAST);
+		}else if(valid(pb.add(-1, -1, 1))) {
+			if(valid(pb.add(-1, -1, 0)))
+				place(pb.add(0, -1, 1), EnumFacing.WEST);
+			place(pb.add(-1, -1, 1), EnumFacing.SOUTH);
+		}else if(valid(pb.add(-1, -1, -1))) {
+			if(valid(pb.add(0, -1, -1)))
+				place(pb.add(0, -1, 1), EnumFacing.SOUTH);
+			place(pb.add(-1, -1, 1), EnumFacing.WEST);
+		}else if(valid(pb.add(1, -1, -1))) {
+			if(valid(pb.add(1, -1, 0)))
+				place(pb.add(1, -1, 0), EnumFacing.EAST);
+			place(pb.add(1, -1, -1), EnumFacing.NORTH);
 		}
 	}
 

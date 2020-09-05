@@ -12,7 +12,7 @@ public class AntiFire extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
+		if(player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
 			for(int i = 0; i < 100; i++)
 				sendPacket(new C03PacketPlayer());
 	}

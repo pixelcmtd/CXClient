@@ -22,7 +22,7 @@ public class AutoLeave extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && player().getHealth() < min)
+		if(player().getHealth() < min)
 		{
         	hc.onDisconnectedOrLeft();
             world().sendQuittingDisconnectingPacket();

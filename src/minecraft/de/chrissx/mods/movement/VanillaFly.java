@@ -17,6 +17,7 @@ public class VanillaFly extends Mod {
 	public void toggle() {
 		enabled = !enabled;
 		try {
+			//TODO: fix this for creative mode
 			player().capabilities.allowFlying = enabled;
 		} catch (Exception e) {
 			e.printStackTrace();

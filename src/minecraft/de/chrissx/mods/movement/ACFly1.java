@@ -10,16 +10,13 @@ public class ACFly1 extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-		{
-			if(player().isSneaking())
-				player().motionY = -0.4;
-			else if(settings().keyBindJump.isKeyDown())
-				player().motionY = 0.4;
-			else
-				player().motionY = 0;
-			player().motionX *= 1.1;
-			player().motionZ *= 1.1;
-		}
+		if(player().isSneaking())
+			player().motionY = -0.4;
+		else if(settings().keyBindJump.isKeyDown())
+			player().motionY = 0.4;
+		else
+			player().motionY = 0;
+		player().motionX *= 1.1;
+		player().motionZ *= 1.1;
 	}
 }

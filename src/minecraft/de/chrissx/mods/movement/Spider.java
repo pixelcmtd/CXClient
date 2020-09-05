@@ -11,7 +11,7 @@ public class Spider extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && player().isCollidedHorizontally)
+		if(player().isCollidedHorizontally)
 			player().motionY = 0.2;
 	}
 }

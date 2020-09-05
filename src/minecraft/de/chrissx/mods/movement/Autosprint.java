@@ -10,7 +10,6 @@ public class Autosprint extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			settings().keyBindSprint.pressed = true;
+		settings().keyBindSprint.pressed = true;
 	}
 }

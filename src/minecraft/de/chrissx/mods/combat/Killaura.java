@@ -32,38 +32,34 @@ public class Killaura extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled) {
-			if((legit1 || legit2) && player().isEating()) return;
-			if(slowdown && Random.rand(4) == 3) return;
-			for(Entity e : world().loadedEntityList) {
-				if(!(e instanceof EntityLivingBase) ||
-				   e == player() ||
-				   player().getDistanceToEntity(e) > max_range ||
-				   (!attackInvis && e.isInvisible()) ||
-				   e.isDead || ((EntityLivingBase)e).getHealth() <= 0) /* skip while entity is dying */
-					continue;
-				else {
-					boolean attack = Random.rand(3) == 2;
-					boolean miss = (Random.randBool() && Random.randBool());
+		if((legit1 || legit2) && player().isEating()) return;
+		if(slowdown && Random.rand(4) == 3) return;
+		for(Entity e : world().loadedEntityList) {
+			if(!(e instanceof EntityLivingBase) ||
+			   e == player() ||
+			   player().getDistanceToEntity(e) > max_range ||
+			   (!attackInvis && e.isInvisible()) ||
+			   e.isDead || ((EntityLivingBase)e).getHealth() <= 0) /* skip while entity is dying */
+				continue;
+			else {
+				boolean attack = Random.rand(3) == 2;
+				boolean miss = (Random.randBool() && Random.randBool());
 
-					if(legit1 && attack && !miss)
-						Util.faceBounds(e.boundingBox);
-					if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
-						player().swingItem();
-					if(!legit2 || (attack && !miss))
-						playerController().attackEntity(player(), e);
-					if(legit1) return;
-				}
+				if(legit1 && attack && !miss)
+					Util.faceBounds(e.boundingBox);
+				if(!hc.getMods().noswing.isEnabled() && (attack || !legit2))
+					player().swingItem();
+				if(!legit2 || (attack && !miss))
+					playerController().attackEntity(player(), e);
+				if(legit1) return;
 			}
 		}
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(enabled)
-			r.drawString(name+"(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA") +
-					",LEGIT1:" + (legit1 ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ",SD:" +slowdown+")", x, y, Color.WHITE.getRGB());
-		return enabled;
+	public String getRenderstring() {
+		return name+"(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA") +
+				",LEGIT1:" + (legit1 ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ",SD:" +slowdown+")";
 	}
 
 	@Override

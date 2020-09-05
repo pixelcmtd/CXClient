@@ -5,7 +5,7 @@ import net.minecraft.client.settings.GameSettings;
 
 public class Fullbright extends Mod {
 
-	float gammaBefore;
+	float before;
 	
 	public Fullbright() {
 		super("FullBright", "fullbright");
@@ -16,10 +16,10 @@ public class Fullbright extends Mod {
 		enabled = !enabled;
 		GameSettings gs = settings();
 		if(enabled) {
-			gammaBefore = gs.gammaSetting;
+			before = gs.gammaSetting;
 			gs.gammaSetting = 100;
 		}else
-			gs.gammaSetting = gammaBefore;
+			gs.gammaSetting = before;
 		mc.renderGlobal.loadRenderers();
 	}
 }

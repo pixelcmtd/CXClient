@@ -18,7 +18,7 @@ public class AntiPotion extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && !player().capabilities.isCreativeMode && player().onGround && hasBadEffect())
+		if(!player().capabilities.isCreativeMode && player().onGround && hasBadEffect())
 			for (int i = 0; i < 1000; i++)
 				sendPacket(new C03PacketPlayer());
 	}

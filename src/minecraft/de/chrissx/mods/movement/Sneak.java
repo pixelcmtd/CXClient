@@ -1,11 +1,9 @@
 package de.chrissx.mods.movement;
 
-import java.awt.Color;
 import java.io.File;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
-import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.network.play.client.C0BPacketEntityAction;
 import net.minecraft.network.play.client.C0BPacketEntityAction.Action;
 
@@ -21,11 +19,10 @@ public class Sneak extends Mod {
 
 	@Override
 	public void onTick() {
-		if(enabled)
-			if(mode.equals(SneakMode.BYPASS))
-				settings().keyBindSneak.pressed = true;
-			else if(!mode.equals(SneakMode.PACKET))
-				Util.sendMessage("Currently your mode is not supported, this should be a bug, please report to chrissx!");
+		if(mode.equals(SneakMode.BYPASS))
+			settings().keyBindSneak.pressed = true;
+		else if(!mode.equals(SneakMode.PACKET))
+			Util.sendMessage("Currently your mode is not supported, this should be a bug, please report to chrissx!");
 	}
 
 	@Override
@@ -36,10 +33,8 @@ public class Sneak extends Mod {
 	}
 
 	@Override
-	public boolean onRender(FontRenderer r, int x, int y) {
-		if(isEnabled())
-			r.drawString(name + "(" + mode + ")", x, y, Color.WHITE.getRGB());
-		return isEnabled();
+	public String getRenderstring() {
+		return name + "(" + mode + ")";
 	}
 
 	@Override

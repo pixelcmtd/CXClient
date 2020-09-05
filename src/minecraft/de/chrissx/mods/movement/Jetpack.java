@@ -11,7 +11,7 @@ public class Jetpack extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && settings().keyBindJump.isKeyDown())
+		if(settings().keyBindJump.isKeyDown())
 			player().motionY = 0.4;
 	}
 

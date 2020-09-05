@@ -11,7 +11,7 @@ public class AutoRespawn extends Mod {
 	@Override
 	public void onTick()
 	{
-		if(enabled && player().isDead)
+		if(player().isDead)
 		{
 			player().respawnPlayer();
 			mc.displayGuiScreen(null);

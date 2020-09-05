@@ -14,14 +14,14 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
-	protected final String argv0;
+	protected final String[] argv0;
 
-	protected Semimod(String name, String argv0) {
+	protected Semimod(String name, String... argv0) {
 		super(name);
 		this.argv0 = argv0;
 	}
 
-	public String getArgv0() {
+	public String[] getArgv0() {
 		return argv0;
 	}
 

@@ -6,4 +6,5 @@ public interface ChatBot {
 
 	public void onChatMessage(IChatComponent component);
 	public String getName();
+	public boolean isEnabled();
 }
