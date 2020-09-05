@@ -15,7 +15,7 @@ public class Sneak extends Mod {
 	File mf;
 
 	public Sneak() {
-		super("Sneak");
+		super("Sneak", "sneak");
 		mf = getApiFile("mode");
 	}
 

@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoRespawn extends Mod {
 
 	public AutoRespawn() {
-		super("AutoRespawn");
+		super("AutoRespawn", "autorespawn");
 	}
 
 	@Override

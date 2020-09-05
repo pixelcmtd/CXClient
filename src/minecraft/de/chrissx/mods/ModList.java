@@ -2,11 +2,9 @@ package de.chrissx.mods;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
@@ -173,6 +171,7 @@ public class ModList implements Iterable<Mod> {
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
 	public final List<EapiModule> eapiModules = new ArrayList<EapiModule>();
+	public final List<CommandExecutor> commandExecutors = new ArrayList<CommandExecutor>();
 	public final List<ChatBot> chatBots = new ArrayList<ChatBot>();
 
 	public ModList() {
@@ -188,7 +187,7 @@ public class ModList implements Iterable<Mod> {
 
 		for(Mod m : mods)
 			addBindable(m);
-		
+
 		for(Bindable b : bindable.values()) {
 			if(b instanceof RenderedObject)
 				renderedObjects.add((RenderedObject) b);
@@ -198,6 +197,8 @@ public class ModList implements Iterable<Mod> {
 				stopListeners.add((StopListener) b);
 			if(b instanceof EapiModule)
 				eapiModules.add((EapiModule) b);
+			if(b instanceof CommandExecutor)
+				commandExecutors.add((CommandExecutor) b);
 			if(b instanceof ChatBot)
 				chatBots.add((ChatBot) b);
 		}

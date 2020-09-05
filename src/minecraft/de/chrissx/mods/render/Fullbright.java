@@ -8,7 +8,7 @@ public class Fullbright extends Mod {
 	float gammaBefore;
 	
 	public Fullbright() {
-		super("FullBright");
+		super("FullBright", "fullbright");
 	}
 
 	@Override

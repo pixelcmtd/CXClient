@@ -6,7 +6,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Tired extends Mod {
 
 	public Tired() {
-		super("Tired");
+		super("Tired", "tired");
 	}
 
 	@Override

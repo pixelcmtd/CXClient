@@ -71,6 +71,14 @@ public class Util {
 		Minecraft.logger.info(s);
 	}
 
+	public static void warn(String s) {
+		Minecraft.logger.warn(s);
+	}
+
+	public static void fatal(String s) {
+		Minecraft.logger.fatal(s);
+	}
+
 	public static void checkIfExistsAndMake(String dir, String name)
 	{
 		File f = new File(dir);

@@ -1,6 +1,9 @@
 package net.minecraft.client.gui;
 
 import com.google.common.collect.Lists;
+
+import de.chrissx.HackedClient;
+
 import java.util.Iterator;
 import java.util.List;
 import net.minecraft.client.Minecraft;
@@ -135,6 +138,7 @@ public class GuiNewChat extends Gui
     {
         setChatLine(chatMessage, index, mc.ingameGUI.getUpdateCounter(), false);
         logger.info("[CHAT] " + chatMessage.getUnformattedText());
+    	HackedClient.getClient().onChatMessage(chatMessage);
     }
 
     private void setChatLine(IChatComponent chatMessage, int index, int updateCounter, boolean someFlag)

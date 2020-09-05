@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Phase extends Mod {
 
 	public Phase() {
-		super("Phase");
+		super("Phase", "phase");
 	}
 
 	@Override

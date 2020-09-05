@@ -9,10 +9,10 @@ import net.minecraft.client.settings.KeyBinding;
 public class InventoryWalk extends Mod {
 
 	public InventoryWalk() {
-		super("InventoryWalk");
+		super("InventoryWalk", "invwalk");
 	}
 
-	//The inspiration for this is from the XIV client:
+	//This is inspired by the XIV client:
 	//https://gitlab.com/Apteryx/XIV/blob/ae6f113fe29a0a62e6f9a9e0afc3720ef68503a5/src/main/java/pw/latematt/xiv/mod/mods/InventoryWalk.java
 	@Override
 	public void onTick()

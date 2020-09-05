@@ -10,7 +10,7 @@ public class Spam extends Mod {
 	String[] last = new String[] {"#spam", "20", "50", "You're getting flooded by chrissx' CXClient! ;)"};
 
 	public Spam() {
-		super("Spam");
+		super("Spam", "spam");
 	}
 
 	@Override

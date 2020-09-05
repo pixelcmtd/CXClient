@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class AutoSoup extends Mod {
 
 	public AutoSoup() {
-		super("AutoSoup");
+		super("AutoSoup", "autosoup");
 	}
 
 	@Override

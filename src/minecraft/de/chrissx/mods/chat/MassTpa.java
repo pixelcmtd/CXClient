@@ -14,7 +14,7 @@ public class MassTpa extends Mod {
 	List<EntityPlayer> players;
 	
 	public MassTpa() {
-		super("MassTPA");
+		super("MassTPA", "masstpa");
 	}
 
 	@Override

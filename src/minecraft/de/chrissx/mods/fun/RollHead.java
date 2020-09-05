@@ -8,7 +8,7 @@ import net.minecraft.util.MathHelper;
 public class RollHead extends Mod {
 
 	public RollHead() {
-		super("RollHead");
+		super("RollHead", "rollhead");
 	}
 
 	@Override

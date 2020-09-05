@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoMine extends Mod {
 
 	public AutoMine() {
-		super("AutoMine");
+		super("AutoMine", "automine");
 	}
 
 	@Override

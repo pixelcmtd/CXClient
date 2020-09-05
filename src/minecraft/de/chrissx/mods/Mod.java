@@ -9,9 +9,9 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 
 	protected volatile boolean enabled = false;
 
-	protected Mod(String name)
+	protected Mod(String name, String argv0)
 	{
-		super(name);
+		super(name, argv0);
 	}
 
 	public void toggle()

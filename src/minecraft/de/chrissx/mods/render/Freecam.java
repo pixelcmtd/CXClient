@@ -9,7 +9,7 @@ public class Freecam extends Mod {
 	EntityFakePlayer fP;
 
 	public Freecam() {
-		super("Freecam");
+		super("Freecam", "experimental-freecam");
 	}
 
 	@Override

@@ -13,7 +13,7 @@ public class ACSpeed1 extends Mod {
 	File sf;
 
 	public ACSpeed1() {
-		super("Speed-Bypass1");
+		super("Speed-Bypass1", "speedac1");
 		sf = getApiFile("speed");
 	}
 

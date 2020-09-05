@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class NoCobweb extends Mod {
 
 	public NoCobweb() {
-		super("NoCobweb");
+		super("NoCobweb", "nocobweb");
 	}
 
 	@Override

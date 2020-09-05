@@ -8,7 +8,7 @@ public class FastBreak extends Mod {
 	public float speed = 2;
 
 	public FastBreak() {
-		super("FastBreak");
+		super("FastBreak", "fastbreak");
 	}
 
 	@Override

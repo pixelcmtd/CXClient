@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class FastPlace extends Mod {
 
 	public FastPlace() {
-		super("FastPlace");
+		super("FastPlace", "fastplace");
 	}
 
 	@Override

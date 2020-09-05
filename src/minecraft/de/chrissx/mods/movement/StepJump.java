@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class StepJump extends Mod {
 
 	public StepJump() {
-		super("StepJump");
+		super("StepJump", "stepjump");
 	}
 
 	@Override

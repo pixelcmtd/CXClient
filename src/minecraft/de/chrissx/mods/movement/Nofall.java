@@ -6,7 +6,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Nofall extends Mod {
 
 	public Nofall() {
-		super("NoFall");
+		super("NoFall", "nofall");
 	}
 
 	@Override

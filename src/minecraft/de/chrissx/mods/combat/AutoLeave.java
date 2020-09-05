@@ -15,7 +15,7 @@ public class AutoLeave extends Mod {
 	File mf;
 
 	public AutoLeave() {
-		super("AutoLeave");
+		super("AutoLeave", "autoleave");
 		mf = getApiFile("min");
 	}
 

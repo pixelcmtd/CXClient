@@ -9,7 +9,7 @@ import net.minecraft.world.Explosion;
 public class Kaboom extends Mod {
 
 	public Kaboom() {
-		super("Kaboom");
+		super("Kaboom", "kaboom");
 	}
 
 	@Override

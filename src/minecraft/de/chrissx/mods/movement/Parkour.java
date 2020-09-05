@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Parkour extends Mod {
 
 	public Parkour() {
-		super("Parkour");
+		super("Parkour", "parkour");
 	}
 
 	@Override

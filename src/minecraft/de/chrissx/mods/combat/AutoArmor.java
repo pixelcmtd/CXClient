@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class AutoArmor extends Mod {
 
 	public AutoArmor() {
-		super("AutoArmor");
+		super("AutoArmor", "autoarmor");
 	}
 
 	@Override

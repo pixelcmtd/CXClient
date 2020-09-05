@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class KillPotion extends Semimod {
 
 	public KillPotion() {
-		super("KillPotion");
+		super("KillPotion", "killpotion");
 	}
 
 	@Override

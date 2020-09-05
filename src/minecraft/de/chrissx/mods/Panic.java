@@ -3,7 +3,7 @@ package de.chrissx.mods;
 public class Panic extends Semimod {
 
 	public Panic() {
-		super("Panic");
+		super("Panic", "panic");
 	}
 
 	@Override

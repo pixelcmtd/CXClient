@@ -16,7 +16,7 @@ import net.minecraft.util.Vec3;
 public class ScaffoldWalk extends Mod {
 
 	public ScaffoldWalk() {
-		super("ScaffoldWalk");
+		super("ScaffoldWalk", "scaffoldwalk");
 	}
 
 	@Override

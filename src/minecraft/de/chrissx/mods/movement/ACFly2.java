@@ -7,7 +7,7 @@ public class ACFly2 extends Mod {
 	double startY = 0;
 	
 	public ACFly2() {
-		super("Fly-Bypass2");
+		super("Fly-Bypass2", "flyac2");
 	}
 
 	@Override

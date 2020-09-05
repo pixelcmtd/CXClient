@@ -15,7 +15,7 @@ public class BedFucker extends Mod {
 	File rf;
 	
 	public BedFucker() {
-		super("BedFucker");
+		super("BedFucker", "bedfucker");
 		rf = getApiFile("range");
 	}
 

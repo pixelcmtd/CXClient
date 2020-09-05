@@ -18,7 +18,7 @@ public class Nuker extends Mod {
 	File bpf, mf;
 	
 	public Nuker() {
-		super("Nuker");
+		super("Nuker", "nuker");
 		bpf = getApiFile("bypass");
 		mf = getApiFile("mode");
 	}

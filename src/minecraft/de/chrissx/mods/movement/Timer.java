@@ -11,7 +11,7 @@ public class Timer extends Mod {
 	File ff;
 	
 	public Timer() {
-		super("Timer");
+		super("Timer", "timer");
 		ff = getApiFile("factor");
 	}
 

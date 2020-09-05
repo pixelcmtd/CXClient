@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoWalk extends Mod {
 
 	public AutoWalk() {
-		super("AutoWalk");
+		super("AutoWalk", "autowalk");
 	}
 
 	@Override

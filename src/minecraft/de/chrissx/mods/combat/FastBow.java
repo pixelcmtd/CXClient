@@ -9,7 +9,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class FastBow extends Mod {
 
 	public FastBow() {
-		super("FastBow");
+		super("FastBow", "fastbow");
 	}
 
 	@Override

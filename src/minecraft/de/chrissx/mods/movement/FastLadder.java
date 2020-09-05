@@ -11,7 +11,7 @@ public class FastLadder extends Mod {
 	File mf;
 	
 	public FastLadder() {
-		super("FastLadder");
+		super("FastLadder", "fastladder");
 		mf = getApiFile("motion");
 	}
 

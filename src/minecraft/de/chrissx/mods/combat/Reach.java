@@ -11,7 +11,7 @@ public class Reach extends Mod {
 	File rf;
 	
 	public Reach() {
-		super("Reach");
+		super("Reach", "reach");
 		rf = getApiFile("reach");
 	}
 

@@ -21,7 +21,7 @@ public class Killaura extends Mod {
 	File rf, mf, aif, lf, lf2, sd;
 
 	public Killaura() {
-		super("KillAura");
+		super("KillAura", "killaura");
 		rf = getApiFile("range");
 		mf = getApiFile("mode");
 		aif = getApiFile("attack_invis");

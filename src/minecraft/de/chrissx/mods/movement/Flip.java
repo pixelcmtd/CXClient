@@ -11,7 +11,7 @@ public class Flip extends Semimod {
 	}
 
 	public Flip() {
-		super("Flip");
+		super("Flip", "flip");
 	}
 
 	@Override

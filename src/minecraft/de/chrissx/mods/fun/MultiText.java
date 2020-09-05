@@ -7,7 +7,7 @@ import de.chrissx.util.Util;
 public class MultiText extends Semimod {
 
 	public MultiText() {
-		super("MultiText");
+		super("MultiText", "multitext");
 	}
 
 	@Override

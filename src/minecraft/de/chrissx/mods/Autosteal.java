@@ -13,7 +13,7 @@ public class Autosteal extends Mod {
 	File bpf, tf;
 
 	public Autosteal() {
-		super("AutoSteal");
+		super("AutoSteal", "autosteal");
 		bpf = getApiFile("bypass");
 		tf = getApiFile("timer");
 	}

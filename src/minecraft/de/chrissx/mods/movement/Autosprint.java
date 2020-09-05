@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Autosprint extends Mod {
 
 	public Autosprint() {
-		super("Sprint");
+		super("Sprint", "sprint");
 	}
 
 	@Override

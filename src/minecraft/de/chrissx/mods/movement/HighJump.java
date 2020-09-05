@@ -8,7 +8,7 @@ public class HighJump extends Mod {
 	public double motion = 0.75;
 
 	public HighJump() {
-		super("HighJump");
+		super("HighJump", "highjump");
 	}
 
 	@Override

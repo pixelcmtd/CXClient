@@ -14,7 +14,7 @@ public class FastEat extends Mod {
 	int speed = 100;
 
 	public FastEat() {
-		super("FastEat");
+		super("FastEat", "fasteat");
 		sf = getApiFile("speed");
 	}
 

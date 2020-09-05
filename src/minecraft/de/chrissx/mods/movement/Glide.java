@@ -9,7 +9,7 @@ public class Glide extends Mod {
 	double speed = -0.05;
 
 	public Glide() {
-		super("Glide");
+		super("Glide", "glide");
 	}
 
 	@Override

@@ -14,7 +14,7 @@ public class Xray extends Mod {
 	public List<Integer> xrayBlocks = new ArrayList<Integer>();
 	
 	public Xray() {
-		super("XRay");
+		super("XRay", "xray");
 	}
 
 	@Override

@@ -12,7 +12,7 @@ public class Regen extends Mod {
 	int speed = 250;
 
 	public Regen() {
-		super("Regen");
+		super("Regen", "regen");
 		sf = getApiFile("speed");
 	}
 

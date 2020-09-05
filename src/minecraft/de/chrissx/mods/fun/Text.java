@@ -7,7 +7,7 @@ import de.chrissx.util.Util;
 public class Text extends Semimod {
 
 	public Text() {
-		super("Text");
+		super("Text", "text");
 	}
 
 	@Override

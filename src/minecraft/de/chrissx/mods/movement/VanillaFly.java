@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class VanillaFly extends Mod {
 
 	public VanillaFly() {
-		super("VanillaFly");
+		super("VanillaFly", "flyvanilla");
 	}
 	
 	public void setSpeed(float speed) {

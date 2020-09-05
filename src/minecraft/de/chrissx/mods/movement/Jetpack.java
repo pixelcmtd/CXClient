@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Jetpack extends Mod {
 
 	public Jetpack() {
-		super("Jetpack");
+		super("Jetpack", "jetpack");
 	}
 
 	@Override

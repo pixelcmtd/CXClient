@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class AutoEat extends Mod {
 
 	public AutoEat() {
-		super("AutoEat");
+		super("AutoEat", "autoeat");
 	}
 
 	@Override

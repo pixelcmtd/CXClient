@@ -19,6 +19,6 @@ public class TrollPotion extends Semimod {
 	}
 
 	public TrollPotion() {
-		super("TrollPotion");
+		super("TrollPotion", "trollpotion");
 	}
 }

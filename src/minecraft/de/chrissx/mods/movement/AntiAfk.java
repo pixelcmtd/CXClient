@@ -6,7 +6,7 @@ import de.chrissx.util.Random;
 public class AntiAfk extends Mod {
 
 	public AntiAfk() {
-		super("AntiAFK");
+		super("AntiAFK", "antiafk");
 	}
 
 	@Override

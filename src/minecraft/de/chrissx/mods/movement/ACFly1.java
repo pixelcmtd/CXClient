@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class ACFly1 extends Mod {
 
 	public ACFly1() {
-		super("Fly-Bypass1");
+		super("Fly-Bypass1", "flyac1");
 	}
 
 	@Override

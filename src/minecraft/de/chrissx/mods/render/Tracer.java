@@ -11,7 +11,7 @@ import net.minecraft.entity.Entity;
 public class Tracer extends Mod {
 
 	public Tracer() {
-		super("Tracer");
+		super("Tracer", "tracer");
 	}
 
 	@Override

@@ -51,7 +51,7 @@ public class AuthMeCrack extends Mod {
 	String bfPw = "";
 
 	public AuthMeCrack() {
-		super("AuthMeCracker");
+		super("AuthMeCracker", "authmecrack");
 		if(pwFile.exists())
 			try {
 				List<String> pwsL = new ArrayList<String>();

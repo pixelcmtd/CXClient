@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Spider extends Mod {
 
 	public Spider() {
-		super("Spider");
+		super("Spider", "spider");
 	}
 
 	@Override

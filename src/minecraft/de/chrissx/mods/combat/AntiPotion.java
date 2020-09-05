@@ -12,7 +12,7 @@ public class AntiPotion extends Mod {
 	};
 
 	public AntiPotion() {
-		super("AntiPotion");
+		super("AntiPotion", "antipotion");
 	}
 
 	@Override

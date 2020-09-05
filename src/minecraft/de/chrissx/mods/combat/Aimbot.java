@@ -13,7 +13,7 @@ public class Aimbot extends Mod {
 	File mf;
 	
 	public Aimbot() {
-		super("AimBot");
+		super("AimBot", "aimbot");
 		mf = getApiFile("mode");
 	}
 

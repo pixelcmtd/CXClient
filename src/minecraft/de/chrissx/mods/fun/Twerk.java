@@ -6,7 +6,7 @@ import net.minecraft.client.settings.KeyBinding;
 public class Twerk extends Mod {
 
 	public Twerk() {
-		super("Twerk");
+		super("Twerk", "twerk");
 	}
 
 	@Override

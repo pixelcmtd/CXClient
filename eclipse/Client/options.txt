@@ -16,7 +16,7 @@ ao:2
 renderClouds:true
 resourcePacks:[]
 incompatibleResourcePacks:[]
-lastServer:play.randomcraft.org
+lastServer:rewinside.tv
 lang:en_US
 chatVisibility:0
 chatColors:true

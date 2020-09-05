@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class LegitSpeed extends Mod {
 
 	public LegitSpeed() {
-		super("LegitSpeed");
+		super("LegitSpeed", "speedlegit");
 	}
 
 	@Override

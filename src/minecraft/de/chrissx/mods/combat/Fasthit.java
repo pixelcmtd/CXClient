@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Fasthit extends Mod {
 
 	public Fasthit() {
-		super("FastHit");
+		super("FastHit", "fasthit");
 	}
 
 	@Override

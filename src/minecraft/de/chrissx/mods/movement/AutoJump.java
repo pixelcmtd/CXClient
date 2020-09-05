@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoJump extends Mod {
 
 	public AutoJump() {
-		super("AutoJump");
+		super("AutoJump", "autojump");
 	}
 
 	@Override

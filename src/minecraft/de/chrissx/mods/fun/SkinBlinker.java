@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EnumPlayerModelParts;
 public class SkinBlinker extends Mod {
 
 	public SkinBlinker() {
-		super("SkinBlinker");
+		super("SkinBlinker", "skinblink");
 	}
 	
 	int i = 0;

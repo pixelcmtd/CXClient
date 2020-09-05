@@ -19,6 +19,7 @@ import java.util.zip.ZipFile;
 
 import de.chrissx.ChatGuiRenameWorld;
 import de.chrissx.HackedClient;
+import de.chrissx.mods.CommandExecutor;
 import de.chrissx.mods.ModList;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
@@ -52,88 +53,37 @@ public class AddonManager {
 				AddonProperties p = loadProperties(f);
 				addAddon((Addon) URLClassLoader.newInstance(new URL[] {f.toURI().toURL()}).loadClass(p.mainClass).newInstance(), p);
 			} catch (Exception e) {
-				Minecraft.logger.fatal("Failed to load addon " + f);
+				Util.fatal("Failed to load addon " + f);
 				e.printStackTrace();
 			}
-		
-		final ModList mods = HackedClient.getClient().getMods();
-		commands.add(new Command("#text", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.text.processCommand(t);}}));
-		commands.add(new Command("#multitext", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.multiText.processCommand(t);}}));
-		commands.add(new Command("#killpotion", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.killPotion.processCommand(t);}}));
-		commands.add(new Command("#spam", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.spam.processCommand(t);}}));
-		commands.add(new Command("#skinblink", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.skinBlinker.processCommand(t);}}));
-		commands.add(new Command("#fastplace", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastPlace.processCommand(t);}}));
-		commands.add(new Command("#fastbreak", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastBreak.processCommand(t);}}));
-		commands.add(new Command("#nofall", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.nofall.processCommand(t);}}));
-		commands.add(new Command("#fullbright", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fullbright.processCommand(t);}}));
-		commands.add(new Command("#xray", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.xray.processCommand(t);}}));
-		commands.add(new Command("#fasthit", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fasthit.processCommand(t);}}));
-		commands.add(new Command("#autoclicker", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoclicker.processCommand(t);}}));
-		commands.add(new Command("#noswing", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.noswing.processCommand(t);}}));
-		commands.add(new Command("#authmecrack", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.authMeCrack.processCommand(t);}}));
-		commands.add(new Command("#antiafk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.antiAfk.processCommand(t);}}));
-		commands.add(new Command("#autosteal", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autosteal.processCommand(t);}}));
-		commands.add(new Command("#killaura", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.killaura.processCommand(t);}}));
-		commands.add(new Command("#nuker", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.nuker.processCommand(t);}}));
-		commands.add(new Command("#sneak", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.sneak.processCommand(t);}}));
-		commands.add(new Command("#tracer", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.tracer.processCommand(t);}}));
-		commands.add(new Command("#clearspam", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.spam.processCommand(t);}}));
-		commands.add(new Command("#panic", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.panic.processCommand(t);}}));
-		commands.add(new Command("#throw", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.thrower.processCommand(t);}}));
-		commands.add(new Command("#flyvanilla", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.vanillaFly.processCommand(t);}}));
-		commands.add(new Command("#masstpa", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.massTpa.processCommand(t);}}));
-		commands.add(new Command("#autoarmor", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoArmor.processCommand(t);}}));
-		commands.add(new Command("#trollpotion", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.trollPotion.processCommand(t);}}));
-		commands.add(new Command("#twerk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.twerk.processCommand(t);}}));
-		commands.add(new Command("#fastladder", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastLadder.processCommand(t);}}));
-		commands.add(new Command("#reach", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.reach.processCommand(t);}}));
-		commands.add(new Command("#velocity", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.velocity.processCommand(t);}}));
-		commands.add(new Command("#flyac1", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.acFly1.processCommand(t);}}));
-		commands.add(new Command("#flyac2", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.acFly2.processCommand(t);}}));
-		commands.add(new Command("#timer", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.timer.processCommand(t);}}));
-		commands.add(new Command("#speedac1", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.acSpeed1.processCommand(t);}}));
-		commands.add(new Command("#sprint", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autosprint.processCommand(t);}}));
-		commands.add(new Command("#bedfucker", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.bedFucker.processCommand(t);}}));
-		commands.add(new Command("#speedlegit", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.legitSpeed.processCommand(t);}}));
-		commands.add(new Command("#freecam", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.freecam.processCommand(t);}}));
-		commands.add(new Command("#aimbot", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.aimbot.processCommand(t);}}));
-		commands.add(new Command("#jailsmcbot", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.jailsmcBot.processCommand(t);}}));
-		commands.add(new Command("#norender", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.noRender.processCommand(t);}}));
-		commands.add(new Command("#stepjump", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.stepJump.processCommand(t);}}));
-		commands.add(new Command("#jetpack", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.jetpack.processCommand(t);}}));
-		commands.add(new Command("#regen", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.regen.processCommand(t);}}));
-		commands.add(new Command("#flip", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.flip.processCommand(t);}}));
-		commands.add(new Command("#lag", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.lag.processCommand(t);}}));
-		commands.add(new Command("#scaffoldwalk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.scaffoldWalk.processCommand(t);}}));
-		commands.add(new Command("#fastfall", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastFall.processCommand(t);}}));
-		commands.add(new Command("#fasteat", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastEat.processCommand(t);}}));
-		commands.add(new Command("#autoswitch", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoSwitch.processCommand(t);}}));
-		commands.add(new Command("#tired", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.tired.processCommand(t);}}));
-		commands.add(new Command("#derp", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.derp.processCommand(t);}}));
-		commands.add(new Command("#antipotion", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.antiPotion.processCommand(t);}}));
-		commands.add(new Command("#nocobweb", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.noCobweb.processCommand(t);}}));
-		commands.add(new Command("#parkour", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.parkour.processCommand(t);}}));
-		commands.add(new Command("#phase", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.phase.processCommand(t);}}));
-		commands.add(new Command("#fastbow", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.fastBow.processCommand(t);}}));
-		commands.add(new Command("#spider", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.spider.processCommand(t);}}));
-		commands.add(new Command("#antifire", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.antiFire.processCommand(t);}}));
-		commands.add(new Command("#highjump", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.highJump.processCommand(t);}}));
-		commands.add(new Command("#autowalk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoWalk.processCommand(t);}}));
-		commands.add(new Command("#autorespawn", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoRespawn.processCommand(t);}}));
-		commands.add(new Command("#dolphin", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.dolphin.processCommand(t);}}));
-		commands.add(new Command("#kaboom", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.kaboom.processCommand(t);}}));
-		commands.add(new Command("#glide", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.glide.processCommand(t);}}));
-		commands.add(new Command("#rollhead", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.rollHead.processCommand(t);}}));
-		commands.add(new Command("#automine", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoMine.processCommand(t);}}));
-		commands.add(new Command("#autosoup", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoSoup.processCommand(t);}}));
-		commands.add(new Command("#autoleave", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoLeave.processCommand(t);}}));
-		commands.add(new Command("#dropinventory", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.dropInventory.processCommand(t);}}));
-		commands.add(new Command("#jesus", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.waterWalk.processCommand(t);}}));
-		commands.add(new Command("#autojump", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.autoJump.processCommand(t);}}));
-		commands.add(new Command("#invwalk", new Consumer<String[]>() {@Override public void accept(String[] t) {mods.invWalk.processCommand(t);}}));
-		commands.add(new Command("#alt", new Consumer<String[]>() {@Override public void accept(String[] t) {String s = Util.combineParts(t, 1, " "); HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));}}));
-		commands.add(new Command("#changelog", new Consumer<String[]>() {@Override public void accept(String[] t) {for(String s : Consts.changelog) Util.sendMessage(s);}}));
-		commands.add(new Command("#credits", new Consumer<String[]>() {@Override public void accept(String[] t) {for(String s : Consts.credits) Util.sendMessage(s);}}));
+
+		for(final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
+			commands.add(new Command(ce.getArgv0(), new Consumer<String[]>() {
+				@Override
+				public void accept(String[] t) {
+					ce.processCommand(t);
+				}}));
+
+		commands.add(new Command("#alt", new Consumer<String[]>() {
+			@Override
+			public void accept(String[] t) {
+				String s = Util.combineParts(t, 1, " ");
+				HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));
+			}}));
+
+		commands.add(new Command("#changelog", new Consumer<String[]>() {
+			@Override
+			public void accept(String[] t) {
+				for(String s : Consts.changelog)
+					Util.sendMessage(s);
+			}}));
+
+		commands.add(new Command("#credits", new Consumer<String[]>() {
+			@Override
+			public void accept(String[] t) {
+				for(String s : Consts.credits)
+					Util.sendMessage(s);
+			}}));
 	}
 
 	/**
@@ -153,9 +103,9 @@ public class AddonManager {
 		ZipFile zip = new ZipFile(f);
 		BufferedReader br = new BufferedReader(
 								new InputStreamReader(
-									zip.getInputStream(zip.getEntry("c.addon")),
+									zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")),
 									StandardCharsets.UTF_8));
-		
+
 		while((s = br.readLine()) != null) {
 			String[] tokens = s.split(" ");
 				 if(tokens[0].equalsIgnoreCase("name"))    name    = Util.combineParts(tokens, 1, " ");
@@ -200,11 +150,6 @@ public class AddonManager {
 		addons.put(a, p);
 	}
 
-	/**
-	 * adds the commandexecutor to the list
-	 * @param cmdExec the commandexecutor
-	 */
-	
 	public void registerCommand(Command c)
 	{
 		commands.add(c);
@@ -217,6 +162,7 @@ public class AddonManager {
 	public void execCmd(String[] args)
 	{
 		String cmd = args[0];
+		if(cmd.charAt(0) == '#') cmd = cmd.substring(1);
 		for(Command c : commands)
 			if(c.cmd.equalsIgnoreCase(cmd))
 			{

@@ -11,7 +11,7 @@ public class FastFall extends Mod {
 	File sf;
 	
 	public FastFall() {
-		super("FastFall");
+		super("FastFall", "fastfall");
 		sf = getApiFile("speed");
 	}
 

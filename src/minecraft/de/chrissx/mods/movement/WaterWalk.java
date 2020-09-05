@@ -10,7 +10,7 @@ public class WaterWalk extends Mod {
 	int timer = 2;
 
 	public WaterWalk() {
-		super("WaterWalk");
+		super("WaterWalk", "waterwalk");
 	}
 
 	@Override

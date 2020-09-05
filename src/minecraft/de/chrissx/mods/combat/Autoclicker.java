@@ -11,7 +11,7 @@ public class Autoclicker extends Mod {
 	boolean mouseButton = true;
 	
 	public Autoclicker() {
-		super("AutoClicker");
+		super("AutoClicker", "autoclicker");
 	}
 
 	@Override

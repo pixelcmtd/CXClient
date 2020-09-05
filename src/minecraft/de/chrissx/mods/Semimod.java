@@ -10,21 +10,25 @@ import net.minecraft.client.settings.GameSettings;
 import net.minecraft.entity.player.InventoryPlayer;
 import net.minecraft.network.Packet;
 
-public abstract class Semimod extends EapiModule implements Bindable, Commandable, Toggleable {
+public abstract class Semimod extends EapiModule implements Bindable, CommandExecutor, Toggleable {
 
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
+	protected final String argv0;
 
-	protected Semimod(String name)
-	{
+	protected Semimod(String name, String argv0) {
 		super(name);
+		this.argv0 = argv0;
+	}
+
+	public String getArgv0() {
+		return argv0;
 	}
 
 	/***
 	 * mc.thePlayer
 	 */
-	protected EntityPlayerSP player()
-	{
+	protected EntityPlayerSP player() {
 		return mc.thePlayer;
 	}
 
@@ -36,7 +40,7 @@ public abstract class Semimod extends EapiModule implements Bindable, Commandabl
 	}
 
 	/***
-	 * mc.inventory
+	 * mc.thePlayer.inventory
 	 */
 	protected InventoryPlayer inventory() {
 		return player().inventory;
@@ -56,6 +60,9 @@ public abstract class Semimod extends EapiModule implements Bindable, Commandabl
 		return mc.currentScreen;
 	}
 
+	/**
+	 * mc.gameSettings
+	 */
 	protected GameSettings settings() {
 		return mc.gameSettings;
 	}

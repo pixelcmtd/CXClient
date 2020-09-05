@@ -12,7 +12,7 @@ import net.minecraft.util.BlockPos;
 public class JailsmcBot extends Mod {
 	
 	public JailsmcBot() {
-		super("JailsMCBot");
+		super("JailsMCBot", "jailsmcbot");
 	}
 
 	@Override

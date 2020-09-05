@@ -248,6 +248,7 @@ public class HackedClient {
 					token += " " + args[i];
 				mcLeaksSession = McLeaksApi.redeemMcleaksToken(token);
 				altManager.login(mcLeaksSession.getMcname(), "");
+				gui.setText("Success.");
 			}else if(cmd.equalsIgnoreCase("alts"))
 				for(Alt a : altManager.getAlts())
 					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));

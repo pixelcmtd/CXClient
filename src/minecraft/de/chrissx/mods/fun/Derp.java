@@ -7,7 +7,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Derp extends Mod {
 
 	public Derp() {
-		super("Derp");
+		super("Derp", "derp");
 	}
 
 	@Override
