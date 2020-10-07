@@ -83,7 +83,8 @@ public class ModList implements Iterable<Mod> {
 	public final WaterWalk waterWalk = new WaterWalk();
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
-	public final RewiWords rewiWords = new RewiWords();
+	//TODO: uncomment
+	//public final RewiWords rewiWords = new RewiWords();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -165,7 +166,8 @@ public class ModList implements Iterable<Mod> {
 			waterWalk,
 			autoJump,
 			invWalk,
-			rewiWords,
+			//TODO: uncomment
+			//rewiWords,
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
