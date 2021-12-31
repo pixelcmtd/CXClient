@@ -6,12 +6,12 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Nofall extends Mod {
 
 	public Nofall() {
-		super("NoFall", "nofall");
+		super("NoFall", "nofall", "Tries to avoid fall damage");
 	}
 
 	@Override
 	public void onTick() {
-		if(player().fallDistance > 2)
+		if (player().fallDistance > 2)
 			sendPacket(new C03PacketPlayer(true));
 	}
 }

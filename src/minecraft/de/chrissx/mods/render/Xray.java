@@ -12,9 +12,9 @@ public class Xray extends Mod {
 
 	float gammaBefore = 0;
 	public List<Integer> xrayBlocks = new ArrayList<Integer>();
-	
+
 	public Xray() {
-		super("XRay", "xray");
+		super("XRay", "xray", "Makes most or all blocks invisible");
 	}
 
 	@Override
@@ -28,13 +28,14 @@ public class Xray extends Mod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length == 1)
+		if (args.length == 1)
 			toggle();
-		else if(args[1].equalsIgnoreCase("add"))
+		else if (args[1].equalsIgnoreCase("add"))
 			xrayBlocks.add(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
-		else if(args[1].equalsIgnoreCase("remove"))
+		else if (args[1].equalsIgnoreCase("remove"))
 			xrayBlocks.remove(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
 		else
-			Util.sendMessage("#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
+			Util.sendMessage(
+					"#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
 	}
 }

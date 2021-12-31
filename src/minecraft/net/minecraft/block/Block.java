@@ -415,7 +415,7 @@ public class Block
     public float getBlockHardness(World worldIn, BlockPos pos)
     {
     	FastBreak fb = HackedClient.getClient().getMods().fastBreak;
-        return fb.isEnabled() ? blockHardness / fb.speed : blockHardness;
+        return fb.isEnabled() ? blockHardness / fb.speed.value : blockHardness;
     }
 
     /**

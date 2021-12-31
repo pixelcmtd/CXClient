@@ -9,20 +9,18 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class FastBow extends Mod {
 
 	public FastBow() {
-		super("FastBow", "fastbow");
+		super("FastBow", "fastbow", "Shoots one arrow per tick when you right click while holding a bow");
 	}
 
 	@Override
-	public void onTick()
-	{
+	public void onTick() {
 		EntityPlayerSP p = player();
 		ItemStack is = inventory().getCurrentItem();
-		if(settings().keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 &&
-				is != null && is.stackSize > 0 && is.getItem() instanceof ItemBow)
-		{
+		if (settings().keyBindUseItem.isKeyDown() && p.onGround && p.getHealth() > 0 && is != null && is.stackSize > 0
+				&& is.getItem() instanceof ItemBow) {
 			click(false);
 			for (int i = 0; i < 20; i++)
-			  sendPacket(new C03PacketPlayer(false));
+				sendPacket(new C03PacketPlayer(false));
 			playerController().onStoppedUsingItem(p);
 		}
 	}

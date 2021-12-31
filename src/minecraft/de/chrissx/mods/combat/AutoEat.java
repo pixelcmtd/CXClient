@@ -6,17 +6,15 @@ import de.chrissx.util.Util;
 public class AutoEat extends Mod {
 
 	public AutoEat() {
-		super("AutoEat", "autoeat");
+		super("AutoEat", "autoeat", "Switches to the first slot with food when you have hunger");
 	}
 
 	@Override
-	public void onTick()
-	{
+	public void onTick() {
 		int i = Util.firstFoodIndex(inventory().mainInventory);
-		if(player().canEat(false) && i != -1)
-		{
+		if (player().canEat(false) && i != -1) {
 			inventory().currentItem = i - 27;
-			//TODO: START EATING
+			// TODO: START EATING
 		}
 	}
 }

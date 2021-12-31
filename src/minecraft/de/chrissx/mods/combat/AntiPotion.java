@@ -6,28 +6,24 @@ import net.minecraft.potion.Potion;
 
 public class AntiPotion extends Mod {
 
-	final Potion[] blockedEffects = {
-			Potion.hunger, Potion.moveSlowdown, Potion.digSlowdown, Potion.harm,
-			Potion.confusion, Potion.blindness, Potion.weakness, Potion.wither, Potion.poison
-	};
+	final Potion[] blockedEffects = { Potion.hunger, Potion.moveSlowdown, Potion.digSlowdown, Potion.harm,
+			Potion.confusion, Potion.blindness, Potion.weakness, Potion.wither, Potion.poison };
 
 	public AntiPotion() {
-		super("AntiPotion", "antipotion");
+		super("AntiPotion", "antipotion", "Automatically tries to get rid of any bad potion effects once you get them");
 	}
 
 	@Override
-	public void onTick()
-	{
-		if(!player().capabilities.isCreativeMode && player().onGround && hasBadEffect())
+	public void onTick() {
+		if (!player().capabilities.isCreativeMode && player().onGround && hasBadEffect())
 			for (int i = 0; i < 1000; i++)
 				sendPacket(new C03PacketPlayer());
 	}
 
-	boolean hasBadEffect()
-	{
+	boolean hasBadEffect() {
 		if (player().getActivePotionEffects().isEmpty())
-		  return false;
-		for(Potion e : blockedEffects)
+			return false;
+		for (Potion e : blockedEffects)
 			if (player().isPotionActive(e))
 				return true;
 		return false;

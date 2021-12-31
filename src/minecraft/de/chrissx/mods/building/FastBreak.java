@@ -1,31 +1,16 @@
 package de.chrissx.mods.building;
 
 import de.chrissx.mods.Mod;
-import de.chrissx.util.Util;
+import de.chrissx.mods.options.FloatOption;
 
 public class FastBreak extends Mod {
-	
-	public float speed = 2;
+
+	// TODO: detailed desc
+	public FloatOption speed = new FloatOption("speed", "The divisor", 2);
 
 	public FastBreak() {
-		super("FastBreak", "fastbreak");
-	}
-
-	@Override
-	public void processCommand(String[] args)
-	{
-		if(args.length == 1)
-			toggle();
-		else if(args.length == 3 && args[1].equalsIgnoreCase("speed"))
-			try
-			{
-				speed = Float.parseFloat(args[2]);
-			}
-			catch(Exception e)
-			{
-				Util.sendMessage("Cannot parse speed: " + e.getMessage());
-			}
-		else
-			Util.sendMessage("#fastbreak to toggle, #fastbreak speed <float> to set the divisor");
+		// TODO:
+		super("FastBreak", "fastbreak", "");
+		addOption(speed);
 	}
 }

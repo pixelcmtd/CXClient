@@ -5,20 +5,22 @@ import org.apache.commons.lang3.RandomStringUtils;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
 
+// TODO: this whole thing has to be reworked a lot
 public class Spam extends Mod {
 
-	String[] last = new String[] {"#spam", "20", "50", "You're getting flooded by chrissx' CXClient! ;)"};
+	String[] last = new String[] { "#spam", "20", "50", "You're getting flooded by CXClient! ;)" };
 
 	public Spam() {
-		super("Spam", "spam", "clearspam");
+		super("Spam", new String[] { "spam", "clearspam" });
 	}
 
 	@Override
-	public void toggle() {}
+	public void toggle() {
+	}
 
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length < 4) {
+		if (args.length < 4) {
 			Util.sendMessage("\u00a74Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
 			return;
 		}
@@ -32,7 +34,7 @@ public class Spam extends Mod {
 
 		try {
 			times = Integer.parseInt(args[1]);
-		}catch(Exception e) {
+		} catch (Exception e) {
 			Util.sendMessage("\u00a74Error parsing times.");
 			return;
 		}
@@ -45,21 +47,21 @@ public class Spam extends Mod {
 		}
 
 		msg.append(args[3]);
-		for(int i = 4; i < args.length; i++)
+		for (int i = 4; i < args.length; i++)
 			msg.append(" " + args[i]);
-		
+
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
 				enabled = true;
 				String last = "-1";
 				final String m = msg.toString();
-				for(int i = 0; i < times; i++) {
-					if(clear)
+				for (int i = 0; i < times; i++) {
+					if (clear)
 						Util.sendChat(m);
 					else {
 						String r = last;
-						while(last == r)
+						while (last == r)
 							r = RandomStringUtils.randomAlphanumeric(2);
 						Util.sendChat(m + " #" + r);
 						last = r;
@@ -73,7 +75,7 @@ public class Spam extends Mod {
 				enabled = false;
 			}
 		}).start();
-		
+
 		last = args;
 	}
 

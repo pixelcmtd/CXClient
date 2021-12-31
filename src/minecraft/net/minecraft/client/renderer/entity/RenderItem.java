@@ -134,6 +134,7 @@ public class RenderItem implements IResourceManagerReloadListener
 
     public void renderItem(ItemStack stack, IBakedModel model)
     {
+    	// FIXME: this also doesnt render items in inventories
     	if(HackedClient.getClient().getMods().noRender.isEnabled())
     		return;
         if (stack != null)

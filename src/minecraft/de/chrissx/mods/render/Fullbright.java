@@ -8,7 +8,7 @@ public class Fullbright extends Mod {
 	float before;
 	
 	public Fullbright() {
-		super("FullBright", "fullbright");
+		super("FullBright", "fullbright", "Makes everything always visible, no torches needed!");
 	}
 
 	@Override

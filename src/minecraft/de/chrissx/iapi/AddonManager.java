@@ -20,7 +20,6 @@ import java.util.zip.ZipFile;
 import de.chrissx.ChatGuiRenameWorld;
 import de.chrissx.HackedClient;
 import de.chrissx.mods.CommandExecutor;
-import de.chrissx.mods.ModList;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
@@ -42,53 +41,58 @@ public class AddonManager {
 
 	/**
 	 * initializes the addonmanager and loads the addons from the path
+	 * 
 	 * @param addonPath the path where the addons are located
 	 */
-	public void init(String addonPath)
-	{
+	public void init(String addonPath) {
 		path = addonPath;
-		
-		for(File f : new File(path).listFiles())
+
+		for (File f : new File(path).listFiles())
 			try {
 				AddonProperties p = loadProperties(f);
-				addAddon((Addon) URLClassLoader.newInstance(new URL[] {f.toURI().toURL()}).loadClass(p.mainClass).newInstance(), p);
+				addAddon((Addon) URLClassLoader.newInstance(new URL[] { f.toURI().toURL() }).loadClass(p.mainClass)
+						.newInstance(), p);
 			} catch (Exception e) {
 				Util.fatal("Failed to load addon " + f);
 				e.printStackTrace();
 			}
 
-		for(final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
-			for(final String argv0 : ce.getArgv0())
-				commands.add(new Command(argv0, new Consumer<String[]>() {
-					@Override
-					public void accept(String[] t) {
-						ce.processCommand(t);
-					}}));
+		for (final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
+			commands.add(new Command(ce.getArgv0(), new Consumer<String[]>() {
+				@Override
+				public void accept(String[] t) {
+					ce.processCommand(t);
+				}
+			}));
 
 		commands.add(new Command("#alt", new Consumer<String[]>() {
 			@Override
 			public void accept(String[] t) {
 				String s = Util.combineParts(t, 1, " ");
 				HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));
-			}}));
+			}
+		}));
 
 		commands.add(new Command("#changelog", new Consumer<String[]>() {
 			@Override
 			public void accept(String[] t) {
-				for(String s : Consts.changelog)
+				for (String s : Consts.changelog)
 					Util.sendMessage(s);
-			}}));
+			}
+		}));
 
 		commands.add(new Command("#credits", new Consumer<String[]>() {
 			@Override
 			public void accept(String[] t) {
-				for(String s : Consts.credits)
+				for (String s : Consts.credits)
 					Util.sendMessage(s);
-			}}));
+			}
+		}));
 	}
 
 	/**
 	 * Loads the addon's properties.
+	 * 
 	 * @param f The file that should contain the addon
 	 * @return The loaded props
 	 * @throws ZipException

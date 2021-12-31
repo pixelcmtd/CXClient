@@ -2,7 +2,7 @@ package de.chrissx.mods;
 
 import java.io.File;
 
-import de.chrissx.util.Util;
+import de.chrissx.mods.options.IntOption;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
@@ -11,47 +11,27 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class FastEat extends Mod {
 
 	File sf;
-	int speed = 100;
+	IntOption speed = new IntOption("speed", "Packets per tick", 100);
 
 	public FastEat() {
-		super("FastEat", "fasteat");
+		super("FastEat", "fasteat", "Allows you to eat faster");
+		addOption(speed);
 		sf = getApiFile("speed");
 	}
 
 	@Override
-	public void onTick()
-	{
+	public void onTick() {
 		EntityPlayerSP p = player();
 		ItemStack is = p.getHeldItem();
-		if(p.getHealth() > 0 && p.onGround &&
-		   settings().keyBindUseItem.isKeyDown() && p.getFoodStats().needFood() &&
-		   is != null && is.getItem() instanceof ItemFood)
-			for(int i = 0; i < speed; i++)
+		if (p.getHealth() > 0 && p.onGround && settings().keyBindUseItem.isKeyDown() && p.getFoodStats().needFood()
+				&& is != null && is.getItem() instanceof ItemFood)
+			for (int i = 0; i < speed.value; i++)
 				sendPacket(new C03PacketPlayer(false));
 	}
 
 	@Override
-	public void processCommand(String[] args)
-	{
-		if(args.length == 1)
-			toggle();
-		else if(args[1].equalsIgnoreCase("speed"))
-			try
-			{
-				speed = Integer.parseInt(args[2]);
-			}
-			catch(Exception e)
-			{
-				Util.sendMessage("\u00a74Error parsing int: " + e.getMessage());
-			}
-		else
-			Util.sendMessage("#fasteat to toggle, #fasteat speed <int> to set packets per tick (default is 100)");
-	}
-
-	@Override
-	public void apiUpdate()
-	{
-		write(sf, speed);
+	public void apiUpdate() {
+		write(sf, speed.value);
 	}
 
 }

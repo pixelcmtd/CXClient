@@ -25,12 +25,12 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length == 1)
+		if (args.length == 1)
 			Util.sendMessage("#masterbuildersbot <name of the theme>");
 		else {
 			try {
-				drawAfter = Util.scale(new BufferedImage(0, 0, 0), 33, 33); //FIRST GOOGLE IMAGE
-				
+				drawAfter = Util.scale(new BufferedImage(0, 0, 0), 33, 33); // FIRST GOOGLE IMAGE
+
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -43,10 +43,12 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	}
 
 	@Override
-	public void onTick() {}
+	public void onTick() {
+	}
 
 	@Override
-	public void onStop() {}
+	public void onStop() {
+	}
 
 	@Override
 	public String getRenderstring() {
@@ -54,8 +56,8 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	}
 
 	@Override
-	public String[] getArgv0() {
-		return new String[] {"masterbuildersbot"};
+	public String getArgv0() {
+		return "masterbuildersbot";
 	}
 
 	public boolean isEnabled() {

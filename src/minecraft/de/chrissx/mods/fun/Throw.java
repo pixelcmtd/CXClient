@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class Throw extends Semimod {
 
 	public Throw() {
-		super("Throw", "throw");
+		super("Throw", "throw", "Throws items, many, quickly");
 	}
 
 	long throwCount = 500;
@@ -14,14 +14,13 @@ public class Throw extends Semimod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length < 3 || args.length > 3) {
+		if (args.length < 3 || args.length > 3)
 			Util.sendMessage("#throw <count> <delay>");
-			return;
-		}else {
+		else {
 			try {
 				throwCount = Long.parseLong(args[1]);
 				delay = Long.parseLong(args[2]);
-			}catch (Exception e) {
+			} catch (Exception e) {
 				Util.sendMessage("\u00a74Error parsing longs.");
 			}
 			toggle();
@@ -29,12 +28,11 @@ public class Throw extends Semimod {
 	}
 
 	@Override
-	public void toggle()
-	{
+	public void toggle() {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				for(long i = 0; i < throwCount; i++) {
+				for (long i = 0; i < throwCount; i++) {
 					try {
 						Thread.sleep(delay);
 					} catch (InterruptedException e) {

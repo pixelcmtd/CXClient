@@ -5,14 +5,14 @@ import de.chrissx.mods.Mod;
 public class ACFly2 extends Mod {
 
 	double startY = 0;
-	
+
 	public ACFly2() {
-		super("Fly-Bypass2", "flyac2");
+		super("Fly-Bypass2", "flyac2", "Makes you fly by automatically jumping around in the air");
 	}
 
 	@Override
 	public void onTick() {
-		if(startY > player().posY)
+		if (startY > player().posY)
 			player().motionY = 0.5;
 	}
 

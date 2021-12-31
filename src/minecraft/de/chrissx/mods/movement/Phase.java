@@ -5,25 +5,24 @@ import de.chrissx.mods.Mod;
 public class Phase extends Mod {
 
 	public Phase() {
-		super("Phase", "phase");
+		super("Phase", "phase",
+				"A weird style of movement that exploits an ancient NoCheatPlus bug to pass through blocks");
 	}
 
 	@Override
-	public void onTick()
-	{
+	public void onTick() {
 		player().fallDistance = 0;
 		player().onGround = true;
-		if(settings().keyBindJump.isKeyDown())
+		if (settings().keyBindJump.isKeyDown())
 			player().motionY = 0.1;
-		else if(settings().keyBindSneak.isKeyDown())
-		   	player().motionY = -0.1;
+		else if (settings().keyBindSneak.isKeyDown())
+			player().motionY = -0.1;
 		else
-		    player().motionY = 0;
+			player().motionY = 0;
 	}
 
 	@Override
-	public void toggle()
-	{
+	public void toggle() {
 		player().motionY = 0;
 		enabled = !enabled;
 	}

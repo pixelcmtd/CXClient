@@ -9,38 +9,37 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 
 	protected volatile boolean enabled = false;
 
-	protected Mod(String name, String... argv0)
-	{
-		super(name, argv0);
+	protected Mod(String name, String argv0, String description) {
+		super(name, argv0, description);
 	}
 
-	public void toggle()
-	{
+	public void toggle() {
 		enabled = !enabled;
 	}
 
-	public boolean isEnabled()
-	{
+	public boolean isEnabled() {
 		return enabled;
 	}
 
 	@Override
-	public String getRenderstring()
-	{
+	public String getRenderstring() {
 		return name;
 	}
 
 	@Override
-	public void onRender(FontRenderer r, int x, int y)
-	{
+	public void onRender(FontRenderer r, int x, int y) {
 		r.drawString(getRenderstring(), x, y, Color.WHITE.getRGB());
 	}
 
 	@Override
-	public void onStop() {}
+	public void onStop() {
+	}
+
 	@Override
-	public void onTick() {}
+	public void onTick() {
+	}
+
 	@Override
-	public void onChatMessage(IChatComponent component) {}
-	public void apiUpdate() {}
+	public void onChatMessage(IChatComponent component) {
+	}
 }

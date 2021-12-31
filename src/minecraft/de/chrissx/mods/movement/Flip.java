@@ -4,14 +4,13 @@ import de.chrissx.mods.Semimod;
 
 public class Flip extends Semimod {
 
-	@Override
-	public void processCommand(String[] args) {
-		if(args.length == 1) toggle();
-		else player().rotationYaw += Float.parseFloat(args[1]);
+	public Flip() {
+		super("Flip", "flip", "Turns by 180 degrees or an amount you specify");
 	}
 
-	public Flip() {
-		super("Flip", "flip");
+	@Override
+	public void processCommand(String[] args) {
+		player().rotationYaw += args.length == 1 ? 180 : Float.parseFloat(args[1]);
 	}
 
 	@Override

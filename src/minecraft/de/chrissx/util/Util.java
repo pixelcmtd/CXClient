@@ -16,7 +16,7 @@ import org.lwjgl.opengl.GL11;
 
 import de.chrissx.HackedClient;
 import de.chrissx.hotkeys.Hotkey;
-import de.chrissx.locations.LocFloat64;
+import de.chrissx.locations.Loc;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -348,6 +348,7 @@ public class Util {
 	 * @param mbv whether the block must be visible
 	 * @return
 	 */
+	// TODO: also support doubles for `r`, because that makes a lotta sense
 	public static BlockPos[] getBlocksAround(EntityPlayer pl, int r, boolean mbv) {
 		final long px = (long)pl.posX;
 		final long py = (long)pl.posY;
@@ -388,13 +389,13 @@ public class Util {
 		else return false;
 	}
 
-	public static LocFloat64 getEyePos() {
-		return new LocFloat64(mc.thePlayer.posX,
+	public static Loc<Double> getEyePos() {
+		return new Loc<Double>(mc.thePlayer.posX,
 							  mc.thePlayer.posY + mc.thePlayer.getEyeHeight(),
 							  mc.thePlayer.posZ);
 	}
 
-	static float[] getNeededRotations(LocFloat64 vec) {
+	static float[] getNeededRotations(Loc<Double> vec) {
 	    double x = vec.x - mc.thePlayer.posX;
 	    double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
 	    double z = vec.z - mc.thePlayer.posZ;
@@ -444,14 +445,14 @@ public class Util {
 		return keyId;
 	}
 
-	public static float distance(LocFloat64 start, LocFloat64 end) {
+	public static float distance(Loc<Double> start, Loc<Double> end) {
         float x = (float)(start.x - end.x);
         float y = (float)(start.y - end.y);
         float z = (float)(start.z - end.z);
         return MathHelper.sqrt(x * x + y * y + z * z);
 	}
 
-	public static void drawLine(LocFloat64 s, LocFloat64 e, Entity p) {
+	public static void drawLine(Loc<Double> s, Loc<Double> e, Entity p) {
 		//System.out.println("drawing line from {" + s.x + ", " + s.y + ", " + s.z + "} to {" + e.x + ", " + e.y + ", " + e.z + "}.");
         GL11.glBlendFunc(770, 771);
         GL11.glLineWidth(2.0F);

@@ -4,6 +4,6 @@ public interface CommandExecutor {
 
 	public void processCommand(String[] args);
 
-	public String[] getArgv0();
-	
+	public String getArgv0();
+
 }

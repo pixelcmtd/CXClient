@@ -83,8 +83,8 @@ public class ModList implements Iterable<Mod> {
 	public final WaterWalk waterWalk = new WaterWalk();
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
-	//TODO: uncomment
-	//public final RewiWords rewiWords = new RewiWords();
+	// TODO: uncomment
+	// public final RewiWords rewiWords = new RewiWords();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -100,74 +100,15 @@ public class ModList implements Iterable<Mod> {
 
 	public final int enabled_length;
 
-	final Mod[] mods = new Mod[] {
-			skinBlinker,
-			fastBreak,
-			fastPlace,
-			spam,
-			nofall,
-			fullbright,
-			xray,
-			fasthit,
-			autoclicker,
-			noswing,
-			authMeCrack,
-			antiAfk,
-			autosteal,
-			killaura,
-			nuker,
-			sneak,
-			tracer,
-			massTpa,
-			vanillaFly,
-			autoArmor,
-			twerk,
-			fastLadder,
-			reach,
-			velocity,
-			acSpeed1,
-			stepJump,
-			acFly1,
-			acFly2,
-			timer,
-			legitSpeed,
-			autosprint,
-			bedFucker,
-			freecam,
-			aimbot,
-			jailsmcBot,
-			noRender,
-			jetpack,
-			regen,
-			lag,
-			scaffoldWalk,
-			fastFall,
-			fastEat,
-			autoSwitch,
-			tired,
-			derp,
-			antiPotion,
-			noCobweb,
-			parkour,
-			phase,
-			fastBow,
-			spider,
-			antiFire,
-			highJump,
-			autoWalk,
-			autoRespawn,
-			dolphin,
-			kaboom,
-			glide,
-			rollHead,
-			autoMine,
-			autoSoup,
-			autoLeave,
-			waterWalk,
-			autoJump,
+	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, nofall, fullbright, xray, fasthit,
+			autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa, vanillaFly,
+			autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer, legitSpeed,
+			autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk, fastFall,
+			fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire, highJump,
+			autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk, autoJump,
 			invWalk,
-			//TODO: uncomment
-			//rewiWords,
+			// TODO: uncomment
+			// rewiWords,
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
@@ -187,45 +128,44 @@ public class ModList implements Iterable<Mod> {
 		addBindable(dropInventory);
 		addBindable(thrower);
 
-		for(Mod m : mods)
+		for (Mod m : mods)
 			addBindable(m);
 
-		for(Bindable b : bindable.values()) {
-			if(b instanceof RenderedObject)
+		for (Bindable b : bindable.values()) {
+			if (b instanceof RenderedObject)
 				renderedObjects.add((RenderedObject) b);
-			if(b instanceof TickListener)
+			if (b instanceof TickListener)
 				tickListeners.add((TickListener) b);
-			if(b instanceof StopListener)
+			if (b instanceof StopListener)
 				stopListeners.add((StopListener) b);
-			if(b instanceof EapiModule)
+			if (b instanceof EapiModule)
 				eapiModules.add((EapiModule) b);
-			if(b instanceof CommandExecutor)
+			if (b instanceof CommandExecutor)
 				commandExecutors.add((CommandExecutor) b);
-			if(b instanceof ChatBot)
+			if (b instanceof ChatBot)
 				chatBots.add((ChatBot) b);
 		}
 
 		int len = 1;
-		for(Mod m : mods)
-		{
+		for (Mod m : mods) {
 			len += m.getName().length();
 			len += 2;
 		}
 		enabled_length = len;
 	}
-	
+
 	public void addBindable(Bindable b) {
 		bindable.put(b.getName().toLowerCase(), b);
 	}
-	
+
 	public Set<Entry<String, Bindable>> getBindEntrys() {
 		return bindable.entrySet();
 	}
-	
+
 	public Bindable getBindable(String name) {
 		return bindable.get(name.toLowerCase());
 	}
-	
+
 	public Mod get(int i) {
 		return mods[i];
 	}

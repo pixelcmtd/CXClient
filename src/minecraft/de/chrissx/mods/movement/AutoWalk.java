@@ -5,12 +5,11 @@ import de.chrissx.mods.Mod;
 public class AutoWalk extends Mod {
 
 	public AutoWalk() {
-		super("AutoWalk", "autowalk");
+		super("AutoWalk", "autowalk", "Makes you walk forward, as if you held down W");
 	}
 
 	@Override
-	public void onTick()
-	{
+	public void onTick() {
 		settings().keyBindForward.pressed = true;
 	}
 }

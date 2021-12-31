@@ -13,7 +13,7 @@ public class Aimbot extends Mod {
 	File mf;
 	
 	public Aimbot() {
-		super("AimBot", "aimbot");
+		super("AimBot", "aimbot", "Faces the next enemy for shooting with bows, guns, ...");
 		mf = getApiFile("mode");
 	}
 
@@ -21,18 +21,18 @@ public class Aimbot extends Mod {
 	public void onTick() {
 		if(mode == AimbotMode.GUN)
 			for(Entity e : world().loadedEntityList)
-				if(!(e instanceof EntityLivingBase) || e == player() || e.isInvisible() || e.isDead || player().getDistanceToEntity(e) > 30)
-					continue;
-				else {
+				if(e instanceof EntityLivingBase && e != player() && !e.isInvisible() && !e.isDead && player().getDistanceToEntity(e) <= 30)
+				{
 					Util.faceBounds(e.boundingBox);
 					return;
 				}
-		else Util.sendMessage("\u00a74Currently bow mode isn't supported.");
+		else Util.sendMessage("\u00a74Currently bow mode isn't supported."); // TODO: implement
 	}
 
 	@Override
 	public void onStop() {}
 
+	// TODO: replace
 	@Override
 	public void processCommand(String[] args) {
 		if(args.length == 1)

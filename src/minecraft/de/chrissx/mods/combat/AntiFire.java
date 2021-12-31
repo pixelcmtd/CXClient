@@ -6,14 +6,13 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class AntiFire extends Mod {
 
 	public AntiFire() {
-		super("AntiFire", "antifire");
+		super("AntiFire", "antifire", "Tries to put out any fire you catch quickly");
 	}
 
 	@Override
-	public void onTick()
-	{
-		if(player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
-			for(int i = 0; i < 100; i++)
+	public void onTick() {
+		if (player().isBurning() && !player().capabilities.isCreativeMode && player().onGround)
+			for (int i = 0; i < 100; i++)
 				sendPacket(new C03PacketPlayer());
 	}
 }

@@ -4,12 +4,13 @@ import de.chrissx.mods.Mod;
 import de.chrissx.util.EntityFakePlayer;
 import de.chrissx.util.Util;
 
+// TODO: make this thing work at all
 public class Freecam extends Mod {
 
 	EntityFakePlayer fP;
 
 	public Freecam() {
-		super("Freecam", "experimental-freecam");
+		super("Freecam", "experimental-freecam", "An experimental freecam mod that may not work");
 	}
 
 	@Override
@@ -19,9 +20,9 @@ public class Freecam extends Mod {
 		player().onGround = false;
 		player().fallDistance = 0;
 
-		if(settings().keyBindJump.isKeyDown())
+		if (settings().keyBindJump.isKeyDown())
 			player().motionY = player().capabilities.getFlySpeed();
-		if(settings().keyBindSneak.isKeyDown())
+		if (settings().keyBindSneak.isKeyDown())
 			player().motionY = -player().capabilities.getFlySpeed();
 	}
 
@@ -29,10 +30,10 @@ public class Freecam extends Mod {
 	public void toggle() {
 		player().motionY = 0;
 		enabled = !enabled;
-		if(enabled) {
+		if (enabled) {
 			Util.sendMessage("\u00a74You should not use this unless you're in SP, because it's not done yet.");
 			fP = new EntityFakePlayer();
-		}else {
+		} else {
 			fP.destruct();
 			player().capabilities.isFlying = false;
 			player().noClip = false;
@@ -42,7 +43,7 @@ public class Freecam extends Mod {
 
 	@Override
 	public void onStop() {
-		if(enabled)
+		if (enabled)
 			fP.destruct();
 	}
 }

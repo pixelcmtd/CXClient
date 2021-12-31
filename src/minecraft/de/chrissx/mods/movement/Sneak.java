@@ -3,32 +3,42 @@ package de.chrissx.mods.movement;
 import java.io.File;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.options.Option;
 import de.chrissx.util.Util;
 import net.minecraft.network.play.client.C0BPacketEntityAction;
 import net.minecraft.network.play.client.C0BPacketEntityAction.Action;
 
 public class Sneak extends Mod {
 
-	SneakMode mode = SneakMode.PACKET;
+	Option<SneakMode> mode = new Option<SneakMode>("mode", "Whether the sneaking is simulated or real",
+			SneakMode.PACKET) {
+		@Override
+		public void set(String value) {
+			this.value = value == "" ? (this.value == SneakMode.PACKET ? SneakMode.BYPASS : SneakMode.PACKET)
+					: SneakMode.valueOf(value.toUpperCase());
+		}
+	};
 	File mf;
 
 	public Sneak() {
-		super("Sneak", "sneak");
+		super("Sneak", "sneak", "Makes you sneak continuously");
+		addOption(mode);
 		mf = getApiFile("mode");
 	}
 
 	@Override
 	public void onTick() {
-		if(mode.equals(SneakMode.BYPASS))
+		if (mode.value.equals(SneakMode.BYPASS))
 			settings().keyBindSneak.pressed = true;
-		else if(!mode.equals(SneakMode.PACKET))
-			Util.sendMessage("Currently your mode is not supported, this should be a bug, please report to chrissx!");
+		else if (!mode.value.equals(SneakMode.PACKET))
+			Util.sendMessage(
+					"Currently your mode is not supported, this should be a bug, please report this on the bug tracker!");
 	}
 
 	@Override
 	public void toggle() {
 		enabled = !enabled;
-		if(mode.equals(SneakMode.PACKET))
+		if (mode.value.equals(SneakMode.PACKET))
 			sendPacket(new C0BPacketEntityAction(player(), enabled ? Action.START_SNEAKING : Action.STOP_SNEAKING));
 	}
 
@@ -38,22 +48,7 @@ public class Sneak extends Mod {
 	}
 
 	@Override
-	public void processCommand(String[] args) {
-		if(args.length == 1)
-			toggle();
-		else
-			if(args[1].equalsIgnoreCase("mode"))
-				try {
-					mode = SneakMode.valueOf(args[2].toUpperCase());
-				} catch (Exception e) {
-					Util.sendMessage("\u00a74Error valueOf-ing SneakMode.");
-				}
-			else
-				Util.sendMessage("#sneak to toggle, #sneak mode <SneakMode> to set mode.");
-	}
-
-	@Override
 	public void apiUpdate() {
-		write(mf, mode.b);
+		write(mf, mode.value.b);
 	}
 }
