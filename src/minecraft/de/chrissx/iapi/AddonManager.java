@@ -103,18 +103,22 @@ public class AddonManager {
 		String s;
 		ZipFile zip = new ZipFile(f);
 		BufferedReader br = new BufferedReader(
-								new InputStreamReader(
-									zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")),
-									StandardCharsets.UTF_8));
+				new InputStreamReader(zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")), StandardCharsets.UTF_8));
 
-		while((s = br.readLine()) != null) {
+		while ((s = br.readLine()) != null) {
 			String[] tokens = s.split(" ");
-				 if(tokens[0].equalsIgnoreCase("name"))    name    = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("author"))  author  = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("version")) version = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("desc"))    desc    = Util.combineParts(tokens, 1, " ");
-			else if(tokens[0].equalsIgnoreCase("main"))    main    = tokens[1];
-			else Util.info("Can't read addon config line \"" + s + "\".");
+			if (tokens[0].equalsIgnoreCase("name"))
+				name = Util.combineParts(tokens, 1, " ");
+			else if (tokens[0].equalsIgnoreCase("author"))
+				author = Util.combineParts(tokens, 1, " ");
+			else if (tokens[0].equalsIgnoreCase("version"))
+				version = Util.combineParts(tokens, 1, " ");
+			else if (tokens[0].equalsIgnoreCase("desc"))
+				desc = Util.combineParts(tokens, 1, " ");
+			else if (tokens[0].equalsIgnoreCase("main"))
+				main = tokens[1];
+			else
+				Util.info("Can't read addon config line \"" + s + "\".");
 		}
 		zip.close();
 		return new AddonProperties(name, author, version, desc, main);
@@ -122,28 +126,30 @@ public class AddonManager {
 
 	/**
 	 * gets an addon by a name
+	 * 
 	 * @param name the name of the addon
 	 * @return the addon specified by the name
 	 */
 	public Addon getAddon(String name) {
-		for(Entry<Addon, AddonProperties> e : addons.entrySet())
-			if(e.getValue().name == name)
+		for (Entry<Addon, AddonProperties> e : addons.entrySet())
+			if (e.getValue().name == name)
 				return e.getKey();
 		return null;
 	}
 
 	/**
 	 * gets the props by the addon
+	 * 
 	 * @param a the addon
 	 * @return the properties of the addon
 	 */
-	public AddonProperties getProps(Addon a)
-	{
+	public AddonProperties getProps(Addon a) {
 		return addons.get(a);
 	}
 
 	/**
 	 * adds the addon and the properties to the internal maps
+	 * 
 	 * @param a the addon
 	 * @param p the props of the addon
 	 */
@@ -151,48 +157,42 @@ public class AddonManager {
 		addons.put(a, p);
 	}
 
-	public void registerCommand(Command c)
-	{
+	public void registerCommand(Command c) {
 		commands.add(c);
 	}
 
 	/**
 	 * executes the command
+	 * 
 	 * @param args the ' '-splitted args
 	 */
-	public void execCmd(String[] args)
-	{
+	public void execCmd(String[] args) {
 		String cmd = args[0];
-		if(cmd.charAt(0) == '#') cmd = cmd.substring(1);
-		for(Command c : commands)
-			if(c.cmd.equalsIgnoreCase(cmd))
-			{
+		if (cmd.charAt(0) == '#')
+			cmd = cmd.substring(1);
+		for (Command c : commands)
+			if (c.cmd.equalsIgnoreCase(cmd)) {
 				c.handler.accept(args);
 				return;
 			}
 		Util.sendMessage(getHelp() + Consts.extraHelp);
 	}
 
-	public Set<Addon> getAddons()
-	{
+	public Set<Addon> getAddons() {
 		return addons.keySet();
 	}
 
-	public String getName(Addon a)
-	{
+	public String getName(Addon a) {
 		return addons.get(a).name;
 	}
-	
-	public int getBuildNumber()
-	{
+
+	public int getBuildNumber() {
 		return Consts.BLDNUM;
 	}
-	
-	public String getHelp()
-	{
+
+	public String getHelp() {
 		StringBuilder s = new StringBuilder("Commands:");
-		for(Command c : commands)
-		{
+		for (Command c : commands) {
 			s.append(' ');
 			s.append(c.cmd);
 		}

@@ -1,719 +1,131 @@
-[19:03:59] [Client thread/INFO]: Setting user: Player386
-[19:03:59] [Client thread/INFO]: (Session ID is *censored*)
-[19:03:59] [Client thread/INFO]: CXClient Version: alpha 3020012
-[19:03:59] [Client thread/INFO]: LWJGL Version: 2.9.4
-[19:04:00] [Client thread/INFO]: Reloading ResourceManager: Default
-[19:04:00] [Sound Library Loader/INFO]: Starting up SoundSystem...
-[19:04:00] [Thread-5/INFO]: Initializing LWJGL OpenAL
-[19:04:00] [Thread-5/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
-[19:04:00] [Thread-5/INFO]: OpenAL initialized.
-[19:04:00] [Sound Library Loader/INFO]: Sound engine started
-[19:04:01] [Client thread/INFO]: Created: 512x512 textures-atlas
-[19:04:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[19:04:04] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
-[19:04:04] [Server thread/INFO]: Generating keypair
-[19:04:04] [Server thread/INFO]: Preparing start region for level 0
-[19:04:05] [Server thread/INFO]: Changing view distance to 12, from 10
-[19:04:05] [Server thread/INFO]: Player386[local:E:4fbdb2ac] logged in with entity id 234 at (614.8866235557624, 68.0, 128.34910836630712)
-[19:04:05] [Server thread/INFO]: Player386 joined the game
-[19:04:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.game.creative
-[19:04:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.skeleton.say
-[19:04:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:16] [Client thread/INFO]: [SENT] /time set night
-[19:04:16] [Server thread/INFO]: [Player386: Set the time to 13000]
-[19:04:16] [Client thread/INFO]: [CHAT] Set the time to 13000
-[19:04:19] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:04:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:27] [Client thread/INFO]: [SENT] /time set 20000
-[19:04:27] [Server thread/INFO]: [Player386: Set the time to 20000]
-[19:04:27] [Client thread/INFO]: [CHAT] Set the time to 20000
-[19:04:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:28] [Server thread/INFO]: Player386 has just earned the achievement [Taking Inventory]
-[19:04:28] [Client thread/INFO]: [CHAT] Player386 has just earned the achievement [Taking Inventory]
-[19:04:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:04:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:04:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:04:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.skeleton.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:04:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:00] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:02] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:03] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:04] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:05] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:06] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:07] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:08] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.hurt.fall.small
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:09] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.hurt.fall.small
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:10] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:11] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.hurt.fall.small
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:12] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:13] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:liquid.water
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:05:14] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:15] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:16] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:17] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.stone
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.bat.takeoff
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:21] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:22] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.hurt
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:23] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.hurt
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.hurt
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:24] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.hurt
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:25] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:26] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:27] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:28] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.say
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:29] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.hurt
-[19:05:30] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.hurt
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:31] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.chicken.step
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:32] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:33] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:34] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:35] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:36] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.swim.splash
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:37] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:38] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.orb
-[19:05:39] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.neutral.swim.splash
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:random.pop
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:40] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.player.swim.splash
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:41] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:42] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.say
-[19:05:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.creeper.death
-[19:05:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim.splash
-[19:05:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:game.hostile.swim
-[19:05:44] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:45] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
-[19:05:47] [Server thread/INFO]: Saving and pausing game...
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[19:05:47] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[19:05:47] [Server thread/INFO]: Stopping server
-[19:05:47] [Server thread/INFO]: Saving players
-[19:05:47] [Server thread/INFO]: Saving worlds
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
-[19:05:47] [Server thread/INFO]: Saving chunks for level mcpworld/The End
-[19:05:48] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[19:05:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
-[19:05:49] [Client thread/INFO]: Stopping CXClient.
-[19:05:49] [Client thread/INFO]: SoundSystem shutting down...
-[19:05:49] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com
+[18:26:39] [Client thread/INFO]: Setting user: Player317
+[18:26:39] [Client thread/INFO]: (Session ID is *censored*)
+[18:26:40] [Client thread/INFO]: Made addonPath.
+[18:26:40] [Client thread/INFO]: Made eapiPath.
+[18:26:40] [Client thread/INFO]: Made enablePath.
+[18:26:40] [Client thread/INFO]: Made SkinBlinkerPath.
+[18:26:40] [Client thread/INFO]: Made FastBreakPath.
+[18:26:40] [Client thread/INFO]: Made FastPlacePath.
+[18:26:40] [Client thread/INFO]: Made SpamPath.
+[18:26:40] [Client thread/INFO]: Made NoFallPath.
+[18:26:40] [Client thread/INFO]: Made FullBrightPath.
+[18:26:40] [Client thread/INFO]: Made XRayPath.
+[18:26:40] [Client thread/INFO]: Made FastHitPath.
+[18:26:40] [Client thread/INFO]: Made AutoClickerPath.
+[18:26:40] [Client thread/INFO]: Made NoSwingPath.
+[18:26:40] [Client thread/INFO]: Made AuthMeCrackerPath.
+[18:26:40] [Client thread/INFO]: Made AntiAFKPath.
+[18:26:40] [Client thread/INFO]: Made AutoStealPath.
+[18:26:40] [Client thread/INFO]: Made KillAuraPath.
+[18:26:40] [Client thread/INFO]: Made NukerPath.
+[18:26:40] [Client thread/INFO]: Made SneakPath.
+[18:26:40] [Client thread/INFO]: Made TracerPath.
+[18:26:40] [Client thread/INFO]: Made MassTPAPath.
+[18:26:40] [Client thread/INFO]: Made VanillaFlyPath.
+[18:26:40] [Client thread/INFO]: Made AutoArmorPath.
+[18:26:40] [Client thread/INFO]: Made TwerkPath.
+[18:26:40] [Client thread/INFO]: Made FastLadderPath.
+[18:26:40] [Client thread/INFO]: Made ReachPath.
+[18:26:40] [Client thread/INFO]: Made VelocityPath.
+[18:26:40] [Client thread/INFO]: Made Speed-Bypass1Path.
+[18:26:40] [Client thread/INFO]: Made StepJumpPath.
+[18:26:40] [Client thread/INFO]: Made Fly-Bypass1Path.
+[18:26:40] [Client thread/INFO]: Made Fly-Bypass2Path.
+[18:26:40] [Client thread/INFO]: Made TimerPath.
+[18:26:40] [Client thread/INFO]: Made LegitSpeedPath.
+[18:26:40] [Client thread/INFO]: Made SprintPath.
+[18:26:40] [Client thread/INFO]: Made BedFuckerPath.
+[18:26:40] [Client thread/INFO]: Made FreecamPath.
+[18:26:40] [Client thread/INFO]: Made AimBotPath.
+[18:26:40] [Client thread/INFO]: Made JailsMCBotPath.
+[18:26:40] [Client thread/INFO]: Made NoRenderPath.
+[18:26:40] [Client thread/INFO]: Made JetpackPath.
+[18:26:40] [Client thread/INFO]: Made RegenPath.
+[18:26:40] [Client thread/INFO]: Made LagPath.
+[18:26:40] [Client thread/INFO]: Made ScaffoldWalkPath.
+[18:26:40] [Client thread/INFO]: Made FastFallPath.
+[18:26:40] [Client thread/INFO]: Made FastEatPath.
+[18:26:40] [Client thread/INFO]: Made AutoSwitchPath.
+[18:26:40] [Client thread/INFO]: Made TiredPath.
+[18:26:40] [Client thread/INFO]: Made DerpPath.
+[18:26:40] [Client thread/INFO]: Made AntiPotionPath.
+[18:26:40] [Client thread/INFO]: Made NoCobwebPath.
+[18:26:40] [Client thread/INFO]: Made ParkourPath.
+[18:26:40] [Client thread/INFO]: Made PhasePath.
+[18:26:40] [Client thread/INFO]: Made FastBowPath.
+[18:26:40] [Client thread/INFO]: Made SpiderPath.
+[18:26:40] [Client thread/INFO]: Made AntiFirePath.
+[18:26:40] [Client thread/INFO]: Made HighJumpPath.
+[18:26:40] [Client thread/INFO]: Made AutoWalkPath.
+[18:26:40] [Client thread/INFO]: Made AutoRespawnPath.
+[18:26:40] [Client thread/INFO]: Made DolphinPath.
+[18:26:40] [Client thread/INFO]: Made KaboomPath.
+[18:26:40] [Client thread/INFO]: Made GlidePath.
+[18:26:40] [Client thread/INFO]: Made RollHeadPath.
+[18:26:40] [Client thread/INFO]: Made AutoMinePath.
+[18:26:40] [Client thread/INFO]: Made AutoSoupPath.
+[18:26:40] [Client thread/INFO]: Made AutoLeavePath.
+[18:26:40] [Client thread/INFO]: Made WaterWalkPath.
+[18:26:40] [Client thread/INFO]: Made AutoJumpPath.
+[18:26:40] [Client thread/INFO]: Made InventoryWalkPath.
+[18:26:40] [Client thread/INFO]: CXClient Version: 3.2.0
+[18:26:40] [Client thread/INFO]: LWJGL Version: 2.9.4
+[18:26:40] [Client thread/INFO]: Reloading ResourceManager: Default
+[18:26:40] [Client thread/ERROR]: Couldn't initialize twitch stream
+[18:26:40] [Sound Library Loader/INFO]: Starting up SoundSystem...
+[18:26:40] [Thread-4/INFO]: Initializing LWJGL OpenAL
+[18:26:40] [Thread-4/INFO]: (The LWJGL binding of OpenAL.  For more information, see http://www.lwjgl.org)
+[18:26:40] [Thread-4/INFO]: OpenAL initialized.
+[18:26:40] [Sound Library Loader/INFO]: Sound engine started
+[18:26:40] [Client thread/INFO]: Created: 512x512 textures-atlas
+[18:26:43] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[18:26:44] [Server thread/INFO]: Starting integrated minecraft server version 1.8.8
+[18:26:44] [Server thread/INFO]: Generating keypair
+[18:26:44] [Server thread/INFO]: Preparing start region for level 0
+[18:26:45] [Server thread/INFO]: Changing view distance to 12, from 10
+[18:26:45] [Server thread/INFO]: Player317[local:E:42dbfcce] logged in with entity id 163 at (631.575851106971, 71.17149689933409, 153.41982393682142)
+[18:26:45] [Server thread/INFO]: Player317 joined the game
+[18:26:46] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:music.game.creative
+[18:26:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:49] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:50] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
+[18:26:51] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
+[18:26:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.hurt
+[18:26:52] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
+[18:26:53] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
+[18:26:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.say
+[18:26:54] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:mob.zombie.step
+[18:26:55] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:56] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:57] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:step.sand
+[18:26:58] [Server thread/INFO]: Saving and pausing game...
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[18:26:58] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[18:26:58] [Server thread/INFO]: Stopping server
+[18:26:58] [Server thread/INFO]: Saving players
+[18:26:58] [Server thread/INFO]: Saving worlds
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/Overworld
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/Nether
+[18:26:58] [Server thread/INFO]: Saving chunks for level mcpworld/The End
+[18:26:59] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[18:27:01] [Client thread/WARN]: Unable to play unknown soundEvent: minecraft:gui.button.press
+[18:27:01] [Client thread/INFO]: Stopping CXClient.
+[18:27:01] [Client thread/INFO]: SoundSystem shutting down...
+[18:27:01] [Client thread/WARN]: Author: Paul Lamb, www.paulscode.com

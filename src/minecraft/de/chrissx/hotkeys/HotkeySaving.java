@@ -21,25 +21,26 @@ public class HotkeySaving {
 	static Decoder d;
 	static Encoder e;
 
-	public static void init(HackedClient c)
-	{
+	public static void init(HackedClient c) {
 		hc = c;
 		d = Base64.getDecoder();
 		e = Base64.getEncoder();
 	}
-	
+
 	public static void saveHotkeys(File file, List<Hotkey> hotkeys) throws IOException {
-		if(file.exists())
+		if (file.exists())
 			file.delete();
 		Files.write(file.toPath(), encodeHotkeys(hotkeys));
 	}
-	
+
 	static byte[] encodeHotkeys(List<Hotkey> hotkeys) {
 		StringBuilder sb = new StringBuilder();
 		boolean b = false;
-		for(Hotkey hk : hotkeys) {
-			if(b) sb.append("$");
-			else  b = true;
+		for (Hotkey hk : hotkeys) {
+			if (b)
+				sb.append("$");
+			else
+				b = true;
 			sb.append(hotkeyToBase64(hk));
 		}
 		return sb.toString().getBytes(StandardCharsets.UTF_8);
@@ -50,7 +51,7 @@ public class HotkeySaving {
 	}
 
 	static byte[] keyToBinary(int key) {
-		return new byte[] {(byte)(key >> 24), (byte)(key >> 16), (byte)(key >> 8), (byte)key};
+		return new byte[] { (byte) (key >> 24), (byte) (key >> 16), (byte) (key >> 8), (byte) key };
 	}
 
 	static String hotkeyToBase64(Hotkey hk) {
@@ -61,7 +62,7 @@ public class HotkeySaving {
 		b[1] = key[1];
 		b[2] = key[2];
 		b[3] = key[3];
-		for(int i = 0; i < handler.length; i++)
+		for (int i = 0; i < handler.length; i++)
 			b[i + 4] = handler[i];
 		return e.encodeToString(b);
 	}
@@ -76,8 +77,8 @@ public class HotkeySaving {
 	static List<Hotkey> decodeHotkeys(String base64) {
 		String[] strs = new String(d.decode(base64), StandardCharsets.UTF_8).split("$");
 		List<Hotkey> hotkeys = new ArrayList<Hotkey>();
-		for(String s : strs) {
-			if(s == "")
+		for (String s : strs) {
+			if (s == "")
 				continue;
 			hotkeys.add(base64ToHotkey(s));
 		}
