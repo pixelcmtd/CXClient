@@ -5,13 +5,16 @@ import org.apache.commons.lang3.RandomStringUtils;
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
 
-// TODO: this whole thing has to be reworked a lot
 public class Spam extends Mod {
 
-	String[] last = new String[] { "#spam", "20", "50", "You're getting flooded by CXClient! ;)" };
+	String[] last;
+	final boolean clear;
 
-	public Spam() {
-		super("Spam", new String[] { "spam", "clearspam" });
+	public Spam(boolean clear) {
+		super("Spam", clear ? "clearspam" : "spam",
+				clear ? "Spams exactly the message you gave it" : "Spams while trying to bypass detection");
+		this.clear = clear;
+		last = new String[] { clear ? "#clearspam" : "#spam", "20", "50", "You're getting flooded by CXClient! ;)" };
 	}
 
 	@Override
@@ -28,9 +31,6 @@ public class Spam extends Mod {
 		final int times;
 		final StringBuilder msg = new StringBuilder();
 		final long delay;
-		final boolean clear;
-
-		clear = args[0].equalsIgnoreCase("#clearspam");
 
 		try {
 			times = Integer.parseInt(args[1]);

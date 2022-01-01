@@ -21,7 +21,8 @@ public class ModList implements Iterable<Mod> {
 	public final SkinBlinker skinBlinker = new SkinBlinker();
 	public final FastBreak fastBreak = new FastBreak();
 	public final FastPlace fastPlace = new FastPlace();
-	public final Spam spam = new Spam();
+	public final Spam spam = new Spam(false);
+	public final Spam clearspam = new Spam(true);
 	public final Nofall nofall = new Nofall();
 	public final Fullbright fullbright = new Fullbright();
 	public final Xray xray = new Xray();
@@ -100,15 +101,15 @@ public class ModList implements Iterable<Mod> {
 
 	public final int enabled_length;
 
-	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, nofall, fullbright, xray, fasthit,
-			autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa, vanillaFly,
-			autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer, legitSpeed,
-			autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk, fastFall,
-			fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire, highJump,
-			autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk, autoJump,
-			invWalk,
+	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
+			fasthit, autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa,
+			vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
+			legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
+			fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
+			highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
+			autoJump, invWalk,
 			// TODO: uncomment
-			// rewiWords,
+			// rewiWords
 	};
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
