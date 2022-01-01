@@ -111,7 +111,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 				try {
 					o.set(value);
 				} catch (Exception e) {
-					Util.sendMessage("Cannot parse " + o.name + " value: " + e.getMessage());
+					Util.sendError("Cannot parse " + o.name + " value: " + e.getMessage());
 				}
 				return;
 			}

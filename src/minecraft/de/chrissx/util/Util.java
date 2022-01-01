@@ -43,22 +43,18 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class Util {
-	
+
 	static Minecraft mc;
 	static HackedClient hc;
 
-	public static void init()
-	{
+	public static void init() {
 		mc = Minecraft.getMinecraft();
 		hc = HackedClient.getClient();
 	}
 
-	public static void removeHotkeyFromList(List<Hotkey> hotkeys, int key)
-	{
-		for(int i = 0; i < hotkeys.size(); i++)
-		{
-			if(hotkeys.get(i).key == key)
-			{
+	public static void removeHotkeyFromList(List<Hotkey> hotkeys, int key) {
+		for (int i = 0; i < hotkeys.size(); i++) {
+			if (hotkeys.get(i).key == key) {
 				hotkeys.remove(i);
 				removeHotkeyFromList(hotkeys, key);
 				return;
@@ -66,8 +62,7 @@ public class Util {
 		}
 	}
 
-	public static void info(String s)
-	{
+	public static void info(String s) {
 		Minecraft.logger.info(s);
 	}
 
@@ -79,21 +74,20 @@ public class Util {
 		Minecraft.logger.fatal(s);
 	}
 
-	public static void checkIfExistsAndMake(String dir, String name)
-	{
+	public static void checkIfExistsAndMake(String dir, String name) {
 		File f = new File(dir);
-		if(!f.exists())
-		{
+		if (!f.exists()) {
 			f.mkdirs();
 			info("Made " + name + ".");
 		}
 	}
 
 	public static String combineParts(String[] strings, int startIndex, String seperator) {
-		if(startIndex >= strings.length) return "";
+		if (startIndex >= strings.length)
+			return "";
 		StringBuilder sb = new StringBuilder();
 		sb.append(strings[startIndex]);
-		for(int i = startIndex + 1; i < strings.length; i++) {
+		for (int i = startIndex + 1; i < strings.length; i++) {
 			sb.append(seperator);
 			sb.append(strings[i]);
 		}
@@ -102,27 +96,31 @@ public class Util {
 
 	public static BufferedImage scale(BufferedImage src, int w, int h) {
 		BufferedImage i = new BufferedImage(w, h, 1); // type_int_rgb
-	    for (int x = 0; x < w; x++)
-	        for (int y = 0; y < h; y++)
-	            i.setRGB(x, y, src.getRGB(x * src.getWidth() / w, y * src.getHeight() / h));
-	    return i;
+		for (int x = 0; x < w; x++)
+			for (int y = 0; y < h; y++)
+				i.setRGB(x, y, src.getRGB(x * src.getWidth() / w, y * src.getHeight() / h));
+		return i;
 	}
 
 	/**
-	 * Splits the string without trying something with regexes but just a single character separator.
-	 * @param s The string to split
+	 * Splits the string without trying something with regexes but just a single
+	 * character separator.
+	 * 
+	 * @param s         The string to split
 	 * @param separator The separator at which the string should be splitted.
 	 * @return The splitted string (as an array).
 	 */
 	public static String[] split(String s, char separator) {
 		int i = 0;
 		char[] chars = s.toCharArray();
-		for(char c : chars) if(c == separator) i++;
+		for (char c : chars)
+			if (c == separator)
+				i++;
 		String[] split = new String[i];
 		int j = 0;
 		int l = 0;
-		for(int k = 0; k < s.length(); k++)
-			if(chars[k] == separator) {
+		for (int k = 0; k < s.length(); k++)
+			if (chars[k] == separator) {
 				split[j++] = s.substring(l, k);
 				l = k + 1;
 			}
@@ -136,134 +134,137 @@ public class Util {
 
 	/**
 	 * Sends the packet to break the block instantly.
+	 * 
 	 * @param block The block to break.
 	 */
 	public static void breakBlock(BlockPos block) {
-		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
-		mc.thePlayer.sendQueue.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
+		mc.thePlayer.sendQueue
+				.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
+		mc.thePlayer.sendQueue
+				.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
 	}
 
 	public static String generateTempFile(String tmp, String name, String ext) {
-		String out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString();
+		String out = Paths.get(tmp, name + "_" + Random.rand.nextInt() + ext).toString();
 		File f = new File(out);
-		while(f.exists())
-			f = new File(out = Paths.get(tmp, name+"_"+Random.rand.nextInt()+ext).toString());
+		while (f.exists())
+			f = new File(out = Paths.get(tmp, name + "_" + Random.rand.nextInt() + ext).toString());
 		return out;
 	}
 
 	public static void downloadFile(final String url, final String file) throws IOException {
 		final BufferedInputStream in = new BufferedInputStream(new URL(url).openStream());
 		final FileOutputStream out = new FileOutputStream(file);
-		
+
 		final byte[] bfr = new byte[4096];
 		int count = 0;
 
 		while ((count = in.read(bfr, 0, 4096)) != -1)
 			out.write(bfr, 0, count);
-		
+
 		out.close();
 		in.close();
 	}
 
 	public static void cheatArmorStand(String msg, double x, double y, double z, int slot) {
 		ItemStack itm = new ItemStack(Items.armor_stand);
-	    
-	    NBTTagCompound base = new NBTTagCompound();
-	    NBTTagCompound entityTag = new NBTTagCompound();
-	    
-	    entityTag.setInteger("Invisible", 1);
-	    entityTag.setString("CustomName", msg);
-	    entityTag.setInteger("CustomNameVisible", 1);
-	    entityTag.setInteger("NoGravity", 1);
-	    
-	    NBTTagList position = new NBTTagList();
-	    
-	    position.appendTag(new NBTTagDouble(x));
-	    position.appendTag(new NBTTagDouble(y));
-	    position.appendTag(new NBTTagDouble(z));
-	    
-	    entityTag.setTag("Pos", position);
-	    
-	    base.setTag("EntityTag", entityTag);
-	    itm.setTagCompound(base);
-	    
-	    itm.setStackDisplayName(msg);
-	    
-	    cheatItem(itm, slot);
-	  }
 
-	  public static void cheatCmdBlock(String command) {
-		  ItemStack itm = new ItemStack(Blocks.command_block);
-		  
-		  NBTTagCompound base = new NBTTagCompound();
-		  NBTTagCompound entityTag = new NBTTagCompound();
-		  NBTTagCompound display = new NBTTagCompound();
-		  NBTTagList lore = new NBTTagList();
-		  
-		  entityTag.setString("Command", "gamerule commandBlockOutput false");
-		  entityTag.setString("CustomName", Consts.clientName);
-		  entityTag.setBoolean("TrackOutput", false);
-		  
-		  lore.appendTag(new NBTTagString("gamerule commandBlockOutput false"));
-		  lore.appendTag(new NBTTagString("created using " + Consts.clientName));
-		  lore.appendTag(new NBTTagString("by chrissx"));
-		  
-		  display.setTag("Lore", lore);
-		  base.setTag("BlockEntityTag", entityTag);
-		  base.setTag("display", display);
-		  
-		  itm.setTagCompound(base);
-		  itm.setStackDisplayName("output disabler");
-		  
-		  cheatItem(itm, 36);
-		  
-		  cheatCmd(command);
-		  
-		  cheatLever();
+		NBTTagCompound base = new NBTTagCompound();
+		NBTTagCompound entityTag = new NBTTagCompound();
+
+		entityTag.setInteger("Invisible", 1);
+		entityTag.setString("CustomName", msg);
+		entityTag.setInteger("CustomNameVisible", 1);
+		entityTag.setInteger("NoGravity", 1);
+
+		NBTTagList position = new NBTTagList();
+
+		position.appendTag(new NBTTagDouble(x));
+		position.appendTag(new NBTTagDouble(y));
+		position.appendTag(new NBTTagDouble(z));
+
+		entityTag.setTag("Pos", position);
+
+		base.setTag("EntityTag", entityTag);
+		itm.setTagCompound(base);
+
+		itm.setStackDisplayName(msg);
+
+		cheatItem(itm, slot);
 	}
 
-	static void cheatCmd(String cmd) {
+	public static void cheatCmdBlock(String command) {
 		ItemStack itm = new ItemStack(Blocks.command_block);
-		
+
 		NBTTagCompound base = new NBTTagCompound();
 		NBTTagCompound entityTag = new NBTTagCompound();
 		NBTTagCompound display = new NBTTagCompound();
 		NBTTagList lore = new NBTTagList();
-		  
-		entityTag.setString("Command", cmd);
-		entityTag.setString("CustomName", "CXClient");
+
+		entityTag.setString("Command", "gamerule commandBlockOutput false");
+		entityTag.setString("CustomName", Consts.clientName);
 		entityTag.setBoolean("TrackOutput", false);
-		
-		lore.appendTag(new NBTTagString(cmd));
+
+		lore.appendTag(new NBTTagString("gamerule commandBlockOutput false"));
 		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
 		lore.appendTag(new NBTTagString("by chrissx"));
-		  
+
 		display.setTag("Lore", lore);
 		base.setTag("BlockEntityTag", entityTag);
 		base.setTag("display", display);
-		  
+
+		itm.setTagCompound(base);
+		itm.setStackDisplayName("output disabler");
+
+		cheatItem(itm, 36);
+
+		cheatCmd(command);
+
+		cheatLever();
+	}
+
+	static void cheatCmd(String cmd) {
+		ItemStack itm = new ItemStack(Blocks.command_block);
+
+		NBTTagCompound base = new NBTTagCompound();
+		NBTTagCompound entityTag = new NBTTagCompound();
+		NBTTagCompound display = new NBTTagCompound();
+		NBTTagList lore = new NBTTagList();
+
+		entityTag.setString("Command", cmd);
+		entityTag.setString("CustomName", "CXClient");
+		entityTag.setBoolean("TrackOutput", false);
+
+		lore.appendTag(new NBTTagString(cmd));
+		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
+		lore.appendTag(new NBTTagString("by chrissx"));
+
+		display.setTag("Lore", lore);
+		base.setTag("BlockEntityTag", entityTag);
+		base.setTag("display", display);
+
 		itm.setTagCompound(base);
 		itm.setStackDisplayName(Consts.clientName);
-		
+
 		cheatItem(itm, 37);
 	}
 
 	static void cheatLever() {
 		ItemStack itm = new ItemStack(Blocks.lever);
-		
+
 		NBTTagCompound base = new NBTTagCompound();
 		NBTTagCompound display = new NBTTagCompound();
 		NBTTagList lore = new NBTTagList();
-		
+
 		lore.appendTag(new NBTTagString("created using " + Consts.clientName));
 		lore.appendTag(new NBTTagString("by chrissx"));
-		
+
 		display.setTag("Lore", lore);
 		base.setTag("display", display);
-		
+
 		itm.setTagCompound(base);
 		itm.setStackDisplayName("use this to enable the blocks");
-		
+
 		cheatItem(itm, 38);
 	}
 
@@ -273,20 +274,20 @@ public class Util {
 
 	public static NBTTagList addEffect(NBTTagList effects, int effect, int amplifier, int duration) {
 		NBTTagCompound eff = new NBTTagCompound();
-	    eff.setInteger("Amplifier", amplifier);
-	    eff.setInteger("Duration", duration);
-	    eff.setInteger("Id", effect);
-	    effects.appendTag(eff);
+		eff.setInteger("Amplifier", amplifier);
+		eff.setInteger("Duration", duration);
+		eff.setInteger("Id", effect);
+		effects.appendTag(eff);
 		return effects;
 	}
 
 	public static ItemStack getCustomPotion(NBTTagList effects, String name) {
 		ItemStack i = new ItemStack(Items.potionitem);
 		i.setItemDamage(16384);
-		
+
 		i.setTagInfo("CustomPotionEffects", effects);
 		i.setStackDisplayName(name);
-		
+
 		return i;
 	}
 
@@ -302,16 +303,23 @@ public class Util {
 	}
 
 	/**
-	 * Sends the player a msg by showing it to them in the chat.
-	 * (not sent anywhere at all)
+	 * Sends the player a msg by showing it to them in the chat. (not sent anywhere
+	 * at all)
 	 */
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + 
-				msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent(
+				"{\"text\":\"" + Consts.prefix + msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
 	}
 
-	public static boolean isWater(Block b)
-	{
+	/**
+	 * Shows the player a msg in the chat, with the color code for red prepended.
+	 */
+	public static void sendError(String msg) {
+		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + "\u00a74"
+				+ msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+	}
+
+	public static boolean isWater(Block b) {
 		int id = Block.getIdFromBlock(b);
 		return id == 8 || id == 9;
 	}
@@ -334,25 +342,29 @@ public class Util {
 	}
 
 	static float[] getRotationsNeeded(double minX, double minY, double minZ, double maxX, double maxY, double maxZ) {
-        double x = Random.randDouble(minX, maxX) - mc.thePlayer.posX;
-        double y = Random.randDouble(minY, maxY) - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
-        double z = Random.randDouble(minZ, maxZ) - mc.thePlayer.posZ;
-        return new float[] {mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(((float)(Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
-        		mc.thePlayer.rotationPitch + MathHelper.wrapAngleTo180_float(((float)-(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI)) - mc.thePlayer.rotationPitch)};
-    }
+		double x = Random.randDouble(minX, maxX) - mc.thePlayer.posX;
+		double y = Random.randDouble(minY, maxY) - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
+		double z = Random.randDouble(minZ, maxZ) - mc.thePlayer.posZ;
+		return new float[] {
+				mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(
+						((float) (Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
+				mc.thePlayer.rotationPitch + MathHelper
+						.wrapAngleTo180_float(((float) -(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI))
+								- mc.thePlayer.rotationPitch) };
+	}
 
 	/**
 	 * 
-	 * @param pl the player
-	 * @param r the range around the player to search in
+	 * @param pl  the player
+	 * @param r   the range around the player to search in
 	 * @param mbv whether the block must be visible
 	 * @return
 	 */
 	// TODO: also support doubles for `r`, because that makes a lotta sense
 	public static BlockPos[] getBlocksAround(EntityPlayer pl, int r, boolean mbv) {
-		final long px = (long)pl.posX;
-		final long py = (long)pl.posY;
-		final long pz = (long)pl.posZ;
+		final long px = (long) pl.posX;
+		final long py = (long) pl.posY;
+		final long pz = (long) pl.posZ;
 		final long ex = px + r;
 		final long ey = py + r;
 		final long ez = pz + r;
@@ -360,11 +372,11 @@ public class Util {
 		final long sy = py - r;
 		final long sz = pz - r;
 		List<BlockPos> b = new ArrayList<BlockPos>();
-		for(long x = sx; x < ex; x++)
-			for(long y = sy; y < ey; y++)
-				for(long z = sz; z < ez; z++) {
+		for (long x = sx; x < ex; x++)
+			for (long y = sy; y < ey; y++)
+				for (long z = sz; z < ez; z++) {
 					BlockPos pos = new BlockPos(x, y, z);
-					if(!mc.theWorld.isAirBlock(pos) && (!mbv || isBlockVisible(pos)))
+					if (!mc.theWorld.isAirBlock(pos) && (!mbv || isBlockVisible(pos)))
 						b.add(pos);
 				}
 		return b.toArray(new BlockPos[b.size()]);
@@ -385,95 +397,95 @@ public class Util {
 		boolean h = w.isAirBlock(new BlockPos(i, j, k + 1));
 		boolean l = w.isAirBlock(new BlockPos(i, j + 1, k));
 		boolean m = w.isAirBlock(new BlockPos(i, j - 1, k));
-		if((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k)) return true;
-		else return false;
+		if ((l && e > j) || (m && e < j) || (b && d < i) || (c && d > i) || (g && f < k) || (h && f > k))
+			return true;
+		else
+			return false;
 	}
 
 	public static Loc<Double> getEyePos() {
-		return new Loc<Double>(mc.thePlayer.posX,
-							  mc.thePlayer.posY + mc.thePlayer.getEyeHeight(),
-							  mc.thePlayer.posZ);
+		return new Loc<Double>(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
 	}
 
 	static float[] getNeededRotations(Loc<Double> vec) {
-	    double x = vec.x - mc.thePlayer.posX;
-	    double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
-	    double z = vec.z - mc.thePlayer.posZ;
-	    
-	    return new float[] {MathHelper.wrapAngleTo180_float((float)Math.toDegrees(Math.atan2(z, x)) - 90),
-	    		MathHelper.wrapAngleTo180_float((float)-Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))};
+		double x = vec.x - mc.thePlayer.posX;
+		double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
+		double z = vec.z - mc.thePlayer.posZ;
+
+		return new float[] { MathHelper.wrapAngleTo180_float((float) Math.toDegrees(Math.atan2(z, x)) - 90),
+				MathHelper.wrapAngleTo180_float((float) -Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z)))) };
 	}
 
-	public static int firstFoodIndex(ItemStack[] inv)
-	{
-		for(int i = 27; i < 36; i++)
-			if(inv[i].getItem() instanceof ItemFood)
+	public static int firstFoodIndex(ItemStack[] inv) {
+		for (int i = 27; i < 36; i++)
+			if (inv[i].getItem() instanceof ItemFood)
 				return i - 27;
 		return -1;
 	}
 
-	public static int firstSoupIndex(ItemStack[] inv)
-	{
-		for(int i = 27; i < 36; i++)
-			if(inv[i].getItem() instanceof ItemSoup)
+	public static int firstSoupIndex(ItemStack[] inv) {
+		for (int i = 27; i < 36; i++)
+			if (inv[i].getItem() instanceof ItemSoup)
 				return i - 27;
 		return -1;
 	}
 
-	public static String enc64(byte[] b)
-	{
+	public static String enc64(byte[] b) {
 		return Base64.getEncoder().encodeToString(b);
 	}
 
-	public static byte[] dec64(String s)
-	{
+	public static byte[] dec64(String s) {
 		return Base64.getDecoder().decode(s);
 	}
 
 	public static String chatFilter(String s) {
 		StringBuilder b = new StringBuilder();
-		for(char c : s.toCharArray())
-			if(ChatAllowedCharacters.isAllowedCharacter(c))
+		for (char c : s.toCharArray())
+			if (ChatAllowedCharacters.isAllowedCharacter(c))
 				b.append(c);
 		return b.toString();
 	}
 
 	public static int getKeyId(String key) {
 		int keyId = Keyboard.getKeyIndex(key);
-		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toUpperCase());
-		if(keyId == Keyboard.KEY_NONE) keyId = Keyboard.getKeyIndex(key.toLowerCase());
+		if (keyId == Keyboard.KEY_NONE)
+			keyId = Keyboard.getKeyIndex(key.toUpperCase());
+		if (keyId == Keyboard.KEY_NONE)
+			keyId = Keyboard.getKeyIndex(key.toLowerCase());
 		return keyId;
 	}
 
 	public static float distance(Loc<Double> start, Loc<Double> end) {
-        float x = (float)(start.x - end.x);
-        float y = (float)(start.y - end.y);
-        float z = (float)(start.z - end.z);
-        return MathHelper.sqrt(x * x + y * y + z * z);
+		float x = (float) (start.x - end.x);
+		float y = (float) (start.y - end.y);
+		float z = (float) (start.z - end.z);
+		return MathHelper.sqrt(x * x + y * y + z * z);
 	}
 
 	public static void drawLine(Loc<Double> s, Loc<Double> e, Entity p) {
-		//System.out.println("drawing line from {" + s.x + ", " + s.y + ", " + s.z + "} to {" + e.x + ", " + e.y + ", " + e.z + "}.");
-        GL11.glBlendFunc(770, 771);
-        GL11.glLineWidth(2.0F);
-        GL11.glPushMatrix();
-        GL11.glTranslated(-mc.getRenderManager().viewerPosX, -mc.getRenderManager().viewerPosY, -mc.getRenderManager().viewerPosZ);
-        double f = Math.cos(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
-        double f1 = Math.sin(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
-        double f2 = -Math.cos(-mc.thePlayer.rotationPitch * 0.017453292);
-        double f3 = Math.sin(-mc.thePlayer.rotationPitch * 0.017453292);
-        double startX = (f1 * f2) + mc.getRenderManager().viewerPosX;
-        double startY = f3 + mc.thePlayer.getEyeHeight() + mc.getRenderManager().viewerPosY;
-        double startZ = (f * f2) + mc.getRenderManager().viewerPosZ;
-        GL11.glBegin(GL11.GL_LINES);
-        AxisAlignedBB bb = p.getEntityBoundingBox();
-        double endX = bb.minX + (bb.maxX - bb.minX)/2 - p.posX - p.prevPosX;
-        double endY = bb.minY + (bb.maxY - bb.minY)/2 - p.posY - p.prevPosY;
-        double endZ = bb.minZ + (bb.maxZ - bb.minZ)/2 - p.posZ - p.prevPosZ;
-            GL11.glColor4f(2.0F, 1.0F, 0.0F, 0.5F);
-          GL11.glVertex3d(startX, startY, startZ);
-          GL11.glVertex3d(endX, endY, endZ);
-        GL11.glEnd();
-        GL11.glPopMatrix();
+		// System.out.println("drawing line from {" + s.x + ", " + s.y + ", " + s.z + "}
+		// to {" + e.x + ", " + e.y + ", " + e.z + "}.");
+		GL11.glBlendFunc(770, 771);
+		GL11.glLineWidth(2.0F);
+		GL11.glPushMatrix();
+		GL11.glTranslated(-mc.getRenderManager().viewerPosX, -mc.getRenderManager().viewerPosY,
+				-mc.getRenderManager().viewerPosZ);
+		double f = Math.cos(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
+		double f1 = Math.sin(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
+		double f2 = -Math.cos(-mc.thePlayer.rotationPitch * 0.017453292);
+		double f3 = Math.sin(-mc.thePlayer.rotationPitch * 0.017453292);
+		double startX = (f1 * f2) + mc.getRenderManager().viewerPosX;
+		double startY = f3 + mc.thePlayer.getEyeHeight() + mc.getRenderManager().viewerPosY;
+		double startZ = (f * f2) + mc.getRenderManager().viewerPosZ;
+		GL11.glBegin(GL11.GL_LINES);
+		AxisAlignedBB bb = p.getEntityBoundingBox();
+		double endX = bb.minX + (bb.maxX - bb.minX) / 2 - p.posX - p.prevPosX;
+		double endY = bb.minY + (bb.maxY - bb.minY) / 2 - p.posY - p.prevPosY;
+		double endZ = bb.minZ + (bb.maxZ - bb.minZ) / 2 - p.posZ - p.prevPosZ;
+		GL11.glColor4f(2.0F, 1.0F, 0.0F, 0.5F);
+		GL11.glVertex3d(startX, startY, startZ);
+		GL11.glVertex3d(endX, endY, endZ);
+		GL11.glEnd();
+		GL11.glPopMatrix();
 	}
 }

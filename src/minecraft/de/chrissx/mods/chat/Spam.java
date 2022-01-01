@@ -24,7 +24,7 @@ public class Spam extends Mod {
 	@Override
 	public void processCommand(String[] args) {
 		if (args.length < 4) {
-			Util.sendMessage("\u00a74Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
+			Util.sendError("Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
 			return;
 		}
 
@@ -35,14 +35,14 @@ public class Spam extends Mod {
 		try {
 			times = Integer.parseInt(args[1]);
 		} catch (Exception e) {
-			Util.sendMessage("\u00a74Error parsing times.");
+			Util.sendError("Error parsing times.");
 			return;
 		}
 
 		try {
 			delay = Long.parseLong(args[2]);
 		} catch (Exception e) {
-			Util.sendMessage("\u00a74Error parsing delay.");
+			Util.sendError("Error parsing delay.");
 			return;
 		}
 

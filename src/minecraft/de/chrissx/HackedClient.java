@@ -354,11 +354,11 @@ public class HackedClient {
 			int keyId = Util.getKeyId(args[1]);
 			Bindable bindable = mods.getBindable(args[2].toLowerCase());
 			if(keyId == Keyboard.KEY_NONE)
-				Util.sendMessage("\u00a74LWJGL can't find that key.");
+				Util.sendError("LWJGL can't find that key.");
 			else if(Hotkey.containsKey(hotkeys, keyId))
-				Util.sendMessage("\u00a74Key already registered.");
+				Util.sendError("Key already registered.");
 			else if(bindable == null)
-				Util.sendMessage("\u00a74That Bindable does not exist.");
+				Util.sendError("That Bindable does not exist.");
 			else
 				hotkeys.add(new Hotkey(keyId, bindable));
 		}else if(cmd.equalsIgnoreCase("#mods")) {
@@ -375,7 +375,7 @@ public class HackedClient {
 				Util.removeHotkeyFromList(hotkeys, Util.getKeyId(args[1]));
 		}else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
-				Util.sendMessage("\u00a74Please enter a message.");
+				Util.sendError("Please enter a message.");
 				return;
 			}
 			String msg = args[1];

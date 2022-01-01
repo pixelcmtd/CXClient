@@ -70,13 +70,13 @@ public class Killaura extends Mod {
 				try {
 					max_range = Double.parseDouble(args[2]);
 				} catch (Exception e) {
-					Util.sendMessage("\u00a74Error parsing double.");
+					Util.sendError("Error parsing double.");
 				}
 			else if (args[1].equalsIgnoreCase("mode"))
 				try {
 					mode = KillauraMode.valueOf(args[2].toUpperCase());
 				} catch (Exception e) {
-					Util.sendMessage("\u00a74Error valueOf-ing KillauraMode.");
+					Util.sendError("Error valueOf-ing KillauraMode.");
 				}
 			else if (args[1].equalsIgnoreCase("invis"))
 				attackInvis = !attackInvis;
