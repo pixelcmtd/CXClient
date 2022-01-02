@@ -9,7 +9,7 @@ import com.google.common.collect.Lists;
 import com.mojang.authlib.GameProfile;
 
 import de.chrissx.HackedClient;
-import de.chrissx.mods.movement.Phase;
+import de.chrissx.mods.movement.HighJump;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBed;
 import net.minecraft.block.BlockDirectional;
@@ -1703,7 +1703,8 @@ public abstract class EntityPlayer extends EntityLivingBase
      */
     public void jump()
     {
-    	motionY = HackedClient.getClient().getMods().highJump.isEnabled() ? HackedClient.getClient().getMods().highJump.motion : getJumpUpwardsMotion();
+    	HighJump hj = HackedClient.getClient().getMods().highJump;
+    	motionY = hj.isEnabled() ? hj.motion.value : getJumpUpwardsMotion();
         if (isPotionActive(Potion.jump))
             motionY += getActivePotionEffect(Potion.jump).getAmplifier() / 10 + 0.1;
         if (isSprinting())

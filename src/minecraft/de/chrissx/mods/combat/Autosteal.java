@@ -1,7 +1,8 @@
-package de.chrissx.mods;
+package de.chrissx.mods.combat;
 
 import java.io.File;
 
+import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.BooleanOption;
 import de.chrissx.util.Random;
 import net.minecraft.client.gui.inventory.GuiChest;

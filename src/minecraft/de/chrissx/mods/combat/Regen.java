@@ -1,7 +1,8 @@
-package de.chrissx.mods;
+package de.chrissx.mods.combat;
 
 import java.io.File;
 
+import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.IntOption;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.network.play.client.C03PacketPlayer;
