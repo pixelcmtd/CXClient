@@ -2,6 +2,7 @@ package de.chrissx.mods.combat;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.util.Util;
+import net.minecraft.item.ItemFood;
 
 public class AutoEat extends Mod {
 
@@ -11,7 +12,7 @@ public class AutoEat extends Mod {
 
 	@Override
 	public void onTick() {
-		int i = Util.firstFoodIndex(inventory().mainInventory);
+		int i = Util.firstHotbarIndex(ItemFood.class, inventory().mainInventory);
 		if (player().canEat(false) && i != -1) {
 			inventory().currentItem = i - 27;
 			// TODO: START EATING

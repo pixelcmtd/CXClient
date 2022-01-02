@@ -24,8 +24,6 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
-import net.minecraft.item.ItemFood;
-import net.minecraft.item.ItemSoup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagDouble;
@@ -315,8 +313,7 @@ public class Util {
 	 * Shows the player a msg in the chat, with the color code for red prepended.
 	 */
 	public static void sendError(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent("{\"text\":\"" + Consts.prefix + "\u00a74"
-				+ msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+		sendMessage("\u00a74" + msg);
 	}
 
 	public static boolean isWater(Block b) {
@@ -360,17 +357,16 @@ public class Util {
 	 * @param mbv whether the block must be visible
 	 * @return
 	 */
-	// TODO: also support doubles for `r`, because that makes a lotta sense
-	public static BlockPos[] getBlocksAround(EntityPlayer pl, int r, boolean mbv) {
-		final long px = (long) pl.posX;
-		final long py = (long) pl.posY;
-		final long pz = (long) pl.posZ;
-		final long ex = px + r;
-		final long ey = py + r;
-		final long ez = pz + r;
-		final long sx = px - r;
-		final long sy = py - r;
-		final long sz = pz - r;
+	public static BlockPos[] getBlocksAround(EntityPlayer pl, double r, boolean mbv) {
+		final double px = pl.posX;
+		final double py = pl.posY;
+		final double pz = pl.posZ;
+		final long ex = (long) (px + r);
+		final long ey = (long) (py + r);
+		final long ez = (long) (pz + r);
+		final long sx = (long) (px - r);
+		final long sy = (long) (py - r);
+		final long sz = (long) (pz - r);
 		List<BlockPos> b = new ArrayList<BlockPos>();
 		for (long x = sx; x < ex; x++)
 			for (long y = sy; y < ey; y++)
@@ -416,16 +412,9 @@ public class Util {
 				MathHelper.wrapAngleTo180_float((float) -Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z)))) };
 	}
 
-	public static int firstFoodIndex(ItemStack[] inv) {
+	public static <T> int firstHotbarIndex(Class<T> item, ItemStack[] inventory) {
 		for (int i = 27; i < 36; i++)
-			if (inv[i].getItem() instanceof ItemFood)
-				return i - 27;
-		return -1;
-	}
-
-	public static int firstSoupIndex(ItemStack[] inv) {
-		for (int i = 27; i < 36; i++)
-			if (inv[i].getItem() instanceof ItemSoup)
+			if (item.isAssignableFrom(inventory[i].getItem().getClass()))
 				return i - 27;
 		return -1;
 	}
