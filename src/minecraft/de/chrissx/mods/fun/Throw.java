@@ -21,7 +21,7 @@ public class Throw extends Semimod {
 				throwCount = Long.parseLong(args[1]);
 				delay = Long.parseLong(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("\u00a74Error parsing longs.");
+				Util.sendError("Error parsing longs.");
 			}
 			toggle();
 		}
@@ -32,14 +32,14 @@ public class Throw extends Semimod {
 		new Thread(new Runnable() {
 			@Override
 			public void run() {
-				for (long i = 0; i < throwCount; i++) {
+				for (long i = 1; i <= throwCount; i++) {
 					try {
 						Thread.sleep(delay);
 					} catch (InterruptedException e) {
 						e.printStackTrace();
 					}
 					click(false);
-					Util.sendMessage((i + 1) + "/" + throwCount + " thrown.");
+					Util.sendMessage(i + "/" + throwCount + " thrown.");
 				}
 			}
 		}).start();

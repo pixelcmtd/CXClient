@@ -94,7 +94,6 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 		player().sendQueue.addToSendQueue(p);
 	}
 
-	// TODO: pretty colors
 	@Override
 	public void processCommand(String[] args) {
 		if (args.length == 1) {
@@ -117,13 +116,14 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 			}
 		}
 
-		Util.sendMessage(name + " (" + argv0 + "): " + description);
+		// TODO: some --help/help/-h/-H or so that makes it white
+		Util.sendError(name + " (" + argv0 + "): " + description);
 		if (options.size() > 0) {
-			Util.sendMessage("");
-			Util.sendMessage("Options:");
+			Util.sendError("");
+			Util.sendError("Options:");
 		}
 		for (Option o : options)
-			Util.sendMessage(o.name + ": " + o.description + "(default: " + o.defaultValue + ")");
+			Util.sendError(o.name + ": " + o.description + "(default: " + o.defaultValue + ")");
 	}
 
 	@Override

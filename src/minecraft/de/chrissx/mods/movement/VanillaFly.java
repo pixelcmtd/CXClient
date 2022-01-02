@@ -1,12 +1,18 @@
 package de.chrissx.mods.movement;
 
 import de.chrissx.mods.Mod;
-import de.chrissx.util.Util;
+import de.chrissx.mods.options.Option;
 
 public class VanillaFly extends Mod {
 
 	public VanillaFly() {
 		super("VanillaFly", "flyvanilla", "Makes you fly like in creative mode");
+		addOption(new Option<Float>("speed", "The speed at which you fly", 0.05f) {
+			@Override
+			public void set(String value) {
+				setSpeed(this.value = Float.parseFloat(value));
+			}
+		});
 	}
 
 	public void setSpeed(float speed) {
@@ -22,19 +28,5 @@ public class VanillaFly extends Mod {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
-
-	@Override
-	public void processCommand(String[] args) {
-		if (args.length == 1)
-			toggle();
-		else if (args[1].equalsIgnoreCase("speed"))
-			try {
-				setSpeed(Float.parseFloat(args[2]));
-			} catch (Exception e) {
-				Util.sendMessage("\u00a74Error parsing float.");
-			}
-		else
-			Util.sendMessage("#fly to toggle, #fly speed <float> to set speed.");
 	}
 }
