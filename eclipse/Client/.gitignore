@@ -1,5 +1,9 @@
-/bin/
-/cxclient_addons/
-/cxclient_config/
-/cxclient_eapi/
-*.log.gz
+bin/
+crash-reports/
+cxclient_addons/
+cxclient_config/
+cxclient_eapi/
+logs/
+screenshots/
+servers.dat
+usercache.json
