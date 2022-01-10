@@ -56,7 +56,6 @@ public class GuiIngame extends Gui
 
     /** ChatGUI instance that retains all previous chat data */
     private final GuiNewChat persistantChatGUI;
-    private final GuiStreamIndicator streamIndicator;
     private int updateCounter;
 
     /** The string specifying which record music is playing */
@@ -102,7 +101,6 @@ public class GuiIngame extends Gui
         this.overlayDebug = new GuiOverlayDebug(mcIn);
         this.spectatorGui = new GuiSpectator(mcIn);
         this.persistantChatGUI = new GuiNewChat(mcIn);
-        this.streamIndicator = new GuiStreamIndicator(mcIn);
         this.overlayPlayerList = new GuiPlayerTabOverlay(mcIn, this);
     }
 
@@ -531,11 +529,6 @@ public class GuiIngame extends Gui
         {
             return true;
         }
-    }
-
-    public void renderStreamIndicator(ScaledResolution p_180478_1_)
-    {
-        this.streamIndicator.render(p_180478_1_.getScaledWidth() - 10, 10);
     }
 
     private void renderScoreboard(ScoreObjective p_180475_1_, ScaledResolution p_180475_2_)
@@ -1071,7 +1064,6 @@ public class GuiIngame extends Gui
         }
 
         ++this.updateCounter;
-        this.streamIndicator.func_152439_a();
 
         if (this.mc.thePlayer != null)
         {

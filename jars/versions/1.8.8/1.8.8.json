@@ -25,8 +25,7 @@
         }
     },
     "id": "1.8.8",
-    "libraries": [
-        {
+    "libraries": [{
             "name": "com.mojang:netty:1.6",
             "downloads": {
                 "artifact": {
@@ -325,8 +324,7 @@
         },
         {
             "name": "org.lwjgl.lwjgl:lwjgl:2.9.4-nightly-20150209",
-            "rules": [
-                {
+            "rules": [{
                     "action": "allow"
                 },
                 {
@@ -347,8 +345,7 @@
         },
         {
             "name": "org.lwjgl.lwjgl:lwjgl_util:2.9.4-nightly-20150209",
-            "rules": [
-                {
+            "rules": [{
                     "action": "allow"
                 },
                 {
@@ -379,8 +376,7 @@
                 "osx": "natives-osx",
                 "windows": "natives-windows"
             },
-            "rules": [
-                {
+            "rules": [{
                     "action": "allow"
                 },
                 {
@@ -421,14 +417,12 @@
         },
         {
             "name": "org.lwjgl.lwjgl:lwjgl:2.9.2-nightly-20140822",
-            "rules": [
-                {
-                    "action": "allow",
-                    "os": {
-                        "name": "osx"
-                    }
+            "rules": [{
+                "action": "allow",
+                "os": {
+                    "name": "osx"
                 }
-            ],
+            }],
             "downloads": {
                 "artifact": {
                     "size": 1045632,
@@ -440,14 +434,12 @@
         },
         {
             "name": "org.lwjgl.lwjgl:lwjgl_util:2.9.2-nightly-20140822",
-            "rules": [
-                {
-                    "action": "allow",
-                    "os": {
-                        "name": "osx"
-                    }
+            "rules": [{
+                "action": "allow",
+                "os": {
+                    "name": "osx"
                 }
-            ],
+            }],
             "downloads": {
                 "artifact": {
                     "size": 173887,
@@ -469,14 +461,12 @@
                 "osx": "natives-osx",
                 "windows": "natives-windows"
             },
-            "rules": [
-                {
-                    "action": "allow",
-                    "os": {
-                        "name": "osx"
-                    }
+            "rules": [{
+                "action": "allow",
+                "os": {
+                    "name": "osx"
                 }
-            ],
+            }],
             "downloads": {
                 "classifiers": {
                     "natives-linux": {
@@ -531,98 +521,6 @@
                         "sha1": "385ee093e01f587f30ee1c8a2ee7d408fd732e16",
                         "path": "net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar",
                         "url": "https://libraries.minecraft.net/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar"
-                    }
-                }
-            }
-        },
-        {
-            "name": "tv.twitch:twitch:6.5",
-            "downloads": {
-                "artifact": {
-                    "size": 55977,
-                    "sha1": "320a2dfd18513a5f41b4e75729df684488cbd925",
-                    "path": "tv/twitch/twitch/6.5/twitch-6.5.jar",
-                    "url": "https://libraries.minecraft.net/tv/twitch/twitch/6.5/twitch-6.5.jar"
-                }
-            }
-        },
-        {
-            "extract": {
-                "exclude": [
-                    "META-INF/"
-                ]
-            },
-            "name": "tv.twitch:twitch-platform:6.5",
-            "natives": {
-                "linux": "natives-linux",
-                "osx": "natives-osx",
-                "windows": "natives-windows-${arch}"
-            },
-            "rules": [
-                {
-                    "action": "allow"
-                },
-                {
-                    "action": "disallow",
-                    "os": {
-                        "name": "linux"
-                    }
-                }
-            ],
-            "downloads": {
-                "classifiers": {
-                    "natives-osx": {
-                        "size": 455359,
-                        "sha1": "5f9d1ee26257b3a33f0ca06fed335ef462af659f",
-                        "path": "tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-osx.jar",
-                        "url": "https://libraries.minecraft.net/tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-osx.jar"
-                    },
-                    "natives-windows-32": {
-                        "size": 474225,
-                        "sha1": "206c4ccaecdbcfd2a1631150c69a97bbc9c20c11",
-                        "path": "tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-windows-32.jar",
-                        "url": "https://libraries.minecraft.net/tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-windows-32.jar"
-                    },
-                    "natives-windows-64": {
-                        "size": 580098,
-                        "sha1": "9fdd0fd5aed0817063dcf95b69349a171f447ebd",
-                        "path": "tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-windows-64.jar",
-                        "url": "https://libraries.minecraft.net/tv/twitch/twitch-platform/6.5/twitch-platform-6.5-natives-windows-64.jar"
-                    }
-                }
-            }
-        },
-        {
-            "extract": {
-                "exclude": [
-                    "META-INF/"
-                ]
-            },
-            "name": "tv.twitch:twitch-external-platform:4.5",
-            "natives": {
-                "windows": "natives-windows-${arch}"
-            },
-            "rules": [
-                {
-                    "action": "allow",
-                    "os": {
-                        "name": "windows"
-                    }
-                }
-            ],
-            "downloads": {
-                "classifiers": {
-                    "natives-windows-32": {
-                        "size": 5654047,
-                        "sha1": "18215140f010c05b9f86ef6f0f8871954d2ccebf",
-                        "path": "tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-32.jar",
-                        "url": "https://libraries.minecraft.net/tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-32.jar"
-                    },
-                    "natives-windows-64": {
-                        "size": 7457619,
-                        "sha1": "c3cde57891b935d41b6680a9c5e1502eeab76d86",
-                        "path": "tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-64.jar",
-                        "url": "https://libraries.minecraft.net/tv/twitch/twitch-external-platform/4.5/twitch-external-platform-4.5-natives-windows-64.jar"
                     }
                 }
             }
