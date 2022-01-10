@@ -84,8 +84,8 @@ public class ModList implements Iterable<Mod> {
 	public final WaterWalk waterWalk = new WaterWalk();
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
-	// TODO: uncomment
-	// public final RewiWords rewiWords = new RewiWords();
+	public final TriggerBot triggerBot = new TriggerBot();
+	// TODO: public final RewiWords rewiWords = new RewiWords();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -107,7 +107,7 @@ public class ModList implements Iterable<Mod> {
 	                               legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
 	                               fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
 	                               highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
-	                               autoJump, invWalk,
+	                               autoJump, invWalk, triggerBot,
 	                               // TODO: rewiWords
 	                             };
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
