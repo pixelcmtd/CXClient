@@ -83,7 +83,8 @@ public abstract class EapiModule {
 	protected void write(File f, long i) {
 		try {
 			Files.write(new byte[] { (byte) (i >> 56), (byte) (i >> 48), (byte) (i >> 40), (byte) (i >> 32),
-					(byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8), (byte) i }, f);
+			                         (byte) (i >> 24), (byte) (i >> 16), (byte) (i >> 8), (byte) i
+			                       }, f);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

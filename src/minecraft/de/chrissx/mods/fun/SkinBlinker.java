@@ -7,7 +7,7 @@ public class SkinBlinker extends Mod {
 
 	public SkinBlinker() {
 		super("SkinBlinker", "skinblink",
-				"Makes your skin \"blink\" by taking off and on the outer layers of your skin");
+		      "Makes your skin \"blink\" by taking off and on the outer layers of your skin");
 	}
 
 	int i = 0;

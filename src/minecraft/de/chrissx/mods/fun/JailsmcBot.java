@@ -13,7 +13,7 @@ public class JailsmcBot extends Mod {
 
 	public JailsmcBot() {
 		super("JailsMCBot", "jailsmcbot",
-				"Go to JailsMC, get on your jail, enable it and see it doing all the work for you");
+		      "Go to JailsMC, get on your jail, enable it and see it doing all the work for you");
 	}
 
 	@Override
@@ -22,7 +22,7 @@ public class JailsmcBot extends Mod {
 			for (BlockPos p : Util.getBlocksAround(player(), 4, false)) {
 				Block b = world().getBlock(p);
 				if (!(b instanceof BlockObsidian) && !(b instanceof BlockGlowstone)
-						&& !(b instanceof BlockBasePressurePlate) && !(b instanceof BlockAir))
+				        && !(b instanceof BlockBasePressurePlate) && !(b instanceof BlockAir))
 					Util.breakBlock(p);
 			}
 		} else

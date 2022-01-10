@@ -10,17 +10,17 @@ public class EntityFakePlayer extends EntityOtherPlayerMP {
 	public EntityFakePlayer() {
 		super(Minecraft.getMinecraft().theWorld, Minecraft.getMinecraft().thePlayer.getGameProfile());
 		copyLocationAndAnglesFrom(mc.thePlayer);
-		
+
 		inventory.copyInventory(mc.thePlayer.inventory);
 		getDataWatcher().updateObject(10, Byte.valueOf(mc.thePlayer.getDataWatcher().getWatchableObjectByte(10)));
-		
+
 		rotationYawHead = mc.thePlayer.rotationYawHead;
 		renderYawOffset = mc.thePlayer.renderYawOffset;
-		
+
 		chasingPosX = posX;
 		chasingPosY = posY;
 		chasingPosZ = posZ;
-		
+
 		mc.theWorld.addEntityToWorld(getEntityId(), this);
 	}
 

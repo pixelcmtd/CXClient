@@ -5,9 +5,8 @@ import de.chrissx.util.Util;
 public class ChatGuiRenameWorld implements IGuiRenameWorld {
 
 	String buffer;
-	
-	public ChatGuiRenameWorld(String s)
-	{
+
+	public ChatGuiRenameWorld(String s) {
 		buffer = s;
 	}
 

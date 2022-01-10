@@ -31,7 +31,7 @@ public class Nuker extends Mod {
 	public void onTick() {
 		if (bypass == NukerBypassLevel.NONE || count < 1) {
 			BlockPos[] positions = Util.getBlocksAround(player(), (bypass == NukerBypassLevel.NONE ? 6 : 3),
-					bypass != NukerBypassLevel.NONE);
+			                                            bypass != NukerBypassLevel.NONE);
 			if (mode.equals(NukerMode.ALL)) {
 				if (bypass == NukerBypassLevel.NONE) {
 					for (BlockPos p : positions)
@@ -85,7 +85,7 @@ public class Nuker extends Mod {
 				}
 			} else
 				Util.sendMessage(
-						"\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
+				    "\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
 			count = 6;
 		} else
 			count--;
@@ -103,16 +103,15 @@ public class Nuker extends Mod {
 			toggle();
 		else if (args[1].equalsIgnoreCase("bypass"))
 			bypass = bypass == NukerBypassLevel.NONE ? NukerBypassLevel.SLOW
-					: bypass == NukerBypassLevel.SLOW ? NukerBypassLevel.LEGIT : NukerBypassLevel.NONE;
+			         : bypass == NukerBypassLevel.SLOW ? NukerBypassLevel.LEGIT : NukerBypassLevel.NONE;
 		else if (args[1].equalsIgnoreCase("mode"))
 			try {
 				mode = NukerMode.valueOf(args[2].toUpperCase());
 			} catch (Exception e) {
 				Util.sendMessage("\u00a74Error valueOf-ing NukerMode.");
-			}
-		else
+			} else
 			Util.sendMessage(
-					"#nuker to toggle, #nuker bypass to toggle bypasses, #nuker mode [ALL/CLICK] to set the mode");
+			    "#nuker to toggle, #nuker bypass to toggle bypasses, #nuker mode [ALL/CLICK] to set the mode");
 	}
 
 	@Override

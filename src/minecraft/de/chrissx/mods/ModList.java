@@ -102,15 +102,14 @@ public class ModList implements Iterable<Mod> {
 	public final int enabled_length;
 
 	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
-			fasthit, autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa,
-			vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
-			legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
-			fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
-			highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
-			autoJump, invWalk,
-			// TODO: uncomment
-			// rewiWords
-	};
+	                               fasthit, autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa,
+	                               vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
+	                               legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
+	                               fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
+	                               highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
+	                               autoJump, invWalk,
+	                               // TODO: rewiWords
+	                             };
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();

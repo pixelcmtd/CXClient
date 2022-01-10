@@ -8,7 +8,7 @@ public class MultiText extends Semimod {
 
 	public MultiText() {
 		super("MultiText", "multitext",
-				"Gives you multiple armor stands that will show a multi-line message when placed");
+		      "Gives you multiple armor stands that will show a multi-line message when placed");
 	}
 
 	@Override
@@ -19,7 +19,7 @@ public class MultiText extends Semimod {
 		} else {
 			for (int i = 1; i < args.length; i++) {
 				Util.cheatArmorStand(args[i], player().posX, player().posY + ((args.length - 2) * 0.3) - (i * 0.3),
-						player().posZ, Consts.packetPlayerInventorySlots[i - 1]);
+				                     player().posZ, Consts.packetPlayerInventorySlots[i - 1]);
 			}
 		}
 	}
@@ -27,8 +27,9 @@ public class MultiText extends Semimod {
 	@Override
 	public void onHotkey() {
 		processCommand(new String[] { "#multitext", "CXClient is the best client in the world!",
-				"Writing random text is easily possible because your server kinda sucks.",
-				"Just fix that by installing Creative Item Control!" });
+		                              "Writing random text is easily possible because your server kinda sucks.",
+		                              "Just fix that by installing Creative Item Control!"
+		                            });
 	}
 
 	@Override

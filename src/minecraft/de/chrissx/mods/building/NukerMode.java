@@ -7,8 +7,7 @@ public enum NukerMode {
 
 	final int b;
 
-	NukerMode(int b)
-	{
+	NukerMode(int b) {
 		this.b = b;
 	}
 }

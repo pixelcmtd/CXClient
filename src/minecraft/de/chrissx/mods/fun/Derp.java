@@ -13,6 +13,6 @@ public class Derp extends Mod {
 	@Override
 	public void onTick() {
 		sendPacket(new C03PacketPlayer.C05PacketPlayerLook(player().rotationYaw + Random.randFloat() * 360 - 180,
-				Random.randFloat() * 180 - 90, player().onGround));
+		                                                   Random.randFloat() * 180 - 90, player().onGround));
 	}
 }

@@ -12,4 +12,9 @@ public class FastBreak extends Mod {
 		super("FastBreak", "fastbreak", "Makes you break blocks faster");
 		addOption(speed);
 	}
+
+	@Override
+	public String getRenderstring() {
+		return name + "(SPEED:" + speed + ")";
+	}
 }

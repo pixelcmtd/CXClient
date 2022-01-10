@@ -10,8 +10,7 @@ public enum NukerBypassLevel {
 	//so you don't have to re-write your eAPI using software
 	final byte b;
 
-	NukerBypassLevel(int b)
-	{
+	NukerBypassLevel(int b) {
 		this.b = (byte)b;
 	}
 }

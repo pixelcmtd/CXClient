@@ -6,7 +6,7 @@ import net.minecraft.client.settings.GameSettings;
 public class Fullbright extends Mod {
 
 	float before;
-	
+
 	public Fullbright() {
 		super("FullBright", "fullbright", "Makes everything always visible, no torches needed!");
 	}
@@ -18,7 +18,7 @@ public class Fullbright extends Mod {
 		if(enabled) {
 			before = gs.gammaSetting;
 			gs.gammaSetting = 100;
-		}else
+		} else
 			gs.gammaSetting = before;
 		mc.renderGlobal.loadRenderers();
 	}

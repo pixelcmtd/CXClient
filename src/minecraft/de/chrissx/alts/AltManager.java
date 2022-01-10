@@ -30,7 +30,7 @@ public class AltManager {
 
 	public Alt currentAlt = new Alt("LOGGED IN WITH", "THE MINECRAFT LAUNCHER");
 	YggdrasilUserAuthentication auth = (YggdrasilUserAuthentication) new
-			YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
+	                                   YggdrasilAuthenticationService(Proxy.NO_PROXY, "").createUserAuthentication(Agent.MINECRAFT);
 	Minecraft mc = Minecraft.getMinecraft();
 	List<Alt> alts;
 
@@ -45,8 +45,7 @@ public class AltManager {
 	/**
 	 * alts.clear()
 	 */
-	public void clear()
-	{
+	public void clear() {
 		alts.clear();
 	}
 
@@ -75,7 +74,7 @@ public class AltManager {
 			auth.setPassword(a.getPassword());
 			auth.logIn();
 			mc.session = new Session(auth.getSelectedProfile().getName(), auth.getSelectedProfile().getId().toString(), auth.getAuthenticatedToken(), "mojang");
-		}else
+		} else
 			mc.session = new Session(a.getEmail(), "", "", "mojang");
 	}
 
@@ -140,11 +139,9 @@ public class AltManager {
 	 * @throws NoSuchAlgorithmException
 	 * @throws NoSuchPaddingException
 	 */
-	public void storeVault(String file, String password) throws IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException
-	{
+	public void storeVault(String file, String password) throws IOException, InvalidKeyException, IllegalBlockSizeException, BadPaddingException, NoSuchAlgorithmException, NoSuchPaddingException {
 		ByteArrayOutputStream raw = new ByteArrayOutputStream();
-		for(Alt a : alts)
-		{
+		for(Alt a : alts) {
 			raw.write(a.getEmail().getBytes(StandardCharsets.UTF_8));
 			raw.write(10);
 			raw.write(a.getPassword().getBytes(StandardCharsets.UTF_8));
@@ -164,17 +161,14 @@ public class AltManager {
 	 * @throws BadPaddingException
 	 * @throws IOException
 	 */
-	public void loadVault(String file, String password) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException
-	{
+	public void loadVault(String file, String password) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, IOException {
 		ByteArrayInputStream raw = new ByteArrayInputStream(
-				AltCryptography.decrypt(Paths.get(file), password));
+		    AltCryptography.decrypt(Paths.get(file), password));
 		alts = new ArrayList<Alt>();
 		int i;
-		while((i = raw.read()) != -1)
-		{
+		while((i = raw.read()) != -1) {
 			List<Byte> bfr = new ArrayList<Byte>();
-			while(i != 10)
-			{
+			while(i != 10) {
 				bfr.add((byte)i);
 				i = raw.read();
 			}
@@ -197,10 +191,8 @@ public class AltManager {
 	 * @param file The path of the file the CXCSV is located in.
 	 * @return The loaded Alts.
 	 */
-	public void loadCxcsv(Path file) throws Exception
-	{
-		for(String s : Files.readAllLines(file))
-		{
+	public void loadCxcsv(Path file) throws Exception {
+		for(String s : Files.readAllLines(file)) {
 			try {
 				String[] t = s.split(":");
 				alts.add(new Alt(t[0], t[1]));
@@ -215,11 +207,9 @@ public class AltManager {
 	 * @param file the file to save to
 	 * @throws IOException
 	 */
-	public void saveCxcsv(String file) throws IOException
-	{
+	public void saveCxcsv(String file) throws IOException {
 		FileOutputStream fos = new FileOutputStream(file);
-		for(Alt a : alts)
-		{
+		for(Alt a : alts) {
 			byte[] b = a.getEmail().getBytes();
 			fos.write(b, 0, b.length);
 			fos.write(':');

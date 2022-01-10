@@ -7,8 +7,7 @@ public enum PasswordCrackMode {
 
 	public final int id;
 
-	PasswordCrackMode(int id)
-	{
+	PasswordCrackMode(int id) {
 		this.id = id;
 	}
 

@@ -96,6 +96,6 @@ public class HotkeySaving {
 	static Hotkey base64ToHotkey(String base64) {
 		byte[] b = d.decode(base64);
 		return new Hotkey(binaryToKey(b[0], b[1], b[2], b[3]),
-				stringToBindable(new String(b, 4, b.length - 4, StandardCharsets.UTF_8)));
+		                  stringToBindable(new String(b, 4, b.length - 4, StandardCharsets.UTF_8)));
 	}
 }

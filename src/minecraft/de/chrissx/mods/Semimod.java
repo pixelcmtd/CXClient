@@ -79,7 +79,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 
 	/***
 	 * Simulates a mouse click.
-	 * 
+	 *
 	 * @param button true if you want a left click, false if you want a right click
 	 */
 	protected void click(boolean button) {
@@ -105,7 +105,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 		for (int i = 1; i < args.length; i++)
 			value += " " + args[i];
 
-		for (Option o : options) {
+		for (Option<?> o : options) {
 			if (args[1].equalsIgnoreCase(o.name)) {
 				try {
 					o.set(value);
@@ -122,7 +122,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 			Util.sendError("");
 			Util.sendError("Options:");
 		}
-		for (Option o : options)
+		for (Option<?> o : options)
 			Util.sendError(o.name + ": " + o.description + "(default: " + o.defaultValue + ")");
 	}
 

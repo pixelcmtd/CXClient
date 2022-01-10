@@ -3,6 +3,7 @@ package de.chrissx.mods.combat;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.BooleanOption;
 
+// TODO: rethink 20 times why this is not capitalized
 public class Autoclicker extends Mod {
 
 	// TODO: i can make this much better

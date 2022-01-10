@@ -27,16 +27,16 @@ public class BedFucker extends Mod {
 		for (final BlockPos bp : bps)
 			if (world().getBlock(bp).getUnlocalizedName().equals("tile.bed"))
 				new Thread(new Runnable() {
-					public void run() {
-						sendPacket(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
-						try {
-							Thread.sleep(100);
-						} catch (InterruptedException e) {
-							e.printStackTrace();
-						}
-						sendPacket(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
+				public void run() {
+					sendPacket(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, bp, EnumFacing.UP));
+					try {
+						Thread.sleep(100);
+					} catch (InterruptedException e) {
+						e.printStackTrace();
 					}
-				}).start();
+					sendPacket(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
+				}
+			}).start();
 	}
 
 	@Override

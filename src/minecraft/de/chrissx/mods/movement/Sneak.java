@@ -11,11 +11,11 @@ import net.minecraft.network.play.client.C0BPacketEntityAction.Action;
 public class Sneak extends Mod {
 
 	Option<SneakMode> mode = new Option<SneakMode>("mode", "Whether the sneaking is simulated or real",
-			SneakMode.PACKET) {
+	SneakMode.PACKET) {
 		@Override
 		public void set(String value) {
 			this.value = value == "" ? (this.value == SneakMode.PACKET ? SneakMode.BYPASS : SneakMode.PACKET)
-					: SneakMode.valueOf(value.toUpperCase());
+			             : SneakMode.valueOf(value.toUpperCase());
 		}
 	};
 	File mf;
@@ -32,7 +32,7 @@ public class Sneak extends Mod {
 			settings().keyBindSneak.pressed = true;
 		else if (!mode.value.equals(SneakMode.PACKET))
 			Util.sendMessage(
-					"Currently your mode is not supported, this should be a bug, please report this on the bug tracker!");
+			    "Currently your mode is not supported, this should be a bug, please report this on the bug tracker!");
 	}
 
 	@Override

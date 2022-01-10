@@ -7,5 +7,5 @@ public interface RenderedObject {
 	public void onRender(FontRenderer r, int x, int y);
 	public String getRenderstring();
 	public boolean isEnabled();
-	
+
 }

@@ -10,8 +10,10 @@ import de.chrissx.util.Util;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
+// TODO: inherit from triggerbot
 public class Killaura extends Mod {
 
+	// TODO: rename some (of the legit) options
 	double max_range = 6;
 	KillauraMode mode = KillauraMode.BOTH;
 	boolean attackInvis = false, legit1 = false, legit2 = false, slowdown = false;
@@ -36,8 +38,8 @@ public class Killaura extends Mod {
 			return;
 		for (Entity e : world().loadedEntityList) {
 			if (!(e instanceof EntityLivingBase) || e == player() || player().getDistanceToEntity(e) > max_range
-					|| (!attackInvis && e.isInvisible()) || e.isDead
-					|| ((EntityLivingBase) e).getHealth() <= 0) /* skip while entity is dying */
+			        || (!attackInvis && e.isInvisible()) || e.isDead
+			        || ((EntityLivingBase) e).getHealth() <= 0) /* skip while entity is dying */
 				continue;
 			else {
 				boolean attack = Random.rand(3) == 2;
@@ -58,9 +60,10 @@ public class Killaura extends Mod {
 	@Override
 	public String getRenderstring() {
 		return name + "(RANGE:" + max_range + ",MODE:" + mode.toString() + ",INVIS:" + (attackInvis ? "YA" : "NA")
-				+ ",LEGIT1:" + (legit1 ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ",SD:" + slowdown + ")";
+		       + ",LEGIT1:" + (legit1 ? "YA" : "NA") + ",LEGIT2:" + (legit2 ? "YA" : "NA") + ",SD:" + slowdown + ")";
 	}
 
+	// TODO: this is like semi-trivial to get rid of, too
 	@Override
 	public void processCommand(String[] args) {
 		if (args.length == 1)
@@ -71,14 +74,12 @@ public class Killaura extends Mod {
 					max_range = Double.parseDouble(args[2]);
 				} catch (Exception e) {
 					Util.sendError("Error parsing double.");
-				}
-			else if (args[1].equalsIgnoreCase("mode"))
+				} else if (args[1].equalsIgnoreCase("mode"))
 				try {
 					mode = KillauraMode.valueOf(args[2].toUpperCase());
 				} catch (Exception e) {
 					Util.sendError("Error valueOf-ing KillauraMode.");
-				}
-			else if (args[1].equalsIgnoreCase("invis"))
+				} else if (args[1].equalsIgnoreCase("invis"))
 				attackInvis = !attackInvis;
 			else if (args[1].equalsIgnoreCase("add"))
 				whitelistedPlayers.add(args[2]);
@@ -92,9 +93,9 @@ public class Killaura extends Mod {
 				slowdown = !slowdown;
 			else
 				Util.sendMessage(
-						"#killaura to toggle, #killaura range <double> to set range, #killaura mode <KillauraMode> to set mode, "
-								+ "#killaura invis to toggle invis-attacking, #killaura add <String> to add whitelisted player, #killaura remove to remove whitelisted player, "
-								+ "#killaura legit1 to toggle targetting, #killaura legit2 to toggle missing, #killaura slowdown to make it slower.");
+				    "#killaura to toggle, #killaura range <double> to set range, #killaura mode <KillauraMode> to set mode, "
+				    + "#killaura invis to toggle invis-attacking, #killaura add <String> to add whitelisted player, #killaura remove to remove whitelisted player, "
+				    + "#killaura legit1 to toggle targetting, #killaura legit2 to toggle missing, #killaura slowdown to make it slower.");
 		}
 	}
 

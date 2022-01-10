@@ -18,17 +18,19 @@ import de.chrissx.util.Util;
 public class AuthMeCrack extends Mod {
 
 	public static final String[] DEFAULT_PASSWORDS = { "password", "passwort", "password1", "passwort1", "password123",
-			"passwort123", "pass", "pw", "pw1", "pw123", "123", "1234", "12345", "123456", "1234567", "12345678",
-			"123456789", "login", "register", "test", "sicher", "safe", "me", "ich", "penis", "penis1", "penis12",
-			"penis123", "minecraft", "minecraft1", "minecraft12", "minecraft123", "mc", "admin", "server", "yourmom",
-			"tester", "account", "creeper", "gronkh", "lol", "lel", "kek", "auth", "authme", "qwerty", "qwertz",
-			"ficken", "ficken1", "ficken12", "ficken123", "fuck", "fuckme", "fuckyou" };
+	                                                   "passwort123", "pass", "pw", "pw1", "pw123", "123", "1234", "12345", "123456", "1234567", "12345678",
+	                                                   "123456789", "login", "register", "test", "sicher", "safe", "me", "ich", "penis", "penis1", "penis12",
+	                                                   "penis123", "minecraft", "minecraft1", "minecraft12", "minecraft123", "mc", "admin", "server", "yourmom",
+	                                                   "tester", "account", "creeper", "gronkh", "lol", "lel", "kek", "auth", "authme", "qwerty", "qwertz",
+	                                                   "ficken", "ficken1", "ficken12", "ficken123", "fuck", "fuckme", "fuckyou"
+	                                                 };
 
 	public static final Character[] DEFAULT_CHARS = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c',
-			'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
-			'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
-			'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?', ',', '.', '-', ';', ':', '_', '"', '\'', '/', '&', '(', ')',
-			'=' };
+	                                                  'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x',
+	                                                  'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S',
+	                                                  'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '!', '?', ',', '.', '-', ';', ':', '_', '"', '\'', '/', '&', '(', ')',
+	                                                  '='
+	                                                };
 
 	List<String> pws;
 	List<Character> crs;
@@ -51,8 +53,7 @@ public class AuthMeCrack extends Mod {
 				pws = pwsL;
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-		else
+			} else
 			pws = Arrays.asList(DEFAULT_PASSWORDS);
 
 		if (crFile.exists())
@@ -66,8 +67,7 @@ public class AuthMeCrack extends Mod {
 				crs = crsL;
 			} catch (Exception e) {
 				e.printStackTrace();
-			}
-		else
+			} else
 			crs = Arrays.asList(DEFAULT_CHARS);
 	}
 
@@ -174,22 +174,19 @@ public class AuthMeCrack extends Mod {
 				mode = PasswordCrackMode.parse(args[2]);
 			} catch (Exception e) {
 				Util.sendMessage("Unable to parse mode: " + e.getMessage());
-			}
-		else if (args[1].equalsIgnoreCase("addpw"))
+			} else if (args[1].equalsIgnoreCase("addpw"))
 			try {
 				addPw(args[2]);
 			} catch (Exception e) {
 				Util.sendMessage("Unable to add password: " + e.getMessage());
-			}
-		else if (args[1].equalsIgnoreCase("addcr"))
+			} else if (args[1].equalsIgnoreCase("addcr"))
 			try {
 				addCr(args[2].charAt(0));
 			} catch (Exception e) {
 				Util.sendMessage("Unable to add char: " + e.getMessage());
-			}
-		else
+			} else
 			Util.sendMessage(
-					"Unknown command (#authmecrack, #authmecrack mode [passwordcrackingmode], #authmecrack addpw [string], #authmecrack addcr [char]");
+			    "Unknown command (#authmecrack, #authmecrack mode [passwordcrackingmode], #authmecrack addpw [string], #authmecrack addcr [char]");
 	}
 
 	public void addPw(String pw) {

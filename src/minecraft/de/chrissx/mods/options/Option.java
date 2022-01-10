@@ -16,4 +16,9 @@ public abstract class Option<T> {
 	}
 
 	public abstract void set(String value);
+
+	@Override
+	public String toString() {
+		return value.toString();
+	}
 }

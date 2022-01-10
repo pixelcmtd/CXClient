@@ -59,10 +59,8 @@ public class HackedClient {
 	final AddonManager addonManager;
 	final Options options;
 
-	public void onDraw(FontRenderer r)
-	{
-		if(!invis)
-		{
+	public void onDraw(FontRenderer r) {
+		if(!invis) {
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
 			//TODO: also this drawString call should be a RenderedObject
 			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
@@ -98,33 +96,32 @@ public class HackedClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		options.stop(new File(Consts.optionsFile));
 		options.eapi.stop(new File(Consts.eapiOptionsFile));
 	}
 
-	public HackedClient() throws IOException
-	{
+	public HackedClient() throws IOException {
 		instance = this;
-		
+
 		Util.init();
-		
+
 		HotkeySaving.init(this);
-		
+
 		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
 		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
 		Util.checkIfExistsAndMake(Consts.eapiPath, "eapiPath");
 		Util.checkIfExistsAndMake(Consts.togglePath, "enablePath");
-		
+
 		File f = new File(Consts.hotkeyFile);
-		
+
 		if(f.exists())
 			try {
 				hotkeys = HotkeySaving.loadHotkeys(f.toPath());
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		
+
 		altManager = new AltManager();
 		mods = new ModList();
 		addonManager = new AddonManager();
@@ -161,21 +158,17 @@ public class HackedClient {
 				try {
 					final File enabledFile = new File(Consts.enabledPath);
 					final File disableIAUI = Paths.get(Consts.eapiPath, "disable_iaui").toFile();
-					while(true)
-					{
+					while(true) {
 						try {
-							for(Mod m : mods)
-							{
+							for(Mod m : mods) {
 								final File f = Paths.get(Consts.togglePath, m.getName()).toFile();
-								if(f.exists())
-								{
+								if(f.exists()) {
 									m.toggle();
 									f.delete();
 								}
 							}
 							ByteBuffer b = ByteBuffer.allocate(mods.enabled_length);
-							for(Mod m : mods)
-							{
+							for(Mod m : mods) {
 								try {
 									b.put(m.getName().getBytes(StandardCharsets.US_ASCII));
 									b.put((byte) (m.isEnabled() ? 1 : 0));
@@ -226,7 +219,7 @@ public class HackedClient {
 				if(args.length == 2) {
 					altManager.login(args[1], "");
 					gui.setText("Logged into cracked account.");
-				}else if(args.length == 1)
+				} else if(args.length == 1)
 					gui.setText("login <email> [password] - don't use password if account is cracked.");
 				else {
 					String pass = args[2];
@@ -235,12 +228,12 @@ public class HackedClient {
 					altManager.login(args[1], pass);
 					gui.setText("Logged into premium account.");
 				}
-			}else if(cmd.equalsIgnoreCase("help"))
+			} else if(cmd.equalsIgnoreCase("help"))
 				gui.setText("Alt-commands: login, help, load, mcleaks, alts, cxcsv, vault");
 			else if(cmd.equalsIgnoreCase("load")) {
 				altManager.loadAlt(args[1]);
 				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
-			}else if(cmd.equalsIgnoreCase("mcleaks")) {
+			} else if(cmd.equalsIgnoreCase("mcleaks")) {
 				if(args.length < 2)
 					throw new Exception("mcleaks [token]");
 				String token = args[1];
@@ -249,7 +242,7 @@ public class HackedClient {
 				mcLeaksSession = McLeaksApi.redeemMcleaksToken(token);
 				altManager.login(mcLeaksSession.getMcname(), "");
 				gui.setText("Success.");
-			}else if(cmd.equalsIgnoreCase("alts"))
+			} else if(cmd.equalsIgnoreCase("alts"))
 				for(Alt a : altManager.getAlts())
 					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));
 			else if(cmd.equalsIgnoreCase("cxcsv")) {
@@ -262,30 +255,23 @@ public class HackedClient {
 					altManager.saveCxcsv(s);
 				else
 					gui.setText("cxcsv load/save [file]");
-			}
-			else if(cmd.equalsIgnoreCase("clear"))
+			} else if(cmd.equalsIgnoreCase("clear"))
 				altManager.clear();
-			else if(cmd.equalsIgnoreCase("vault"))
-			{
+			else if(cmd.equalsIgnoreCase("vault")) {
 				if(args.length < 4)
 					throw new Exception("Not enough arguments.");
 				String s = args[3];
 				for(int i = 4; i < args.length; i++)
 					s += " " + args[i];
-				if(args[1].charAt(0) == 'l')
-				{
+				if(args[1].charAt(0) == 'l') {
 					altManager.loadVault(s, args[2]);
 					gui.setText("Load successful.");
-				}
-				else if(args[1].charAt(0) == 's')
-				{
+				} else if(args[1].charAt(0) == 's') {
 					altManager.storeVault(s, args[2]);
 					gui.setText("Store successful.");
-				}
-				else
+				} else
 					gui.setText("vault l/s [password (no spaces!)] [file]");
-			}
-			else
+			} else
 				guiRenameWorld("help", gui);
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -300,24 +286,24 @@ public class HackedClient {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		
+
 		if(!disableHotkeys)
 			updateKeyboard();
 	}
 
-    public void onChatMessage(IChatComponent component) {
+	public void onChatMessage(IChatComponent component) {
 		for(ChatBot b : mods.chatBots)
 			try {
 				if(b.isEnabled()) b.onChatMessage(component);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-    }
+	}
 
 	void updateKeyboard() {
 		for(Hotkey hk : hotkeys)
 			if(Keyboard.isKeyDown(hk.key) && !lastPressed.contains(hk.key) &&
-					!(mc.currentScreen instanceof GuiChat) && !(mc.currentScreen instanceof GuiRepair))
+			        !(mc.currentScreen instanceof GuiChat) && !(mc.currentScreen instanceof GuiRepair))
 				hk.handler.onHotkey();
 
 		lastPressed = new ArrayList<Integer>();
@@ -342,11 +328,11 @@ public class HackedClient {
 			for(int i = 2; i < args.length; i++)
 				Cmd += " " + args[i];
 			Util.cheatCmdBlock(Cmd);
-		}else if(cmd.equalsIgnoreCase("#print-players")) {
+		} else if(cmd.equalsIgnoreCase("#print-players")) {
 			for(EntityPlayer p : mc.theWorld.playerEntities) {
 				Util.sendMessage(p.getName() + " (X: " + (long)p.posX + ", Y: " + (long)p.posY + ", Z: " + (long)p.posZ + ")");
 			}
-		}else if(cmd.equalsIgnoreCase("#bind")) {
+		} else if(cmd.equalsIgnoreCase("#bind")) {
 			if(args.length != 3) {
 				Util.sendMessage("#bind <key> <mod-name>");
 				return;
@@ -361,19 +347,19 @@ public class HackedClient {
 				Util.sendError("That Bindable does not exist.");
 			else
 				hotkeys.add(new Hotkey(keyId, bindable));
-		}else if(cmd.equalsIgnoreCase("#mods")) {
+		} else if(cmd.equalsIgnoreCase("#mods")) {
 			Iterator<Entry<String, Bindable>> it = mods.getBindEntrys().iterator();
 			String s = "Bindables: "+it.next().getKey();
 			while(it.hasNext()) {
 				s+=", "+it.next().getKey();
 			}
 			Util.sendMessage(s);
-		}else if(cmd.equalsIgnoreCase("#unbind")) {
+		} else if(cmd.equalsIgnoreCase("#unbind")) {
 			if(args.length < 2)
 				Util.sendMessage("#unbind <key>");
 			else
 				Util.removeHotkeyFromList(hotkeys, Util.getKeyId(args[1]));
-		}else if(cmd.equalsIgnoreCase("#say")) {
+		} else if(cmd.equalsIgnoreCase("#say")) {
 			if(args.length == 1) {
 				Util.sendError("Please enter a message.");
 				return;
@@ -382,18 +368,17 @@ public class HackedClient {
 			for(int i = 2; i < args.length; i++)
 				msg += " " + args[i];
 			Util.sendChat(msg);
-		}else if(cmd.equalsIgnoreCase("#binds")) {
+		} else if(cmd.equalsIgnoreCase("#binds")) {
 			StringBuilder sb = new StringBuilder();
 			for(Hotkey hk : hotkeys)
 				sb.append((sb.toString() == "" ? "" : ", ") + Keyboard.getKeyName(hk.key) + ":" + hk.handler.getName());
 			Util.sendMessage("Hotkeys: "+sb.toString());
-		}else if(cmd.equalsIgnoreCase("#give"))
+		} else if(cmd.equalsIgnoreCase("#give"))
 			try {
 				Util.cheatItem(new ItemStack(Item.getByNameOrId(args[1])), 0);
-			}catch(Exception e) {
+			} catch(Exception e) {
 				Util.sendMessage(e.toString());
-			}
-		else if(cmd.equalsIgnoreCase("#givebypass"))
+			} else if(cmd.equalsIgnoreCase("#givebypass"))
 			try {
 				ItemStack itm = new ItemStack(Item.getByNameOrId("furnace"), 1);
 				NBTTagCompound itmtag = new NBTTagCompound();
@@ -409,30 +394,26 @@ public class HackedClient {
 				itmtag.setTag("BlockEntityTag", blockentitytag);
 				itm.setTagCompound(itmtag);
 				Util.cheatItem(itm, 0);
-			}catch(Exception e) {
+			} catch(Exception e) {
 				Util.sendMessage(e.toString());
-			}
-		else if(cmd.equalsIgnoreCase("#debug"))
-		{
+			} else if(cmd.equalsIgnoreCase("#debug")) {
 			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ,
-					"random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
-			for(Addon a : addonManager.getAddons())
-			{
+			                            "random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
+			for(Addon a : addonManager.getAddons()) {
 				AddonProperties ap = addonManager.getProps(a);
 				Util.sendMessage(a.getName() + " " + ap.name + " " + ap.author + " " + ap.version + " " + ap.mainClass + " " + ap.desc);
 			}
 			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 			Util.sendMessage(mods.authMeCrack.getCrs());
-		}
-		else if(cmd.equalsIgnoreCase("#set"))
+		} else if(cmd.equalsIgnoreCase("#set"))
 			options.set(args);
 		else if(cmd.equalsIgnoreCase("#get"))
 			options.get(args);
 		else if(cmd.equalsIgnoreCase("#list"))
 			options.list(args);
 		else addonManager.execCmd(args);
-  	}
+	}
 
 	public McLeaksSession getMcLeaksSession() {
 		return mcLeaksSession;

@@ -21,7 +21,7 @@ public class McLeaksApi {
 
 	/**
 	 * Redeems an MCLeaks token.
-	 * 
+	 *
 	 * @param token The McLeaks-Token
 	 * @return The current McLeaks-Session
 	 * @throws Exception
@@ -41,7 +41,7 @@ public class McLeaksApi {
 	}
 
 	/**
-	 * 
+	 *
 	 * @param session    The current session
 	 * @param mcName     The player-name
 	 * @param serverHash The mc-server-hash
@@ -50,11 +50,11 @@ public class McLeaksApi {
 	 */
 	public static void joinServer(McLeaksSession mclssession, String serverHash, String server) throws Exception {
 		URLConnection con = preparePostRequest("https://auth.mcleaks.net/v1/joinserver",
-				"{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname()
-						+ "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
+		                                       "{\"session\":\"" + mclssession.getSession() + "\",\"mcname\":\"" + mclssession.getMcname()
+		                                       + "\",\"serverhash\":\"" + serverHash + "\",\"server\":\"" + server + "\"}");
 		if (con == null)
 			throw new ConnectException(
-					"The connection couldn't be established, please check your internet connection!");
+			    "The connection couldn't be established, please check your internet connection!");
 		getResult(con);
 	}
 
@@ -87,11 +87,11 @@ public class McLeaksApi {
 		final JsonElement jsonElement = (JsonElement) gson.fromJson(result.toString(), JsonElement.class);
 		System.out.println("[MCLeaksAPI] Got result: \"" + result + "\"");
 		if (!jsonElement.isJsonObject() || !jsonElement.getAsJsonObject().has("success")
-				|| !jsonElement.getAsJsonObject().get("success").getAsBoolean()
-				|| !jsonElement.getAsJsonObject().has("result"))
+		        || !jsonElement.getAsJsonObject().get("success").getAsBoolean()
+		        || !jsonElement.getAsJsonObject().has("result"))
 			throw new Exception("Getting the result didn't succeed.");
 		return jsonElement.getAsJsonObject().get("result").isJsonObject()
-				? jsonElement.getAsJsonObject().get("result").getAsJsonObject()
-				: null;
+		       ? jsonElement.getAsJsonObject().get("result").getAsJsonObject()
+		       : null;
 	}
 }

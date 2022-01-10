@@ -41,7 +41,7 @@ public class AddonManager {
 
 	/**
 	 * initializes the addonmanager and loads the addons from the path
-	 * 
+	 *
 	 * @param addonPath the path where the addons are located
 	 */
 	public void init(String addonPath) {
@@ -51,7 +51,7 @@ public class AddonManager {
 			try {
 				AddonProperties p = loadProperties(f);
 				addAddon((Addon) URLClassLoader.newInstance(new URL[] { f.toURI().toURL() }).loadClass(p.mainClass)
-						.newInstance(), p);
+				         .newInstance(), p);
 			} catch (Exception e) {
 				Util.fatal("Failed to load addon " + f);
 				e.printStackTrace();
@@ -59,11 +59,11 @@ public class AddonManager {
 
 		for (final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
 			commands.add(new Command(ce.getArgv0(), new Consumer<String[]>() {
-				@Override
-				public void accept(String[] t) {
-					ce.processCommand(t);
-				}
-			}));
+			@Override
+			public void accept(String[] t) {
+				ce.processCommand(t);
+			}
+		}));
 
 		commands.add(new Command("#alt", new Consumer<String[]>() {
 			@Override
@@ -92,7 +92,7 @@ public class AddonManager {
 
 	/**
 	 * Loads the addon's properties.
-	 * 
+	 *
 	 * @param f The file that should contain the addon
 	 * @return The loaded props
 	 * @throws ZipException
@@ -107,7 +107,7 @@ public class AddonManager {
 		String s;
 		ZipFile zip = new ZipFile(f);
 		BufferedReader br = new BufferedReader(
-				new InputStreamReader(zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")), StandardCharsets.UTF_8));
+		    new InputStreamReader(zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")), StandardCharsets.UTF_8));
 
 		while ((s = br.readLine()) != null) {
 			String[] tokens = s.split(" ");
@@ -130,7 +130,7 @@ public class AddonManager {
 
 	/**
 	 * gets an addon by a name
-	 * 
+	 *
 	 * @param name the name of the addon
 	 * @return the addon specified by the name
 	 */
@@ -143,7 +143,7 @@ public class AddonManager {
 
 	/**
 	 * gets the props by the addon
-	 * 
+	 *
 	 * @param a the addon
 	 * @return the properties of the addon
 	 */
@@ -153,7 +153,7 @@ public class AddonManager {
 
 	/**
 	 * adds the addon and the properties to the internal maps
-	 * 
+	 *
 	 * @param a the addon
 	 * @param p the props of the addon
 	 */
@@ -167,7 +167,7 @@ public class AddonManager {
 
 	/**
 	 * executes the command
-	 * 
+	 *
 	 * @param args the ' '-splitted args
 	 */
 	public void execCmd(String[] args) {

@@ -103,7 +103,7 @@ public class Util {
 	/**
 	 * Splits the string without trying something with regexes but just a single
 	 * character separator.
-	 * 
+	 *
 	 * @param s         The string to split
 	 * @param separator The separator at which the string should be splitted.
 	 * @return The splitted string (as an array).
@@ -132,14 +132,14 @@ public class Util {
 
 	/**
 	 * Sends the packet to break the block instantly.
-	 * 
+	 *
 	 * @param block The block to break.
 	 */
 	public static void breakBlock(BlockPos block) {
 		mc.thePlayer.sendQueue
-				.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
+		.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
 		mc.thePlayer.sendQueue
-				.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
+		.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
 	}
 
 	public static String generateTempFile(String tmp, String name, String ext) {
@@ -306,7 +306,7 @@ public class Util {
 	 */
 	public static void sendMessage(String msg) {
 		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent(
-				"{\"text\":\"" + Consts.prefix + msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+		                                "{\"text\":\"" + Consts.prefix + msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
 	}
 
 	/**
@@ -343,15 +343,16 @@ public class Util {
 		double y = Random.randDouble(minY, maxY) - (mc.thePlayer.posY + mc.thePlayer.getEyeHeight());
 		double z = Random.randDouble(minZ, maxZ) - mc.thePlayer.posZ;
 		return new float[] {
-				mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(
-						((float) (Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
-				mc.thePlayer.rotationPitch + MathHelper
-						.wrapAngleTo180_float(((float) -(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI))
-								- mc.thePlayer.rotationPitch) };
+		           mc.thePlayer.rotationYaw + MathHelper.wrapAngleTo180_float(
+		               ((float) (Math.atan2(z, x) * 180 / Math.PI) - 90) - mc.thePlayer.rotationYaw),
+		           mc.thePlayer.rotationPitch + MathHelper
+		           .wrapAngleTo180_float(((float) -(Math.atan2(y, MathHelper.sqrt(x * x + z * z)) * 180 / Math.PI))
+		                                 - mc.thePlayer.rotationPitch)
+		       };
 	}
 
 	/**
-	 * 
+	 *
 	 * @param pl  the player
 	 * @param r   the range around the player to search in
 	 * @param mbv whether the block must be visible
@@ -409,7 +410,8 @@ public class Util {
 		double z = vec.z - mc.thePlayer.posZ;
 
 		return new float[] { MathHelper.wrapAngleTo180_float((float) Math.toDegrees(Math.atan2(z, x)) - 90),
-				MathHelper.wrapAngleTo180_float((float) -Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z)))) };
+		                     MathHelper.wrapAngleTo180_float((float) -Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))
+		                   };
 	}
 
 	public static <T> int firstHotbarIndex(Class<T> item, ItemStack[] inventory) {
@@ -458,7 +460,7 @@ public class Util {
 		GL11.glLineWidth(2.0F);
 		GL11.glPushMatrix();
 		GL11.glTranslated(-mc.getRenderManager().viewerPosX, -mc.getRenderManager().viewerPosY,
-				-mc.getRenderManager().viewerPosZ);
+		                  -mc.getRenderManager().viewerPosZ);
 		double f = Math.cos(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
 		double f1 = Math.sin(-mc.thePlayer.rotationYaw * 0.017453292 - Math.PI);
 		double f2 = -Math.cos(-mc.thePlayer.rotationPitch * 0.017453292);

@@ -25,7 +25,7 @@ public class FastEat extends Mod {
 		EntityPlayerSP p = player();
 		ItemStack is = p.getHeldItem();
 		if (p.getHealth() > 0 && p.onGround && settings().keyBindUseItem.isKeyDown() && p.getFoodStats().needFood()
-				&& is != null && is.getItem() instanceof ItemFood)
+		        && is != null && is.getItem() instanceof ItemFood)
 			for (int i = 0; i < speed.value; i++)
 				sendPacket(new C03PacketPlayer(false));
 	}

@@ -10,7 +10,7 @@ public class InventoryWalk extends Mod {
 
 	public InventoryWalk() {
 		super("InventoryWalk", "invwalk",
-				"Allows you to walk while your inventory is open, as well as using the arrow keys to turn");
+		      "Allows you to walk while your inventory is open, as well as using the arrow keys to turn");
 	}
 
 	// This is inspired by the XIV client:
@@ -21,7 +21,8 @@ public class InventoryWalk extends Mod {
 			return;
 
 		KeyBinding[] movebinds = { settings().keyBindForward, settings().keyBindBack, settings().keyBindLeft,
-				settings().keyBindRight, settings().keyBindJump };
+		                           settings().keyBindRight, settings().keyBindJump
+		                         };
 
 		for (KeyBinding kb : movebinds)
 			KeyBinding.setKeyBindState(kb.getKeyCode(), Keyboard.isKeyDown(kb.getKeyCode()));

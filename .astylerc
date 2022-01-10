@@ -1,0 +1,6 @@
+--lineend=linux
+--preserve-date
+--suffix=none
+--style=java
+--indent=tab=4
+--max-continuation-indent=80

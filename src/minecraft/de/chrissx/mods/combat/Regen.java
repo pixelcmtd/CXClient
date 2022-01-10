@@ -22,7 +22,7 @@ public class Regen extends Mod {
 	public void onTick() {
 		EntityPlayerSP p = player();
 		if (!playerController().isInCreativeMode() && p.getFoodStats().getFoodLevel() > 17 && p.getHealth() < 20
-				&& p.getHealth() != 0 && p.onGround)
+		        && p.getHealth() != 0 && p.onGround)
 			for (short i = 0; i < speed.value; i++)
 				sendPacket(new C03PacketPlayer());
 	}

@@ -36,6 +36,6 @@ public class Xray extends Mod {
 			xrayBlocks.remove(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
 		else
 			Util.sendMessage(
-					"#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
+			    "#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
 	}
 }

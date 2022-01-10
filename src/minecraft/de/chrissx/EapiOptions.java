@@ -7,8 +7,7 @@ import java.io.FileOutputStream;
 import de.chrissx.options.IOptions;
 import de.chrissx.util.Util;
 
-public class EapiOptions implements IOptions
-{
+public class EapiOptions implements IOptions {
 	public int sleep = 1000;
 
 	@Override

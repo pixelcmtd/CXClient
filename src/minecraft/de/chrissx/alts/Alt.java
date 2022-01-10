@@ -4,12 +4,12 @@ public class Alt {
 
 	private String email;
 	private String pass;
-	
+
 	public Alt(String email, String pass) {
 		this.email = email;
 		this.pass = pass;
 	}
-	
+
 	public String getEmail() {
 		return email;
 	}

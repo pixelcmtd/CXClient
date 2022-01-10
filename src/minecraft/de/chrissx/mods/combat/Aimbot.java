@@ -14,7 +14,7 @@ public class Aimbot extends Mod {
 		@Override
 		public void set(String value) {
 			this.value = value == "" ? (this.value == AimbotMode.BOW ? AimbotMode.GUN : AimbotMode.BOW)
-					: AimbotMode.valueOf(value);
+			             : AimbotMode.valueOf(value);
 		}
 	};
 	File mf;
@@ -30,7 +30,7 @@ public class Aimbot extends Mod {
 		if (mode.value == AimbotMode.GUN)
 			for (Entity e : world().loadedEntityList)
 				if (e instanceof EntityLivingBase && e != player() && !e.isInvisible() && !e.isDead
-						&& player().getDistanceToEntity(e) <= 30) {
+				        && player().getDistanceToEntity(e) <= 30) {
 					Util.faceBounds(e.boundingBox);
 					return;
 				} else

@@ -6,7 +6,7 @@ public class Phase extends Mod {
 
 	public Phase() {
 		super("Phase", "phase",
-				"A weird style of movement that exploits an ancient NoCheatPlus bug to pass through blocks");
+		      "A weird style of movement that exploits an ancient NoCheatPlus bug to pass through blocks");
 	}
 
 	@Override

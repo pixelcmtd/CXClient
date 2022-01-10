@@ -7,7 +7,8 @@ import net.minecraft.potion.Potion;
 public class AntiPotion extends Mod {
 
 	final Potion[] blockedEffects = { Potion.hunger, Potion.moveSlowdown, Potion.digSlowdown, Potion.harm,
-			Potion.confusion, Potion.blindness, Potion.weakness, Potion.wither, Potion.poison };
+	                                  Potion.confusion, Potion.blindness, Potion.weakness, Potion.wither, Potion.poison
+	                                };
 
 	public AntiPotion() {
 		super("AntiPotion", "antipotion", "Automatically tries to get rid of any bad potion effects once you get them");
