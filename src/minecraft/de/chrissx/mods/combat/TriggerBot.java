@@ -11,7 +11,7 @@ public class TriggerBot extends Mod {
 
 	@Override
 	public void onTick() {
-		if (mc.objectMouseOver != null && mc.objectMouseOver.getBlockPos() != null && mc.objectMouseOver.entityHit != null) {
+		if (mc.objectMouseOver != null && mc.objectMouseOver.entityHit != null) {
 			player().swingItem();
 			playerController().attackEntity(player(), mc.objectMouseOver.entityHit);
 		}
