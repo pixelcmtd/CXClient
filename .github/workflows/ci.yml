@@ -1,0 +1,14 @@
+name: CI
+
+on: [push, workflow_dispatch]
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: ant
+      - uses: actions/upload-artifact@v2
+        with:
+          name: cxclient_${{ env.GITHUB_RUN_ID }}
+          path: cxclient.jar

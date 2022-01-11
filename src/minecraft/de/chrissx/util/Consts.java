@@ -44,13 +44,16 @@ public class Consts {
 	public static String eapiOptionsFile;
 	public static final String clientName = "CXClient";
 	public static final String prefix = "\u00a7c[" + clientName + "] \u00a7f";
-	public static final String version = "alpha 3031";
+	public static final String version = "alpha 3033";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3031;
+	public static final int BLDNUM = -3033;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 	    clientName + " " + version + " Changelog:",
 	    "",
+	    "— Improvements to the help messages of most commands",
+	    "— Removed all of the Twitch streaming support from Minecraft",
+	    "— Added a TriggerBot",
 	};
 
 	public static final String[] credits = new String[] {
@@ -64,10 +67,10 @@ public class Consts {
 	    "",
 	    "Thanks to:",
 	    "",
-	    "-Garkolym for showing a few exploits in his videos (for example #text)",
-	    "-The developers of Wurst for making another open source client, we looked at, when we needed ideas for hacks or when we just f*ed up",
-	    "-Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://youtube.com/c/Trace1337",
-	    "-A few other people we stealt the Fly- and Speed-Bypasses from"
+	    "— Garkolym for showing a few exploits in his videos (for example #text)",
+	    "— The developers of Wurst for making another open source client, we looked at, when we needed ideas for hacks or when we just f*ed up",
+	    "— Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://youtube.com/c/Trace1337",
+	    "— A few other people we stealt the Fly- and Speed-Bypasses from"
 	};
 
 	public static final String extraHelp = " #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help";

@@ -10,8 +10,8 @@
 | September 2019-October 2020 | 3.1-3.2 | GitHub source under BSD 3-clause                        |
 
 ## Building
-```
-git clone https://github.com/chrissxYT/CXClient.git
+```sh
+git clone https://github.com/pixelcmtd/CXClient.git
 ```
 
 Open Eclipse with `/path/to/CXClient/eclipse` as the workspace, add a new Java
