@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="create_run_jar" name="Create Runnable Jar for Project Client">
   <target name="compile" description="compile the source">
+    <mkdir dir="eclipse/Client/bin/"/>
     <javac srcdir="src/" destdir="eclipse/Client/bin/"/>
   </target>
     <target name="create_run_jar">
