@@ -23,7 +23,6 @@ import de.chrissx.hotkeys.Hotkey;
 import de.chrissx.hotkeys.HotkeySaving;
 import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
-import de.chrissx.iapi.AddonProperties;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.ChatBot;
 import de.chrissx.mods.EapiModule;
@@ -124,8 +123,7 @@ public class HackedClient {
 
 		altManager = new AltManager();
 		mods = new ModList();
-		addonManager = new AddonManager();
-		addonManager.init(Consts.addonPath);
+		addonManager = new AddonManager(Consts.addonPath);
 
 		options = new Options();
 		options.init(new File(Consts.optionsFile));
@@ -399,9 +397,8 @@ public class HackedClient {
 			} else if(cmd.equalsIgnoreCase("#debug")) {
 			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ,
 			                            "random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
-			for(Addon a : addonManager.getAddons()) {
-				AddonProperties ap = addonManager.getProps(a);
-				Util.sendMessage(a.getName() + " " + ap.name + " " + ap.author + " " + ap.version + " " + ap.mainClass + " " + ap.desc);
+			for(Addon a : addonManager.addons) {
+				Util.sendMessage(a.name + " " + a.author + " " + a.version + " " + a.description);
 			}
 			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);

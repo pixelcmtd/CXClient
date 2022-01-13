@@ -7,7 +7,6 @@ import de.chrissx.mods.options.FloatOption;
 import net.minecraft.client.gui.GuiMainMenu;
 import net.minecraft.client.gui.GuiMultiplayer;
 import net.minecraft.client.multiplayer.WorldClient;
-import net.minecraft.realms.RealmsBridge;
 
 public class AutoLeave extends Mod {
 
@@ -28,8 +27,6 @@ public class AutoLeave extends Mod {
 			mc.loadWorld((WorldClient) null);
 			if (mc.isIntegratedServerRunning())
 				mc.displayGuiScreen(new GuiMainMenu());
-			else if (mc.func_181540_al())
-				new RealmsBridge().switchToRealms(new GuiMainMenu());
 			else
 				mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
 		}

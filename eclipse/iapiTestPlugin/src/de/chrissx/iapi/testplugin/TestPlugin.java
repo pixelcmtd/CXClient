@@ -9,7 +9,12 @@ import de.chrissx.util.Util;
 public class TestPlugin extends Addon {
 
 	public TestPlugin() {
-		getManager().registerCommand(new Command("#ping", new Consumer<String[]>(){@Override
-			public void accept(String[] arg0) {Util.sendMessage("Pong!");}}));
+		super("TestAddon", "pixel, chrissx Media", "1.0.0", "This is a addon/plugin used to test the iAPI capabilities of the CXClient.");
+		getManager().registerCommand(new Command("#ping", new Consumer<String[]>() {
+			@Override
+			public void accept(String[] arg0) {
+				Util.sendMessage("Pong!");
+			}
+		}));
 	}
 }

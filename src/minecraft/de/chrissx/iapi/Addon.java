@@ -5,6 +5,15 @@ import net.minecraft.client.Minecraft;
 
 public abstract class Addon {
 
+	public final String name, author, version, description;
+
+	protected Addon(String name, String author, String version, String description) {
+		this.name = name;
+		this.author = author;
+		this.version = version;
+		this.description = description;
+	}
+
 	/**
 	 * Gets the AddonManager
 	 * @return The AddonManager
@@ -27,13 +36,5 @@ public abstract class Addon {
 	 */
 	public Minecraft getMinecraft() {
 		return Minecraft.getMinecraft();
-	}
-
-	/**
-	 * Gets the name of this Addon
-	 * @return The Addon's name
-	 */
-	public String getName() {
-		return getManager().getName(this);
 	}
 }

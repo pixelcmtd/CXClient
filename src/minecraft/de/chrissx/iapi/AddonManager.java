@@ -26,8 +26,8 @@ import net.minecraft.client.Minecraft;
 
 public class AddonManager {
 
-	Map<Addon, AddonProperties> addons = new HashMap<Addon, AddonProperties>();
-	List<Command> commands = new ArrayList<Command>();
+	public final List<Addon> addons = new ArrayList<Addon>();
+	public final List<Command> commands = new ArrayList<Command>();
 
 	/**
 	 * the path in which the addons are located
@@ -44,14 +44,13 @@ public class AddonManager {
 	 *
 	 * @param addonPath the path where the addons are located
 	 */
-	public void init(String addonPath) {
+	public AddonManager(String addonPath) {
 		path = addonPath;
 
 		for (File f : new File(path).listFiles())
 			try {
-				AddonProperties p = loadProperties(f);
-				addAddon((Addon) URLClassLoader.newInstance(new URL[] { f.toURI().toURL() }).loadClass(p.mainClass)
-				         .newInstance(), p);
+				addAddon((Addon) URLClassLoader.newInstance(new URL[] { f.toURI().toURL() }).loadClass(getMainClass(f))
+				         .newInstance());
 			} catch (Exception e) {
 				Util.fatal("Failed to load addon " + f);
 				e.printStackTrace();
@@ -91,41 +90,19 @@ public class AddonManager {
 	}
 
 	/**
-	 * Loads the addon's properties.
+	 * Loads the addon's main class from `addon.main`.
 	 *
 	 * @param f The file that should contain the addon
-	 * @return The loaded props
+	 * @return The main class of that addon
 	 * @throws ZipException
 	 * @throws IOException
 	 */
-	AddonProperties loadProperties(File f) throws ZipException, IOException {
-		String name = "";
-		String author = "";
-		String version = "";
-		String desc = "";
-		String main = "";
-		String s;
+	String getMainClass(File f) throws ZipException, IOException {
 		ZipFile zip = new ZipFile(f);
-		BufferedReader br = new BufferedReader(
-		    new InputStreamReader(zip.getInputStream(zip.getEntry("CXCLIENT-ADDON")), StandardCharsets.UTF_8));
-
-		while ((s = br.readLine()) != null) {
-			String[] tokens = s.split(" ");
-			if (tokens[0].equalsIgnoreCase("name"))
-				name = Util.combineParts(tokens, 1, " ");
-			else if (tokens[0].equalsIgnoreCase("author"))
-				author = Util.combineParts(tokens, 1, " ");
-			else if (tokens[0].equalsIgnoreCase("version"))
-				version = Util.combineParts(tokens, 1, " ");
-			else if (tokens[0].equalsIgnoreCase("desc"))
-				desc = Util.combineParts(tokens, 1, " ");
-			else if (tokens[0].equalsIgnoreCase("main"))
-				main = tokens[1];
-			else
-				Util.info("Can't read addon config line \"" + s + "\".");
-		}
+		String main = new BufferedReader(
+		    new InputStreamReader(zip.getInputStream(zip.getEntry("addon.main")), StandardCharsets.UTF_8)).readLine();
 		zip.close();
-		return new AddonProperties(name, author, version, desc, main);
+		return main;
 	}
 
 	/**
@@ -135,30 +112,19 @@ public class AddonManager {
 	 * @return the addon specified by the name
 	 */
 	public Addon getAddon(String name) {
-		for (Entry<Addon, AddonProperties> e : addons.entrySet())
-			if (e.getValue().name == name)
-				return e.getKey();
+		for (Addon a : addons)
+			if (a.name == name)
+				return a;
 		return null;
 	}
 
 	/**
-	 * gets the props by the addon
+	 * adds the addon to the internal list
 	 *
 	 * @param a the addon
-	 * @return the properties of the addon
 	 */
-	public AddonProperties getProps(Addon a) {
-		return addons.get(a);
-	}
-
-	/**
-	 * adds the addon and the properties to the internal maps
-	 *
-	 * @param a the addon
-	 * @param p the props of the addon
-	 */
-	public void addAddon(Addon a, AddonProperties p) {
-		addons.put(a, p);
+	public void addAddon(Addon a) {
+		addons.add(a);
 	}
 
 	public void registerCommand(Command c) {
@@ -180,14 +146,6 @@ public class AddonManager {
 				return;
 			}
 		Util.sendMessage(getHelp() + Consts.extraHelp);
-	}
-
-	public Set<Addon> getAddons() {
-		return addons.keySet();
-	}
-
-	public String getName(Addon a) {
-		return addons.get(a).name;
 	}
 
 	public int getBuildNumber() {
