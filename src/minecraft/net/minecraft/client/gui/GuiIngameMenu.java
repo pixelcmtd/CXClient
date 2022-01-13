@@ -7,7 +7,6 @@ import net.minecraft.client.gui.achievement.GuiAchievements;
 import net.minecraft.client.gui.achievement.GuiStats;
 import net.minecraft.client.multiplayer.WorldClient;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.realms.RealmsBridge;
 
 public class GuiIngameMenu extends GuiScreen
 {
@@ -59,8 +58,6 @@ public class GuiIngameMenu extends GuiScreen
 
                 if (mc.isIntegratedServerRunning())
                     this.mc.displayGuiScreen(new GuiMainMenu());
-                else if (mc.func_181540_al())
-                    new RealmsBridge().switchToRealms(new GuiMainMenu());
                 else
                     this.mc.displayGuiScreen(new GuiMultiplayer(new GuiMainMenu()));
 

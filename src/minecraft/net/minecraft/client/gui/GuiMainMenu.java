@@ -1,17 +1,11 @@
 package net.minecraft.client.gui;
 
-import com.google.common.collect.Lists;
-
-import de.chrissx.HackedClient;
 import de.chrissx.util.Consts;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.net.URI;
 import java.util.Calendar;
 import java.util.Date;
-import java.util.List;
 import java.util.Random;
 import java.util.concurrent.atomic.AtomicInteger;
 import net.minecraft.client.Minecraft;
@@ -22,14 +16,12 @@ import net.minecraft.client.renderer.WorldRenderer;
 import net.minecraft.client.renderer.texture.DynamicTexture;
 import net.minecraft.client.renderer.vertex.DefaultVertexFormats;
 import net.minecraft.client.resources.I18n;
-import net.minecraft.realms.RealmsBridge;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.demo.DemoWorldServer;
 import net.minecraft.world.storage.ISaveFormat;
 import net.minecraft.world.storage.WorldInfo;
-import org.apache.commons.io.Charsets;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.lwjgl.opengl.GL11;
@@ -83,9 +75,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
     private int field_92020_v;
     private int field_92019_w;
     private ResourceLocation backgroundTexture;
-
-    /** Minecraft Realms button. */
-    private GuiButton realmsButton;
 
     public GuiMainMenu()
     {
@@ -174,7 +163,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
     {
         this.buttonList.add(new GuiButton(1, this.width / 2 - 100, p_73969_1_, I18n.format("menu.singleplayer", new Object[0])));
         this.buttonList.add(new GuiButton(2, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 1, I18n.format("menu.multiplayer", new Object[0])));
-        this.buttonList.add(this.realmsButton = new GuiButton(14, this.width / 2 - 100, p_73969_1_ + p_73969_2_ * 2, I18n.format("menu.online", new Object[0])));
     }
 
     /**
@@ -218,11 +206,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
             this.mc.displayGuiScreen(new GuiMultiplayer(this));
         }
 
-        if (button.id == 14 && this.realmsButton.visible)
-        {
-            this.switchToRealms();
-        }
-
         if (button.id == 4)
         {
             this.mc.shutdown();
@@ -244,12 +227,6 @@ public class GuiMainMenu extends GuiScreen implements GuiYesNoCallback
                 this.mc.displayGuiScreen(guiyesno);
             }
         }
-    }
-
-    private void switchToRealms()
-    {
-        RealmsBridge realmsbridge = new RealmsBridge();
-        realmsbridge.switchToRealms(this);
     }
 
     public void confirmClicked(boolean result, int id)
