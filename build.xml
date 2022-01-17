@@ -8,7 +8,7 @@
 	</target>
 	<target depends="fmt" name="compile" description="compile the source">
 		<mkdir dir="eclipse/Client/bin/"/>
-		<javac srcdir="src/" destdir="eclipse/Client/bin/" source="7" target="7">
+		<javac srcdir="src/" destdir="eclipse/Client/bin/" source="8" target="8">
 			<classpath>
 				<fileset dir="jars/libraries/">
 					<include name="**/*.jar"/>
@@ -23,7 +23,7 @@
 				<attribute name="Class-Path" value="."/>
 			</manifest>
 			<fileset dir="eclipse/Client/bin"/>
-			<zipfileset excludes="META-INF/*.SF" src="jars/versions/1.8.8/1.8.8.jar"/>
+                        <zipfileset excludes="META-INF/*.SF" src="jars/versions/res.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/oshi-project/oshi-core/1.1/oshi-core-1.1.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar"/>
