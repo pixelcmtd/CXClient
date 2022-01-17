@@ -6,6 +6,7 @@ import java.util.List;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.BooleanOption;
 import de.chrissx.mods.options.DoubleOption;
+import de.chrissx.mods.options.EnumOption;
 import de.chrissx.mods.options.Option;
 import de.chrissx.util.Random;
 import de.chrissx.util.Util;
@@ -17,12 +18,7 @@ public class Killaura extends Mod {
 
 	// TODO: rename some (of the legit) options
 	DoubleOption max_range = new DoubleOption("range", "The range in which to kill", 6);
-	Option<KillauraMode> mode = new Option<KillauraMode>("bypass", "Whether to attack players, mobs, or both", KillauraMode.BOTH) {
-		@Override
-		public void set(String value) {
-			this.value = KillauraMode.valueOf(value);
-		}
-	};
+	Option<KillauraMode> mode = new EnumOption<KillauraMode>(KillauraMode.class, "bypass", "Whether to attack players, mobs, or both", new KillauraMode[] {KillauraMode.BOTH, KillauraMode.PLAYERS, KillauraMode.MOBS});
 	BooleanOption attackInvis = new BooleanOption("invis", "Whether to attack invisible entities", false);
 	BooleanOption legit1 = new BooleanOption("legit1", "Whether to target the attacked entities", false);
 	BooleanOption legit2 = new BooleanOption("legit1", "Whether to sometimes miss randomly", false);

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.options.EnumOption;
 import de.chrissx.mods.options.Option;
 import de.chrissx.util.Random;
 import de.chrissx.util.Util;
@@ -13,18 +14,8 @@ import net.minecraft.util.BlockPos;
 public class Nuker extends Mod {
 
 	int count = 6;
-	Option<NukerBypassLevel> bypass = new Option<NukerBypassLevel>("bypass", "None, slow, or legit, how hard to bypass AC", NukerBypassLevel.NONE) {
-		@Override
-		public void set(String value) {
-			this.value = NukerBypassLevel.valueOf(value);
-		}
-	};
-	Option<NukerMode> mode = new Option<NukerMode>("mode", "All or click, which blocks to break", NukerMode.ALL) {
-		@Override
-		public void set(String value) {
-			this.value = NukerMode.valueOf(value.toUpperCase());
-		}
-	};
+	Option<NukerBypassLevel> bypass = new EnumOption<NukerBypassLevel>(NukerBypassLevel.class, "bypass", "None, slow, or legit, how hard to bypass AC", new NukerBypassLevel[] {NukerBypassLevel.NONE, NukerBypassLevel.SLOW, NukerBypassLevel.LEGIT});
+	Option<NukerMode> mode = new EnumOption<NukerMode>(NukerMode.class, "mode", "All or click, which blocks to break", new NukerMode[] {NukerMode.ALL, NukerMode.CLICK});
 
 	public Nuker() {
 		super("Nuker", "nuker", "Breaks all blocks around you");

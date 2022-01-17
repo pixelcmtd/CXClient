@@ -479,4 +479,11 @@ public class Util {
 		GL11.glEnd();
 		GL11.glPopMatrix();
 	}
+
+	public static <T> int indexOf(T[] array, T element) {
+		for(int i = 0; i < array.length; i++)
+			if(array[i] == element)
+				return i;
+		return -1;
+	}
 }

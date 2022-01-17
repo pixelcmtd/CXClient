@@ -1,6 +1,7 @@
 package de.chrissx.mods.movement;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.options.EnumOption;
 import de.chrissx.mods.options.Option;
 import de.chrissx.util.Util;
 import net.minecraft.network.play.client.C0BPacketEntityAction;
@@ -8,14 +9,7 @@ import net.minecraft.network.play.client.C0BPacketEntityAction.Action;
 
 public class Sneak extends Mod {
 
-	Option<SneakMode> mode = new Option<SneakMode>("mode", "Whether the sneaking is simulated or real",
-	SneakMode.PACKET) {
-		@Override
-		public void set(String value) {
-			this.value = value == "" ? (this.value == SneakMode.PACKET ? SneakMode.BYPASS : SneakMode.PACKET)
-			             : SneakMode.valueOf(value.toUpperCase());
-		}
-	};
+	Option<SneakMode> mode = new EnumOption<SneakMode>(SneakMode.class, "mode", "Whether the sneaking is simulated or real", new SneakMode[] {SneakMode.PACKET, SneakMode.BYPASS});
 
 	public Sneak() {
 		super("Sneak", "sneak", "Makes you sneak continuously");

@@ -1,13 +1,7 @@
 package de.chrissx.mods;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import de.chrissx.mods.building.*;
 import de.chrissx.mods.chat.*;
@@ -16,7 +10,7 @@ import de.chrissx.mods.fun.*;
 import de.chrissx.mods.movement.*;
 import de.chrissx.mods.render.*;
 
-public class ModList implements Iterable<Mod> {
+public class ModList {
 
 	public final IAUI iaui = new IAUI();
 	public final SkinBlinker skinBlinker = new SkinBlinker();
@@ -98,17 +92,16 @@ public class ModList implements Iterable<Mod> {
 	public final DropInventory dropInventory = new DropInventory();
 	public final Throw thrower = new Throw();
 
-	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
-
-	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
-	                               fasthit, autoclicker, noswing, authMeCrack, afk, autosteal, killaura, nuker, sneak, tracer, massTpa,
-	                               vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
-	                               legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
-	                               fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
-	                               highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
-	                               autoJump, invWalk, triggerBot,
-	                               // TODO: rewiWords
-	                             };
+	public final Mod[] mods = new Mod[] { iaui, skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
+	                                      fasthit, autoclicker, noswing, authMeCrack, afk, autosteal, killaura, nuker, sneak, tracer, massTpa,
+	                                      vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
+	                                      legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
+	                                      fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
+	                                      highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
+	                                      autoJump, invWalk, triggerBot,
+	                                      // TODO: rewiWords
+	                                    };
+	public final List<Bindable> bindables = new ArrayList<Bindable>();
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
 	public final List<TickListener> tickListeners = new ArrayList<TickListener>();
 	public final List<StopListener> stopListeners = new ArrayList<StopListener>();
@@ -117,22 +110,22 @@ public class ModList implements Iterable<Mod> {
 	public final List<ChatBot> chatBots = new ArrayList<ChatBot>();
 
 	public ModList() {
-		// TODO: mod?
-		addBindable(iaui);
-		addBindable(home);
-		addBindable(panic);
-		addBindable(trollPotion);
-		addBindable(killPotion);
-		addBindable(text);
-		addBindable(multiText);
-		addBindable(flip);
-		addBindable(dropInventory);
-		addBindable(thrower);
+		bindables.add(home);
+		bindables.add(panic);
+		bindables.add(trollPotion);
+		bindables.add(killPotion);
+		bindables.add(text);
+		bindables.add(multiText);
+		bindables.add(flip);
+		bindables.add(dropInventory);
+		bindables.add(thrower);
 
 		for (Mod m : mods)
-			addBindable(m);
+			bindables.add(m);
 
-		for (Bindable b : bindable.values()) {
+		bindables.sort((x, y) -> x.getName().toLowerCase().compareTo(y.getName().toLowerCase()));
+
+		for (Bindable b : bindables) {
 			if (b instanceof RenderedObject)
 				renderedObjects.add((RenderedObject) b);
 			if (b instanceof TickListener)
@@ -148,24 +141,10 @@ public class ModList implements Iterable<Mod> {
 		}
 	}
 
-	public void addBindable(Bindable b) {
-		bindable.put(b.getName().toLowerCase(), b);
-	}
-
-	public Set<Entry<String, Bindable>> getBindEntrys() {
-		return bindable.entrySet();
-	}
-
 	public Bindable getBindable(String name) {
-		return bindable.get(name.toLowerCase());
-	}
-
-	public Mod get(int i) {
-		return mods[i];
-	}
-
-	@Override
-	public Iterator<Mod> iterator() {
-		return Arrays.asList(mods).iterator();
+		for(Bindable b : bindables)
+			if(b.getName().equalsIgnoreCase(name))
+				return b;
+		return null;
 	}
 }
