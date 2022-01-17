@@ -3,8 +3,6 @@ package de.chrissx;
 import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
-import java.nio.ByteBuffer;
-import java.nio.charset.StandardCharsets;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -12,8 +10,6 @@ import java.util.List;
 import java.util.Map.Entry;
 
 import org.lwjgl.input.Keyboard;
-
-import com.google.common.io.Files;
 
 import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
@@ -25,13 +21,11 @@ import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
 import de.chrissx.mods.Bindable;
 import de.chrissx.mods.ChatBot;
-import de.chrissx.mods.EapiModule;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
 import de.chrissx.mods.RenderedObject;
 import de.chrissx.mods.StopListener;
 import de.chrissx.mods.TickListener;
-import de.chrissx.options.Options;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
@@ -56,7 +50,6 @@ public class HackedClient {
 	McLeaksSession mcLeaksSession = null;
 	boolean disableHotkeys = true;
 	final AddonManager addonManager;
-	final Options options;
 
 	public void onDraw(FontRenderer r) {
 		if(!invis) {
@@ -95,9 +88,6 @@ public class HackedClient {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-
-		options.stop(new File(Consts.optionsFile));
-		options.eapi.stop(new File(Consts.eapiOptionsFile));
 	}
 
 	public HackedClient() throws IOException {
@@ -109,8 +99,6 @@ public class HackedClient {
 
 		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
 		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
-		Util.checkIfExistsAndMake(Consts.eapiPath, "eapiPath");
-		Util.checkIfExistsAndMake(Consts.togglePath, "enablePath");
 
 		File f = new File(Consts.hotkeyFile);
 
@@ -125,80 +113,7 @@ public class HackedClient {
 		mods = new ModList();
 		addonManager = new AddonManager(Consts.addonPath);
 
-		options = new Options();
-		options.init(new File(Consts.optionsFile));
-		options.eapi.init(new File(Consts.optionsFile));
-
-		f = new File(Consts.runningFile);
-
-		try {
-			f.createNewFile();
-		} catch (IOException e1) {
-			e1.printStackTrace();
-		}
-
-		f.deleteOnExit();
-
-		f = new File(Consts.eapiVersionFile);
-		int i = Consts.APIVER;
-		Files.write(new byte[] {(byte)(i >> 24), (byte)(i >> 16), (byte)(i >> 8), (byte)i}, f);
-
-		Files.write(StandardCharsets.UTF_8.encode(Consts.mcVersion).array(), new File(Consts.mcVersionFile));
-		Files.write(StandardCharsets.UTF_8.encode(mc.getVersion()).array(), new File(Consts.launchedVersionFile));
-		Files.write(StandardCharsets.UTF_8.encode(Consts.version).array(), new File(Consts.cxclientVersionFile));
-
-		for(Mod m : mods)
-			Util.checkIfExistsAndMake(Paths.get(Consts.modsPath, m.getName()).toString(), m.getName() + "Path");
-
-		Thread t = new Thread(new Runnable() {
-			@Override
-			public void run() {
-				try {
-					final File enabledFile = new File(Consts.enabledPath);
-					final File disableIAUI = Paths.get(Consts.eapiPath, "disable_iaui").toFile();
-					while(true) {
-						try {
-							for(Mod m : mods) {
-								final File f = Paths.get(Consts.togglePath, m.getName()).toFile();
-								if(f.exists()) {
-									m.toggle();
-									f.delete();
-								}
-							}
-							ByteBuffer b = ByteBuffer.allocate(mods.enabled_length);
-							for(Mod m : mods) {
-								try {
-									b.put(m.getName().getBytes(StandardCharsets.US_ASCII));
-									b.put((byte) (m.isEnabled() ? 1 : 0));
-									b.put((byte) 11); //[VT] (Vertical Tab)
-								} catch (Exception e) {
-									e.printStackTrace();
-								}
-							}
-							//does this do anything but break some libraries?
-							//b.put((byte) 4);
-							enabledFile.createNewFile();
-							Files.write(b.array(), enabledFile);
-							for(EapiModule m : mods.eapiModules)
-								try {
-									m.apiUpdate();
-								} catch (Exception e) {
-									System.out.println("Error in " + m.getName() + ":");
-									e.printStackTrace();
-								}
-							invis = disableIAUI.exists();
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
-						Thread.sleep(options.eapi.sleep);
-					}
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-		t.setDaemon(true);
-		t.start();
+		// TODO: RCON server (maybe first enabled by a command too)
 	}
 
 	/**
@@ -314,6 +229,11 @@ public class HackedClient {
 		return addonManager;
 	}
 
+	// TODO: something like a #disableiaui command
+	// TODO: something like a #enabled command
+	// TODO: commands to get `Consts.mcVersion`, `mc.getVersion()`, `Consts.version` and `Consts.APIVER`
+	// TODO: also a way to get the values of the mods
+	// TODO: make all (ALL) commands # agnostic
 	public void onCommand(final String[] args) {
 		final String cmd = args[0];
 
@@ -403,13 +323,7 @@ public class HackedClient {
 			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 			Util.sendMessage(mods.authMeCrack.getCrs());
-		} else if(cmd.equalsIgnoreCase("#set"))
-			options.set(args);
-		else if(cmd.equalsIgnoreCase("#get"))
-			options.get(args);
-		else if(cmd.equalsIgnoreCase("#list"))
-			options.list(args);
-		else addonManager.execCmd(args);
+		} else addonManager.execCmd(args);
 	}
 
 	public McLeaksSession getMcLeaksSession() {

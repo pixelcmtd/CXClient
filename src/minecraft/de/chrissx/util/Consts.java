@@ -8,18 +8,7 @@ public class Consts {
 		dotMinecraftPath = dotMinecraftDir.getAbsolutePath();
 		configPath = Paths.get(dotMinecraftPath, "cxclient_config").toString();
 		addonPath = Paths.get(dotMinecraftPath, "cxclient_addons").toString();
-		eapiPath = Paths.get(dotMinecraftPath, "cxclient_eapi").toString();
-		modsPath = Paths.get(eapiPath, "mods").toString();
-		enabledPath = Paths.get(modsPath, "enabled").toString();
-		togglePath = Paths.get(modsPath, "toggle").toString();
-		runningFile = Paths.get(eapiPath, "running").toString();
-		eapiVersionFile = Paths.get(eapiPath, "eapi_version").toString();
-		mcVersionFile = Paths.get(eapiPath, "mc_version").toString();
-		launchedVersionFile = Paths.get(eapiPath, "launched_version").toString();
-		cxclientVersionFile = Paths.get(eapiPath, "cxclient_version").toString();
 		hotkeyFile = Paths.get(configPath, "hotkeys.cfg").toString();
-		optionsFile = Paths.get(configPath, "options.cfg").toString();
-		eapiOptionsFile = Paths.get(configPath, "eapiOptions.cfg").toString();
 	}
 	public static final int[] packetPlayerInventorySlots = new int[] {36, 37, 38, 39, 40, 41, 42, 43, 44,
 	                                                                  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35
@@ -30,18 +19,7 @@ public class Consts {
 	public static String dotMinecraftPath;
 	public static String configPath;
 	public static String addonPath;
-	public static String eapiPath;
-	public static String modsPath;
-	public static String enabledPath;
-	public static String togglePath;
-	public static String runningFile;
-	public static String eapiVersionFile;
-	public static String mcVersionFile;
-	public static String launchedVersionFile;
-	public static String cxclientVersionFile;
 	public static String hotkeyFile;
-	public static String optionsFile;
-	public static String eapiOptionsFile;
 	public static final String clientName = "CXClient";
 	public static final String prefix = "\u00a7c[" + clientName + "] \u00a7f";
 	public static final String version = "alpha 3033";

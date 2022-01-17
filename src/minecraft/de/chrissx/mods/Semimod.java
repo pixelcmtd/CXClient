@@ -1,6 +1,8 @@
 package de.chrissx.mods;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.chrissx.HackedClient;
 import de.chrissx.mods.options.Option;
@@ -19,7 +21,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
 	protected final String argv0, description;
-	protected final ArrayList<Option> options = new ArrayList<Option>();
+	protected final ArrayList<Option<?>> options = new ArrayList<Option<?>>();
 
 	protected Semimod(String name, String argv0, String description) {
 		super(name);
@@ -27,7 +29,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 		this.description = description;
 	}
 
-	protected void addOption(Option o) {
+	protected void addOption(Option<?> o) {
 		options.add(o);
 	}
 
@@ -132,6 +134,10 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 	}
 
 	@Override
-	public void apiUpdate() {
+	public Map<String, Object> apiValues() {
+		Map<String, Object> vals = new HashMap<String, Object>();
+		for(Option<?> o : options)
+			vals.put(o.name, o.value);
+		return vals;
 	}
 }

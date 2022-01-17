@@ -1,7 +1,5 @@
 package de.chrissx.mods.combat;
 
-import java.io.File;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.Option;
 import de.chrissx.util.Util;
@@ -17,12 +15,10 @@ public class Aimbot extends Mod {
 			             : AimbotMode.valueOf(value);
 		}
 	};
-	File mf;
 
 	public Aimbot() {
 		super("AimBot", "aimbot", "Faces the next enemy for shooting with bows, guns, ...");
 		addOption(mode);
-		mf = getApiFile("mode");
 	}
 
 	@Override
@@ -35,10 +31,5 @@ public class Aimbot extends Mod {
 					return;
 				} else
 					Util.sendError("Currently bow mode isn't supported."); // TODO: implement
-	}
-
-	@Override
-	public void apiUpdate() {
-		write(mf, mode.value.b);
 	}
 }

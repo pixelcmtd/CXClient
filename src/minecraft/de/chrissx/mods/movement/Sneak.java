@@ -1,7 +1,5 @@
 package de.chrissx.mods.movement;
 
-import java.io.File;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.Option;
 import de.chrissx.util.Util;
@@ -18,12 +16,10 @@ public class Sneak extends Mod {
 			             : SneakMode.valueOf(value.toUpperCase());
 		}
 	};
-	File mf;
 
 	public Sneak() {
 		super("Sneak", "sneak", "Makes you sneak continuously");
 		addOption(mode);
-		mf = getApiFile("mode");
 	}
 
 	@Override
@@ -45,10 +41,5 @@ public class Sneak extends Mod {
 	@Override
 	public String getRenderstring() {
 		return name + "(" + mode + ")";
-	}
-
-	@Override
-	public void apiUpdate() {
-		write(mf, mode.value.b);
 	}
 }

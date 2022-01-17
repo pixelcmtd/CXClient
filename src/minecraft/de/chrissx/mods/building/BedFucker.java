@@ -13,12 +13,10 @@ import net.minecraft.util.EnumFacing;
 public class BedFucker extends Mod {
 
 	IntOption range = new IntOption("range", "The range in which to fuck beds", 6);
-	File rf;
 
 	public BedFucker() {
 		super("BedFucker", "bedfucker", "Automatically fucks beds around you");
 		addOption(range);
-		rf = getApiFile("range");
 	}
 
 	@Override
@@ -37,10 +35,5 @@ public class BedFucker extends Mod {
 					sendPacket(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, bp, EnumFacing.UP));
 				}
 			}).start();
-	}
-
-	@Override
-	public void apiUpdate() {
-		write(rf, range.value);
 	}
 }

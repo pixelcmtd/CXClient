@@ -1,6 +1,7 @@
 package de.chrissx.mods.combat;
 
-import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.BooleanOption;
@@ -11,13 +12,10 @@ public class Autosteal extends Mod {
 
 	BooleanOption bypass = new BooleanOption("bypass", "Slows down to prevent being detected", false);
 	byte timer = 0;
-	File bpf, tf;
 
 	public Autosteal() {
 		super("AutoSteal", "autosteal", "Automatically empties any chest you open into your inventory");
 		addOption(bypass);
-		bpf = getApiFile("bypass");
-		tf = getApiFile("timer");
 	}
 
 	@Override
@@ -50,8 +48,10 @@ public class Autosteal extends Mod {
 	}
 
 	@Override
-	public void apiUpdate() {
-		write(bpf, bypass.value);
-		write(tf, timer);
+	public Map<String, Object> apiValues() {
+		Map<String, Object> vals = new HashMap<String, Object>();
+		vals.put(bypass.name, bypass.value);
+		vals.put("timer", timer);
+		return vals;
 	}
 }

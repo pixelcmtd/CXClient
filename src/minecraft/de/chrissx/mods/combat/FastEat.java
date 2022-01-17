@@ -1,7 +1,5 @@
 package de.chrissx.mods.combat;
 
-import java.io.File;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.IntOption;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -11,13 +9,11 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 
 public class FastEat extends Mod {
 
-	File sf;
 	IntOption speed = new IntOption("speed", "Packets per tick", 100);
 
 	public FastEat() {
 		super("FastEat", "fasteat", "Allows you to eat faster");
 		addOption(speed);
-		sf = getApiFile("speed");
 	}
 
 	@Override
@@ -29,10 +25,4 @@ public class FastEat extends Mod {
 			for (int i = 0; i < speed.value; i++)
 				sendPacket(new C03PacketPlayer(false));
 	}
-
-	@Override
-	public void apiUpdate() {
-		write(sf, speed.value);
-	}
-
 }

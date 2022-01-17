@@ -1,7 +1,5 @@
 package de.chrissx.mods.combat;
 
-import java.io.File;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.IntOption;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -9,13 +7,11 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 
 public class Regen extends Mod {
 
-	File sf;
 	IntOption speed = new IntOption("speed", "Packets per tick", 250);
 
 	public Regen() {
 		super("Regen", "regen", "Makes you regenerate faster");
 		addOption(speed);
-		sf = getApiFile("speed");
 	}
 
 	@Override
@@ -26,10 +22,4 @@ public class Regen extends Mod {
 			for (short i = 0; i < speed.value; i++)
 				sendPacket(new C03PacketPlayer());
 	}
-
-	@Override
-	public void apiUpdate() {
-		write(sf, speed.value);
-	}
-
 }

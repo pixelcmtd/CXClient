@@ -1,10 +1,10 @@
 package de.chrissx.mods.building;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.options.Option;
 import de.chrissx.util.Random;
 import de.chrissx.util.Util;
 import net.minecraft.block.Block;
@@ -13,27 +13,36 @@ import net.minecraft.util.BlockPos;
 public class Nuker extends Mod {
 
 	int count = 6;
-	NukerBypassLevel bypass = NukerBypassLevel.NONE;
-	NukerMode mode = NukerMode.ALL;
-	File bpf, mf;
+	Option<NukerBypassLevel> bypass = new Option<NukerBypassLevel>("bypass", "None, slow, or legit, how hard to bypass AC", NukerBypassLevel.NONE) {
+		@Override
+		public void set(String value) {
+			this.value = NukerBypassLevel.valueOf(value);
+		}
+	};
+	Option<NukerMode> mode = new Option<NukerMode>("mode", "All or click, which blocks to break", NukerMode.ALL) {
+		@Override
+		public void set(String value) {
+			this.value = NukerMode.valueOf(value.toUpperCase());
+		}
+	};
 
 	public Nuker() {
 		super("Nuker", "nuker", "Breaks all blocks around you");
-		bpf = getApiFile("bypass");
-		mf = getApiFile("mode");
+		addOption(bypass);
+		addOption(mode);
 	}
 
 	int breaksPerCycle() {
-		return bypass == NukerBypassLevel.SLOW ? 3 : 1;
+		return bypass.value == NukerBypassLevel.SLOW ? 3 : 1;
 	}
 
 	@Override
 	public void onTick() {
-		if (bypass == NukerBypassLevel.NONE || count < 1) {
-			BlockPos[] positions = Util.getBlocksAround(player(), (bypass == NukerBypassLevel.NONE ? 6 : 3),
-			                                            bypass != NukerBypassLevel.NONE);
-			if (mode.equals(NukerMode.ALL)) {
-				if (bypass == NukerBypassLevel.NONE) {
+		if (bypass.value == NukerBypassLevel.NONE || count < 1) {
+			BlockPos[] positions = Util.getBlocksAround(player(), (bypass.value == NukerBypassLevel.NONE ? 6 : 3),
+			                                            bypass.value != NukerBypassLevel.NONE);
+			if (mode.value == NukerMode.ALL) {
+				if (bypass.value == NukerBypassLevel.NONE) {
 					for (BlockPos p : positions)
 						Util.breakBlock(p);
 				} else {
@@ -46,18 +55,18 @@ public class Nuker extends Mod {
 							int rr = Random.rand(positions.length - 1);
 							while (sent.contains(rr))
 								rr = Random.rand(positions.length - 1);
-							if (bypass == NukerBypassLevel.LEGIT)
+							if (bypass.value == NukerBypassLevel.LEGIT)
 								Util.faceBlock(positions[rr]);
 							Util.breakBlock(positions[rr]);
 							sent.add(rr);
 						}
 					}
 				}
-			} else if (mode.equals(NukerMode.CLICK)) {
+			} else if (mode.value == NukerMode.CLICK) {
 				BlockPos b = playerController().clickedBlock;
 				if (b == null)
 					return;
-				if (bypass == NukerBypassLevel.NONE) {
+				if (bypass.value == NukerBypassLevel.NONE) {
 					for (BlockPos p : positions)
 						if (Block.getIdFromBlock(world().getBlock(p)) == Block.getIdFromBlock(world().getBlock(b)))
 							Util.breakBlock(p);
@@ -76,7 +85,7 @@ public class Nuker extends Mod {
 							int rr = Random.rand(poss.size() - 1);
 							while (sent.contains(rr))
 								rr = Random.rand(poss.size() - 1);
-							if (bypass == NukerBypassLevel.LEGIT)
+							if (bypass.value == NukerBypassLevel.LEGIT)
 								Util.faceBlock(poss.get(rr));
 							Util.breakBlock(poss.get(rr));
 							sent.add(rr);
@@ -84,8 +93,8 @@ public class Nuker extends Mod {
 					}
 				}
 			} else
-				Util.sendMessage(
-				    "\u00a74I guess I f*cked up and forgot to add support for this mode, please report this!");
+				Util.sendError(
+				    "I guess I f*cked up and forgot to add support for this mode, please report this!");
 			count = 6;
 		} else
 			count--;
@@ -94,29 +103,5 @@ public class Nuker extends Mod {
 	@Override
 	public String getRenderstring() {
 		return name + "(BYPASS:" + bypass + ",MODE:" + mode + ")";
-	}
-
-	// TODO: remove and use standard options
-	@Override
-	public void processCommand(String[] args) {
-		if (args.length == 1)
-			toggle();
-		else if (args[1].equalsIgnoreCase("bypass"))
-			bypass = bypass == NukerBypassLevel.NONE ? NukerBypassLevel.SLOW
-			         : bypass == NukerBypassLevel.SLOW ? NukerBypassLevel.LEGIT : NukerBypassLevel.NONE;
-		else if (args[1].equalsIgnoreCase("mode"))
-			try {
-				mode = NukerMode.valueOf(args[2].toUpperCase());
-			} catch (Exception e) {
-				Util.sendMessage("\u00a74Error valueOf-ing NukerMode.");
-			} else
-			Util.sendMessage(
-			    "#nuker to toggle, #nuker bypass to toggle bypasses, #nuker mode [ALL/CLICK] to set the mode");
-	}
-
-	@Override
-	public void apiUpdate() {
-		write(bpf, bypass.b);
-		write(mf, mode.b);
 	}
 }
