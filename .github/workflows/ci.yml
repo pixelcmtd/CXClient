@@ -7,8 +7,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: ant
+      - name: build
+        run: |
+        ant
+        mkdir cxclient_alpha
+        mv cxclient.jar cxclient_alpha/cxclient_alpha.jar
+        sed "s/\$TIME/`date +'%Y-%m-%dT%H:%M:%S%:z'`/g;s/\$ID/cxclient_alpha/g" cxclient.template.json > cxclient_alpha/cxclient_alpha.json
       - uses: actions/upload-artifact@v2
         with:
-          name: cxclient_${{ env.GITHUB_RUN_ID }}
-          path: cxclient.jar
+          name: cxclient_alpha
+          path: cxclient_alpha
