@@ -86,7 +86,7 @@ public class AuthMeCrack extends Mod {
 			Util.sendMessage(bf.pw);
 			enabled = bf.more;
 		} else
-			Util.sendError("[AuthMeCrack]Unrecognized PasswordCrackMode!");
+			Util.sendError("[AuthMeCrack] Unrecognized PasswordCrackMode!");
 	}
 
 	class bf_stuff {
@@ -186,7 +186,7 @@ public class AuthMeCrack extends Mod {
 				Util.sendError("Unable to add char: " + e.getMessage());
 			} else
 			Util.sendError(
-			    "Unknown command (#authmecrack, #authmecrack mode [passwordcrackingmode], #authmecrack addpw [string], #authmecrack addcr [char]");
+			    "Unknown command (authmecrack, authmecrack mode [passwordcrackingmode], authmecrack addpw [string], authmecrack addcr [char]");
 	}
 
 	public void addPw(String pw) {

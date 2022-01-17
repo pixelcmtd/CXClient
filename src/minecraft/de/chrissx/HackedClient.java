@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
-import java.util.Map.Entry;
 
 import org.lwjgl.input.Keyboard;
 
@@ -16,9 +14,7 @@ import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
 import de.chrissx.hotkeys.Hotkey;
 import de.chrissx.hotkeys.HotkeySaving;
-import de.chrissx.iapi.Addon;
 import de.chrissx.iapi.AddonManager;
-import de.chrissx.mods.Bindable;
 import de.chrissx.mods.ChatBot;
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.ModList;
@@ -31,11 +27,6 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiRepair;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.NBTTagCompound;
-import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.IChatComponent;
 
 public class HackedClient {
@@ -112,6 +103,7 @@ public class HackedClient {
 		// TODO: RCON server (maybe first enabled by a command too)
 	}
 
+	// TODO: merge all this stuff into the normal command system and make the alt manager something like an exec `alt $cmd`
 	/**
 	 * This func is called whenever "GuiRenameWorld" aka the Alt-Manager
 	 * wants to exec a command.
@@ -225,99 +217,8 @@ public class HackedClient {
 		return addonManager;
 	}
 
-	// TODO: something like a #enabled command
-	// TODO: commands to get `Consts.mcVersion`, `mc.getVersion()`, `Consts.version` and `Consts.APIVER`
-	// TODO: also a way to get the values of the mods
-	// TODO: make all (ALL) commands # agnostic
 	public void onCommand(final String[] args) {
-		final String cmd = args[0];
-
-		if(cmd.equalsIgnoreCase("#cmdblock")) {
-			if(args.length < 2) {
-				Util.sendMessage("Please enter a command!");
-				return;
-			}
-			String Cmd = args[1];
-			for(int i = 2; i < args.length; i++)
-				Cmd += " " + args[i];
-			Util.cheatCmdBlock(Cmd);
-		} else if(cmd.equalsIgnoreCase("#print-players")) {
-			for(EntityPlayer p : mc.theWorld.playerEntities) {
-				Util.sendMessage(p.getName() + " (X: " + (long)p.posX + ", Y: " + (long)p.posY + ", Z: " + (long)p.posZ + ")");
-			}
-		} else if(cmd.equalsIgnoreCase("#bind")) {
-			if(args.length != 3) {
-				Util.sendMessage("#bind <key> <mod-name>");
-				return;
-			}
-			int keyId = Util.getKeyId(args[1]);
-			Bindable bindable = mods.getBindable(args[2].toLowerCase());
-			if(keyId == Keyboard.KEY_NONE)
-				Util.sendError("LWJGL can't find that key.");
-			else if(Hotkey.containsKey(hotkeys, keyId))
-				Util.sendError("Key already registered.");
-			else if(bindable == null)
-				Util.sendError("That Bindable does not exist.");
-			else
-				hotkeys.add(new Hotkey(keyId, bindable));
-		} else if(cmd.equalsIgnoreCase("#mods")) {
-			Iterator<Entry<String, Bindable>> it = mods.getBindEntrys().iterator();
-			String s = "Bindables: "+it.next().getKey();
-			while(it.hasNext()) {
-				s+=", "+it.next().getKey();
-			}
-			Util.sendMessage(s);
-		} else if(cmd.equalsIgnoreCase("#unbind")) {
-			if(args.length < 2)
-				Util.sendMessage("#unbind <key>");
-			else
-				Util.removeHotkeyFromList(hotkeys, Util.getKeyId(args[1]));
-		} else if(cmd.equalsIgnoreCase("#say")) {
-			if(args.length == 1) {
-				Util.sendError("Please enter a message.");
-				return;
-			}
-			String msg = args[1];
-			for(int i = 2; i < args.length; i++)
-				msg += " " + args[i];
-			Util.sendChat(msg);
-		} else if(cmd.equalsIgnoreCase("#binds")) {
-			StringBuilder sb = new StringBuilder();
-			for(Hotkey hk : hotkeys)
-				sb.append((sb.toString() == "" ? "" : ", ") + Keyboard.getKeyName(hk.key) + ":" + hk.handler.getName());
-			Util.sendMessage("Hotkeys: "+sb.toString());
-		} else if(cmd.equalsIgnoreCase("#give"))
-			try {
-				Util.cheatItem(new ItemStack(Item.getByNameOrId(args[1])), 0);
-			} catch(Exception e) {
-				Util.sendMessage(e.toString());
-			} else if(cmd.equalsIgnoreCase("#givebypass"))
-			try {
-				ItemStack itm = new ItemStack(Item.getByNameOrId("furnace"), 1);
-				NBTTagCompound itmtag = new NBTTagCompound();
-				NBTTagCompound blockentitytag = new NBTTagCompound();
-				NBTTagList items = new NBTTagList();
-				NBTTagCompound item = new NBTTagCompound();
-				item.setByte("Count", (byte) 1);
-				item.setShort("Damage", (short) 0);
-				item.setString("id", args[1]);
-				item.setByte("Slot", (byte) 2);
-				items.appendTag(item);
-				blockentitytag.setTag("Items", items);
-				itmtag.setTag("BlockEntityTag", blockentitytag);
-				itm.setTagCompound(itmtag);
-				Util.cheatItem(itm, 0);
-			} catch(Exception e) {
-				Util.sendMessage(e.toString());
-			} else if(cmd.equalsIgnoreCase("#debug")) {
-			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ,
-			                            "random.explode", 4F, mc.theWorld.rand.nextFloat() * 0.1F + 0.9F);
-			for(Addon a : addonManager.addons) {
-				Util.sendMessage(a.name + " " + a.author + " " + a.version + " " + a.description);
-			}
-			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
-			Util.sendMessage(Consts.dotMinecraftPath);
-		} else addonManager.execCmd(args);
+		addonManager.execCmd(args);
 	}
 
 	public McLeaksSession getMcLeaksSession() {

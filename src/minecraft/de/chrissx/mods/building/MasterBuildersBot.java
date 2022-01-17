@@ -26,7 +26,7 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	@Override
 	public void processCommand(String[] args) {
 		if (args.length == 1)
-			Util.sendMessage("#masterbuildersbot <name of the theme>");
+			Util.sendError("masterbuildersbot <name of the theme>");
 		else {
 			try {
 				drawAfter = Util.scale(new BufferedImage(0, 0, 0), 33, 33); // FIRST GOOGLE IMAGE

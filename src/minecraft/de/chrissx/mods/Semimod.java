@@ -2,6 +2,7 @@ package de.chrissx.mods;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import de.chrissx.HackedClient;
@@ -21,7 +22,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 	protected final Minecraft mc = Minecraft.getMinecraft();
 	protected final HackedClient hc = HackedClient.getClient();
 	protected final String argv0, description;
-	protected final ArrayList<Option<?>> options = new ArrayList<Option<?>>();
+	protected final List<Option<?>> options = new ArrayList<Option<?>>();
 
 	protected Semimod(String name, String argv0, String description) {
 		super(name);

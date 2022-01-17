@@ -31,7 +31,7 @@ public class ModList implements Iterable<Mod> {
 	public final Autoclicker autoclicker = new Autoclicker();
 	public final Noswing noswing = new Noswing();
 	public final AuthMeCrack authMeCrack = new AuthMeCrack();
-	public final AntiAfk antiAfk = new AntiAfk();
+	public final Afk afk = new Afk();
 	public final Autosteal autosteal = new Autosteal();
 	public final Killaura killaura = new Killaura();
 	public final Nuker nuker = new Nuker();
@@ -101,7 +101,7 @@ public class ModList implements Iterable<Mod> {
 	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 
 	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
-	                               fasthit, autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa,
+	                               fasthit, autoclicker, noswing, authMeCrack, afk, autosteal, killaura, nuker, sneak, tracer, massTpa,
 	                               vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
 	                               legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
 	                               fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
@@ -117,6 +117,7 @@ public class ModList implements Iterable<Mod> {
 	public final List<ChatBot> chatBots = new ArrayList<ChatBot>();
 
 	public ModList() {
+		// TODO: mod?
 		addBindable(iaui);
 		addBindable(home);
 		addBindable(panic);

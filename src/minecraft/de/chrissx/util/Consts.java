@@ -50,6 +50,4 @@ public class Consts {
 	    "— Trace (german hacking youtuber, quit around 01/2018) for showing a few exploits in his videos: https://youtube.com/c/Trace1337",
 	    "— A few other people we stealt the Fly- and Speed-Bypasses from"
 	};
-
-	public static final String extraHelp = " #cmdblock #bind #mods #unbind #say #binds #give #givebypass #debug #set #get #list #help";
 }
