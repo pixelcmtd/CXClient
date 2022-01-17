@@ -8,7 +8,7 @@
 	</target>
 	<target depends="fmt" name="compile" description="compile the source">
 		<mkdir dir="eclipse/Client/bin/"/>
-		<javac srcdir="src/" destdir="eclipse/Client/bin/" source="8" target="8">
+		<javac srcdir="src/" destdir="eclipse/Client/bin/" source="8" target="8" release="8">
 			<classpath>
 				<fileset dir="jars/libraries/">
 					<include name="**/*.jar"/>
