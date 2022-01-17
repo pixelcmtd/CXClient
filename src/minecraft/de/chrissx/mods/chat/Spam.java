@@ -14,7 +14,7 @@ public class Spam extends Mod {
 		super("Spam", clear ? "clearspam" : "spam",
 		      clear ? "Spams exactly the message you gave it" : "Spams while trying to bypass detection");
 		this.clear = clear;
-		last = new String[] { clear ? "#clearspam" : "#spam", "20", "50", "You're getting flooded by CXClient! ;)" };
+		last = new String[] { "ə¸—¯", "20", "50", "You're getting flooded by CXClient! ;)" };
 	}
 
 	@Override
@@ -29,7 +29,6 @@ public class Spam extends Mod {
 		}
 
 		final int times;
-		final StringBuilder msg = new StringBuilder();
 		final long delay;
 
 		try {
@@ -46,6 +45,7 @@ public class Spam extends Mod {
 			return;
 		}
 
+		final StringBuilder msg = new StringBuilder();
 		msg.append(args[3]);
 		for (int i = 4; i < args.length; i++)
 			msg.append(" " + args[i]);

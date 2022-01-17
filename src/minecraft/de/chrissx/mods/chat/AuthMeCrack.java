@@ -86,7 +86,7 @@ public class AuthMeCrack extends Mod {
 			Util.sendMessage(bf.pw);
 			enabled = bf.more;
 		} else
-			Util.sendMessage("[AuthMeCrack]Unrecognized PasswordCrackMode!");
+			Util.sendError("[AuthMeCrack]Unrecognized PasswordCrackMode!");
 	}
 
 	class bf_stuff {
@@ -173,19 +173,19 @@ public class AuthMeCrack extends Mod {
 			try {
 				mode = PasswordCrackMode.parse(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("Unable to parse mode: " + e.getMessage());
+				Util.sendError("Unable to parse mode: " + e.getMessage());
 			} else if (args[1].equalsIgnoreCase("addpw"))
 			try {
 				addPw(args[2]);
 			} catch (Exception e) {
-				Util.sendMessage("Unable to add password: " + e.getMessage());
+				Util.sendError("Unable to add password: " + e.getMessage());
 			} else if (args[1].equalsIgnoreCase("addcr"))
 			try {
 				addCr(args[2].charAt(0));
 			} catch (Exception e) {
-				Util.sendMessage("Unable to add char: " + e.getMessage());
+				Util.sendError("Unable to add char: " + e.getMessage());
 			} else
-			Util.sendMessage(
+			Util.sendError(
 			    "Unknown command (#authmecrack, #authmecrack mode [passwordcrackingmode], #authmecrack addpw [string], #authmecrack addcr [char]");
 	}
 
@@ -195,12 +195,5 @@ public class AuthMeCrack extends Mod {
 
 	public void addCr(char cr) {
 		crs.add(cr);
-	}
-
-	public String getCrs() {
-		StringBuilder sb = new StringBuilder();
-		for (char c : crs)
-			sb.append(c);
-		return sb.toString();
 	}
 }

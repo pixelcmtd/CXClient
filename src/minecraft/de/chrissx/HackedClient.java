@@ -1,6 +1,5 @@
 package de.chrissx;
 
-import java.awt.Color;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Paths;
@@ -41,7 +40,6 @@ import net.minecraft.util.IChatComponent;
 
 public class HackedClient {
 	static HackedClient instance = null;
-	boolean invis = false;
 	List<Hotkey> hotkeys = new ArrayList<Hotkey>();
 	final ModList mods;
 	final AltManager altManager;
@@ -52,11 +50,9 @@ public class HackedClient {
 	final AddonManager addonManager;
 
 	public void onDraw(FontRenderer r) {
-		if(!invis) {
+		if(mods.iaui.isEnabled()) {
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
-			//TODO: also this drawString call should be a RenderedObject
-			r.drawString("\u00a7a\u00a7l[" + Consts.clientName + " " + Consts.version + "]", 4, 4, Color.WHITE.getRGB());
-			int i = 1;
+			int i = 0;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.isEnabled())
 					o.onRender(r, 4, i++ * 8 + 4);
@@ -229,7 +225,6 @@ public class HackedClient {
 		return addonManager;
 	}
 
-	// TODO: something like a #disableiaui command
 	// TODO: something like a #enabled command
 	// TODO: commands to get `Consts.mcVersion`, `mc.getVersion()`, `Consts.version` and `Consts.APIVER`
 	// TODO: also a way to get the values of the mods
@@ -322,7 +317,6 @@ public class HackedClient {
 			}
 			Util.sendMessage("Hotkeys are " + (disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
-			Util.sendMessage(mods.authMeCrack.getCrs());
 		} else addonManager.execCmd(args);
 	}
 
@@ -344,10 +338,6 @@ public class HackedClient {
 
 	public static HackedClient getClient() {
 		return instance;
-	}
-
-	public boolean isInvis() {
-		return invis;
 	}
 
 	public List<Hotkey> getHotkeys() {

@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
-import de.chrissx.util.Util;
 import net.minecraft.block.Block;
 import net.minecraft.client.settings.GameSettings;
 
@@ -26,16 +25,14 @@ public class Xray extends Mod {
 		mc.renderGlobal.loadRenderers();
 	}
 
+	// TODO: here we also need some kind of list option
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length == 1)
-			toggle();
-		else if (args[1].equalsIgnoreCase("add"))
+		if (args.length > 2 && args[1].equalsIgnoreCase("add"))
 			xrayBlocks.add(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
-		else if (args[1].equalsIgnoreCase("remove"))
+		else if (args.length > 2 && args[1].equalsIgnoreCase("remove"))
 			xrayBlocks.remove(Block.getIdFromBlock(world().getBlock(playerController().clickedBlock)));
 		else
-			Util.sendMessage(
-			    "#xray to toggle, #xray add to add last clicked block to whitelisted blocks, #xray remove to remove last clicked block from whitelisted blocks.");
+			super.processCommand(args);
 	}
 }

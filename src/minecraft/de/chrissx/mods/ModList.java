@@ -18,6 +18,7 @@ import de.chrissx.mods.render.*;
 
 public class ModList implements Iterable<Mod> {
 
+	public final IAUI iaui = new IAUI();
 	public final SkinBlinker skinBlinker = new SkinBlinker();
 	public final FastBreak fastBreak = new FastBreak();
 	public final FastPlace fastPlace = new FastPlace();
@@ -99,8 +100,6 @@ public class ModList implements Iterable<Mod> {
 
 	final Map<String, Bindable> bindable = new HashMap<String, Bindable>();
 
-	public final int enabled_length;
-
 	final Mod[] mods = new Mod[] { skinBlinker, fastBreak, fastPlace, spam, clearspam, nofall, fullbright, xray,
 	                               fasthit, autoclicker, noswing, authMeCrack, antiAfk, autosteal, killaura, nuker, sneak, tracer, massTpa,
 	                               vanillaFly, autoArmor, twerk, fastLadder, reach, velocity, acSpeed1, stepJump, acFly1, acFly2, timer,
@@ -118,6 +117,7 @@ public class ModList implements Iterable<Mod> {
 	public final List<ChatBot> chatBots = new ArrayList<ChatBot>();
 
 	public ModList() {
+		addBindable(iaui);
 		addBindable(home);
 		addBindable(panic);
 		addBindable(trollPotion);
@@ -145,13 +145,6 @@ public class ModList implements Iterable<Mod> {
 			if (b instanceof ChatBot)
 				chatBots.add((ChatBot) b);
 		}
-
-		int len = 1;
-		for (Mod m : mods) {
-			len += m.getName().length();
-			len += 2;
-		}
-		enabled_length = len;
 	}
 
 	public void addBindable(Bindable b) {
@@ -170,9 +163,8 @@ public class ModList implements Iterable<Mod> {
 		return mods[i];
 	}
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
 	@Override
-	public Iterator iterator() {
+	public Iterator<Mod> iterator() {
 		return Arrays.asList(mods).iterator();
 	}
 }

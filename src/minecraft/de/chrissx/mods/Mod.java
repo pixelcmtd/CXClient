@@ -7,6 +7,7 @@ import net.minecraft.util.IChatComponent;
 
 public abstract class Mod extends Semimod implements TickListener, StopListener, RenderedObject, ChatBot {
 
+	// FIXME: why this?!
 	protected volatile boolean enabled = false;
 
 	protected Mod(String name, String argv0, String description) {
