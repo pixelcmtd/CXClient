@@ -8,7 +8,7 @@ public class Panic extends Semimod {
 
 	@Override
 	public void toggle() {
-		for (Mod m : hc.getMods())
+		for (Mod m : hc.getMods().mods)
 			if (m.enabled)
 				m.toggle();
 	}
