@@ -32,6 +32,7 @@ public class Consts {
 	    "— Improvements to the help messages of most commands (and a general rework of how most work)",
 	    "— Removed all of the Twitch streaming and Realms support from Minecraft",
 	    "— Added a TriggerBot",
+	    "— Fixed the IAUI overlapping with the debug info (F3)",
 	};
 
 	public static final String[] credits = new String[] {

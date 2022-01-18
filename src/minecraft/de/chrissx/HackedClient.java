@@ -41,7 +41,7 @@ public class HackedClient {
 	final AddonManager addonManager;
 
 	public void onDraw(FontRenderer r) {
-		if(mods.iaui.isEnabled()) {
+		if(!mc.gameSettings.showDebugInfo && mods.iaui.isEnabled()) {
 			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
 			int i = 0;
 			for(RenderedObject o : mods.renderedObjects)
