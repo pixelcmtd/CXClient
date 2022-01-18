@@ -16,7 +16,6 @@ import org.lwjgl.opengl.GL11;
 
 import de.chrissx.HackedClient;
 import de.chrissx.hotkeys.Hotkey;
-import de.chrissx.locations.Loc;
 import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
@@ -38,6 +37,7 @@ import net.minecraft.util.ChatAllowedCharacters;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
 
 public class Util {
@@ -400,14 +400,10 @@ public class Util {
 			return false;
 	}
 
-	public static Loc<Double> getEyePos() {
-		return new Loc<Double>(mc.thePlayer.posX, mc.thePlayer.posY + mc.thePlayer.getEyeHeight(), mc.thePlayer.posZ);
-	}
-
-	static float[] getNeededRotations(Loc<Double> vec) {
-		double x = vec.x - mc.thePlayer.posX;
-		double y = vec.y - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
-		double z = vec.z - mc.thePlayer.posZ;
+	static float[] getNeededRotations(Vec3 vec) {
+		double x = vec.xCoord - mc.thePlayer.posX;
+		double y = vec.yCoord - mc.thePlayer.posY - mc.thePlayer.getEyeHeight();
+		double z = vec.zCoord - mc.thePlayer.posZ;
 
 		return new float[] { MathHelper.wrapAngleTo180_float((float) Math.toDegrees(Math.atan2(z, x)) - 90),
 		                     MathHelper.wrapAngleTo180_float((float) -Math.toDegrees(Math.atan2(y, Math.sqrt(x * x + z * z))))
@@ -446,14 +442,7 @@ public class Util {
 		return keyId;
 	}
 
-	public static float distance(Loc<Double> start, Loc<Double> end) {
-		float x = (float) (start.x - end.x);
-		float y = (float) (start.y - end.y);
-		float z = (float) (start.z - end.z);
-		return MathHelper.sqrt(x * x + y * y + z * z);
-	}
-
-	public static void drawLine(Loc<Double> s, Loc<Double> e, Entity p) {
+	public static void drawLine(Vec3 s, Vec3 e, Entity p) {
 		// System.out.println("drawing line from {" + s.x + ", " + s.y + ", " + s.z + "}
 		// to {" + e.x + ", " + e.y + ", " + e.z + "}.");
 		GL11.glBlendFunc(770, 771);
