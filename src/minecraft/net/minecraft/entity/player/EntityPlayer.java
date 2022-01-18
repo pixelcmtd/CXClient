@@ -2274,6 +2274,11 @@ public abstract class EntityPlayer extends EntityLivingBase
         return f;
     }
 
+    public Vec3 getEyeVector()
+    {
+        return new Vec3(this.posX, this.posY + getEyeHeight(), this.posZ);
+    }
+
     public void setAbsorptionAmount(float amount)
     {
         if (amount < 0.0F)

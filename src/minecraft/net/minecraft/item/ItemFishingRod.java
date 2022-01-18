@@ -1,5 +1,6 @@
 package net.minecraft.item;
 
+import de.chrissx.HackedClient;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.entity.projectile.EntityFishHook;
@@ -41,7 +42,11 @@ public class ItemFishingRod extends Item
         {
             int i = playerIn.fishEntity.handleHookRetraction();
             itemStackIn.damageItem(i, playerIn);
-            playerIn.swingItem();
+
+            if (!HackedClient.getClient().getMods().noswing.isEnabled())
+            {
+                playerIn.swingItem();
+            }
         }
         else
         {
@@ -52,7 +57,11 @@ public class ItemFishingRod extends Item
                 worldIn.spawnEntityInWorld(new EntityFishHook(worldIn, playerIn));
             }
 
-            playerIn.swingItem();
+            if (!HackedClient.getClient().getMods().noswing.isEnabled())
+            {
+                playerIn.swingItem();
+            }
+
             playerIn.triggerAchievement(StatList.objectUseStats[Item.getIdFromItem(this)]);
         }
 
