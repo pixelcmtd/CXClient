@@ -504,6 +504,16 @@ public class PlayerControllerMP
         }
     }
 
+    public void hitEntity(EntityPlayer player, Entity target)
+    {
+        attackEntity(player, target);
+
+        if (HackedClient.getClient().getMods().noswing.isEnabled())
+        {
+            player.swingItem();
+        }
+    }
+
     /**
      * Send packet to server - player is interacting with another entity (left click)
      */
