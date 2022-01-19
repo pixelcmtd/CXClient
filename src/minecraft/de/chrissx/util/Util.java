@@ -6,7 +6,6 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -125,6 +124,18 @@ public class Util {
 		return split;
 	}
 
+	public static String replace(String str, String match, String replacement) {
+		int start = 0;
+		int end;
+		String res = "";
+		while((end = str.indexOf(match, start)) != -1) {
+			res += str.substring(start, end);
+			res += replacement;
+			start = end + match.length();
+		}
+		return res + str.substring(start);
+	}
+
 	public static void swapSlots(int slot1, int slot2, int windowId) {
 		mc.playerController.windowClick(windowId, slot1, 0, 1, mc.thePlayer);
 		mc.playerController.windowClick(windowId, slot2, 0, 1, mc.thePlayer);
@@ -140,14 +151,6 @@ public class Util {
 		.addToSendQueue(new C07PacketPlayerDigging(Action.START_DESTROY_BLOCK, block, EnumFacing.UP));
 		mc.thePlayer.sendQueue
 		.addToSendQueue(new C07PacketPlayerDigging(Action.STOP_DESTROY_BLOCK, block, EnumFacing.UP));
-	}
-
-	public static String generateTempFile(String tmp, String name, String ext) {
-		String out = Paths.get(tmp, name + "_" + Random.rand.nextInt() + ext).toString();
-		File f = new File(out);
-		while (f.exists())
-			f = new File(out = Paths.get(tmp, name + "_" + Random.rand.nextInt() + ext).toString());
-		return out;
 	}
 
 	public static void downloadFile(final String url, final String file) throws IOException {
@@ -305,8 +308,15 @@ public class Util {
 	 * at all)
 	 */
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent(
-		                                "{\"text\":\"" + Consts.prefix + msg.replaceAll("\\\\", "\\\\\\\\").replaceAll("\"", "\\\"") + "\"}"));
+		String json = "{\"text\":\"" + Consts.prefix + replace(replace(msg, "\\", "\\\\"), "\"", "\\\"") + "\"}";
+		try {
+			mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent(json));
+		} catch (Exception e) {
+			sendError("Can't send you the chat message you were meant to receive here. Please check the log to see what happened.");
+			e.printStackTrace();
+			System.out.println("Message: " + msg);
+			System.out.println("Message JSON: " + json);
+		}
 	}
 
 	/**
