@@ -105,7 +105,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 		}
 
 		String value = args.length > 2 ? args[2] : "";
-		for (int i = 1; i < args.length; i++)
+		for (int i = 3; i < args.length; i++)
 			value += " " + args[i];
 
 		for (Option<?> o : options) {

@@ -53,6 +53,7 @@ public class HackedClient {
 	public void onDisable() {
 		for(StopListener l : mods.stopListeners)
 			l.onStop();
+		// TODO: dont do this
 		for(Mod m : mods.mods)
 			if(m.isEnabled())
 				m.toggle();

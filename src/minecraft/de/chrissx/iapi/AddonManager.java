@@ -194,9 +194,7 @@ public class AddonManager {
 			Util.sendMessage(Consts.dotMinecraftPath);
 		}));
 
-		commands.add(new Command("help", (args) ->
-		                         Util.sendMessage(getHelp())
-		                        ));
+		commands.add(new Command("help", (a) -> Util.sendMessage(getHelp())));
 	}
 
 	/**
@@ -256,7 +254,7 @@ public class AddonManager {
 				c.handler.accept(args);
 				return;
 			}
-		Util.sendError(getHelp());
+		Util.sendError("Unknown command: " + cmd);
 	}
 
 	public int getBuildNumber() {
