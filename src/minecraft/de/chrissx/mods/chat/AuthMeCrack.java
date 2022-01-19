@@ -105,7 +105,7 @@ public class AuthMeCrack extends Mod {
 
 	boolean stringOnlyOf(String s, char c) {
 		boolean b = true;
-		for (char d : bfPw.toCharArray())
+		for (char d : s.toCharArray())
 			if (d != c)
 				b = false;
 		return b;
@@ -176,24 +176,16 @@ public class AuthMeCrack extends Mod {
 				Util.sendError("Unable to parse mode: " + e.getMessage());
 			} else if (args[1].equalsIgnoreCase("addpw"))
 			try {
-				addPw(args[2]);
+				pws.add(args[2]);
 			} catch (Exception e) {
 				Util.sendError("Unable to add password: " + e.getMessage());
 			} else if (args[1].equalsIgnoreCase("addcr"))
 			try {
-				addCr(args[2].charAt(0));
+				crs.add(args[2].charAt(0));
 			} catch (Exception e) {
 				Util.sendError("Unable to add char: " + e.getMessage());
 			} else
 			Util.sendError(
 			    "Unknown command (authmecrack, authmecrack mode [passwordcrackingmode], authmecrack addpw [string], authmecrack addcr [char]");
-	}
-
-	public void addPw(String pw) {
-		pws.add(pw);
-	}
-
-	public void addCr(char cr) {
-		crs.add(cr);
 	}
 }
