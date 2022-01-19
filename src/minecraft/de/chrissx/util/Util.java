@@ -33,8 +33,8 @@ import net.minecraft.network.play.client.C10PacketCreativeInventoryAction;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatAllowedCharacters;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
-import net.minecraft.util.IChatComponent;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
@@ -122,18 +122,6 @@ public class Util {
 				l = k + 1;
 			}
 		return split;
-	}
-
-	public static String replace(String str, String match, String replacement) {
-		int start = 0;
-		int end;
-		String res = "";
-		while((end = str.indexOf(match, start)) != -1) {
-			res += str.substring(start, end);
-			res += replacement;
-			start = end + match.length();
-		}
-		return res + str.substring(start);
 	}
 
 	public static void swapSlots(int slot1, int slot2, int windowId) {
@@ -233,7 +221,7 @@ public class Util {
 		NBTTagList lore = new NBTTagList();
 
 		entityTag.setString("Command", cmd);
-		entityTag.setString("CustomName", "CXClient");
+		entityTag.setString("CustomName", Consts.clientName);
 		entityTag.setBoolean("TrackOutput", false);
 
 		lore.appendTag(new NBTTagString(cmd));
@@ -308,15 +296,7 @@ public class Util {
 	 * at all)
 	 */
 	public static void sendMessage(String msg) {
-		String json = "{\"text\":\"" + Consts.prefix + replace(replace(msg, "\\", "\\\\"), "\"", "\\\"") + "\"}";
-		try {
-			mc.thePlayer.addChatMessage(IChatComponent.Serializer.jsonToComponent(json));
-		} catch (Exception e) {
-			sendError("Can't send you the chat message you were meant to receive here. Please check the log to see what happened.");
-			e.printStackTrace();
-			System.out.println("Message: " + msg);
-			System.out.println("Message JSON: " + json);
-		}
+		mc.thePlayer.addChatMessage(new ChatComponentText(Consts.prefix + msg));
 	}
 
 	/**

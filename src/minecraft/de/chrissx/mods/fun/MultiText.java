@@ -22,7 +22,7 @@ public class MultiText extends Semimod {
 			Util.sendError("Not enough args.");
 		} else {
 			for (int i = 1; i < args.length; i++) {
-				Util.cheatArmorStand(args[i], player().posX, player().posY + ((args.length - 2) * 0.3) - (i * 0.3),
+				Util.cheatArmorStand(args[i].replace('&', '\u00a7'), player().posX, player().posY + ((args.length - 2) * 0.3) - (i * 0.3),
 				                     player().posZ, Consts.packetPlayerInventorySlots[i - 1]);
 			}
 			last = args;

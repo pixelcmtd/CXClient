@@ -21,10 +21,10 @@ public class Consts {
 	public static String addonPath;
 	public static String hotkeyFile;
 	public static final String clientName = "CXClient";
-	public static final String prefix = "\u00a7a\u00a7l[" + clientName + "] \u00a7f";
-	public static final String version = "alpha 3033";
+	public static final String prefix = "\u00a7a\u00a7l[c] \u00a7f";
+	public static final String version = "3.3";
 	public static final String mcVersion = "1.8.8";
-	public static final int BLDNUM = -3033;
+	public static final int BLDNUM = 138;
 	public static final int APIVER = -1;
 	public static final String[] changelog = new String[] {
 	    clientName + " " + version + " Changelog:",

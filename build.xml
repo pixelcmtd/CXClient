@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <project default="create_run_jar" name="CXClient">
-	<target name="fmt" description="format all the code properly">
+	<target name="version" description="version info">
+		<exec executable="/bin/sh">
+			<arg value="-c"/>
+			<arg value='sed -Ei "s/BLDNUM = .+;\$/BLDNUM = `git rev-list @ --count`;/" src/minecraft/de/chrissx/util/Consts.java'/>
+		</exec>
+	</target>
+	<target depends="version" name="fmt" description="format all the code properly">
 		<exec executable="/bin/sh">
 			<arg value="-c"/>
 			<arg value="astyle `cat .astylerc` `find src/minecraft/de -type f`"/>
@@ -23,7 +29,7 @@
 				<attribute name="Class-Path" value="."/>
 			</manifest>
 			<fileset dir="eclipse/Client/bin"/>
-                        <zipfileset excludes="META-INF/*.SF" src="jars/versions/res.jar"/>
+			<zipfileset excludes="META-INF/*.SF" src="jars/versions/res.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/oshi-project/oshi-core/1.1/oshi-core-1.1.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/net/java/dev/jna/jna/3.4.0/jna-3.4.0.jar"/>
 			<zipfileset excludes="META-INF/*.SF" src="jars/libraries/net/java/dev/jna/platform/3.4.0/platform-3.4.0.jar"/>
