@@ -9,13 +9,11 @@ import io.netty.util.CharsetUtil;
 
 public class RconPacket {
 
-	int length;
 	int id;
 	int type;
 	String payload;
 
-	public RconPacket(int length, int id, int type, String payload) {
-		this.length = length;
+	public RconPacket(int id, int type, String payload) {
 		this.id = id;
 		this.type = type;
 		this.payload = payload;
@@ -29,12 +27,13 @@ public class RconPacket {
 		String payload = buf.readBytes(length - 10).toString(CharsetUtil.UTF_8);
 		assert(buf.readByte() == 0);
 		assert(buf.readByte() == 0);
-		return new RconPacket(length, id, type, payload);
+		return new RconPacket(id, type, payload);
 	}
 
 	public ByteBuf encode() {
-		ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(length + 14).order(ByteOrder.LITTLE_ENDIAN);
-		buf.writeInt(length);
+		ByteBuf payloadBytes = Unpooled.copiedBuffer("", CharsetUtil.UTF_8);
+		ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(payloadBytes.array().length + 14).order(ByteOrder.LITTLE_ENDIAN);
+		buf.writeInt(payloadBytes.array().length + 10);
 		buf.writeInt(id);
 		buf.writeInt(type);
 		buf.writeBytes(Unpooled.copiedBuffer(payload, CharsetUtil.UTF_8));
@@ -43,8 +42,9 @@ public class RconPacket {
 		return buf;
 	}
 
-	public static RconPacket response(int id, String payload) {
-		return new RconPacket(payload.length() + 10, id, 0, payload);
+	@Override
+	public String toString() {
+		return "{id=" + id + " type=" + type + " payload='" + payload + "'}";
 	}
 
 }
