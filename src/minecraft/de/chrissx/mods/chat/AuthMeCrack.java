@@ -11,11 +11,12 @@ import java.util.Arrays;
 import java.util.List;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.StopListener;
 import de.chrissx.util.Consts;
 import de.chrissx.util.Util;
 
 // TODO: this also needs a lot of reworking
-public class AuthMeCrack extends Mod {
+public class AuthMeCrack extends Mod implements StopListener {
 
 	public static final String[] DEFAULT_PASSWORDS = { "password", "passwort", "password1", "passwort1", "password123",
 	                                                   "passwort123", "pass", "pw", "pw1", "pw123", "123", "1234", "12345", "123456", "1234567", "12345678",

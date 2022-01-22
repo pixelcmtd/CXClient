@@ -3,9 +3,8 @@ package de.chrissx.mods;
 import java.awt.Color;
 
 import net.minecraft.client.gui.FontRenderer;
-import net.minecraft.util.IChatComponent;
 
-public abstract class Mod extends Semimod implements TickListener, StopListener, RenderedObject, ChatBot {
+public abstract class Mod extends Semimod implements RenderedObject, TickListener {
 
 	// FIXME: why this?!
 	protected volatile boolean enabled = false;
@@ -33,14 +32,6 @@ public abstract class Mod extends Semimod implements TickListener, StopListener,
 	}
 
 	@Override
-	public void onStop() {
-	}
-
-	@Override
 	public void onTick() {
-	}
-
-	@Override
-	public void onChatMessage(IChatComponent component) {
 	}
 }

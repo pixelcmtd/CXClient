@@ -1,11 +1,12 @@
 package de.chrissx.mods.render;
 
 import de.chrissx.mods.Mod;
+import de.chrissx.mods.StopListener;
 import de.chrissx.util.EntityFakePlayer;
 import de.chrissx.util.Util;
 
 // TODO: make this thing work at all
-public class Freecam extends Mod {
+public class Freecam extends Mod implements StopListener {
 
 	EntityFakePlayer fP;
 

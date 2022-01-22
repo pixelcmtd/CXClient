@@ -1,10 +1,11 @@
 package de.chrissx.mods.chat;
 
+import de.chrissx.mods.ChatBot;
 import de.chrissx.mods.Mod;
 import net.minecraft.util.IChatComponent;
 
 // TODO: implement
-public class RewiWords extends Mod {
+public class RewiWords extends Mod implements ChatBot {
 
 	public RewiWords() {
 		super("RewiWords", "rewiwords", "Automatically answers questions in the GetDown mode on the rewinside server");
