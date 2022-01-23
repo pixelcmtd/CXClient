@@ -5,7 +5,7 @@ think our updater is really nice, but we still decided against it, here's why:
 years."  
 If we run this updater on every shutdown (how it should be used), once our
 servers go offline, it will annoy you on every shutdown.
-* "I won't be able to reminise about 20 years from now"  
+* "I won't be able to reminisce about 20 years from now"
 If you *have* to update, you won't be able to use the really old versions in a
 few years, which would be fatal retro-wise.  
 
