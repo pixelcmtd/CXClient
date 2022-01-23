@@ -1,4 +1,5 @@
 --lineend=linux
+--formatted
 --preserve-date
 --suffix=none
 --style=java
