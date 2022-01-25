@@ -79,6 +79,7 @@ public class Util {
 		}
 	}
 
+	// TODO: lets grep for usages of `for` to achieve the same thing
 	public static String combineParts(String[] strings, int startIndex, String seperator) {
 		if (startIndex >= strings.length)
 			return "";

@@ -8,6 +8,7 @@ import java.net.URL;
 import java.net.URLClassLoader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 import java.util.zip.ZipException;
@@ -71,7 +72,7 @@ public class AddonManager {
 			commands.add(new Command(ce.getArgv0(), (t) -> ce.processCommand(t)));
 
 		commands.add(new Command("alt", (t) -> {
-			String s = Util.combineParts(t, 1, " ");
+			String s = Util.combineParts(t, 0, " ");
 			HackedClient.getClient().guiRenameWorld(s, new ChatGuiRenameWorld(s));
 		}));
 
@@ -87,12 +88,12 @@ public class AddonManager {
 
 		// TODO: for all below think about putting them in their own commandexecutors
 		commands.add(new Command("cmdblock", (args) -> {
-			if (args.length < 2) {
+			if (args.length < 1) {
 				Util.sendError("Please enter a command!");
 				return;
 			}
-			String Cmd = args[1];
-			for (int i = 2; i < args.length; i++)
+			String Cmd = args[0];
+			for (int i = 1; i < args.length; i++)
 				Cmd += " " + args[i];
 			Util.cheatCmdBlock(Cmd);
 		}));
@@ -104,12 +105,12 @@ public class AddonManager {
 		}));
 
 		commands.add(new Command("bind", (args) -> {
-			if (args.length != 3) {
+			if (args.length != 2) {
 				Util.sendMessage("#bind <key> <mod-name>");
 				return;
 			}
-			int keyId = Util.getKeyId(args[1]);
-			Bindable bindable = hc.getMods().getBindable(args[2].toLowerCase());
+			int keyId = Util.getKeyId(args[0]);
+			Bindable bindable = hc.getMods().getBindable(args[1].toLowerCase());
 			if (keyId == Keyboard.KEY_NONE)
 				Util.sendError("LWJGL can't find that key.");
 			else if (Hotkey.containsKey(hc.getHotkeys(), keyId))
@@ -130,19 +131,19 @@ public class AddonManager {
 		}));
 
 		commands.add(new Command("unbind", (args) -> {
-			if (args.length < 2)
+			if (args.length < 1)
 				Util.sendMessage("#unbind <key>");
 			else
 				Util.removeHotkeyFromList(hc.getHotkeys(), Util.getKeyId(args[1]));
 		}));
 
 		commands.add(new Command("say", (args) -> {
-			if (args.length == 1) {
+			if (args.length < 1) {
 				Util.sendError("Please enter a message.");
 				return;
 			}
-			String msg = args[1];
-			for (int i = 2; i < args.length; i++)
+			String msg = args[0];
+			for (int i = 1; i < args.length; i++)
 				msg += " " + args[i];
 			Util.sendChat(msg);
 		}));
@@ -156,14 +157,16 @@ public class AddonManager {
 		}));
 
 		commands.add(new Command("give", (args) -> {
+			// TODO: checks
 			try {
-				Util.cheatItem(new ItemStack(Item.getByNameOrId(args[1])), 0);
+				Util.cheatItem(new ItemStack(Item.getByNameOrId(args[0])), 0);
 			} catch (Exception e) {
 				Util.sendMessage(e.toString());
 			}
 		}));
 
 		commands.add(new Command("givebypass", (args) -> {
+			// TODO: checks
 			try {
 				ItemStack itm = new ItemStack(Item.getByNameOrId("furnace"), 1);
 				NBTTagCompound itmtag = new NBTTagCompound();
@@ -172,7 +175,7 @@ public class AddonManager {
 				NBTTagCompound item = new NBTTagCompound();
 				item.setByte("Count", (byte) 1);
 				item.setShort("Damage", (short) 0);
-				item.setString("id", args[1]);
+				item.setString("id", args[0]);
 				item.setByte("Slot", (byte) 2);
 				items.appendTag(item);
 				blockentitytag.setTag("Items", items);
@@ -251,7 +254,7 @@ public class AddonManager {
 			cmd = cmd.substring(1);
 		for (Command c : commands)
 			if (c.cmd.equalsIgnoreCase(cmd)) {
-				c.handler.accept(args);
+				c.handler.accept(Arrays.copyOfRange(args, 1, args.length));
 				return;
 			}
 		Util.sendError("Unknown command: " + cmd);

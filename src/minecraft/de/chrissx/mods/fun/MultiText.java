@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 
 public class MultiText extends Semimod {
 
-	String[] last = new String[] { "#multitext", "CXClient is the best client in the world!",
+	String[] last = new String[] { "CXClient is the best client in the world!",
 	                               "Writing random text is easily possible because your server kinda sucks.",
 	                               "Just fix that by installing Creative Item Control!"
 	                             };
@@ -18,10 +18,10 @@ public class MultiText extends Semimod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length < 2) {
+		if (args.length < 1) {
 			Util.sendError("Not enough args.");
 		} else {
-			for (int i = 1; i < args.length; i++) {
+			for (int i = 0; i < args.length; i++) {
 				Util.cheatArmorStand(args[i].replace('&', '\u00a7'), player().posX, player().posY + ((args.length - 2) * 0.3) - (i * 0.3),
 				                     player().posZ, Consts.packetPlayerInventorySlots[i - 1]);
 			}

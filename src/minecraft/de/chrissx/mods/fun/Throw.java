@@ -14,12 +14,12 @@ public class Throw extends Semimod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length < 3 || args.length > 3)
-			Util.sendError("throw <count> <delay>");
+		if (args.length < 2)
+			Util.sendError("Usage: throw <count> <delay>");
 		else {
 			try {
-				throwCount = Long.parseLong(args[1]);
-				delay = Long.parseLong(args[2]);
+				throwCount = Long.parseLong(args[0]);
+				delay = Long.parseLong(args[1]);
 			} catch (Exception e) {
 				Util.sendError("Error parsing longs.");
 			}

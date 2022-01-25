@@ -36,10 +36,10 @@ public class TriggerBot extends Mod {
 	// TODO: remove this last horrible thing (maybe somehow list options?!)
 	@Override
 	public void processCommand(String[] args) {
-		if(args.length > 2 && args[1].equalsIgnoreCase("add"))
-			whitelistedPlayers.add(args[2]);
-		else if(args.length > 2 && args[1].equalsIgnoreCase("remove"))
-			whitelistedPlayers.remove(args[2]);
+		if(args.length > 1 && args[0].equalsIgnoreCase("add"))
+			whitelistedPlayers.add(args[1]);
+		else if(args.length > 1 && args[0].equalsIgnoreCase("remove"))
+			whitelistedPlayers.remove(args[1]);
 		else
 			super.processCommand(args);
 	}

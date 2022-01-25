@@ -168,21 +168,21 @@ public class AuthMeCrack extends Mod implements StopListener {
 
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length == 1)
+		if (args.length < 1)
 			toggle();
-		else if (args[1].equalsIgnoreCase("mode"))
+		else if (args[0].equalsIgnoreCase("mode"))
 			try {
-				mode = PasswordCrackMode.parse(args[2]);
+				mode = PasswordCrackMode.parse(args[1]);
 			} catch (Exception e) {
 				Util.sendError("Unable to parse mode: " + e.getMessage());
-			} else if (args[1].equalsIgnoreCase("addpw"))
+			} else if (args[0].equalsIgnoreCase("addpw"))
 			try {
-				pws.add(args[2]);
+				pws.add(args[1]);
 			} catch (Exception e) {
 				Util.sendError("Unable to add password: " + e.getMessage());
-			} else if (args[1].equalsIgnoreCase("addcr"))
+			} else if (args[0].equalsIgnoreCase("addcr"))
 			try {
-				crs.add(args[2].charAt(0));
+				crs.add(args[1].charAt(0));
 			} catch (Exception e) {
 				Util.sendError("Unable to add char: " + e.getMessage());
 			} else

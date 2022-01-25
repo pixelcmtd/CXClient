@@ -99,17 +99,17 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length == 1) {
+		if (args.length == 0) {
 			toggle();
 			return;
 		}
 
-		String value = args.length > 2 ? args[2] : "";
-		for (int i = 3; i < args.length; i++)
+		String value = args.length > 1 ? args[1] : "";
+		for (int i = 2; i < args.length; i++)
 			value += " " + args[i];
 
 		for (Option<?> o : options) {
-			if (args[1].equalsIgnoreCase(o.name)) {
+			if (args[0].equalsIgnoreCase(o.name)) {
 				try {
 					o.set(value);
 				} catch (Exception e) {

@@ -23,6 +23,7 @@ public abstract class Mod extends Semimod implements RenderedObject, TickListene
 
 	@Override
 	public String getRenderstring() {
+		// TODO: include `options` by default
 		return name;
 	}
 

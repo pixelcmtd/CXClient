@@ -14,7 +14,7 @@ public class Spam extends Mod {
 		super("Spam", clear ? "clearspam" : "spam",
 		      clear ? "Spams exactly the message you gave it" : "Spams while trying to bypass detection");
 		this.clear = clear;
-		last = new String[] { "ə¸—¯", "20", "50", "You're getting flooded by CXClient! ;)" };
+		last = new String[] { "20", "50", "You're getting flooded by CXClient! ;)" };
 	}
 
 	@Override
@@ -23,8 +23,8 @@ public class Spam extends Mod {
 
 	@Override
 	public void processCommand(String[] args) {
-		if (args.length < 4) {
-			Util.sendError("Not enough arguments, usage: " + args[0] + " <times> <delay> <message>");
+		if (args.length < 3) {
+			Util.sendError("Not enough arguments, usage: " + argv0 + " <times> <delay> <message>");
 			return;
 		}
 
@@ -32,22 +32,22 @@ public class Spam extends Mod {
 		final long delay;
 
 		try {
-			times = Integer.parseInt(args[1]);
+			times = Integer.parseInt(args[0]);
 		} catch (Exception e) {
 			Util.sendError("Error parsing times.");
 			return;
 		}
 
 		try {
-			delay = Long.parseLong(args[2]);
+			delay = Long.parseLong(args[1]);
 		} catch (Exception e) {
 			Util.sendError("Error parsing delay.");
 			return;
 		}
 
 		final StringBuilder msg = new StringBuilder();
-		msg.append(args[3]);
-		for (int i = 4; i < args.length; i++)
+		msg.append(args[2]);
+		for (int i = 3; i < args.length; i++)
 			msg.append(" " + args[i]);
 
 		new Thread(new Runnable() {

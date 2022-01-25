@@ -10,7 +10,7 @@ public class Flip extends Semimod {
 
 	@Override
 	public void processCommand(String[] args) {
-		player().rotationYaw += args.length == 1 ? 180 : Float.parseFloat(args[1]);
+		player().rotationYaw += args.length < 1 ? 180 : Float.parseFloat(args[0]);
 	}
 
 	@Override
