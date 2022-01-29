@@ -80,7 +80,6 @@ public class ModList {
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
 	public final TriggerBot triggerBot = new TriggerBot();
-	// TODO: public final RewiWords rewiWords = new RewiWords();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -99,7 +98,6 @@ public class ModList {
 	                                      fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
 	                                      highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
 	                                      autoJump, invWalk, triggerBot,
-	                                      // TODO: rewiWords
 	                                    };
 	public final List<Bindable> bindables = new ArrayList<Bindable>();
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();

@@ -14,6 +14,8 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 
 // TODO: inherit from triggerbot
+// TODO: lets try to detect anticheats by not attacking players that havent
+//       moved yet and spawned in the last second or so, maybe as an option
 public class Killaura extends Mod {
 
 	// TODO: rename some (of the legit) options

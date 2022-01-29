@@ -21,7 +21,7 @@ public class Throw extends Semimod {
 				throwCount = Long.parseLong(args[0]);
 				delay = Long.parseLong(args[1]);
 			} catch (Exception e) {
-				Util.sendError("Error parsing longs.");
+				Util.sendError("Error parsing count and delays. (longs)");
 			}
 			toggle();
 		}
