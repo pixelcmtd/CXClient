@@ -80,6 +80,7 @@ public class ModList {
 	public final AutoJump autoJump = new AutoJump();
 	public final InventoryWalk invWalk = new InventoryWalk();
 	public final TriggerBot triggerBot = new TriggerBot();
+	public final FPS fps = new FPS();
 
 	public final Home home = new Home();
 	public final Panic panic = new Panic();
@@ -97,7 +98,7 @@ public class ModList {
 	                                      legitSpeed, autosprint, bedFucker, freecam, aimbot, jailsmcBot, noRender, jetpack, regen, lag, scaffoldWalk,
 	                                      fastFall, fastEat, autoSwitch, tired, derp, antiPotion, noCobweb, parkour, phase, fastBow, spider, antiFire,
 	                                      highJump, autoWalk, autoRespawn, dolphin, kaboom, glide, rollHead, autoMine, autoSoup, autoLeave, waterWalk,
-	                                      autoJump, invWalk, triggerBot,
+	                                      autoJump, invWalk, triggerBot,fps,
 	                                    };
 	public final List<Bindable> bindables = new ArrayList<Bindable>();
 	public final List<RenderedObject> renderedObjects = new ArrayList<RenderedObject>();
