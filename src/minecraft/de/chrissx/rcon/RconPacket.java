@@ -30,6 +30,7 @@ public class RconPacket {
 		return new RconPacket(id, type, payload);
 	}
 
+	// TODO: do partitioning here
 	public ByteBuf encode() {
 		ByteBuf payloadBytes = Unpooled.copiedBuffer("", CharsetUtil.UTF_8);
 		ByteBuf buf = UnpooledByteBufAllocator.DEFAULT.buffer(payloadBytes.array().length + 14).order(ByteOrder.LITTLE_ENDIAN);

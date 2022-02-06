@@ -37,7 +37,7 @@ public class HackedClient {
 	List<Integer> lastPressed = new ArrayList<Integer>();
 	final Minecraft mc = Minecraft.getMinecraft();
 	McLeaksSession mcLeaksSession = null;
-	boolean disableHotkeys = true;
+	public boolean disableHotkeys = true;
 	final AddonManager addonManager;
 
 	public void onDraw(FontRenderer r) {
@@ -85,7 +85,7 @@ public class HackedClient {
 
 		HotkeySaving.init(this);
 
-		Util.checkIfExistsAndMake(Consts.configPath, "configPath");
+		Util.checkIfExistsAndMake(Consts.cxclientPath, "cxclientPath");
 		Util.checkIfExistsAndMake(Consts.addonPath, "addonPath");
 
 		File f = new File(Consts.hotkeyFile);
@@ -228,14 +228,6 @@ public class HackedClient {
 
 	public void setMcLeaksSession(McLeaksSession mcLeaksSession) {
 		this.mcLeaksSession = mcLeaksSession;
-	}
-
-	public boolean hotkeysDisabled() {
-		return disableHotkeys;
-	}
-
-	public void setDisableHotkeys(boolean disableHotkeys) {
-		this.disableHotkeys = disableHotkeys;
 	}
 
 	public static HackedClient getClient() {

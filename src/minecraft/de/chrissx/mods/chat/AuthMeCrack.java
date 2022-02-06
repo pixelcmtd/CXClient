@@ -35,8 +35,8 @@ public class AuthMeCrack extends Mod implements StopListener {
 
 	List<String> pws;
 	List<Character> crs;
-	File pwFile = Paths.get(Consts.configPath, "authmecracker.cfg").toFile();
-	File crFile = Paths.get(Consts.configPath, "authmecrackchars.cfg").toFile();
+	File pwFile = Paths.get(Consts.cxclientPath, "authmecracker.cfg").toFile();
+	File crFile = Paths.get(Consts.cxclientPath, "authmecrackchars.cfg").toFile();
 	int times = 0;
 	PasswordCrackMode mode = PasswordCrackMode.DICT;
 	String bfPw = "";

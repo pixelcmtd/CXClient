@@ -193,7 +193,7 @@ public class AddonManager {
 			for (Addon a : addons) {
 				Util.sendMessage(a.name + " " + a.author + " " + a.version + " " + a.description);
 			}
-			Util.sendMessage("Hotkeys are " + (hc.hotkeysDisabled() ? "disabled" : "enabled"));
+			Util.sendMessage("Hotkeys are " + (hc.disableHotkeys ? "disabled" : "enabled"));
 			Util.sendMessage(Consts.dotMinecraftPath);
 		}));
 
@@ -249,6 +249,7 @@ public class AddonManager {
 	 * @param args the ' '-splitted args
 	 */
 	public void execCmd(String[] args) {
+		// TODO: merge with subcommands
 		String cmd = args[0];
 		if (cmd.charAt(0) == '#')
 			cmd = cmd.substring(1);

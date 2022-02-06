@@ -7,6 +7,7 @@ import de.chrissx.mods.Bindable;
 public class Hotkey {
 
 	public int key;
+	// TODO: rethink this
 	public Bindable handler;
 
 	public Hotkey(int key, Bindable handler) {

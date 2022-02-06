@@ -1,7 +1,5 @@
 package de.chrissx.mods.building;
 
-import java.io.File;
-
 import de.chrissx.mods.Mod;
 import de.chrissx.mods.options.IntOption;
 import de.chrissx.util.Util;
