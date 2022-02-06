@@ -149,7 +149,7 @@ public class GuiSelectWorld extends GuiScreen implements GuiYesNoCallback
             }
             else if (button.id == 6)
             {
-                this.mc.displayGuiScreen(new GuiRenameWorld(this, "Enter a alt command!"));
+                this.mc.displayGuiScreen(new GuiRenameWorld(this));
             }
             else if (button.id == 0)
             {

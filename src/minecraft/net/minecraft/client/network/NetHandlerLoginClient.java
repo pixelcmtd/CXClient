@@ -68,8 +68,8 @@ public class NetHandlerLoginClient implements INetHandlerLoginClient
         {
             try
             {
-                if(HackedClient.getClient().getMcLeaksSession() != null)
-                	McLeaksApi.joinServer(HackedClient.getClient().getMcLeaksSession(), s1, s);
+                if(HackedClient.getClient().mcLeaksSession != null)
+                	McLeaksApi.joinServer(HackedClient.getClient().mcLeaksSession, s1, s);
                 else
                 	getSessionService().joinServer(mc.getSession().getProfile(), this.mc.getSession().getToken(), s1);
             }

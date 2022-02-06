@@ -1,8 +1,6 @@
 bin/
 crash-reports/
-cxclient_addons/
-cxclient_config/
-cxclient_eapi/
+cxclient/
 logs/
 screenshots/
 servers.dat

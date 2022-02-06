@@ -26,6 +26,7 @@ import de.chrissx.util.Util;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
+import net.minecraft.client.gui.GuiRenameWorld;
 import net.minecraft.client.gui.GuiRepair;
 import net.minecraft.util.IChatComponent;
 
@@ -36,7 +37,7 @@ public class HackedClient {
 	final AltManager altManager;
 	List<Integer> lastPressed = new ArrayList<Integer>();
 	final Minecraft mc = Minecraft.getMinecraft();
-	McLeaksSession mcLeaksSession = null;
+	public McLeaksSession mcLeaksSession = null;
 	public boolean disableHotkeys = true;
 	final AddonManager addonManager;
 
@@ -111,7 +112,7 @@ public class HackedClient {
 	 * @param input
 	 * @param gui
 	 */
-	public void guiRenameWorld(String input, IGuiRenameWorld gui) {
+	public void guiRenameWorld(String input, GuiRenameWorld gui) {
 		try {
 			String[] args = input.split(" ");
 			String cmd = args[0];
@@ -220,14 +221,6 @@ public class HackedClient {
 
 	public void onCommand(final String[] args) {
 		addonManager.execCmd(args);
-	}
-
-	public McLeaksSession getMcLeaksSession() {
-		return mcLeaksSession;
-	}
-
-	public void setMcLeaksSession(McLeaksSession mcLeaksSession) {
-		this.mcLeaksSession = mcLeaksSession;
 	}
 
 	public static HackedClient getClient() {

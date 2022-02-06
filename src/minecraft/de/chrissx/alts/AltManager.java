@@ -26,6 +26,7 @@ import com.mojang.authlib.yggdrasil.YggdrasilUserAuthentication;
 import net.minecraft.client.Minecraft;
 import net.minecraft.util.Session;
 
+// TODO: i think we can do some caching and stuff here
 public class AltManager {
 
 	public Alt currentAlt = new Alt("LOGGED IN WITH", "THE MINECRAFT LAUNCHER");

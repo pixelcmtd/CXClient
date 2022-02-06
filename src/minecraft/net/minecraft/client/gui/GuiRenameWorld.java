@@ -5,18 +5,16 @@ import java.io.IOException;
 import org.lwjgl.input.Keyboard;
 
 import de.chrissx.HackedClient;
-import de.chrissx.IGuiRenameWorld;
 
-public class GuiRenameWorld extends GuiScreen implements IGuiRenameWorld
+// TODO: rework and rename all of this
+public class GuiRenameWorld extends GuiScreen
 {
     GuiScreen parentScreen;
     GuiTextField field_146583_f;
-    final String saveName;
 
-    public GuiRenameWorld(GuiScreen parentScreenIn, String saveNameIn)
+    public GuiRenameWorld(GuiScreen parentScreenIn)
     {
         this.parentScreen = parentScreenIn;
-        this.saveName = saveNameIn;
     }
 
     /**
@@ -105,7 +103,6 @@ public class GuiRenameWorld extends GuiScreen implements IGuiRenameWorld
 		field_146583_f.setText(string);
 	}
 	
-    @Override
 	public String getText() {
 		return field_146583_f.getText();
 	}

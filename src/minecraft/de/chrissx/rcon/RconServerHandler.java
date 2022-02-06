@@ -10,7 +10,7 @@ import net.minecraft.client.Minecraft;
 public class RconServerHandler extends ChannelInboundHandlerAdapter {
 
 	boolean authenticated = false;
-	
+
 	RconPacket processPacket(RconPacket packet) {
 		if(packet.type == 3) {
 			// TODO: global for rcon password
