@@ -8,7 +8,7 @@ public class AutoSoup extends Mod {
 	// TODO: would a variable min be a good idea?
 
 	public AutoSoup() {
-		super("AutoSoup", "autosoup", "Automatically soups when your health is 6 hearts or less");
+		super("AutoSoup", "Automatically soups when your health is 6 hearts or less");
 	}
 
 	@Override

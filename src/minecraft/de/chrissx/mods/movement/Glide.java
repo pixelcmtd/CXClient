@@ -10,7 +10,7 @@ public class Glide extends Mod {
 	DoubleOption speed = new DoubleOption("speed", "The falling speed", -0.05);
 
 	public Glide() {
-		super("Glide", "glide", "Makes you fall slower, or faster, or up?");
+		super("Glide", "Makes you fall slower, or faster, or up?");
 		addOption(speed);
 	}
 

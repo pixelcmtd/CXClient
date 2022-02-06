@@ -9,7 +9,7 @@ public class RollHead extends Mod {
 
 	public RollHead() {
 		// TODO:
-		super("RollHead", "rollhead", "i dont remember");
+		super("RollHead", "i dont remember");
 	}
 
 	@Override

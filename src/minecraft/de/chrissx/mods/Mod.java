@@ -9,8 +9,8 @@ public abstract class Mod extends Semimod implements RenderedObject, TickListene
 	// FIXME: why this?!
 	protected volatile boolean enabled = false;
 
-	protected Mod(String name, String argv0, String description) {
-		super(name, argv0, description);
+	protected Mod(String name, String description) {
+		super(name, description);
 	}
 
 	public void toggle() {

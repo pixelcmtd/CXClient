@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoSwitch extends Mod {
 
 	public AutoSwitch() {
-		super("AutoSwitch", "autoswitch", "Automatically cycles through your hotbar");
+		super("AutoSwitch", "Automatically cycles through your hotbar");
 	}
 
 	public void onTick() {

@@ -6,7 +6,7 @@ import de.chrissx.util.Util;
 public class Throw extends Semimod {
 
 	public Throw() {
-		super("Throw", "throw", "Throws items, many, quickly");
+		super("Throw", "Throws items, many, quickly");
 	}
 
 	long throwCount = 500;

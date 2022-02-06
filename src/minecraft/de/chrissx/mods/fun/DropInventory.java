@@ -5,7 +5,7 @@ import de.chrissx.mods.Semimod;
 public class DropInventory extends Semimod {
 
 	public DropInventory() {
-		super("DropInventory", "dropinventory", "Drops your whole inventory");
+		super("DropInventory", "Drops your whole inventory");
 	}
 
 	@Override

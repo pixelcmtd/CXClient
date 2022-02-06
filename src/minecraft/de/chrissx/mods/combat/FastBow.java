@@ -9,7 +9,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class FastBow extends Mod {
 
 	public FastBow() {
-		super("FastBow", "fastbow", "Shoots one arrow per tick when you right click while holding a bow");
+		super("FastBow", "Shoots one arrow per tick when you right click while holding a bow");
 	}
 
 	@Override

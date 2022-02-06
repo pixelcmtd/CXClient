@@ -11,7 +11,7 @@ public class AntiPotion extends Mod {
 	                                };
 
 	public AntiPotion() {
-		super("AntiPotion", "antipotion", "Automatically tries to get rid of any bad potion effects once you get them");
+		super("AntiPotion", "Automatically tries to get rid of any bad potion effects once you get them");
 	}
 
 	@Override

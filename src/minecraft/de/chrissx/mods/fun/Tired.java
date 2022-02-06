@@ -6,7 +6,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Tired extends Mod {
 
 	public Tired() {
-		super("Tired", "tired", "Makes your head always sink down and then pop up again for others");
+		super("Tired", "Makes your head always sink down and then pop up again for others");
 	}
 
 	@Override

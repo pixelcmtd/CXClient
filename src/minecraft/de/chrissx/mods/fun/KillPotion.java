@@ -6,8 +6,7 @@ import de.chrissx.util.Util;
 public class KillPotion extends Semimod {
 
 	public KillPotion() {
-		super("KillPotion", "killpotion",
-		      "Gives you a \"Killer Potion of Death\" that instantly kills everyone and everything");
+		super("KillPotion", "Gives you a \"Killer Potion of Death\" that instantly kills everyone and everything");
 	}
 
 	@Override

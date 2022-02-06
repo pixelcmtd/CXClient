@@ -8,7 +8,7 @@ public class FastLadder extends Mod {
 	DoubleOption motion = new DoubleOption("motion", "The speed, 0.1437 in Vanilla", 0.2872);
 
 	public FastLadder() {
-		super("FastLadder", "fastladder", "Speeds up climbing ladders");
+		super("FastLadder", "Speeds up climbing ladders");
 		addOption(motion);
 	}
 

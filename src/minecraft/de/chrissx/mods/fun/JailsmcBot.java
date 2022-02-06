@@ -12,8 +12,7 @@ import net.minecraft.util.BlockPos;
 public class JailsmcBot extends Mod {
 
 	public JailsmcBot() {
-		super("JailsMCBot", "jailsmcbot",
-		      "Go to JailsMC, get on your jail, enable it and see it doing all the work for you");
+		super("JailsMCBot", "Go to JailsMC, get on your jail, enable it and see it doing all the work for you");
 	}
 
 	@Override

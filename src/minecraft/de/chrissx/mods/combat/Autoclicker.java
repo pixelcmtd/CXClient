@@ -12,7 +12,7 @@ public class Autoclicker extends Mod implements StopListener {
 
 	public Autoclicker() {
 		// TODO:
-		super("AutoClicker", "autoclicker", "");
+		super("AutoClicker", "");
 		addOption(mouseButton);
 	}
 

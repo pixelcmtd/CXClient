@@ -12,7 +12,7 @@ public class FastEat extends Mod {
 	IntOption speed = new IntOption("speed", "Packets per tick", 100);
 
 	public FastEat() {
-		super("FastEat", "fasteat", "Allows you to eat faster");
+		super("FastEat", "Allows you to eat faster");
 		addOption(speed);
 	}
 

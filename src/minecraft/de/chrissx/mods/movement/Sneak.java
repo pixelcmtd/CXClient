@@ -12,7 +12,7 @@ public class Sneak extends Mod {
 	Option<SneakMode> mode = new EnumOption<SneakMode>(SneakMode.class, "mode", "Whether the sneaking is simulated or real", new SneakMode[] {SneakMode.PACKET, SneakMode.BYPASS});
 
 	public Sneak() {
-		super("Sneak", "sneak", "Makes you sneak continuously");
+		super("Sneak", "Makes you sneak continuously");
 		addOption(mode);
 	}
 

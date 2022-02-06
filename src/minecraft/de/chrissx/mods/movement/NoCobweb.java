@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class NoCobweb extends Mod {
 
 	public NoCobweb() {
-		super("NoCobweb", "nocobweb", "Stops cobwebs from slowing you down");
+		super("NoCobweb", "Stops cobwebs from slowing you down");
 	}
 
 	@Override

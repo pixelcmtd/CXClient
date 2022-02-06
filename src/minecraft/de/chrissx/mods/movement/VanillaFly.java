@@ -6,7 +6,8 @@ import de.chrissx.mods.options.Option;
 public class VanillaFly extends Mod {
 
 	public VanillaFly() {
-		super("VanillaFly", "flyvanilla", "Makes you fly like in creative mode");
+		super("VanillaFly", "Makes you fly like in creative mode");
+		setArgv0("flyvanilla");
 		addOption(new Option<Float>("speed", "The speed at which you fly", 0.05f) {
 			@Override
 			public void set(String value) {

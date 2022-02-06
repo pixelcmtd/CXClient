@@ -5,7 +5,7 @@ import de.chrissx.mods.Semimod;
 public class Flip extends Semimod {
 
 	public Flip() {
-		super("Flip", "flip", "Turns by 180 degrees or an amount you specify");
+		super("Flip", "Turns by 180 degrees or an amount you specify");
 	}
 
 	@Override

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class AutoArmor extends Mod {
 
 	public AutoArmor() {
-		super("AutoArmor", "autoarmor", "Automatically equips the best armor when you pick it up");
+		super("AutoArmor", "Automatically equips the best armor when you pick it up");
 	}
 
 	@Override

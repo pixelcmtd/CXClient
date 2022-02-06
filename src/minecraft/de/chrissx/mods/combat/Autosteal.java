@@ -14,7 +14,7 @@ public class Autosteal extends Mod {
 	byte timer = 0;
 
 	public Autosteal() {
-		super("AutoSteal", "autosteal", "Automatically empties any chest you open into your inventory");
+		super("AutoSteal", "Automatically empties any chest you open into your inventory");
 		addOption(bypass);
 	}
 

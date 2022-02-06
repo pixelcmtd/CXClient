@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class StepJump extends Mod {
 
 	public StepJump() {
-		super("StepJump", "stepjump", "Makes you jump to step up a block?");
+		super("StepJump", "Makes you jump to step up a block?");
 	}
 
 	// FIXME: this is hopelessly broken

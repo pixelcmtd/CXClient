@@ -9,7 +9,7 @@ public class FastFall extends Mod {
 	DoubleOption speed = new DoubleOption("speed", "The factor", -4);
 
 	public FastFall() {
-		super("FastFall", "fastfall", "Makes you fall faster, or slower, or up?");
+		super("FastFall", "Makes you fall faster, or slower, or up?");
 		addOption(speed);
 	}
 

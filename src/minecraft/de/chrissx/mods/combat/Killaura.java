@@ -28,7 +28,7 @@ public class Killaura extends Mod {
 	List<String> whitelistedPlayers = new ArrayList<String>();
 
 	public Killaura() {
-		super("KillAura", "killaura", "Attacks all the players and mobs around you");
+		super("KillAura", "Attacks all the players and mobs around you");
 		addOption(max_range);
 		addOption(attackInvis);
 		addOption(legit1);

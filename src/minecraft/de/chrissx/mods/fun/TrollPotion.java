@@ -7,7 +7,7 @@ import net.minecraft.nbt.NBTTagList;
 public class TrollPotion extends Semimod {
 
 	public TrollPotion() {
-		super("TrollPotion", "trollpotion", "Gives you a \"Troller Potion of Trolling\"");
+		super("TrollPotion", "Gives you a \"Troller Potion of Trolling\"");
 	}
 
 	@Override

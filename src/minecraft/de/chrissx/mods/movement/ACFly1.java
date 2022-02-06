@@ -6,7 +6,8 @@ import de.chrissx.mods.Mod;
 public class ACFly1 extends Mod {
 
 	public ACFly1() {
-		super("Fly-Bypass1", "flyac1", "Makes you fly by just not falling down, like Glide");
+		super("Fly-Bypass1", "Makes you fly by just not falling down, like Glide");
+		setArgv0("flyac1");
 	}
 
 	@Override

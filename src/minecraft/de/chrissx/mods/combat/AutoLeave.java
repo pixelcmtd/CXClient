@@ -11,7 +11,7 @@ public class AutoLeave extends Mod {
 	FloatOption min = new FloatOption("min", "The number of HP at which to leave", 2);
 
 	public AutoLeave() {
-		super("AutoLeave", "autoleave", "Leaves when your health does below a certain threshold");
+		super("AutoLeave", "Leaves when your health does below a certain threshold");
 		addOption(min);
 	}
 

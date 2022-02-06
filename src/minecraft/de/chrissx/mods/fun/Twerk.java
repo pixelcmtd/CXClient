@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Twerk extends Mod {
 
 	public Twerk() {
-		super("Twerk", "twerk", "Makes you twerk");
+		super("Twerk", "Makes you twerk");
 	}
 
 	@Override

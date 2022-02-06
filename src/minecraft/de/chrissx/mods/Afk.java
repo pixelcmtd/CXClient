@@ -5,7 +5,7 @@ import de.chrissx.util.Random;
 public class Afk extends Mod {
 
 	public Afk() {
-		super("AFK", "afk", "Messes with AFK sensing and reduces load");
+		super("AFK", "Messes with AFK sensing and reduces load");
 	}
 
 	// TODO: a better movement pattern

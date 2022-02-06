@@ -12,7 +12,7 @@ public class MassTpa extends Mod {
 	List<EntityPlayer> players;
 
 	public MassTpa() {
-		super("MassTPA", "masstpa", "Send a /tpa request to all players on the server");
+		super("MassTPA", "Send a /tpa request to all players on the server");
 	}
 
 	@Override

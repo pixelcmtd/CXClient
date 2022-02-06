@@ -11,7 +11,7 @@ public class Freecam extends Mod implements StopListener {
 	EntityFakePlayer fP;
 
 	public Freecam() {
-		super("Freecam", "experimental-freecam", "An experimental freecam mod that may not work");
+		super("Freecam", "An experimental freecam mod that may not work");
 	}
 
 	@Override

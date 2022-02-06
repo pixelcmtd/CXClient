@@ -10,7 +10,7 @@ public class Regen extends Mod {
 	IntOption speed = new IntOption("speed", "Packets per tick", 250);
 
 	public Regen() {
-		super("Regen", "regen", "Makes you regenerate faster");
+		super("Regen", "Makes you regenerate faster");
 		addOption(speed);
 	}
 

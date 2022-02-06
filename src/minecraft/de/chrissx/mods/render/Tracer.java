@@ -11,7 +11,7 @@ import net.minecraft.util.Vec3;
 public class Tracer extends Mod {
 
 	public Tracer() {
-		super("Tracer", "tracer", "Draws lines from the middle of the screen to every entity around you");
+		super("Tracer", "Draws lines from the middle of the screen to every entity around you");
 	}
 
 	// FIXME: doesnt work, wtf

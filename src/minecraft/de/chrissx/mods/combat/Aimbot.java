@@ -12,7 +12,7 @@ public class Aimbot extends Mod {
 	Option<AimbotMode> mode = new EnumOption<AimbotMode>(AimbotMode.class, "mode", "Gun or bow mode, the style of aiming", new AimbotMode[] {AimbotMode.GUN, AimbotMode.BOW});
 
 	public Aimbot() {
-		super("AimBot", "aimbot", "Faces the next enemy for shooting with bows, guns, ...");
+		super("AimBot", "Faces the next enemy for shooting with bows, guns, ...");
 		addOption(mode);
 	}
 

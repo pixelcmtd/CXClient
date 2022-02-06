@@ -6,7 +6,7 @@ public class Jetpack extends Mod {
 
 	public Jetpack() {
 		// TODO: speed option
-		super("Jetpack", "jetpack", "Allows you to fly up by holding down the jump key");
+		super("Jetpack", "Allows you to fly up by holding down the jump key");
 	}
 
 	@Override

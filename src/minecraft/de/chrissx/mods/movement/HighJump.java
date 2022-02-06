@@ -32,7 +32,7 @@ public class HighJump extends Mod {
 	};
 
 	public HighJump() {
-		super("HighJump", "highjump", "Allows you to jump higher");
+		super("HighJump", "Allows you to jump higher");
 		addOption(motion);
 	}
 }

@@ -9,7 +9,7 @@ public class Text extends Semimod {
 	String[] last = new String[] { Consts.clientName + ", because your server is 2eZ!" };
 
 	public Text() {
-		super("Text", "text", "Gives you an armor stand that will make a given text appear when placed");
+		super("Text", "Gives you an armor stand that will make a given text appear when placed");
 	}
 
 	@Override

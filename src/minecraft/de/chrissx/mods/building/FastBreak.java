@@ -9,7 +9,7 @@ public class FastBreak extends Mod {
 	public FloatOption speed = new FloatOption("speed", "The divisor", 2);
 
 	public FastBreak() {
-		super("FastBreak", "fastbreak", "Makes you break blocks faster");
+		super("FastBreak", "Makes you break blocks faster");
 		addOption(speed);
 	}
 

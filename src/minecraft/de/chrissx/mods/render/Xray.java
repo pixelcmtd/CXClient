@@ -13,7 +13,7 @@ public class Xray extends Mod {
 	public List<Integer> xrayBlocks = new ArrayList<Integer>();
 
 	public Xray() {
-		super("XRay", "xray", "Makes most or all blocks invisible");
+		super("XRay", "Makes most or all blocks invisible");
 	}
 
 	@Override

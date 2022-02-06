@@ -11,7 +11,7 @@ public class Spam extends Mod {
 	final boolean clear;
 
 	public Spam(boolean clear) {
-		super("Spam", clear ? "clearspam" : "spam",
+		super(clear ? "Clearspam" : "Spam",
 		      clear ? "Spams exactly the message you gave it" : "Spams while trying to bypass detection");
 		this.clear = clear;
 		last = new String[] { "20", "50", "You're getting flooded by CXClient! ;)" };

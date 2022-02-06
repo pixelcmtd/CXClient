@@ -18,7 +18,7 @@ public class Nuker extends Mod {
 	Option<NukerMode> mode = new EnumOption<NukerMode>(NukerMode.class, "mode", "All or click, which blocks to break", new NukerMode[] {NukerMode.ALL, NukerMode.CLICK});
 
 	public Nuker() {
-		super("Nuker", "nuker", "Breaks all blocks around you");
+		super("Nuker", "Breaks all blocks around you");
 		addOption(bypass);
 		addOption(mode);
 	}

@@ -13,7 +13,7 @@ public class BedFucker extends Mod {
 	IntOption range = new IntOption("range", "The range in which to fuck beds", 6);
 
 	public BedFucker() {
-		super("BedFucker", "bedfucker", "Automatically fucks beds around you");
+		super("BedFucker", "Automatically fucks beds around you");
 		addOption(range);
 	}
 

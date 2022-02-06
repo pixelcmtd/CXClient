@@ -9,8 +9,7 @@ import net.minecraft.client.settings.KeyBinding;
 public class InventoryWalk extends Mod {
 
 	public InventoryWalk() {
-		super("InventoryWalk", "invwalk",
-		      "Allows you to walk while your inventory is open, as well as using the arrow keys to turn");
+		super("InventoryWalk", "Allows you to walk while your inventory is open, as well as using the arrow keys to turn");
 	}
 
 	// This is inspired by the XIV client:

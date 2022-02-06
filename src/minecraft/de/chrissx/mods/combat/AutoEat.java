@@ -7,7 +7,7 @@ import net.minecraft.item.ItemFood;
 public class AutoEat extends Mod {
 
 	public AutoEat() {
-		super("AutoEat", "autoeat", "Switches to the first slot with food when you have hunger");
+		super("AutoEat", "Switches to the first slot with food when you have hunger");
 	}
 
 	@Override

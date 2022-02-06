@@ -4,7 +4,7 @@ package de.chrissx.mods;
 public class Lag extends Mod {
 
 	public Lag() {
-		super("Lag", "lag", "Induces lag by not sending any packets until disabled");
+		super("Lag", "Induces lag by not sending any packets until disabled");
 	}
 
 }

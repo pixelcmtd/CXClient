@@ -9,7 +9,7 @@ import net.minecraft.world.Explosion;
 public class Kaboom extends Mod {
 
 	public Kaboom() {
-		super("Kaboom", "kaboom", "Makes you explode, once you are in creative mode");
+		super("Kaboom", "Makes you explode, once you are in creative mode");
 	}
 
 	@Override

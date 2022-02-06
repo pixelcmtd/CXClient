@@ -18,7 +18,7 @@ public class TriggerBot extends Mod {
 	protected List<String> whitelistedPlayers = new ArrayList<String>();
 
 	public TriggerBot() {
-		super("TriggerBot", "triggerbot", "Automatically hits when you're facing a player or mob");
+		super("TriggerBot", "Automatically hits when you're facing a player or mob");
 		addOption(range);
 		addOption(mode);
 		addOption(attackInvis);

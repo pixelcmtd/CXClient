@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Fasthit extends Mod {
 
 	public Fasthit() {
-		super("FastHit", "fasthit", "Allows you to hit as fast as you can click");
+		super("FastHit", "Allows you to hit as fast as you can click");
 	}
 
 	@Override

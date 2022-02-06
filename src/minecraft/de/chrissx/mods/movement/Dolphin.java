@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Dolphin extends Mod {
 
 	public Dolphin() {
-		super("Dolphin", "dolphin", "Makes you swim, as if you held down space");
+		super("Dolphin", "Makes you swim, as if you held down space");
 	}
 
 	@Override

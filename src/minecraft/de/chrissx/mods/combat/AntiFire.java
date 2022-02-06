@@ -6,7 +6,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class AntiFire extends Mod {
 
 	public AntiFire() {
-		super("AntiFire", "antifire", "Tries to put out any fire you catch quickly");
+		super("AntiFire", "Tries to put out any fire you catch quickly");
 	}
 
 	@Override

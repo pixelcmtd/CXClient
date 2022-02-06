@@ -9,7 +9,7 @@ public class Reach extends Mod {
 	FloatOption range = new FloatOption("range", "The range (6 in Vanilla)", 7);
 
 	public Reach() {
-		super("Reach", "reach", "Increases your range");
+		super("Reach", "Increases your range");
 		addOption(range);
 	}
 

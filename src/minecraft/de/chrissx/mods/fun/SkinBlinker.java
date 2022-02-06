@@ -6,8 +6,8 @@ import net.minecraft.entity.player.EnumPlayerModelParts;
 public class SkinBlinker extends Mod {
 
 	public SkinBlinker() {
-		super("SkinBlinker", "skinblink",
-		      "Makes your skin \"blink\" by taking off and on the outer layers of your skin");
+		super("SkinBlinker", "Makes your skin \"blink\" by taking off and on the outer layers of your skin");
+		setArgv0("skinblink");
 	}
 
 	int i = 0;

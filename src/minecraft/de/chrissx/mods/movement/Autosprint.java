@@ -6,7 +6,7 @@ import de.chrissx.mods.Mod;
 public class Autosprint extends Mod {
 
 	public Autosprint() {
-		super("Sprint", "sprint", "Makes you sprint, as if you held down control");
+		super("Sprint", "Makes you sprint, as if you held down control");
 	}
 
 	@Override

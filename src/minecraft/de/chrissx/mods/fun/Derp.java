@@ -7,7 +7,7 @@ import net.minecraft.network.play.client.C03PacketPlayer;
 public class Derp extends Mod {
 
 	public Derp() {
-		super("Derp", "derp", "Makes you appear as if you're turning your head around all the time");
+		super("Derp", "Makes you appear as if you're turning your head around all the time");
 	}
 
 	@Override

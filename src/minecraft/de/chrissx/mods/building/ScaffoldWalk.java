@@ -16,7 +16,7 @@ import net.minecraft.util.Vec3;
 public class ScaffoldWalk extends Mod {
 
 	public ScaffoldWalk() {
-		super("ScaffoldWalk", "scaffoldwalk", "Automatically places blocks below you, whereever you go");
+		super("ScaffoldWalk", "Automatically places blocks below you, whereever you go");
 	}
 
 	@Override

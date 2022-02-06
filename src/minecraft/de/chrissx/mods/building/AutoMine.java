@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class AutoMine extends Mod {
 
 	public AutoMine() {
-		super("AutoMine", "automine", "Automatically breaks every block that you look at");
+		super("AutoMine", "Automatically breaks every block that you look at");
 	}
 
 	@Override

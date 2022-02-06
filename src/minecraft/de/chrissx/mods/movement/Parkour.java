@@ -5,7 +5,7 @@ import de.chrissx.mods.Mod;
 public class Parkour extends Mod {
 
 	public Parkour() {
-		super("Parkour", "parkour", "Jumps when you're at the edge of a block");
+		super("Parkour", "Jumps when you're at the edge of a block");
 	}
 
 	@Override

@@ -12,8 +12,7 @@ public class MultiText extends Semimod {
 	                             };
 
 	public MultiText() {
-		super("MultiText", "multitext",
-		      "Gives you multiple armor stands that will show a multi-line message when placed");
+		super("MultiText", "Gives you multiple armor stands that will show a multi-line message when placed");
 	}
 
 	@Override

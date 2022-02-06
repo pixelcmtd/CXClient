@@ -8,7 +8,7 @@ public class Timer extends Mod {
 	FloatOption factor = new FloatOption("factor", "The factor", 2);
 
 	public Timer() {
-		super("Timer", "timer", "Speeds up everything");
+		super("Timer", "Speeds up everything");
 		addOption(factor);
 	}
 

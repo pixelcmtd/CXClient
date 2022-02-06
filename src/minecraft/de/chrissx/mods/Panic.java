@@ -3,7 +3,7 @@ package de.chrissx.mods;
 public class Panic extends Semimod {
 
 	public Panic() {
-		super("Panic", "panic", "Quickly disables all mods");
+		super("Panic", "Quickly disables all mods");
 	}
 
 	@Override

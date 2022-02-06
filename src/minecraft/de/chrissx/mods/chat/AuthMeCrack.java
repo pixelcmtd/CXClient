@@ -42,7 +42,7 @@ public class AuthMeCrack extends Mod implements StopListener {
 	String bfPw = "";
 
 	public AuthMeCrack() {
-		super("AuthMeCracker", "authmecrack", "Tries to crack AuthMe passwords");
+		super("AuthMeCrack", "Tries to crack AuthMe passwords");
 		if (pwFile.exists())
 			try {
 				List<String> pwsL = new ArrayList<String>();

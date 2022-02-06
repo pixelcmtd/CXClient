@@ -5,6 +5,6 @@ import de.chrissx.mods.Mod;
 public class NoRender extends Mod {
 
 	public NoRender() {
-		super("NoRender", "norender", "Stops items from being rendered");
+		super("NoRender", "Stops items from being rendered");
 	}
 }
