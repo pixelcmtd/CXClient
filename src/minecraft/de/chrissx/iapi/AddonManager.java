@@ -186,104 +186,104 @@ public class AddonManager {
 
 		// FIXME: this is more verbose than every other command ever. is that better or worse?
 		commands.add(Command.fromSubcommands("alt", new Command[] {
-				new Command("login", (args) -> {
-					try {
-						if(args.length == 2) {
-							hc.getAltManager().login(args[1], "");
-							Util.sendMessage("Logged into cracked account.");
-						} else if(args.length == 1)
-							Util.sendMessage("login <email> [password] - don't use password if account is cracked.");
-						else {
-							hc.getAltManager().login(args[1], args[2]);
-							Util.sendMessage("Logged into premium account.");
-						}
-					} catch (Exception e) {
-						e.printStackTrace();
-						Util.sendError(e.getMessage());
-					}
-				}),
-				// TODO: remove
-				new Command("help", (args) -> Util.sendMessage("Alt-commands: login, help, load, mcleaks, list, cxcsv, vault")),
-				new Command("load", (args) -> {
-					if(args.length == 1) {
-						Util.sendError("Alt to load missing.");
-					} else {
-						try {
-							hc.getAltManager().loadAlt(args[1]);
-							Util.sendMessage("Logged into " + (hc.getAltManager().currentAlt.isCracked() ? "cracked" : "premium") + " account.");
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					}
-				}),
-				new Command("mcleaks", (args) -> {
-					if(args.length < 2) {
-						Util.sendMessage("mcleaks [token]");
-						return;
-					}
-					try {
-						hc.mcLeaksSession = McLeaksApi.redeemMcleaksToken(args[1]);
-						hc.getAltManager().login(hc.mcLeaksSession.getMcname(), "");
-						Util.sendMessage("Success.");
-					} catch (Exception e) {
-						e.printStackTrace();
-						Util.sendError(e.getMessage());
-					}
-				}),
-				new Command("list", (args) -> {
-					String s = "";
-					for(Alt a : hc.getAltManager().getAlts())
-						try {
-							s += (s == "" ? "" : ", ") + hc.getAltManager().getName(a);
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					Util.sendMessage(s);
-				}),
-				Command.fromSubcommands("cxcsv", new Command[] {
-					new Command("load", (args) -> {
-						try {
-							hc.getAltManager().loadCxcsv(Paths.get(args[1]));
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					}),
-					new Command("store", (args) -> {
-						try {
-							hc.getAltManager().saveCxcsv(args[1]);
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					}),
-					new Command("help", (args) -> Util.sendMessage("cxcsv load/store [file]")),
-				}),
-				new Command("clear", (args) -> hc.getAltManager().clear()),
-				Command.fromSubcommands("vault", new Command[] {
-					new Command("load", (args) -> {
-						try {
-							hc.getAltManager().loadVault(args[2], args[1]);
-							Util.sendMessage("Load successful.");
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					}),
-					new Command("store", (args) -> {
-						try {
-							hc.getAltManager().storeVault(args[2], args[1]);
-							Util.sendMessage("Store successful.");
-						} catch (Exception e) {
-							e.printStackTrace();
-							Util.sendError(e.getMessage());
-						}
-					}),
-					new Command("help", (args) -> Util.sendMessage("vault load/store [password] [file]"))
-				}),
-		}));
+		new Command("login", (args) -> {
+			try {
+				if(args.length == 2) {
+					hc.getAltManager().login(args[1], "");
+					Util.sendMessage("Logged into cracked account.");
+				} else if(args.length == 1)
+					Util.sendMessage("login <email> [password] - don't use password if account is cracked.");
+				else {
+					hc.getAltManager().login(args[1], args[2]);
+					Util.sendMessage("Logged into premium account.");
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				Util.sendError(e.getMessage());
+			}
+		}),
+		// TODO: remove
+		new Command("help", (args) -> Util.sendMessage("Alt-commands: login, help, load, mcleaks, list, cxcsv, vault")),
+		new Command("load", (args) -> {
+			if(args.length == 1) {
+				Util.sendError("Alt to load missing.");
+			} else {
+				try {
+					hc.getAltManager().loadAlt(args[1]);
+					Util.sendMessage("Logged into " + (hc.getAltManager().currentAlt.isCracked() ? "cracked" : "premium") + " account.");
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			}
+		}),
+		new Command("mcleaks", (args) -> {
+			if(args.length < 2) {
+				Util.sendMessage("mcleaks [token]");
+				return;
+			}
+			try {
+				hc.mcLeaksSession = McLeaksApi.redeemMcleaksToken(args[1]);
+				hc.getAltManager().login(hc.mcLeaksSession.getMcname(), "");
+				Util.sendMessage("Success.");
+			} catch (Exception e) {
+				e.printStackTrace();
+				Util.sendError(e.getMessage());
+			}
+		}),
+		new Command("list", (args) -> {
+			String s = "";
+			for(Alt a : hc.getAltManager().getAlts())
+				try {
+					s += (s == "" ? "" : ", ") + hc.getAltManager().getName(a);
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			Util.sendMessage(s);
+		}),
+		Command.fromSubcommands("cxcsv", new Command[] {
+			new Command("load", (args) -> {
+				try {
+					hc.getAltManager().loadCxcsv(Paths.get(args[1]));
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			}),
+			new Command("store", (args) -> {
+				try {
+					hc.getAltManager().saveCxcsv(args[1]);
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			}),
+			new Command("help", (args) -> Util.sendMessage("cxcsv load/store [file]")),
+		}),
+		new Command("clear", (args) -> hc.getAltManager().clear()),
+		Command.fromSubcommands("vault", new Command[] {
+			new Command("load", (args) -> {
+				try {
+					hc.getAltManager().loadVault(args[2], args[1]);
+					Util.sendMessage("Load successful.");
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			}),
+			new Command("store", (args) -> {
+				try {
+					hc.getAltManager().storeVault(args[2], args[1]);
+					Util.sendMessage("Store successful.");
+				} catch (Exception e) {
+					e.printStackTrace();
+					Util.sendError(e.getMessage());
+				}
+			}),
+			new Command("help", (args) -> Util.sendMessage("vault load/store [password] [file]"))
+		}),
+		                                     }));
 
 		commands.add(new Command("debug", (args) -> {
 			mc.theWorld.playSoundEffect(mc.thePlayer.posX, mc.thePlayer.posY, mc.thePlayer.posZ, "random.explode",

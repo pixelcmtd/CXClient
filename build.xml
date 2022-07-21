@@ -3,7 +3,7 @@
 	<target name="version" description="→ update the version info in de.chrissx.util.Consts">
 		<exec executable="/bin/sh">
 			<arg value="-c"/>
-			<arg value='sed -Ei "s/BLDNUM = .+;\$/BLDNUM = `git rev-list @ --count`;/" src/minecraft/de/chrissx/util/Consts.java'/>
+			<arg value='sed -E "s/BLDNUM = .+;\$/BLDNUM = `git rev-list @ --count`;/" src/minecraft/de/chrissx/util/Consts.java > a; mv -f a src/minecraft/de/chrissx/util/Consts.java'/>
 		</exec>
 	</target>
 	<target depends="version" name="fmt" description="→ format all the code properly">
