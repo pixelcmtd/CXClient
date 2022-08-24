@@ -4,6 +4,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 
+// TODO: rename
 public enum KillauraMode {
 	PLAYERS((byte)1), MOBS((byte)2), BOTH((byte)0);
 
