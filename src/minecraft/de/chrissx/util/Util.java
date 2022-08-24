@@ -154,6 +154,8 @@ public class Util {
 		in.close();
 	}
 
+	// TODO: get rid of these 4 at least
+
 	public static void cheatArmorStand(String msg, double x, double y, double z, int slot) {
 		ItemStack itm = new ItemStack(Items.armor_stand);
 

@@ -20,7 +20,7 @@ public class Command implements CommandExecutor {
 	// TODO: support for --help -H -h or something
 	public static Command fromSubcommands(String cmd, Command[] subcommands) {
 		return new Command(cmd, (args) -> {
-			String subcmd = args[1].charAt(0) == '#' ? args[1].substring(1) : args[1];
+			String subcmd = args[0].charAt(0) == '#' ? args[0].substring(1) : args[0];
 			for(Command subcommand : subcommands)
 				if(subcmd.equalsIgnoreCase(subcommand.cmd)) {
 					subcommand.handler.accept(Arrays.copyOfRange(args, 1, args.length));

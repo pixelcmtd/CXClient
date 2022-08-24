@@ -35,7 +35,7 @@ import net.minecraft.nbt.NBTTagList;
 public class AddonManager {
 
 	public final List<Addon> addons = new ArrayList<Addon>();
-	public final List<Command> commands = new ArrayList<Command>();
+	public final List<CommandExecutor> commands = new ArrayList<CommandExecutor>();
 
 	/**
 	 * the path in which the addons are located
@@ -71,7 +71,7 @@ public class AddonManager {
 			}
 
 		for (final CommandExecutor ce : HackedClient.getClient().getMods().commandExecutors)
-			commands.add(new Command(ce.getArgv0(), (t) -> ce.processCommand(t)));
+			commands.add(new Command(ce.argv0(), (t) -> ce.processCommand(t)));
 
 		commands.add(new Command("changelog", (t) -> {
 			for (String s : Consts.changelog)
@@ -188,13 +188,13 @@ public class AddonManager {
 		commands.add(Command.fromSubcommands("alt", new Command[] {
 		new Command("login", (args) -> {
 			try {
-				if(args.length == 2) {
-					hc.getAltManager().login(args[1], "");
+				if(args.length == 1) {
+					hc.getAltManager().login(args[0], "");
 					Util.sendMessage("Logged into cracked account.");
-				} else if(args.length == 1)
-					Util.sendMessage("login <email> [password] - don't use password if account is cracked.");
+				} else if(args.length == 0)
+					Util.sendMessage("login <email> [password] (don't use password if account is cracked)");
 				else {
-					hc.getAltManager().login(args[1], args[2]);
+					hc.getAltManager().login(args[0], args[1]);
 					Util.sendMessage("Logged into premium account.");
 				}
 			} catch (Exception e) {
@@ -209,7 +209,7 @@ public class AddonManager {
 				Util.sendError("Usage: load <alt>");
 			} else {
 				try {
-					hc.getAltManager().loadAlt(args[1]);
+					hc.getAltManager().loadAlt(args[0]);
 					Util.sendMessage("Logged into " + (hc.getAltManager().currentAlt.isCracked() ? "cracked" : "premium") + " account.");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -218,12 +218,12 @@ public class AddonManager {
 			}
 		}),
 		new Command("mcleaks", (args) -> {
-			if(args.length < 2) {
+			if(args.length < 1) {
 				Util.sendMessage("mcleaks [token]");
 				return;
 			}
 			try {
-				hc.mcLeaksSession = McLeaksApi.redeemMcleaksToken(args[1]);
+				hc.mcLeaksSession = McLeaksApi.redeemMcleaksToken(args[0]);
 				hc.getAltManager().login(hc.mcLeaksSession.getMcname(), "");
 				Util.sendMessage("Success.");
 			} catch (Exception e) {
@@ -244,16 +244,18 @@ public class AddonManager {
 		}),
 		Command.fromSubcommands("cxcsv", new Command[] {
 			new Command("load", (args) -> {
+				// TODO: check number of arguments
 				try {
-					hc.getAltManager().loadCxcsv(Paths.get(args[1]));
+					hc.getAltManager().loadCxcsv(Paths.get(args[0]));
 				} catch (Exception e) {
 					e.printStackTrace();
 					Util.sendError(e.getMessage());
 				}
 			}),
 			new Command("store", (args) -> {
+				// TODO: check number of arguments
 				try {
-					hc.getAltManager().saveCxcsv(args[1]);
+					hc.getAltManager().saveCxcsv(args[0]);
 				} catch (Exception e) {
 					e.printStackTrace();
 					Util.sendError(e.getMessage());
@@ -265,7 +267,7 @@ public class AddonManager {
 		Command.fromSubcommands("vault", new Command[] {
 			new Command("load", (args) -> {
 				try {
-					hc.getAltManager().loadVault(args[2], args[1]);
+					hc.getAltManager().loadVault(args[1], args[0]);
 					Util.sendMessage("Load successful.");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -274,7 +276,7 @@ public class AddonManager {
 			}),
 			new Command("store", (args) -> {
 				try {
-					hc.getAltManager().storeVault(args[2], args[1]);
+					hc.getAltManager().storeVault(args[1], args[0]);
 					Util.sendMessage("Store successful.");
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -351,9 +353,9 @@ public class AddonManager {
 		String cmd = args[0];
 		if (cmd.charAt(0) == '#')
 			cmd = cmd.substring(1);
-		for (Command c : commands)
-			if (c.cmd.equalsIgnoreCase(cmd)) {
-				c.handler.accept(Arrays.copyOfRange(args, 1, args.length));
+		for (CommandExecutor c : commands)
+			if (c.argv0().equalsIgnoreCase(cmd)) {
+				c.processCommand(Arrays.copyOfRange(args, 1, args.length));
 				return;
 			}
 		Util.sendError("Unknown command: " + cmd);
@@ -365,9 +367,9 @@ public class AddonManager {
 
 	public String getHelp() {
 		StringBuilder s = new StringBuilder("Commands:");
-		for (Command c : commands) {
+		for (CommandExecutor c : commands) {
 			s.append(' ');
-			s.append(c.cmd);
+			s.append(c.argv0());
 		}
 		return s.toString();
 	}
