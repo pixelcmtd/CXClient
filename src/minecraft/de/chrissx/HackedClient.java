@@ -43,7 +43,6 @@ public class HackedClient {
 
 	public void onDraw(FontRenderer r) {
 		if(!mc.gameSettings.showDebugInfo && mods.iaui.isEnabled()) {
-			//can't use the paragraph char because git/github (don't know where the problem is coming from yet)
 			int i = 0;
 			for(RenderedObject o : mods.renderedObjects)
 				if(o.isEnabled())
@@ -54,7 +53,7 @@ public class HackedClient {
 	public void onDisable() {
 		for(StopListener l : mods.stopListeners)
 			l.onStop();
-		// TODO: dont do this
+		// TODO: don't do this
 		for(Mod m : mods.mods)
 			if(m.isEnabled())
 				m.toggle();

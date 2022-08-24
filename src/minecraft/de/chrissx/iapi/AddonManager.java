@@ -206,7 +206,7 @@ public class AddonManager {
 		new Command("help", (args) -> Util.sendMessage("Alt-commands: login, help, load, mcleaks, list, cxcsv, vault")),
 		new Command("load", (args) -> {
 			if(args.length == 1) {
-				Util.sendError("Alt to load missing.");
+				Util.sendError("Usage: load <alt>");
 			} else {
 				try {
 					hc.getAltManager().loadAlt(args[1]);

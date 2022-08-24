@@ -8,11 +8,10 @@ import de.chrissx.mods.options.BooleanOption;
 public class Autoclicker extends Mod implements StopListener {
 
 	// TODO: i can make this much better
-	BooleanOption mouseButton = new BooleanOption("button", "", true);
+	BooleanOption mouseButton = new BooleanOption("button", "The button to press (true = left, false = right)", true);
 
 	public Autoclicker() {
-		// TODO:
-		super("AutoClicker", "");
+		super("AutoClicker", "Automatically presses the specified mouse botton on every tick (20 Hz)");
 		addOption(mouseButton);
 	}
 
