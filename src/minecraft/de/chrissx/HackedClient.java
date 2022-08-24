@@ -2,16 +2,13 @@ package de.chrissx;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
 import org.lwjgl.input.Keyboard;
 
-import de.chrissx.alts.Alt;
 import de.chrissx.alts.AltManager;
-import de.chrissx.alts.mcleaks.McLeaksApi;
 import de.chrissx.alts.mcleaks.McLeaksSession;
 import de.chrissx.hotkeys.Hotkey;
 import de.chrissx.hotkeys.HotkeySaving;
@@ -112,79 +109,18 @@ public class HackedClient {
 
 	// TODO: merge all this stuff into the normal command system and make the alt manager something like an exec `alt $cmd`
 	/**
-	 * This func is called whenever "GuiRenameWorld" aka the Alt-Manager
-	 * wants to exec a command.
+	 * This func is called whenever "GuiRenameWorld" aka the Alt-Manager wants to exec a command.
 	 * @param input
 	 * @param gui
 	 */
 	public void guiRenameWorld(String input, GuiRenameWorld gui) {
-		try {
-			String[] args = input.split(" ");
-			String cmd = args[0];
-			if(cmd.charAt(0) == '#')
-				cmd = cmd.substring(1);
-			if(cmd.equalsIgnoreCase("login")) {
-				if(args.length == 2) {
-					altManager.login(args[1], "");
-					gui.setText("Logged into cracked account.");
-				} else if(args.length == 1)
-					gui.setText("login <email> [password] - don't use password if account is cracked.");
-				else {
-					String pass = args[2];
-					for(int i = 3; i < args.length; i++)
-						pass += " " + args[i];
-					altManager.login(args[1], pass);
-					gui.setText("Logged into premium account.");
-				}
-			} else if(cmd.equalsIgnoreCase("help"))
-				gui.setText("Alt-commands: login, help, load, mcleaks, alts, cxcsv, vault");
-			else if(cmd.equalsIgnoreCase("load")) {
-				altManager.loadAlt(args[1]);
-				gui.setText("Logged into " + (altManager.currentAlt.isCracked() ? "cracked" : "premium") + " account.");
-			} else if(cmd.equalsIgnoreCase("mcleaks")) {
-				if(args.length < 2)
-					throw new Exception("mcleaks [token]");
-				String token = args[1];
-				for(int i = 2; i < args.length; i++)
-					token += " " + args[i];
-				mcLeaksSession = McLeaksApi.redeemMcleaksToken(token);
-				altManager.login(mcLeaksSession.getMcname(), "");
-				gui.setText("Success.");
-			} else if(cmd.equalsIgnoreCase("alts"))
-				for(Alt a : altManager.getAlts())
-					gui.setText((gui.getText() == input ? "" : gui.getText() + ", ") + altManager.getName(a));
-			else if(cmd.equalsIgnoreCase("cxcsv")) {
-				String s = args[2];
-				for(int i = 3; i < args.length; i++)
-					s += " " + args[i];
-				if(args[1].equalsIgnoreCase("load"))
-					altManager.loadCxcsv(Paths.get(s));
-				else if(args[1].equalsIgnoreCase("save"))
-					altManager.saveCxcsv(s);
-				else
-					gui.setText("cxcsv load/save [file]");
-			} else if(cmd.equalsIgnoreCase("clear"))
-				altManager.clear();
-			else if(cmd.equalsIgnoreCase("vault")) {
-				if(args.length < 4)
-					throw new Exception("Not enough arguments.");
-				String s = args[3];
-				for(int i = 4; i < args.length; i++)
-					s += " " + args[i];
-				if(args[1].charAt(0) == 'l') {
-					altManager.loadVault(s, args[2]);
-					gui.setText("Load successful.");
-				} else if(args[1].charAt(0) == 's') {
-					altManager.storeVault(s, args[2]);
-					gui.setText("Store successful.");
-				} else
-					gui.setText("vault l/s [password (no spaces!)] [file]");
-			} else
-				guiRenameWorld("help", gui);
-		} catch (Exception e) {
-			e.printStackTrace();
-			gui.setText(e.getMessage());
-		}
+		sendMessage = (a) -> gui.setText(a);
+		String[] split = input.split(" ");
+		String[] cmd = new String[split.length + 1];
+		cmd[0] = "alt";
+		System.arraycopy(split, 0, cmd, 1, split.length);
+		addonManager.execCmd(cmd);
+		sendMessage = (msg) -> mc.thePlayer.addChatMessage(new ChatComponentText(Consts.prefix + msg));
 	}
 
 	public void onTick() {
