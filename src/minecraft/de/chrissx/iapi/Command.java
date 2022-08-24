@@ -3,13 +3,14 @@ package de.chrissx.iapi;
 import java.util.Arrays;
 import java.util.function.Consumer;
 
+import de.chrissx.mods.CommandExecutor;
 import de.chrissx.util.Util;
 
 // TODO: somehow support checking the number of arguments ahead of calling it
-public class Command {
+public class Command implements CommandExecutor {
 
-	public final String cmd;
-	public final Consumer<String[]> handler;
+	private final String cmd;
+	private final Consumer<String[]> handler;
 
 	public Command(String cmd, Consumer<String[]> handler) {
 		this.cmd = cmd;
@@ -27,5 +28,15 @@ public class Command {
 				}
 			Util.sendError(cmd + ": Unknown subcommand: " + subcmd);
 		});
+	}
+
+	@Override
+	public void processCommand(String[] args) {
+		handler.accept(args);
+	}
+
+	@Override
+	public String argv0() {
+		return cmd;
 	}
 }

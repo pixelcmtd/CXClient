@@ -8,8 +8,7 @@ import net.minecraft.util.MathHelper;
 public class RollHead extends Mod {
 
 	public RollHead() {
-		// TODO:
-		super("RollHead", "i dont remember");
+		super("RollHead", "Makes your skin appear as if you're rolling your head (yaw)");
 	}
 
 	@Override

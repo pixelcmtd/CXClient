@@ -35,7 +35,7 @@ public abstract class Semimod extends EapiModule implements Bindable, CommandExe
 		options.add(o);
 	}
 
-	public String getArgv0() {
+	public String argv0() {
 		return argv0;
 	}
 

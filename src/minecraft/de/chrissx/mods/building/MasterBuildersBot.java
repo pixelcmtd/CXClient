@@ -55,7 +55,7 @@ public class MasterBuildersBot implements CommandExecutor, TickListener, StopLis
 	}
 
 	@Override
-	public String getArgv0() {
+	public String argv0() {
 		return "masterbuildersbot";
 	}
 

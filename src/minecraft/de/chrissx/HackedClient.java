@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import org.lwjgl.input.Keyboard;
 
@@ -28,6 +29,7 @@ import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.gui.GuiChat;
 import net.minecraft.client.gui.GuiRenameWorld;
 import net.minecraft.client.gui.GuiRepair;
+import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
 
 public class HackedClient {
@@ -40,6 +42,10 @@ public class HackedClient {
 	public McLeaksSession mcLeaksSession = null;
 	public boolean disableHotkeys = true;
 	final AddonManager addonManager;
+	// TODO: put a lock on it and support running commands while in main menu that way
+	public Consumer<String> sendMessage = (msg) -> {
+		mc.thePlayer.addChatMessage(new ChatComponentText(Consts.prefix + msg));
+	};
 
 	public void onDraw(FontRenderer r) {
 		if(!mc.gameSettings.showDebugInfo && mods.iaui.isEnabled()) {

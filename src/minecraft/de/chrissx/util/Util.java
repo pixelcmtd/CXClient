@@ -19,7 +19,6 @@ import net.minecraft.block.Block;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.entity.EntityPlayerSP;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -33,7 +32,6 @@ import net.minecraft.network.play.client.C10PacketCreativeInventoryAction;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.BlockPos;
 import net.minecraft.util.ChatAllowedCharacters;
-import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
@@ -297,7 +295,7 @@ public class Util {
 	 * at all)
 	 */
 	public static void sendMessage(String msg) {
-		mc.thePlayer.addChatMessage(new ChatComponentText(Consts.prefix + msg));
+		hc.sendMessage.accept(msg);
 	}
 
 	/**
@@ -343,16 +341,16 @@ public class Util {
 	}
 
 	/**
-	 *
-	 * @param pl  the player
-	 * @param r   the range around the player to search in
+	 * TODO dot hit ihtit nit nt n
+	 * @param e   the entity
+	 * @param r   the range around e to search in
 	 * @param mbv whether the block must be visible
 	 * @return
 	 */
-	public static BlockPos[] getBlocksAround(EntityPlayer pl, double r, boolean mbv) {
-		final double px = pl.posX;
-		final double py = pl.posY;
-		final double pz = pl.posZ;
+	public static BlockPos[] getBlocksAround(Entity e, double r, boolean mbv) {
+		final double px = e.posX;
+		final double py = e.posY;
+		final double pz = e.posZ;
 		final long ex = (long) (px + r);
 		final long ey = (long) (py + r);
 		final long ez = (long) (pz + r);
