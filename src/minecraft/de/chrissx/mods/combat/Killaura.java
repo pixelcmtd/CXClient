@@ -29,8 +29,8 @@ public class Killaura extends TriggerBot {
 			return;
 		for (Entity e : world().loadedEntityList) {
 			if (!(e instanceof EntityLivingBase) || e == player() || player().getDistanceToEntity(e) > range.value
-					|| (!attackInvis.value && e.isInvisible()) || e.isDead
-					|| ((EntityLivingBase) e).getHealth() <= 0) /* skip while entity is dying */
+			        || (!attackInvis.value && e.isInvisible()) || e.isDead
+			        || ((EntityLivingBase) e).getHealth() <= 0) /* skip while entity is dying */
 				continue;
 			else {
 				boolean attack = Random.rand(3) == 2;
@@ -51,7 +51,7 @@ public class Killaura extends TriggerBot {
 	@Override
 	public String getRenderstring() {
 		return name + "(RANGE:" + range.value + ",MODE:" + mode.value + ",INVIS:"
-				+ (attackInvis.value ? "YA" : "NA") + ",LEGIT1:" + (legit1.value ? "YA" : "NA") + ",LEGIT2:"
-				+ (legit2.value ? "YA" : "NA") + ",SD:" + slowdown.value + ")";
+		       + (attackInvis.value ? "YA" : "NA") + ",LEGIT1:" + (legit1.value ? "YA" : "NA") + ",LEGIT2:"
+		       + (legit2.value ? "YA" : "NA") + ",SD:" + slowdown.value + ")";
 	}
 }

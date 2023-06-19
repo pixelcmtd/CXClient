@@ -15,8 +15,8 @@ public class TriggerBot extends Mod {
 
 	protected DoubleOption range = new DoubleOption("range", "The range in which to attack", 6);
 	protected Option<KillauraMode> mode = new EnumOption<KillauraMode>(KillauraMode.class, "mode",
-			"Whether to attack players, mobs, or both",
-			new KillauraMode[] { KillauraMode.BOTH, KillauraMode.PLAYERS, KillauraMode.MOBS });
+	                                                                   "Whether to attack players, mobs, or both",
+	                                                                   new KillauraMode[] { KillauraMode.BOTH, KillauraMode.PLAYERS, KillauraMode.MOBS });
 	protected BooleanOption attackInvis = new BooleanOption("invis", "Whether to attack invisible entities", false);
 	protected BooleanOption slowdown = new BooleanOption("slowdown", "Whether to slow down randomly", false);
 	protected List<String> whitelistedPlayers = new ArrayList<String>();
@@ -39,11 +39,11 @@ public class TriggerBot extends Mod {
 		if (slowdown.value && Random.rand(4) == 3)
 			return;
 		if (mc.objectMouseOver != null && mc.objectMouseOver.entityHit != null
-				&& mc.objectMouseOver.entityHit instanceof EntityLivingBase
-				&& mc.objectMouseOver.hitVec.distanceTo(player().getEyeVector()) <= range.value
-				&& (attackInvis.value || !mc.objectMouseOver.entityHit.isInvisible())
-				&& !mc.objectMouseOver.entityHit.isDead
-				&& ((EntityLivingBase) mc.objectMouseOver.entityHit).getHealth() > 0) {
+		        && mc.objectMouseOver.entityHit instanceof EntityLivingBase
+		        && mc.objectMouseOver.hitVec.distanceTo(player().getEyeVector()) <= range.value
+		        && (attackInvis.value || !mc.objectMouseOver.entityHit.isInvisible())
+		        && !mc.objectMouseOver.entityHit.isDead
+		        && ((EntityLivingBase) mc.objectMouseOver.entityHit).getHealth() > 0) {
 			playerController().hitEntity(player(), mc.objectMouseOver.entityHit);
 		}
 
