@@ -1,3 +1,4 @@
 *.class
 eclipse/Client/assets/*
 cxclient.jar
+hs_err_pid*.log
