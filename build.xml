@@ -32,4 +32,15 @@
 			<zipfileset src="jars/versions/res.jar"/>
 		</jar>
 	</target>
+	<target depends="create_run_jar" name="run" description="→ run the build">
+		<java classname="Start" failonerror="true" fork="true" dir="eclipse/Client">
+			<classpath>
+				<pathelement location="cxclient.jar"/>
+				<fileset dir="jars/libraries/">
+					<include name="**/*.jar"/>
+				</fileset>
+			</classpath>
+			<sysproperty key="java.library.path" value="../../jars/versions/1.8.8/1.8.8-natives"/>
+		</java>
+	</target>
 </project>
