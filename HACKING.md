@@ -15,12 +15,12 @@ get the code and run [`ant`](https://ant.apache.org/), for example like this:
 ```sh
 git clone https://github.com/pixelcmtd/CXClient.git
 cd CXClient
-ant
+JAVA_HOME=/usr/local/opt/openjdk@8 ant
 ```
 
 ## Basic Editing
 
-You are free to use whatever editor you like: `vi`, `emacs`, `idc`.
+You are free to use whatever editor you like: `vi`, `emacs`, …
 
 However, the [Eclipse IDE](https://www.eclipse.org/eclipseide/) is officially
 supported. Open it up, select `/path/to/CXClient/eclipse` as the workspace, and

@@ -1,4 +1,4 @@
-# The Choice Against The Updater
+# The Choice Against the Updater
 
 We have been working on a good updating experience for CXClient a lot and we
 think our updater is really nice, but we still decided against it, here's why:

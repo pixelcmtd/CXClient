@@ -43,7 +43,7 @@ so they can hook themselves into the core of CXClient.
 The eAPI rather is for extending CXClient externally, i.e. from an external
 program written in any programming language doing anything. It is even less done
 than the iAPI, but progress is quite quick right now. Previous development
-versions of it used a directory structure with ridiculous file I/O usage, while
+versions of it used a directory structure with ridiculous file I/O usage. While
 the current one is very similar to what Vanilla Minecraft servers do: It allows
 external programs to connect to an RCON server that then executes the given
 commands.
